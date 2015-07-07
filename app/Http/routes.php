@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -52,13 +53,6 @@ Route::get('detalles', [
 	'uses' => 'DetallesController@index',
 	'as' =>'detalles'
 ]);
-
-
-
-
-
-
-
 
 
 

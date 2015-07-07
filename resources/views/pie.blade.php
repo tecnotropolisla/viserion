@@ -104,6 +104,117 @@
 
 <!-- End Login -->
 
+<!-- Registro -->
+
+<div class="modal fade" id="registroModal" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4>Crear Cuenta</h4>
+            </div>
+            <div class="modal-body">
+
+                        {!! Form::open(['route' => 'register', 'class' => 'form']) !!}
+                            <div class="regular-signup">
+                               
+                                    <div class="form-group col-md-4">
+                                        <label>Usuario</label>
+                                        {!! Form::input('text', 'name', '', ['class'=> 'form-control']) !!}
+                                    </div>
+                                    
+                                    <div class="form-group col-md-4">
+                                        <label>Nombre</label>
+                                        {!! Form::input('text', 'str_nombre', '', ['class'=> 'form-control']) !!}
+                                    </div>
+                                                            
+                                    <div class="form-group col-md-4">
+                                        <label>Apellido</label>
+                                        {!! Form::input('text', 'str_apellido', '', ['class'=> 'form-control']) !!}
+                                    </div>
+                                           
+                                    <div class="form-group col-md-4">
+                                        <label>Género</label>
+                                        
+                                        {!! Form::select('lng_idgenero', 
+                                                            (['' => 'Seleccione'] + $genero), 
+                                                            null, 
+                                                            ['class' => 'form-control']
+                                                        ) 
+                                        !!} 
+
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>Fecha de Nacimiento</label>
+                                        <!-- {!! Form::input('text', 'dmt_fecha_nacimiento', '', ['class'=> 'form-control']) !!} -->
+                                        {!! Form::date('dmt_fecha_nacimiento', \Carbon\Carbon::now(),['class'=> 'form-control']) !!}
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Cédula / N° de Indentidad</label>
+                                        {!! Form::input('text', 'str_ididentificacion', '', ['class'=> 'form-control']) !!}
+                                    </div>                        
+
+                                    <div class="form-group col-md-4">
+                                        <label>Pais</label>
+
+                                        {!! Form::select('lng_idpais', 
+                                                            (['' => 'Seleccione'] + $paises), 
+                                                            null, 
+                                                            ['class' => 'form-control']
+                                                        ) 
+                                        !!} 
+
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>Correo</label>
+                                        {!! Form::email('email', '', ['class'=> 'form-control']) !!}
+                                    </div>
+                                    
+                                    <div class="form-group col-md-4">
+                                        <label>Twitter</label>
+                                        {!! Form::input('text', 'str_twitter', '', ['class'=> 'form-control']) !!}
+                                    </div>
+                                    
+                                    <div class="form-group col-md-4">
+                                        <label>Facebook</label>
+                                        {!! Form::input('text', 'str_facebook', '', ['class'=> 'form-control']) !!}
+                                    </div>
+                                    
+                                    <div class="form-group col-md-4">
+                                        <label>Instagram</label>
+                                        {!! Form::input('text', 'str_instagram', '', ['class'=> 'form-control']) !!}
+                                    </div>
+                                  
+                                    
+                                    <div class="form-group col-md-4">
+                                        <label>Contraseña</label>
+                                        {!! Form::password('password', ['class'=> 'form-control']) !!}
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>Confirmacion de Contraseña</label>
+                                        {!! Form::password('password_confirmation', ['class'=> 'form-control']) !!}
+                                    </div>
+
+                                        {!! Form::input('hidden', 'lng_idservicio','3') !!}
+
+                                    <div >
+                                        {!! Form::submit('Guardar',['class' => 'btn btn-primary btn-lg btn-block']) !!}
+                                    </div>
+                                
+                            </div>
+                            {!! Form::close() !!}
+
+            </div>
+    
+        </div>
+    </div>
+</div>
+
+<!-- End Registro -->
+
 <script src="autostars/js/jquery-2.0.0.min.js"></script> <!-- Jquery Library Call -->
 <script src="autostars/vendor/prettyphoto/js/prettyphoto.js"></script> <!-- PrettyPhoto Plugin -->
 <script src="autostars/js/ui-plugins.js"></script> <!-- UI Plugins -->

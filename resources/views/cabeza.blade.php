@@ -42,7 +42,17 @@
                             
 				        @if (Auth::guest())
 
-                            <li><a href="{{route('register')}}">Registrarse</a></li>
+                            <!--
+                            <li>
+                                <a href="{{route('register')}}">Registrarse</a>
+                            </li>
+                            -->
+
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#registroModal">
+                                    Registrarse
+                                </a>
+                            </li>
 
 				        @endif
 
