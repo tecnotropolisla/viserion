@@ -38,6 +38,28 @@ Route::get('registro-de-usuario', [
 
 Route::post('registro-de-usuario', 'Auth\AuthController@postRegister');
 
-//Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
  
- //});
+	Route::get('publicar', [
+		'uses' => 'PublicarController@index',
+		'as' =>'publicar'
+	]);
+
+ });
+
+
+Route::get('detalles', [
+	'uses' => 'DetallesController@index',
+	'as' =>'detalles'
+]);
+
+
+
+
+
+
+
+
+
+
+

@@ -2,8 +2,8 @@
         <header class="site-header">
             <div class="container sp-cont">
                 <div class="site-logo">
-                    <h1><a href="index.html"><img src="autostars/images/logo.png" alt="Logo"></a></h1>
-                    <span class="site-tagline">Buying or Selling,<br>just got easier!</span>
+                    <h1><a href="{{ route ('home') }}"><img src="autostars/images/logo.png" alt="Logo"></a></h1>
+                   <!-- <span class="site-tagline">Comprar o vender<br>ahora es más fácil!</span>-->
                 </div>
 
                 <div class="header-right">
@@ -12,7 +12,7 @@
 
                     <div class="user-login-panel">
                         <a href="#" class="user-login-btn" data-toggle="modal" data-target="#loginModal">
-                            <i class="icon-profile"></i>
+                            <i class="fa fa-user"></i>
                         </a>
 
                     </div>
@@ -31,12 +31,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu" aria-labelledby="userdropdown">
-                            <li><a href="user-dashboard.html">Dashboard</a></li>
-                            <li><a href="user-dashboard-saved-searches.html">Saved Searches</a></li>
-                            <li><a href="user-dashboard-saved-cars.html">Saved Cars</a></li>
-                            <li><a href="user-dashboard-manage-ads.html">Manage Ads</a></li>
-                            <li><a href="user-dashboard-profile.html">My Profile</a></li>
-                            <li><a href="user-dashboard-settings.html">Settings</a></li>
+                            <li><a href="{{route('publicar')}}">Publicar</a></li>
                             <li><a href="{{route('logout')}}">Salir</a></li>
                         </ul>
                     </div>
@@ -44,9 +39,7 @@
 
                     <div class="topnav dd-menu">
                         <ul class="top-navigation sf-menu">
-                            <li><a href="results-list.html">Buy</a></li>
-                            <li><a href="add-listing-pricing.html">Sell</a></li>
-
+                            
 				        @if (Auth::guest())
 
                             <li><a href="{{route('register')}}">Registrarse</a></li>
@@ -207,16 +200,17 @@
                  <div class="container">
                     @if (Session::has('errors'))
 
-                        <div class="alert alert-warning" role="alert">
-                        
-                            <ul>
-                                <!-- <strong>Oops! Something went wrong : </strong> -->
-                                <strong>Lo sentimos!, ha ocurrido un inconveniente : </strong>
-                                @foreach ($errors->all() as $error)
-                                     <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                  <ul>
+                                    <!-- <strong>Oops! Something went wrong : </strong> -->
+                                    <strong>Lo sentimos!, ha ocurrido un inconveniente : </strong>
+                                    @foreach ($errors->all() as $error)
+                                         <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
                         </div>
+
                     @endif
                 </div> 
 
@@ -436,16 +430,30 @@
             </div>
         </div>
    	</div>
-    <div class="hero-area">
-        <!-- Start Hero Slider -->
-        <div class="hero-slider heroflex flexslider clearfix" data-autoplay="yes" data-pagination="no" data-arrows="yes" data-style="fade" data-speed="7000" data-pause="yes">
-            <ul class="slides">
-                <li class="parallax" style="background-image:url(autostars/images/slide2.jpg);"></li>
-                <li class="parallax" style="background-image:url(autostars/images/slide4.jpg);"></li>
-            </ul>
+
+    @if (Auth::guest())
+
+        <div class="hero-area">
+            <!-- Start Hero Slider -->
+            <div class="hero-slider heroflex flexslider clearfix" data-autoplay="yes" data-pagination="no" data-arrows="yes" data-style="fade" data-speed="7000" data-pause="yes">
+                <ul class="slides">
+                    <li class="parallax" style="background-image:url(autostars/images/slide2.jpg);"></li>
+                    <li class="parallax" style="background-image:url(autostars/images/slide4.jpg);"></li>
+                </ul>
+            </div>
+            <!-- End Hero Slider -->
         </div>
-        <!-- End Hero Slider -->
-    </div>
+
+    @endif
+
+    @if (Auth::user())
+        <div class="page-header parallax" style="background-image:url(autostars/images/page_header3.jpg);">
+            <div class="container">
+                <h1 class="page-title"><!--<Sell your car--></h1>
+            </div>
+        </div>
+    @endif
+
     <!-- Utiity Bar -->
     <div class="utility-bar">
     	<div class="container">
