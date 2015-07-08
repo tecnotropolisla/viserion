@@ -48,12 +48,14 @@ Route::group(['middleware' => 'auth'], function () {
 
  });
 
-
 Route::get('Detalle-del-Vehiculo', [
 	'uses' => 'DetallesController@index',
 	'as' =>'detalles'
 ]);
 
-
+Route::get('Acceso-Restringido', [
+				'uses' => 'DenegadoController@index',
+				'as' =>'denegado'
+]);
 
 
