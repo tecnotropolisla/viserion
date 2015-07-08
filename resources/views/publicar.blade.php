@@ -22,7 +22,7 @@
                         <div class="listing-form-steps-wrapper tbssticky">
                             <!-- AD LISTING PROGRESS BAR -->
                             <div class="listing-form-progress">
-                                <div class="progress-label"> <span>Ad Completeness</span> </div>
+                                <div class="progress-label"> <span>Progreso</span> </div>
                                 <div class="progress progress-striped">
                                     <div class="progress-bar progress-bar-primary" data-appear-progress-animation=""></div>
                                 </div>

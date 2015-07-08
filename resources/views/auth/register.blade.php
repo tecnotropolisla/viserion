@@ -132,8 +132,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Fecha de Naciemiento</label>
-                                        <!-- {!! Form::input('text', 'dmt_fecha_nacimiento', '', ['class'=> 'form-control']) !!} -->
+                                        <label>Fecha de Nacimiento</label>
+                                        
                                         {!! Form::date('dmt_fecha_nacimiento', \Carbon\Carbon::now(),['class'=> 'form-control']) !!}
                                     </div>
                                     <div class="form-group">

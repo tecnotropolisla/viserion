@@ -18,30 +18,30 @@ Route::get('/', [
 ]);
 
 // Authentication routes...
-Route::get('inicio-de-sesion', [
+Route::get('Iniciar-Sesion', [
 				'uses' => 'Auth\AuthController@getLogin',
 				'as' =>'login'
 ]);
-Route::post('inicio-de-sesion', [
+Route::post('Iniciar-Sesion', [
 				'uses' => 'Auth\AuthController@postLogin',
 				'as' =>'login'
 ]);
-Route::get('cerrar-sesion', [
+Route::get('Salir', [
 				'uses' => 'Auth\AuthController@getLogout',
 				'as' =>'logout'
 ]);
 
 // Registration routes...
-Route::get('registro-de-usuario', [
+Route::get('Crear-Cuenta', [
 				'uses' => 'Auth\AuthController@getRegister',
 				'as' =>'register'
 ]);
 
-Route::post('registro-de-usuario', 'Auth\AuthController@postRegister');
+Route::post('Crear-Cuenta', 'Auth\AuthController@postRegister');
 
 Route::group(['middleware' => 'auth'], function () {
  
-	Route::get('publicar', [
+	Route::get('Publicar-Vehiculo', [
 		'uses' => 'PublicarController@index',
 		'as' =>'publicar'
 	]);
@@ -49,7 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
  });
 
 
-Route::get('detalles', [
+Route::get('Detalle-del-Vehiculo', [
 	'uses' => 'DetallesController@index',
 	'as' =>'detalles'
 ]);
