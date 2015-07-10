@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Troovami\Http\Requests;
 use Troovami\Http\Controllers\Controller;
+use DB;
 
 class PublicarController extends Controller
 {
@@ -16,7 +17,24 @@ class PublicarController extends Controller
      */
     public function index()
     {
-        return \View::make('publicar');
+        
+        $marcas = DB::table('cat_marcas')->orderBy('str_marca')->lists('str_marca','id');
+        //$modelos = DB::table('tbl_modelos')->orderBy('str_modelo')->lists('str_modelo','id');
+        $modelos = DB::table('tbl_modelos')->where('lng_idmarca', '62')->lists('str_modelo','id');
+        $tipo_vehiculos = DB::table('cat_datos_maestros')->where('str_tipo', 'vehiculos')->lists('str_descripcion','id');
+        $colores = DB::table('cat_datos_maestros')->where('str_tipo', 'color')->lists('str_descripcion','id');
+        //Respuestas:
+        $negociable = DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('id');
+        $unico_dueno= DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('id');
+        $financiamiento = DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('id');
+
+        $seguridad = DB::table('cat_datos_maestros')->where('str_tipo', 'seguridad_vehiculos')->lists('str_descripcion','id');
+        $sonido = DB::table('cat_datos_maestros')->where('str_tipo', 'color')->lists('str_descripcion','id');
+        $exterior = DB::table('cat_datos_maestros')->where('str_tipo', 'color')->lists('str_descripcion','id');
+        $confort = DB::table('cat_datos_maestros')->where('str_tipo', 'color')->lists('str_descripcion','id');
+        $accesorios_internos = DB::table('cat_datos_maestros')->where('str_tipo', 'color')->lists('str_descripcion','id');
+
+        return \View::make('publicar', compact('marcas','modelos','tipo_vehiculos','colores','negociable','unico_dueno','financiamiento','seguridad','sonido','exterior','confort','accesorios_internos'));
     }
 
     /**
