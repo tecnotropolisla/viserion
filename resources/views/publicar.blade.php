@@ -51,7 +51,7 @@
                                     <a href="#">
                                         <span class="step-state"></span>
                                         <span class="step-icon"><i class="fa fa-image"></i></span>
-                                        <strong class="step-title">Añadir fotos del Vehículo</strong>
+                                        <strong class="step-title">Fotos del Vehículo</strong>
                                         
                                     </a>
                                 </li>
@@ -59,7 +59,7 @@
                                     <a href="#">
                                         <span class="step-state"></span>
                                         <span class="step-icon"><i class="fa fa-shopping-cart"></i></span>
-                                        <strong class="step-title">Publica y vende tu Vehículo!</strong>
+                                        <strong class="step-title">Publica tu Vehículo!</strong>
 
                                     </a>
                                 </li>
@@ -68,199 +68,428 @@
                     </div>
                     <div class="col-md-8 col-sm-8">
                         <!-- AD LISTING FORM -->
-                        <form class="listing-add-form">
+
+                         {!! Form::open(['route' => 'publicar', 'class' => 'listing-add-form']) !!}
+                       
                             <section class="listing-form-content">
                             
                                 <!-- AD LISTING FORM STEP ONE -->
                                 <div id="listing-add-form-one" class="tab-pane fade in active">
-                                    <h3>Descripción del Vehículo</h3>
+
+                                    <h3 style="color: #777">
+                                        <i class="fa fa-car"></i>
+                                        Descripción del Vehículo
+                                    </h3>
+                                    
                                     <div class="lighter"><p>Esto tomará poco tiempo... Introduce los datos que se describen a continuación:</p></div>
-                                    <div class="spacer-10"></div>
-                                    <div class="tabs listing-step-tabs">
-                                        <ul class="nav nav-tabs">
-                                            <li class="active"> <a data-toggle="tab" href="#searchvehicle" aria-controls="searchvehicle" role="tab">Parte 1</a></li>
-                                            <li> <a data-toggle="tab" href="#addcustom" aria-controls="addcustom" role="tab">Parte 2</a></li>
-                                        </ul>
 
-
-                                        <div class="tab-content">
-                                            <!-- VEHICLE SEARCH AD LISTING -->
-                                            <div id="searchvehicle" class="tab-pane fade  in active">
-                                                
- {!! Form::open(['route' => 'register', 'class' => 'form']) !!}
-                            <div class="regular-signup">
-
-                                <div class="form-group">
-                                        <label>Tipo de Vehículo</label>
+                                        <div class="tab-content col-md-12">
                                         
-                                        {!! Form::select('lng_idtipo_vehiculo', 
-                                                            (['' => 'Seleccione'] + $tipo_vehiculos), 
-                                                            null, 
-                                                            ['class' => 'form-control']
-                                                        ) 
-                                        !!} 
+                                               
+                                               
+                                                    <div class="form-group col-md-4">
 
-                                    </div>  
+                                                            {!! Form::label('lng_idtipo_vehiculo', 'Tipo de Vehiculo') !!}
+                                                            {!! Form::select('lng_idtipo_vehiculo', 
+                                                                                (['' => 'Seleccione'] + $tipo_vehiculos), 
+                                                                                null, 
+                                                                                ['class' => 'form-control']
+                                                                            ) 
+                                                            !!} 
 
-                                           
-                                    <div class="form-group">
-                                        <label>Marcas</label>
-                                        
-                                        {!! Form::select('lng_idmarca', 
-                                                            (['' => 'Seleccione'] + $marcas), 
-                                                            null, 
-                                                            ['class' => 'form-control']
-                                                        ) 
-                                        !!} 
+                                                        </div>  
 
-                                    </div>                      
+                                                        <div class="form-group col-md-4">
+                                                            
+                                                            {!! Form::label('lng_idmarca', 'Marca') !!}
+                                                            {!! Form::select('lng_idmarca', 
+                                                                                (['' => 'Seleccione'] + $marcas), 
+                                                                                null, 
+                                                                                ['class' => 'form-control']
+                                                                            ) 
+                                                            !!} 
 
-                                    <div class="form-group">
-                                        <label>Modelo</label>
+                                                        </div>                      
 
-                                        {!! Form::select('lng_idmodelo', 
-                                                            (['' => 'Seleccione'] + $modelos), 
-                                                            null, 
-                                                            ['class' => 'form-control']
-                                                        ) 
-                                        !!} 
+                                                        <div class="form-group col-md-4">
+                                                            
+                                                            {!! Form::label('lng_idmodelo', 'Modelo') !!}
+                                                            {!! Form::select('lng_idmodelo', 
+                                                                                (['' => 'Seleccione'] + $modelos), 
+                                                                                null, 
+                                                                                ['class' => 'form-control']
+                                                                            ) 
+                                                            !!} 
 
-                                    </div>
-  
-                                    
-                                    <div class="form-group">
-                                        <label>Placa</label>
-                                        {!! Form::input('text', 'str_placa', '', ['class'=> 'form-control']) !!}
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label>Cantidad de Puertas</label>
-                                        {!! Form::input('text', 'int_cantidad_puertas', '', ['class'=> 'form-control']) !!}
-                                    </div>
+                                                        </div>
+                      
+                                                        <div class="form-group col-md-4">
+                                                            
+                                                            {!! Form::label('str_placa', 'Placas') !!}
+                                                            {!! Form::input('text', 'str_placa', '', ['class'=> 'form-control']) !!}
+                                                        
+                                                        </div>
+                                                        
+                                                        <div class="form-group col-md-4">
+
+                                                            {!! Form::label('lng_idcolor', 'Cantidad de Puertas') !!}
+                                                            {!! 
+
+                                                                Form::selectRange('int_cantidad_puertas', 2, 5, null, ['class' => 'form-control'])
+                                                            
+                                                            !!}
+                                                        
+                                                        </div>
+
+                                                        <div class="form-group col-md-4">
+                                                           
+                                                            {!! Form::label('lng_idcolor', 'Color') !!}
+                                                            {!! Form::select('lng_idcolor', 
+                                                                                (['' => 'Seleccione'] + $colores), 
+                                                                                null, 
+                                                                                ['class' => 'form-control']
+                                                                            ) 
+                                                            !!} 
+
+                                                        </div>
+
+                                                        <div class="form-group col-md-4">
+                                                           
+                                                            {!! Form::label('lng_iddireccion', 'Dirección') !!}
+                                                            {!! Form::select('lng_iddireccion', 
+                                                                                (['' => 'Seleccione'] + $direccion), 
+                                                                                null, 
+                                                                                ['class' => 'form-control']
+                                                                            ) 
+                                                            !!} 
+
+                                                        </div>
+
+                                                        <div class="form-group col-md-4">
+                                                           
+                                                            {!! Form::label('lng_idestereo', 'Estereo') !!}
+                                                            {!! Form::select('lng_idestereo', 
+                                                                                (['' => 'Seleccione'] + $estereo), 
+                                                                                null, 
+                                                                                ['class' => 'form-control']
+                                                                            ) 
+                                                            !!} 
+
+                                                        </div>
+
+                                                    <div class="form-group col-md-4">
+                                                           
+                                                            {!! Form::label('lng_idtransmision', 'Transmision') !!}
+                                                            {!! Form::select('lng_idtransmision', 
+                                                                                (['' => 'Seleccione'] + $transmision), 
+                                                                                null, 
+                                                                                ['class' => 'form-control']
+                                                                            ) 
+                                                            !!} 
+
+                                                        </div>
+
+                                                        <div class="form-group col-md-4">
+                                                           
+                                                            {!! Form::label('lng_idtapizado', 'Tapizado') !!}
+                                                            {!! Form::select('lng_idtapizado', 
+                                                                                (['' => 'Seleccione'] + $tapizado), 
+                                                                                null, 
+                                                                                ['class' => 'form-control']
+                                                                            ) 
+                                                            !!} 
+
+                                                        </div> 
+
+                                                        <div class="form-group col-md-4">
+                                                           
+                                                            {!! Form::label('lng_idvidrios', 'Vidrios') !!}
+                                                            {!! Form::select('lng_idvidrios', 
+                                                                                (['' => 'Seleccione'] + $vidrios), 
+                                                                                null, 
+                                                                                ['class' => 'form-control']
+                                                                            ) 
+                                                            !!} 
+
+                                                        </div>
+
+                                                        <div class="form-group col-md-4">
+                                                           
+                                                            {!! Form::label('lng_idtraccion', 'Tracción') !!}
+                                                            {!! Form::select('lng_idtraccion', 
+                                                                                (['' => 'Seleccione'] + $traccion), 
+                                                                                null, 
+                                                                                ['class' => 'form-control']
+                                                                            ) 
+                                                            !!} 
+
+                                                        </div>
+
+                                                        <div class="form-group col-md-4">
+                                                           
+                                                            {!! Form::label('lng_idcombustible', 'Combustible') !!}
+                                                            {!! Form::select('lng_idcombustible', 
+                                                                                (['' => 'Seleccione'] + $combustible), 
+                                                                                null, 
+                                                                                ['class' => 'form-control']
+                                                                            ) 
+                                                            !!} 
+
+                                                        </div>                                                                                                                                                                                                                                                                            
+
+                                                        <div class="form-group col-md-4">
+
+                                                            {!! Form::label('int_ano', 'Año') !!}
+                                                            {!! Form::selectRange('int_ano', 1950, 2015, null, ['class' => 'form-control']) !!} 
+
+                                                        </div>
+
+                                                        <div class="form-group col-md-4">
+
+                                                            {!! Form::label('int_recorrido', 'Kilometraje') !!}
+                                                            {!! Form::input('text', 'int_recorrido', '', ['class'=> 'form-control']) !!}
+                                                        
+                                                        </div>
+
+                                                        <div class="form-group col-md-4">
+
+                                                            {!! Form::label('str_motor', 'Motor') !!}
+                                                            {!! Form::input('text', 'str_motor', '', ['class'=> 'form-control']) !!}
+                                                        
+                                                        </div> 
+
+                                                        <div class="form-group col-md-4">
+
+                                                            {!! Form::label('int_cilindros', 'Cilindros') !!}
+                                                            {!! Form::input('text', 'int_cilindros', '', ['class'=> 'form-control']) !!}
+                                                        
+                                                        </div>
+
+                                                        <div class="form-group col-md-4">
+
+                                                            {!! Form::label('dbl_precio_venta', 'Precio de Venta') !!}
+                                                            {!! Form::input('text', 'dbl_precio_venta', '', ['class'=> 'form-control']) !!}
+                                                        
+                                                        </div>
 
 
+                                                      <div class="form-group col-md-3">
 
-                                    <div class="form-group">
-                                        <label>Color</label>
+                                                            {!! Form::label('lng_idnegociable', 'Negociable') !!}<br>
 
-                                        {!! Form::select('lng_idcolor', 
-                                                            (['' => 'Seleccione'] + $colores), 
-                                                            null, 
-                                                            ['class' => 'form-control']
-                                                        ) 
-                                        !!} 
+                                                            @foreach ($respuesta as $valor => $descripcion)
 
-                                    </div>
+                                                                {!! Form::radio('lng_idnegociable', $valor) !!}
+                                                                {!! Form::label('lng_idnegociable', $descripcion) !!} 
 
+                                                            @endforeach
 
-                                    <div class="form-group">
-                                        <label>Año</label>
+                                                        </div>
 
-                                        {!! 
+                                                      <div class="form-group col-md-3">
 
-                                            Form::selectRange('int_ano', 1950, 2015, null, ['class' => 'form-control'])
+                                                            {!! Form::label('lng_idunicodueno', 'Único Dueño') !!}<br>
 
-                                        !!} 
+                                                            @foreach ($respuesta as $valor => $descripcion)
 
-                                    </div>
+                                                                {!! Form::radio('lng_idunicodueno', $valor) !!}
+                                                                {!! Form::label('lng_idunicodueno', $descripcion) !!} 
 
-                                  <div class="form-group">
+                                                            @endforeach
 
-                                        {!! Form::label('lng_idnegociable', 'Negociable') !!}<br>
+                                                      </div>
 
-                                        @foreach ($negociable as $negocia)
+                                                      <div class="form-group col-md-3">
 
-                                            {!! Form::label('lng_idnegociable', $negocia) !!} 
-                                            {!! Form::radio('lng_idnegociable', $negocia) !!}
+                                                            {!! Form::label('lng_idfinanciamiento', 'Financiamiento') !!}<br>
 
-                                        @endforeach
+                                                            @foreach ($respuesta as $valor => $descripcion)
 
-                                    </div>
+                                                                {!! Form::radio('lng_idfinanciamiento', $valor) !!}
+                                                                {!! Form::label('lng_idfinanciamiento', $descripcion) !!} 
 
-                                  <div class="form-group">
+                                                            @endforeach
 
-                                        {!! Form::label('lng_idunicodueno', 'Único Dueño') !!}<br>
+                                                        </div>
 
-                                        @foreach ($unico_dueno as $unico_due)
+                                                      <div class="form-group col-md-3">
 
-                                            {!! Form::label('lng_idunicodueno', $unico_due) !!} 
-                                            {!! Form::radio('lng_idunicodueno', $unico_due) !!}
+                                                            {!! Form::label('lng_idchocado', 'Chocado') !!}<br>
 
-                                        @endforeach
+                                                            @foreach ($respuesta as $valor => $descripcion)
 
-                                  </div>
+                                                                {!! Form::radio('lng_idchocado', $valor) !!}
+                                                                {!! Form::label('lng_idchocado', $descripcion) !!} 
 
-                                  <div class="form-group">
+                                                            @endforeach
 
-                                        {!! Form::label('lng_idfinanciamiento', 'Financiamiento') !!}<br>
+                                                        </div>
 
-                                        @foreach ($financiamiento as $financia)
+                                                      <div class="form-group col-md-3">
 
-                                            {!! Form::label('lng_idfinanciamiento', $financia) !!} 
-                                            {!! Form::radio('lng_idfinanciamiento', $financia) !!}
+                                                            {!! Form::label('lng_idmotorreparado', 'Motor Reparado') !!}<br>
 
-                                        @endforeach
+                                                            @foreach ($respuesta as $valor => $descripcion)
 
-                                    </div>
+                                                                {!! Form::radio('lng_idmotorreparado', $valor) !!}
+                                                                {!! Form::label('lng_idmotorreparado', $descripcion) !!} 
 
+                                                            @endforeach
 
-                                        {!! Form::input('hidden', 'lng_idpersona','1') !!}
-
-                                    <div>
-                                        {!! Form::submit('Guardar',['class' => 'btn btn-primary btn-lg btn-block']) !!}
-                                    </div>
-                                
-                            </div>
-                            {!! Form::close() !!}
+                                                        </div>
 
 
-
-                                            </div>
-
-                                            <!-- CUSTOM VEHICLE LISTING -->
-                                            <div id="addcustom" class="tab-pane fade">
-
-                                                hola
-
-
-                                            </div>
                                         </div>
-                                    </div>
+                                  
                                 </div>
                             
                                 <!-- AD LISTING FORM STEP TWO -->
                                 <div id="listing-add-form-two" class="tab-pane fade">
-                                    <h3>Características del Vehículo</h3>
+
+                                    <h3 style="color: #777">
+                                        <i class="fa fa-list-alt"></i>
+                                        Características del Vehículo
+                                    </h3>
+
                                     <div class="lighter"><p>Marca todas las caraterísticas que posee tu vehículo</p></div>
-                                    <div class="panel panel-default">
+
+
+                               
                                         <div class="panel-body">
-                                            <ul class="optional-features-list">
-                                                                        
-                                                    {!! Form::label('lng_idcaracteristica', 'Sonido') !!}<br>
 
-                                                    @foreach ($seguridad as $seg)
 
+                                    <div class="tabs listing-step-tabs">
+
+                                        <ul class="nav nav-tabs">
+
+                                            <li class="active"> <a data-toggle="tab" href="#seguridad" aria-controls="seguridad" role="tab">Seguridad</a></li>
+
+                                            <li> <a data-toggle="tab" href="#sonido" aria-controls="sonido" role="tab">Sonido</a></li>
+
+                                            <li> <a data-toggle="tab" href="#exterior" aria-controls="exterior" role="tab">Exterior</a></li>
+
+                                            <li> <a data-toggle="tab" href="#confort" aria-controls="confort" role="tab">Confort</a></li>
+
+                                            <li> <a data-toggle="tab" href="#accesorios_internos" aria-controls="accesorios_internos" role="tab">Accesorios Internos</a></li>
+
+                                        </ul>
+
+                                        <div class="tab-content">
+                                            
+                                            <div id="seguridad" class="tab-pane fade  in active">
+                                                
+                                                <ul class="optional-features-list">
+                                                                            
+                                                    @foreach ($seguridad as $valor => $descripcion)
 
                                                         <li class="checkbox">
                                                             <label>
-                                                                    {!! Form::checkbox('lng_idcaracteristica', $seg) !!}
-                                                                    {!! Form::label('lng_idcaracteristica', $seg) !!}
+                                                                    {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
+                                                                    {!! Form::label('lng_idcaracteristica', $descripcion) !!}
                                                             </label>
                                                         </li>
 
                                                     @endforeach
 
-                                            </ul>
+                                                </ul>
+
+                                            </div>
+
+                                            <div id="sonido" class="tab-pane fade">
+
+                                                <ul class="optional-features-list">
+                                                                
+                                                        @foreach ($sonido as $valor => $descripcion)
+
+                                                            <li class="checkbox">
+                                                                <label>
+                                                                        {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
+                                                                        {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                                </label>
+                                                            </li>
+
+                                                        @endforeach
+
+                                                </ul>
+
+                                            </div>
+
+
+                                            <div id="exterior" class="tab-pane fade">
+
+                                                <ul class="optional-features-list">
+
+                                                        @foreach ($exterior as $valor => $descripcion)
+
+                                                            <li class="checkbox">
+                                                                <label>
+                                                                        {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
+                                                                        {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                                </label>
+                                                            </li>
+
+                                                        @endforeach
+
+                                                </ul>
+
+                                            </div>
+
+                                            <div id="confort" class="tab-pane fade">
+
+                                                <ul class="optional-features-list">
+                                                                            
+                                                    @foreach ($confort as $valor => $descripcion)
+
+                                                        <li class="checkbox">
+                                                            <label>
+                                                                    {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
+                                                                    {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                            </label>
+                                                        </li>
+
+                                                    @endforeach
+
+                                                </ul>
+
+                                            </div>
+
+                                         <div id="accesorios_internos" class="tab-pane fade">
+
+                                                <ul class="optional-features-list">
+
+                                                    @foreach ($accesorios_internos as $valor => $descripcion)
+
+                                                        <li class="checkbox">
+                                                            <label>
+                                                                    {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
+                                                                    {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                            </label>
+                                                        </li>
+
+                                                    @endforeach
+
+                                                </ul>
+
+                                            </div>                                            
+
                                         </div>
                                     </div>
-                                    <button class="btn btn-info pull-right">Save &amp; continue</button>
+
+                                        </div>
+                                   
                                 </div>
                             
-                                
                             
                                 <!-- AD LISTING FORM STEP THREE -->
                                 <div id="listing-add-form-three" class="tab-pane fade">
-                                    <h3>Fotos del vehículo</h3>
+                                    
+
+
+                                    <h3 style="color: #777">
+                                        <i class="fa fa-image"></i>
+                                        Fotos del Vehículo
+                                    </h3>
+
                                     <div class="lighter"><p>Añade fotos de tu vehículo</p></div>
                                     <input type="file">
                                     <hr class="fw">
@@ -271,27 +500,34 @@
                                     <h3>Comentario adicional sobre tu vehículo</h3>
                                     <div class="lighter"><p>Cuentanos tu experiencia con este vehículo</p></div>
                                     <textarea class="form-control" rows="10"></textarea>
-                                    <button class="btn btn-info pull-right">Guradar</button>
+                                    
                                 </div>
                             
                                 <!-- AD LISTING FORM STEP FIVE -->
                                 <div id="listing-add-form-four" class="tab-pane fade">
 
+                                    <h3 style="color: #777">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        Publica tu Vehículo!
+                                    </h3>
 
-                                    <h3>Listo! publica y vende tu Vehículo</h3>
-                                    <div class="lighter"><p>Aun puedes revisar todos los datos introducidos</p></div>
-                                    
-                                        <button class="btn btn-info pull-right">Guradar</button>
+                                    <div class="lighter">
+                                        <p>
+                                            Aun puedes revisar todos los datos introducidos
+                                        </p>
+                                    </div>
 
+                                        {!! Form::input('hidden', 'lng_idpersona', Auth::user()->id) !!}
 
-
+                                        <div class="col-md-5">
+                                            {!! Form::submit('Guardar',['class' => 'btn btn-primary btn-lg btn-block']) !!}
+                                        </div>
+                                        
+                                        
                                 </div>
 
-
-
-
                             </section>
-                        </form>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

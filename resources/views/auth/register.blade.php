@@ -104,24 +104,25 @@
                             {!! Form::open(['route' => 'register', 'class' => 'form']) !!}
                             <div class="regular-signup">
                                 <h3>Crear Cuenta</h3>
+                                
                                     <div class="form-group">
-                                        <label>Usuario</label>
+                                        {!! Form::label('name', 'Usuario') !!}
                                         {!! Form::input('text', 'name', '', ['class'=> 'form-control']) !!}
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label>Nombre</label>
+                                        {!! Form::label('str_nombre', 'Nombre') !!}
                                         {!! Form::input('text', 'str_nombre', '', ['class'=> 'form-control']) !!}
                                     </div>
                                                             
                                     <div class="form-group">
-                                        <label>Apellido</label>
+                                        {!! Form::label('str_apellido', 'Apellido') !!}
                                         {!! Form::input('text', 'str_apellido', '', ['class'=> 'form-control']) !!}
                                     </div>
                                            
                                     <div class="form-group">
-                                        <label>Género</label>
-                                        
+
+                                        {!! Form::label('lng_idgenero', 'Género') !!}
                                         {!! Form::select('lng_idgenero', 
                                                             (['' => 'Seleccione'] + $genero), 
                                                             null, 
@@ -132,18 +133,18 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Fecha de Nacimiento</label>
-                                        
+                                        {!! Form::label('dmt_fecha_nacimiento', 'Fecha de Nacimiento') !!}
                                         {!! Form::date('dmt_fecha_nacimiento', \Carbon\Carbon::now(),['class'=> 'form-control']) !!}
                                     </div>
+
                                     <div class="form-group">
-                                        <label>Cédula / N° de Indentidad</label>
+                                        {!! Form::label('str_ididentificacion', 'Cédula / N° de Indentidad') !!}
                                         {!! Form::input('text', 'str_ididentificacion', '', ['class'=> 'form-control']) !!}
                                     </div>                        
 
                                     <div class="form-group">
-                                        <label>Pais</label>
 
+                                        {!! Form::label('lng_idpais', 'País') !!}
                                         {!! Form::select('lng_idpais', 
                                                             (['' => 'Seleccione'] + $paises), 
                                                             null, 
@@ -154,33 +155,32 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Correo</label>
+                                        {!! Form::label('email', 'Correo') !!}
                                         {!! Form::email('email', '', ['class'=> 'form-control']) !!}
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label>Twitter</label>
+                                        {!! Form::label('str_twitter', 'Twitter') !!}
                                         {!! Form::input('text', 'str_twitter', '', ['class'=> 'form-control']) !!}
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label>Facebook</label>
+                                        {!! Form::label('str_facebook', 'Facebook') !!}
                                         {!! Form::input('text', 'str_facebook', '', ['class'=> 'form-control']) !!}
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label>Instagram</label>
+                                        {!! Form::label('str_instagram', 'Instagram') !!}
                                         {!! Form::input('text', 'str_instagram', '', ['class'=> 'form-control']) !!}
                                     </div>
                                   
-                                    
                                     <div class="form-group">
-                                        <label>Contraseña</label>
+                                        {!! Form::label('password', 'Contraseña') !!}
                                         {!! Form::password('password', ['class'=> 'form-control']) !!}
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Confirmacion de Contraseña</label>
+                                        {!! Form::label('password_confirmation', 'Confirmar Contraseña') !!}
                                         {!! Form::password('password_confirmation', ['class'=> 'form-control']) !!}
                                     </div>
                                         {!! Form::input('hidden', 'lng_idservicio','3') !!}

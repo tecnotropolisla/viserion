@@ -42,9 +42,21 @@ Route::post('Crear-Cuenta', 'Auth\AuthController@postRegister');
 Route::group(['middleware' => 'auth'], function () {
  
 	Route::get('Publicar-Vehiculo', [
-		'uses' => 'PublicarController@index',
+		'uses' => 'PublicarCarrosController@index',
 		'as' =>'publicar'
 	]);
+
+	Route::post('Publicar-Vehiculo', [
+		'uses' => 'PublicarCarrosController@postPublicar',
+		'as' =>'publicar'
+	]);
+
+
+
+
+
+
+
 
  });
 

@@ -1,0 +1,180 @@
+<?php
+
+namespace Troovami\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Validator;
+use Troovami\Http\Requests;
+use Troovami\Http\Controllers\Controller;
+use DB;
+
+class PublicarCarrosController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $marcas = DB::table('cat_marcas')->orderBy('str_marca')->lists('str_marca','id');
+        //$modelos = DB::table('tbl_modelos')->orderBy('str_modelo')->lists('str_modelo','id');
+        $modelos = DB::table('tbl_modelos')->where('lng_idmarca', '62')->lists('str_modelo','id');
+        $tipo_vehiculos = DB::table('cat_datos_maestros')->where('str_tipo', 'vehiculos')->lists('str_descripcion','id');
+        $colores = DB::table('cat_datos_maestros')->where('str_tipo', 'color')->lists('str_descripcion','id');
+        $respuesta= DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('str_descripcion','id');
+        $seguridad = DB::table('cat_datos_maestros')->where('str_tipo', 'seguridad_vehiculos')->lists('str_descripcion','id');
+        $sonido = DB::table('cat_datos_maestros')->where('str_tipo', 'sonido_vehiculos')->lists('str_descripcion','id');
+        $exterior = DB::table('cat_datos_maestros')->where('str_tipo', 'exterior_vehiculos')->lists('str_descripcion','id');
+        $confort = DB::table('cat_datos_maestros')->where('str_tipo', 'confort_vehiculos')->lists('str_descripcion','id');
+        $accesorios_internos = DB::table('cat_datos_maestros')->where('str_tipo', 'accesoriosInternos_vehiculos')->lists('str_descripcion','id');
+        $direccion = DB::table('cat_datos_maestros')->where('str_tipo', 'direccion_vehiculos')->lists('str_descripcion','id');
+        $estereo = DB::table('cat_datos_maestros')->where('str_tipo', 'estereo_vehiculos')->lists('str_descripcion','id');
+        $transmision = DB::table('cat_datos_maestros')->where('str_tipo', 'transmision_vehiculos')->lists('str_descripcion','id');
+        $tapizado = DB::table('cat_datos_maestros')->where('str_tipo', 'tapizado_vehiculos')->lists('str_descripcion','id');
+        $vidrios = DB::table('cat_datos_maestros')->where('str_tipo', 'vidrios_vehiculos')->lists('str_descripcion','id');
+        $traccion = DB::table('cat_datos_maestros')->where('str_tipo', 'traccion_vehiculos')->lists('str_descripcion','id');
+        $combustible = DB::table('cat_datos_maestros')->where('str_tipo', 'combustible_vehiculos')->lists('str_descripcion','id');
+        
+        return \View::make('publicar', compact('marcas','modelos','tipo_vehiculos','colores','respuesta','seguridad','sonido','exterior','confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible'));
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postPublicar(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        return redirect($this->redirectPath());
+    }
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+                
+            'lng_idpersona' =>  'required|max:255',
+            'lng_idtipo_vehiculo' =>    'required|max:255',
+            'str_placa' =>  'required|string|max:255',
+            'lng_idmodelo' =>   'required|max:255',
+            'int_ano' =>    'required|max:255',
+            'int_cantidad_puertas' =>   'required|integer|max:255',
+            'lng_idcolor' =>    'required|max:255',
+            'lng_idnegociable' =>   'required|max:255',
+            'lng_idmotorreparado' =>    'required|max:255',
+            'lng_idfinanciamiento' =>   'required|max:255',
+            'lng_idunicodueno' =>   'required|max:255',
+            'lng_idchocado' =>  'required|max:255',
+            'int_recorrido' =>  'required|integer',
+            'dbl_precio_venta' =>   'required|numeric',
+                
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @param  array  $data
+     * @return Vehiculo
+     */
+    public function create(array $data)
+    {
+        return Vehiculo::create([
+                
+            'lng_idpersona' =>  $data['lng_idpersona'],
+            'lng_idtipo_vehiculo' =>    $data['lng_idtipo_vehiculo'],
+            'str_placa' =>  trim($data['str_placa']),
+            'lng_idmodelo' =>   $data['lng_idmodelo'],
+            'int_ano' =>    $data['int_ano'],
+            'int_cantidad_puertas' =>   $data['int_cantidad_puertas'],
+            'lng_idcolor' =>    $data['lng_idcolor'],
+            'lng_idnegociable' =>  $data['lng_idnegociable'],
+            'lng_idmotorreparado' =>    $data['lng_idmotorreparado'],
+            'lng_idfinanciamiento' =>   $data['lng_idfinanciamiento'],
+            'lng_idunicodueno' =>   $data['lng_idunicodueno'],
+            'lng_idchocado' =>  $data['lng_idchocado'],
+            'int_recorrido' =>  $data['int_recorrido'],
+            'dbl_precio_venta' =>   $data['dbl_precio_venta'],
+
+        ]);
+    }
+
+    /**
+     * Get the post register / login redirect path.
+     *
+     * @return string
+     */
+    public function redirectPath()
+    {
+        return route('home');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function store()
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function update($id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}
