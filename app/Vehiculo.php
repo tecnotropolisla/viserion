@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vehiculo extends Model
 {
-    use Authenticatable, CanResetPassword;
+    //use Authenticatable, CanResetPassword;
 
     /**
      * The database table used by the model.

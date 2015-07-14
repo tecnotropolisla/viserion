@@ -518,6 +518,10 @@
                                     </div>
 
                                         {!! Form::input('hidden', 'lng_idpersona', Auth::user()->id) !!}
+                                        {!! Form::input('hidden', 'lng_idequipo_medico', 127) !!}
+                                        {!! Form::input('hidden', 'lng_idfrenado', 128) !!}
+                                        {!! Form::input('hidden', 'lng_idmotor', 64) !!}
+                                        
 
                                         <div class="col-md-5">
                                             {!! Form::submit('Guardar',['class' => 'btn btn-primary btn-lg btn-block']) !!}

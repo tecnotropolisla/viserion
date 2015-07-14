@@ -7,6 +7,7 @@ use Validator;
 use Troovami\Http\Requests;
 use Troovami\Http\Controllers\Controller;
 use DB;
+use Troovami\Vehiculo;
 
 class PublicarCarrosController extends Controller
 {
@@ -55,6 +56,8 @@ class PublicarCarrosController extends Controller
             );
         }
 
+        $this->create($request->all());
+
         return redirect($this->redirectPath());
     }
 
@@ -78,9 +81,13 @@ class PublicarCarrosController extends Controller
             'lng_idnegociable' =>   'required|max:255',
             'lng_idmotorreparado' =>    'required|max:255',
             'lng_idfinanciamiento' =>   'required|max:255',
+            'lng_idtapizado' =>   'required|max:255',
+            'lng_idvidrios' =>   'required|max:255',
             'lng_idunicodueno' =>   'required|max:255',
+            'lng_idtraccion' =>   'required|max:255',
             'lng_idchocado' =>  'required|max:255',
             'int_recorrido' =>  'required|integer',
+            'lng_idcombustible' =>  'required|integer',
             'dbl_precio_venta' =>   'required|numeric',
                 
         ]);
@@ -94,8 +101,9 @@ class PublicarCarrosController extends Controller
      */
     public function create(array $data)
     {
+        
         return Vehiculo::create([
-                
+
             'lng_idpersona' =>  $data['lng_idpersona'],
             'lng_idtipo_vehiculo' =>    $data['lng_idtipo_vehiculo'],
             'str_placa' =>  trim($data['str_placa']),
@@ -106,11 +114,18 @@ class PublicarCarrosController extends Controller
             'lng_idnegociable' =>  $data['lng_idnegociable'],
             'lng_idmotorreparado' =>    $data['lng_idmotorreparado'],
             'lng_idfinanciamiento' =>   $data['lng_idfinanciamiento'],
+            'lng_idtapizado' =>   $data['lng_idtapizado'],
+            'lng_idvidrios' =>  $data['lng_idvidrios'],
             'lng_idunicodueno' =>   $data['lng_idunicodueno'],
+            'lng_idtraccion' =>   $data['lng_idtraccion'],
             'lng_idchocado' =>  $data['lng_idchocado'],
-            'int_recorrido' =>  $data['int_recorrido'],
+            'int_recorrido' =>  $data['int_recorrido'],          
+            'lng_idcombustible' =>  $data['lng_idcombustible'],
             'dbl_precio_venta' =>   $data['dbl_precio_venta'],
-
+            'lng_idequipo_medico' =>   $data['lng_idequipo_medico'],
+            'lng_idfrenado' =>   $data['lng_idfrenado'],
+            'lng_idmotor' =>   $data['lng_idmotor'],         
+            
         ]);
     }
 
