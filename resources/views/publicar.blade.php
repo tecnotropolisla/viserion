@@ -103,9 +103,9 @@
                                                             
                                                             {!! Form::label('lng_idmarca', 'Marca') !!}
                                                             {!! Form::select('lng_idmarca', 
-                                                                                (['' => 'Seleccione'] + $marcas), 
+                                                                                (['0' => 'Seleccione'] + $marcas), 
                                                                                 null, 
-                                                                                ['class' => 'form-control']
+                                                                                ['class' => 'form-control','onchange'=>'dependiente(this.value)']
                                                                             ) 
                                                             !!} 
 
@@ -114,12 +114,15 @@
                                                         <div class="form-group col-md-4">
                                                             
                                                             {!! Form::label('lng_idmodelo', 'Modelo') !!}
-                                                            {!! Form::select('lng_idmodelo', 
-                                                                                (['' => 'Seleccione'] + $modelos), 
-                                                                                null, 
-                                                                                ['class' => 'form-control']
-                                                                            ) 
-                                                            !!} 
+
+                                                            <div id="dependiente">
+                                                                {!! Form::select('lng_idmodelo', 
+                                                                                    (['' => 'Seleccione']), 
+                                                                                    null, 
+                                                                                    ['class' => 'form-control']
+                                                                                ) 
+                                                                !!} 
+                                                            </div>
 
                                                         </div>
                       

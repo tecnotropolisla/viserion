@@ -117,3 +117,4 @@
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script src="autostars/style-switcher/js/jquery_cookie.js"></script>
 <script src="autostars/style-switcher/js/script.js"></script>
+<script src="autostars/js/ajaxCars.js"></script> <!-- Ajax -->

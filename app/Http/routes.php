@@ -51,12 +51,10 @@ Route::group(['middleware' => 'auth'], function () {
 		'as' =>'publicar'
 	]);
 
-
-
-
-
-
-
+	Route::get('Publicar-Vehiculo/{valor}', [
+		'uses' => 'PublicarCarrosController@dependiente',
+		'as' =>'publicar'
+	]);
 
  });
 
@@ -69,5 +67,3 @@ Route::get('Acceso-Restringido', [
 				'uses' => 'DenegadoController@index',
 				'as' =>'denegado'
 ]);
-
-
