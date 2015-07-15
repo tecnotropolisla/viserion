@@ -23,7 +23,7 @@
                             <!-- AD LISTING PROGRESS BAR -->
                             <div class="listing-form-progress">
                                 <div class="progress-label"> <span>Progreso</span> </div>
-                                <div class="progress progress-striped">
+                                <div class="progress progress-striped active">
                                     <div class="progress-bar progress-bar-primary" data-appear-progress-animation=""></div>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@
                                                         <div class="form-group col-md-4">
                                                             
                                                             {!! Form::label('str_placa', 'Placas') !!}
-                                                            {!! Form::input('text', 'str_placa', '', ['class'=> 'form-control']) !!}
+                                                            {!! Form::input('text', 'str_placa', '', ['class'=> 'form-control','maxlength'=> '10']) !!}
                                                         
                                                         </div>
                                                         
@@ -250,7 +250,7 @@
                                                         <div class="form-group col-md-4">
 
                                                             {!! Form::label('int_recorrido', 'Kilometraje') !!}
-                                                            {!! Form::input('text', 'int_recorrido', '', ['class'=> 'form-control']) !!}
+                                                            {!! Form::input('text', 'int_recorrido', '', ['class'=> 'form-control enteros','maxlength'=> '6']) !!}
                                                         
                                                         </div>
 
@@ -264,17 +264,16 @@
                                                         <div class="form-group col-md-4">
 
                                                             {!! Form::label('int_cilindros', 'Cilindros') !!}
-                                                            {!! Form::input('text', 'int_cilindros', '', ['class'=> 'form-control']) !!}
+                                                            {!! Form::input('text', 'int_cilindros', '', ['class'=> 'form-control enteros','maxlength'=> '2']) !!}
                                                         
                                                         </div>
 
                                                         <div class="form-group col-md-4">
 
                                                             {!! Form::label('dbl_precio_venta', 'Precio de Venta') !!}
-                                                            {!! Form::input('text', 'dbl_precio_venta', '', ['class'=> 'form-control']) !!}
+                                                            {!! Form::input('text', 'dbl_precio_venta', '', ['class'=> 'form-control', 'maxlength'=> '15']) !!}
                                                         
                                                         </div>
-
 
                                                       <div class="form-group col-md-3">
 
@@ -525,7 +524,6 @@
                                         {!! Form::input('hidden', 'lng_idfrenado', 128) !!}
                                         {!! Form::input('hidden', 'lng_idmotor', 64) !!}
                                         
-
                                         <div class="col-md-5">
                                             {!! Form::submit('Guardar',['class' => 'btn btn-primary btn-lg btn-block']) !!}
                                         </div>
@@ -542,11 +540,12 @@
     </div>
     <!-- End Body Content -->
 
-
-
     <!-- Start site footer -->
 		@include('pie')
     <!-- End site footer -->
-
+<script type="text/javascript">
+	$("#dbl_precio_venta").maskMoney();
+	SyntaxHighlighter.all()
+</script>
 
 @endsection
