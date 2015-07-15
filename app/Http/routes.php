@@ -51,10 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
 		'as' =>'publicar'
 	]);
 
-	Route::get('Publicar-Vehiculo/{valor}', [
-		'uses' => 'PublicarCarrosController@dependiente',
-		'as' =>'publicacion'
-	]);
+	Route::get('Publicar-Vehiculo/{valor}','PublicarCarrosController@dependiente');
 
  });
 

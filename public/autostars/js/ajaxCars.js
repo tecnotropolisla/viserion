@@ -3,6 +3,7 @@ var http = getXmlHttpObject();
 
 function handleHttpResponse()
 {
+ /*   
     if (http.readyState == 0)
     {
         results = "Error al Cargar los datos";
@@ -17,7 +18,7 @@ function handleHttpResponse()
         //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
         document.getElementById(divname).innerHTML = results;
     }
-
+*/
     if (http.readyState == 4)
     {
         results = http.responseText;
