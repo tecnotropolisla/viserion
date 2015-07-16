@@ -36,8 +36,10 @@ class PublicarCarrosController extends Controller
         $vidrios = DB::table('cat_datos_maestros')->where('str_tipo', 'vidrios_vehiculos')->lists('str_descripcion','id');
         $traccion = DB::table('cat_datos_maestros')->where('str_tipo', 'traccion_vehiculos')->lists('str_descripcion','id');
         $combustible = DB::table('cat_datos_maestros')->where('str_tipo', 'combustible_vehiculos')->lists('str_descripcion','id');
+        $paises = DB::table('cat_paises')->orderBy('str_paises')->lists('str_paises','id');
         
-        return \View::make('publicar', compact('marcas','modelos','tipo_vehiculos','colores','respuesta','seguridad','sonido','exterior','confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible'));
+        return \View::make('publicar', compact('marcas','modelos','tipo_vehiculos','colores','respuesta','seguridad','sonido','exterior',
+        		'confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible','paises'));
     }
 
     /**
@@ -69,7 +71,11 @@ class PublicarCarrosController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        
+    	
+    	
+    	
+    	return Validator::make($data, [
                 
             'lng_idpersona' =>  'required|max:255',
             'lng_idtipo_vehiculo' =>    'required|max:255',
@@ -86,10 +92,9 @@ class PublicarCarrosController extends Controller
             'lng_idunicodueno' =>   'required|max:255',
             'lng_idtraccion' =>   'required|max:255',
             'lng_idchocado' =>  'required|max:255',
-            'int_recorrido' =>  'required|integer',
-            'lng_idcombustible' =>  'required|integer',
-            'dbl_precio_venta' =>   'required|numeric',
-                
+            'str_recorrido' =>  'required|max:255',
+        	'lng_idcombustible' =>  'required|integer',
+            'str_precio_venta' =>   'required|max:255', 
         ]);
     }
 
@@ -119,9 +124,9 @@ class PublicarCarrosController extends Controller
             'lng_idunicodueno' =>   $data['lng_idunicodueno'],
             'lng_idtraccion' =>   $data['lng_idtraccion'],
             'lng_idchocado' =>  $data['lng_idchocado'],
-            'int_recorrido' =>  $data['int_recorrido'],          
+            'str_recorrido' =>  $data['int_recorrido'],          
             'lng_idcombustible' =>  $data['lng_idcombustible'],
-            'dbl_precio_venta' =>   $data['dbl_precio_venta'],
+            'str_precio_venta' =>   $data['dbl_precio_venta'],
             'lng_idequipo_medico' =>   $data['lng_idequipo_medico'],
             'lng_idfrenado' =>   $data['lng_idfrenado'],
             'lng_idmotor' =>   $data['lng_idmotor'],         
@@ -138,7 +143,7 @@ class PublicarCarrosController extends Controller
         
             //var_dump($modelos);
             //$select ="<select id='lng_idmodelo' class='form-control' onchange='alert(this.value)'>
-            $select ="<select id='lng_idmodelo' class='form-control'>
+            $select ="<select id='modelos' class='form-control' onchange='idmodelo(this.value)'>
             
                         <option value=''>Seleccione</option>";
 

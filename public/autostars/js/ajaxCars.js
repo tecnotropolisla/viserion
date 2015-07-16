@@ -1,4 +1,8 @@
 var divname;
+var lng_idmarca = document.getElementById('lng_idmarca');
+var lng_idmodelo = document.getElementById('lng_idmodelo');
+var int_recorrido = document.getElementById('int_recorrido');
+
 var http = getXmlHttpObject();
 
 function handleHttpResponse()
@@ -93,6 +97,8 @@ function getXmlHttpObject()
 
 function dependiente(valor){
 
+	lng_idmodelo.value = "";
+	
     divname = "dependiente";
     //http.open("GET", 'paginas' + url, true);
     http.open("GET", 'Publicar-Vehiculo/'+ valor, true);
@@ -100,3 +106,13 @@ function dependiente(valor){
     http.send(null);
 
 }
+
+function idmodelo(valor){
+
+	//alert(valor);
+	lng_idmodelo.value = valor;
+	
+}
+
+
+

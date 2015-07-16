@@ -111,7 +111,7 @@
 <script src="autostars/vendor/owl-carousel/js/owl.carousel.min.js"></script> <!-- Owl Carousel -->
 <script src="autostars/vendor/password-checker.js"></script> <!-- Password Checker -->
 <script src="autostars/js/bootstrap.js"></script> <!-- UI -->
-<!-- <script src="autostars/js/init.js"></script>  All Scripts -->
+<script src="autostars/js/init.js"></script> <!-- All Scripts -->
 <script src="autostars/vendor/flexslider/js/jquery.flexslider.js"></script> <!-- FlexSlider -->
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script src="autostars/style-switcher/js/jquery_cookie.js"></script>
@@ -120,5 +120,9 @@
 <!-- Propios -->
 <script src="autostars/js/init_cars.js"></script> <!-- All Scripts -->
 <script src="autostars/js/ajaxCars.js"></script> <!-- Ajax -->
-<script src="autostars/js/validacionesForms.js"></script> <!-- numeros enteros -->
-<script src="autostars/js/jquery.maskMoney.js" type="text/javascript"></script> <!-- numeros decimales -->
+<script src="autostars/js/autoNumeric.js"></script>
+<script type="text/javascript">
+jQuery(function($) {
+    $('.auto').autoNumeric('init');
+});
+</script>

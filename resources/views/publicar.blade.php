@@ -116,14 +116,14 @@
                                                             {!! Form::label('lng_idmodelo', 'Modelo') !!}
 
                                                             <div id="dependiente">
-                                                                {!! Form::select('lng_idmodelo', 
-                                                                                    (['' => 'Seleccione']), 
+                                                                {!! Form::select('modelos', 
+                                                                                    (['0' => 'Seleccione']), 
                                                                                     null, 
-                                                                                    ['class' => 'form-control']
+                                                                                    ['class' => 'form-control','onchange'=>'idmodelo(this.value)']
                                                                                 ) 
                                                                 !!} 
                                                             </div>
-
+                                                            	
                                                         </div>
                       
                                                         <div class="form-group col-md-4">
@@ -250,8 +250,8 @@
                                                         <div class="form-group col-md-4">
 
                                                             {!! Form::label('int_recorrido', 'Kilometraje') !!}
-                                                            {!! Form::input('text', 'int_recorrido', '', ['class'=> 'form-control enteros','maxlength'=> '6']) !!}
-                                                        
+                                                            {!! Form::input('text', 'int_recorrido', '', ['class'=> 'form-control auto', 'data-v-max'=>'999999', 'data-v-min'=>'0','data-a-sep'=> '.', 'data-a-dec'=>',']) !!}
+                                            	
                                                         </div>
 
                                                         <div class="form-group col-md-4">
@@ -260,19 +260,30 @@
                                                             {!! Form::input('text', 'str_motor', '', ['class'=> 'form-control']) !!}
                                                         
                                                         </div> 
-
+                                                       
                                                         <div class="form-group col-md-4">
 
                                                             {!! Form::label('int_cilindros', 'Cilindros') !!}
-                                                            {!! Form::input('text', 'int_cilindros', '', ['class'=> 'form-control enteros','maxlength'=> '2']) !!}
-                                                        
+                                                            {!! Form::selectRange('int_ano', 1, 16, null, ['class' => 'form-control']) !!} 
+
                                                         </div>
 
-                                                        <div class="form-group col-md-4">
+                                                        <div class="form-group col-md-2">
 
-                                                            {!! Form::label('dbl_precio_venta', 'Precio de Venta') !!}
-                                                            {!! Form::input('text', 'dbl_precio_venta', '', ['class'=> 'form-control', 'maxlength'=> '15']) !!}
-                                                        
+                                                            {!! Form::label('dbl_precio_venta', 'Precio') !!}
+                                                            {!! Form::input('text', 'dbl_precio_venta', '', ['class'=> 'form-control auto', 'style'=>'width:95px', 'data-v-max'=>'999999', 'data-a-sep'=> '.', 'data-a-dec'=>',']) !!}
+
+														</div>
+														
+														<div class="form-group col-md-2">
+															{!! Form::label('lng_idpais', 'Moneda') !!}
+                                                            {!! Form::select('lng_idpais', 
+                                                                                (['' => '$'] + $paises), 
+                                                                                null, 
+                                                                                ['class' => 'form-control']
+                                                                            ) 
+                                                            !!} 
+
                                                         </div>
 
                                                       <div class="form-group col-md-3">
@@ -524,6 +535,8 @@
                                         {!! Form::input('hidden', 'lng_idfrenado', 128) !!}
                                         {!! Form::input('hidden', 'lng_idmotor', 64) !!}
                                         
+      									{!! Form::input('hidden', 'lng_idmodelo', '') !!}
+      									
                                         <div class="col-md-5">
                                             {!! Form::submit('Guardar',['class' => 'btn btn-primary btn-lg btn-block']) !!}
                                         </div>
