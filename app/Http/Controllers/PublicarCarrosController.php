@@ -21,7 +21,6 @@ class PublicarCarrosController extends Controller
     public function index()
     {
         $marcas = DB::table('cat_marcas')->orderBy('str_marca')->lists('str_marca','id');
-        //$modelos = DB::table('tbl_modelos')->orderBy('str_modelo')->lists('str_modelo','id');
         $modelos = DB::table('tbl_modelos')->where('lng_idmarca', '62')->lists('str_modelo','id');
         $tipo_vehiculos = DB::table('cat_datos_maestros')->where('str_tipo', 'vehiculos')->lists('str_descripcion','id');
         $colores = DB::table('cat_datos_maestros')->where('str_tipo', 'color')->lists('str_descripcion','id');
@@ -96,7 +95,9 @@ class PublicarCarrosController extends Controller
         	'lng_idcombustible' =>  'required|integer',
             'str_precio_venta' =>   'required|max:255',
             'lng_idpais' =>   'required|max:255',
-    		'lng_idcaracteristica' =>    'required',	
+    		'lng_idcaracteristica' =>    'required',
+    		'blb_img' =>    'required',
+    			
         ]);
     }
 
@@ -137,6 +138,7 @@ class PublicarCarrosController extends Controller
             'lng_idestereo' =>   $data['lng_idestereo'],
             'lng_iddireccion' =>   $data['lng_iddireccion'],
             'lng_idtransmision' =>   $data['lng_idtransmision'],
+        	'str_comentario' =>   $data['str_comentario'],
         ]);
 
         $lastInsertedId = $vehiculo->id;
@@ -149,18 +151,21 @@ class PublicarCarrosController extends Controller
         for ($i = 0; $i <= $total_detalles - 1; $i++) 
         {      
             $detalleVehiculo = DetalleVehiculo::create([
-
                 'lng_idvehiculo' => $lastInsertedId,
                 'lng_idcaracteristica' => $detalles[$i],
-     
             ]);
         }
 
-        $imagenesVehiculos = ImagenesVehiculos::create([
-        		'lng_idvehiculo' => $lastInsertedId,
-        		'blb_img' => addslashes(file_get_contents($data['blb_img'])),
-        ]);
+        $total_imagenes = count($data['blb_img']);
                
+        for ($i = 0; $i <= $total_imagenes - 1; $i++)
+        {
+        	$imagenesVehiculos = ImagenesVehiculos::create([
+        		'lng_idvehiculo' => $lastInsertedId,
+        		'blb_img' => addslashes(file_get_contents($data['blb_img'][$i])),
+	        ]);
+        }
+  
         return $imagenesVehiculos;
     }
 

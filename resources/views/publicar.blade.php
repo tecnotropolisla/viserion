@@ -520,7 +520,14 @@
 
                                     <div class="lighter"><p>Añade fotos de tu vehículo</p></div>
                                     
-                                   {!! Form::file('blb_img') !!}
+                                    <ul class="list-group">
+									  <li class="list-group-item">{!! Form::file('blb_img[0]') !!}</li>
+									  <li class="list-group-item">{!! Form::file('blb_img[1]') !!}</li>
+									  <li class="list-group-item">{!! Form::file('blb_img[2]') !!}</li>
+									  <li class="list-group-item">{!! Form::file('blb_img[3]') !!}</li>
+									  <li class="list-group-item">{!! Form::file('blb_img[4]') !!}</li>
+									  <li class="list-group-item">{!! Form::file('blb_img[5]') !!}</li>
+									</ul>                                                                    
 
                                     <hr class="fw">
                                     <h3>Añade un video de tu vehículo</h3>
@@ -529,8 +536,9 @@
                                     <hr class="fw">
                                     <h3>Comentario adicional sobre tu vehículo</h3>
                                     <div class="lighter"><p>Cuentanos tu experiencia con este vehículo</p></div>
-                                    <textarea class="form-control" rows="10"></textarea>
                                     
+                                  		{!! Form::textarea('str_comentario','',['class' =>'form-control', 'rows' => '10']) !!}
+
                                 </div>
                             
                                 <!-- AD LISTING FORM STEP FIVE -->
