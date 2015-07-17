@@ -10,6 +10,8 @@ use DB;
 use Troovami\Vehiculo;
 use Troovami\DetalleVehiculo;
 use Troovami\ImagenesVehiculos;
+use Illuminate\Support\Facades\Auth;
+
 
 class PublicarCarrosController extends Controller
 {
@@ -76,7 +78,6 @@ class PublicarCarrosController extends Controller
         
     	return Validator::make($data, [
                 
-            'lng_idpersona' =>  'required|max:255',
             'lng_idtipo_vehiculo' =>    'required|max:255',
             'str_placa' =>  'required|string|max:255',
             'lng_idmodelo' =>   'required|max:255',
@@ -112,7 +113,7 @@ class PublicarCarrosController extends Controller
         //return Vehiculo::create([
         $vehiculo = Vehiculo::create([
 
-            'lng_idpersona' =>  $data['lng_idpersona'],
+            'lng_idpersona' =>  Auth::user()->id,
             'lng_idtipo_vehiculo' =>    $data['lng_idtipo_vehiculo'],
             'str_placa' =>  trim($data['str_placa']),
             'lng_idmodelo' =>   $data['lng_idmodelo'],

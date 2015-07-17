@@ -37,6 +37,6 @@ class Vehiculo extends Model
      *
      * @var array
      */
-    //protected $hidden = ['password', 'remember_token'];
+    protected $hidden = ['lng_idpersona','lng_idmodelo'];
 
 }
