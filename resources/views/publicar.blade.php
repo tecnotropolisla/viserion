@@ -69,7 +69,7 @@
                     <div class="col-md-8 col-sm-8">
                         <!-- AD LISTING FORM -->
 
-                         {!! Form::open(['route' => 'publicar', 'class' => 'listing-add-form']) !!}
+                         {!! Form::open(['route' => 'publicar', 'class' => 'listing-add-form','enctype'=>'multipart/form-data']) !!}
                        
                             <section class="listing-form-content">
                             
@@ -393,41 +393,21 @@
                                                 
                                                 <ul class="optional-features-list">
                                                            
-                                                       {{ $i = 0 }}                     
+                                                	<?php $a = 0; ?>                    
                                                     @foreach ($seguridad as $valor => $descripcion)
-                                                        
-                                                            
-                                                            <li class="checkbox">
-                                                                <label>
-                                                                        
-                                                                    {!! Form::checkbox('lng_idcaracteristica[{{ $i }}]', $valor) !!}
-                                                                    {!! Form::label('lng_idcaracteristica', $descripcion) !!}
-                                                                        
-                                                                </label>
-                                                            </li>
 
-                                                            {{ $i++ }}
-                                                        
+                                                    	<li class="checkbox">
+                                                        	<label>
+                                                                        
+                                                            	{!! Form::checkbox("lng_idcaracteristica[$a]", $valor) !!}
+                                                                {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                                        
+                                                            </label>
+                                                        </li>
 
+                                                    <?php $a++; ?> 
+                                                        
                                                     @endforeach
-
-                                                        <li class="checkbox">
-                                                            <label>
-                                                                    
-                                                                        {!! Form::checkbox('lng_idcaracteristica[0]', 17) !!}
-                                                                        {!! Form::label('lng_idcaracteristica', 'casa') !!}
-                                                                    
-                                                            </label>
-                                                        </li>
-
-                                                        <li class="checkbox">
-                                                            <label>
-                                                                    
-                                                                        {!! Form::checkbox('lng_idcaracteristica[1]', 18) !!}
-                                                                        {!! Form::label('lng_idcaracteristica', 'perro') !!}
-                                                                    
-                                                            </label>
-                                                        </li>
 
                                                 </ul>
 
@@ -436,42 +416,45 @@
                                             <div id="sonido" class="tab-pane fade">
 
                                                 <ul class="optional-features-list">
-                                                                
-                                                        @foreach ($sonido as $valor => $descripcion)
+                                                         
+												<?php $b = $a; ?>
+												@foreach ($sonido as $valor => $descripcion)
 
-                                                            <li class="checkbox">
-                                                                <label>
-                                                                    <!--
-                                                                        {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
-                                                                        {!! Form::label('lng_idcaracteristica', $descripcion) !!}
-                                                                    -->
-                                                                </label>
-                                                            </li>
+                                                    <li class="checkbox">
+                                                    	<label>
+                                                                        
+                                                        	{!! Form::checkbox("lng_idcaracteristica[$b]", $valor) !!}
+                                                            {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                                        
+                                                         </label>
+                                                    </li>
 
-                                                        @endforeach
-
+                                                    <?php $b++; ?> 
+												@endforeach
+                                                
                                                 </ul>
 
                                             </div>
 
-
                                             <div id="exterior" class="tab-pane fade">
 
                                                 <ul class="optional-features-list">
+														
+													<?php $c = $b; ?> 
+                                                    @foreach ($exterior as $valor => $descripcion)
 
-                                                        @foreach ($exterior as $valor => $descripcion)
+                                                    <li class="checkbox">
+                                                    	<label>
+                                                                        
+                                                         	{!! Form::checkbox("lng_idcaracteristica[$c]", $valor) !!}
+                                                         	{!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                                        
+                                                         </label>
+                                                    </li>
 
-                                                            <li class="checkbox">
-                                                                <label>
-                                                                    <!--
-                                                                        {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
-                                                                        {!! Form::label('lng_idcaracteristica', $descripcion) !!}
-                                                                    -->
-                                                                </label>
-                                                            </li>
-
-                                                        @endforeach
-
+                                                    <?php $c++; ?> 
+													@endforeach
+                                                
                                                 </ul>
 
                                             </div>
@@ -479,20 +462,21 @@
                                             <div id="confort" class="tab-pane fade">
 
                                                 <ul class="optional-features-list">
-                                                                            
+                                                    
+                                                    <?php $d = $c; ?>                       
                                                     @foreach ($confort as $valor => $descripcion)
 
-                                                        <li class="checkbox">
-                                                            <label>
-                                                                    <!--
-                                                                        {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
-                                                                        {!! Form::label('lng_idcaracteristica', $descripcion) !!}
-                                                                    -->
-                                                            </label>
-                                                        </li>
+                                                    <li class="checkbox">
+	                                                    <label>
+	                                                                        
+	                                                   		{!! Form::checkbox("lng_idcaracteristica[$d]", $valor) !!}
+	                                                    	{!! Form::label('lng_idcaracteristica', $descripcion) !!}
+	                                                                        
+	                                                    </label>
+                                                    </li>
 
-                                                    @endforeach
-
+                                                    <?php $d++; ?> 
+													@endforeach
                                                 </ul>
 
                                             </div>
@@ -500,20 +484,21 @@
                                          <div id="accesorios_internos" class="tab-pane fade">
 
                                                 <ul class="optional-features-list">
-
+													
+													<?php $e = $d; ?> 
                                                     @foreach ($accesorios_internos as $valor => $descripcion)
 
-                                                        <li class="checkbox">
-                                                            <label>
-                                                                    <!--
-                                                                        {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
-                                                                        {!! Form::label('lng_idcaracteristica', $descripcion) !!}
-                                                                    -->
-                                                            </label>
-                                                        </li>
+                                                    <li class="checkbox">
+                                                    	<label>
+                                                                        
+                                                         	{!! Form::checkbox("lng_idcaracteristica[$e]", $valor) !!}
+                                                            {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                                        
+                                                         </label>
+                                                     </li>
 
-                                                    @endforeach
-
+                                                    <?php $e++; ?> 
+													@endforeach
                                                 </ul>
 
                                             </div>                                            
@@ -525,19 +510,18 @@
                                    
                                 </div>
                             
-                            
                                 <!-- AD LISTING FORM STEP THREE -->
                                 <div id="listing-add-form-three" class="tab-pane fade">
                                     
-
-
                                     <h3 style="color: #777">
                                         <i class="fa fa-image"></i>
                                         Fotos del Vehículo
                                     </h3>
 
                                     <div class="lighter"><p>Añade fotos de tu vehículo</p></div>
-                                    <input type="file">
+                                    
+                                   {!! Form::file('blb_img') !!}
+
                                     <hr class="fw">
                                     <h3>Añade un video de tu vehículo</h3>
                                     <div class="lighter"><p>Se creativo, muestranos tu vehículo con un original video</p></div>

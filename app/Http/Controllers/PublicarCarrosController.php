@@ -9,6 +9,7 @@ use Troovami\Http\Controllers\Controller;
 use DB;
 use Troovami\Vehiculo;
 use Troovami\DetalleVehiculo;
+use Troovami\ImagenesVehiculos;
 
 class PublicarCarrosController extends Controller
 {
@@ -94,6 +95,7 @@ class PublicarCarrosController extends Controller
         	'lng_idcombustible' =>  'required|integer',
             'str_precio_venta' =>   'required|max:255',
             'lng_idpais' =>   'required|max:255',
+    		'lng_idcaracteristica' =>    'required',	
         ]);
     }
 
@@ -105,7 +107,6 @@ class PublicarCarrosController extends Controller
      */
     public function create(array $data)
     {
-        
         //return Vehiculo::create([
         $vehiculo = Vehiculo::create([
 
@@ -135,7 +136,6 @@ class PublicarCarrosController extends Controller
             'lng_idestereo' =>   $data['lng_idestereo'],
             'lng_iddireccion' =>   $data['lng_iddireccion'],
             'lng_idtransmision' =>   $data['lng_idtransmision'],
- 
         ]);
 
         $lastInsertedId= $vehiculo->id;
@@ -156,7 +156,12 @@ class PublicarCarrosController extends Controller
             ]);
         }
 
-        return $detalleVehiculo;
+        $imagenesVehiculos = ImagenesVehiculos::create([
+        		'lng_idvehiculo' => $lastInsertedId,
+        		'blb_img' => addslashes(file_get_contents($data['blb_img'])),
+        ]);
+               
+        return $imagenesVehiculos;
 
     }
 
