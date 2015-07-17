@@ -52,6 +52,7 @@ class PublicarCarrosController extends Controller
      */
     public function postPublicar(Request $request)
     {
+
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
@@ -138,20 +139,19 @@ class PublicarCarrosController extends Controller
             'lng_idtransmision' =>   $data['lng_idtransmision'],
         ]);
 
-        $lastInsertedId= $vehiculo->id;
+        $lastInsertedId = $vehiculo->id;
 
-        //echo $lastInsertedId; die();
-        //echo count($data['lng_idcaracteristica']);
-        //die();
-
-        $total_detalles = count($data['lng_idcaracteristica']);
-
+        //asigno los valores de un array a otro para reniniciar los indices desde 0
+        $detalles = array_values($data['lng_idcaracteristica']);
+        
+        $total_detalles = count($detalles);
+        
         for ($i = 0; $i <= $total_detalles - 1; $i++) 
-        {
+        {      
             $detalleVehiculo = DetalleVehiculo::create([
 
                 'lng_idvehiculo' => $lastInsertedId,
-                'lng_idcaracteristica' => $data['lng_idcaracteristica'][$i],
+                'lng_idcaracteristica' => $detalles[$i],
      
             ]);
         }
@@ -162,7 +162,6 @@ class PublicarCarrosController extends Controller
         ]);
                
         return $imagenesVehiculos;
-
     }
 
     public function dependiente($valor)
