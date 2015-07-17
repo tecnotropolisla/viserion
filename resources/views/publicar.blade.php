@@ -249,8 +249,8 @@
 
                                                         <div class="form-group col-md-4">
 
-                                                            {!! Form::label('int_recorrido', 'Kilometraje') !!}
-                                                            {!! Form::input('text', 'int_recorrido', '', ['class'=> 'form-control auto', 'data-v-max'=>'999999', 'data-v-min'=>'0','data-a-sep'=> '.', 'data-a-dec'=>',']) !!}
+                                                            {!! Form::label('str_recorrido', 'Kilometraje') !!}
+                                                            {!! Form::input('text', 'str_recorrido', '', ['class'=> 'form-control auto', 'data-v-max'=>'999999', 'data-v-min'=>'0','data-a-sep'=> '.', 'data-a-dec'=>',']) !!}
                                             	
                                                         </div>
 
@@ -264,14 +264,14 @@
                                                         <div class="form-group col-md-4">
 
                                                             {!! Form::label('int_cilindros', 'Cilindros') !!}
-                                                            {!! Form::selectRange('int_ano', 1, 16, null, ['class' => 'form-control']) !!} 
+                                                            {!! Form::selectRange('int_cilindros', 1, 16, null, ['class' => 'form-control']) !!} 
 
                                                         </div>
 
                                                         <div class="form-group col-md-2">
 
-                                                            {!! Form::label('dbl_precio_venta', 'Precio') !!}
-                                                            {!! Form::input('text', 'dbl_precio_venta', '', ['class'=> 'form-control auto', 'style'=>'width:95px', 'data-v-max'=>'999999', 'data-a-sep'=> '.', 'data-a-dec'=>',']) !!}
+                                                            {!! Form::label('str_precio_venta', 'Precio') !!}
+                                                            {!! Form::input('text', 'str_precio_venta', '', ['class'=> 'form-control auto', 'style'=>'width:95px', 'data-v-max'=>'999999', 'data-a-sep'=> '.', 'data-a-dec'=>',']) !!}
 
 														</div>
 														

@@ -8,6 +8,7 @@ use Troovami\Http\Requests;
 use Troovami\Http\Controllers\Controller;
 use DB;
 use Troovami\Vehiculo;
+use Troovami\DetalleVehiculo;
 
 class PublicarCarrosController extends Controller
 {
@@ -72,9 +73,6 @@ class PublicarCarrosController extends Controller
     protected function validator(array $data)
     {
         
-    	
-    	
-    	
     	return Validator::make($data, [
                 
             'lng_idpersona' =>  'required|max:255',
@@ -94,7 +92,8 @@ class PublicarCarrosController extends Controller
             'lng_idchocado' =>  'required|max:255',
             'str_recorrido' =>  'required|max:255',
         	'lng_idcombustible' =>  'required|integer',
-            'str_precio_venta' =>   'required|max:255', 
+            'str_precio_venta' =>   'required|max:255',
+            'lng_idpais' =>   'required|max:255',
         ]);
     }
 
@@ -107,7 +106,8 @@ class PublicarCarrosController extends Controller
     public function create(array $data)
     {
         
-        return Vehiculo::create([
+        //return Vehiculo::create([
+        $vehiculo = Vehiculo::create([
 
             'lng_idpersona' =>  $data['lng_idpersona'],
             'lng_idtipo_vehiculo' =>    $data['lng_idtipo_vehiculo'],
@@ -124,15 +124,33 @@ class PublicarCarrosController extends Controller
             'lng_idunicodueno' =>   $data['lng_idunicodueno'],
             'lng_idtraccion' =>   $data['lng_idtraccion'],
             'lng_idchocado' =>  $data['lng_idchocado'],
-            'str_recorrido' =>  $data['int_recorrido'],          
+            'str_recorrido' =>  $data['str_recorrido'],          
             'lng_idcombustible' =>  $data['lng_idcombustible'],
-            'str_precio_venta' =>   $data['dbl_precio_venta'],
+            'str_precio_venta' =>   $data['str_precio_venta'],
             'lng_idequipo_medico' =>   $data['lng_idequipo_medico'],
             'lng_idfrenado' =>   $data['lng_idfrenado'],
-            'lng_idmotor' =>   $data['lng_idmotor'],         
-            
+            'lng_idmotor' =>   $data['lng_idmotor'],
+            'lng_idpais' =>   $data['lng_idpais'], 
+            'str_motor' =>   $data['str_motor'], 
+            'lng_idestereo' =>   $data['lng_idestereo'],
+            'lng_iddireccion' =>   $data['lng_iddireccion'],
+            'lng_idtransmision' =>   $data['lng_idtransmision'],
+ 
         ]);
+
+        $lastInsertedId= $vehiculo->id;
+
+        //echo $lastInsertedId; die();
+
+        return $detalleVehiculo = DetalleVehiculo::create([
+
+            'lng_idvehiculo' =>  $lastInsertedId,
+            'lng_idcaracteristica' =>    16,
+ 
+        ]);
+
     }
+
 
     public function dependiente($valor)
     {

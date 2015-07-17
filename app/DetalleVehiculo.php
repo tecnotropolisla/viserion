@@ -5,7 +5,7 @@ namespace Troovami;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Marca extends Model
+class DetalleVehiculo extends Model
 {
     //use Authenticatable, CanResetPassword;
 
@@ -14,7 +14,7 @@ class Marca extends Model
      *
      * @var string
      */
-    protected $table = 'cat_marcas';
+    protected $table = 'tbl_detalles_vehiculos';
     //protected $table = 'users';
 
     /**
@@ -23,13 +23,7 @@ class Marca extends Model
      * @var array
      */
     //protected $fillable = ['name', 'email', 'password'];
-      protected $fillable = ['str_marca','str_friendly_url','str_meta_descripcion','str_meta_keyword',
-      'str_website','lng_idtipo','bol_eliminado','updated_at','created_at'];
-
-    public function modelos() {
-        return $this->hasMany('Modelo');
-    }
-
+      protected $fillable = ['lng_idvehiculo','lng_idcaracteristica','bol_eliminado','updated_at','created_at'];
 
     /**
      * The attributes excluded from the model's JSON form.
