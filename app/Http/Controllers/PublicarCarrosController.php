@@ -141,16 +141,24 @@ class PublicarCarrosController extends Controller
         $lastInsertedId= $vehiculo->id;
 
         //echo $lastInsertedId; die();
+        //echo count($data['lng_idcaracteristica']);
+        //die();
 
-        return $detalleVehiculo = DetalleVehiculo::create([
+        $total_detalles = count($data['lng_idcaracteristica']);
 
-            'lng_idvehiculo' =>  $lastInsertedId,
-            'lng_idcaracteristica' =>    16,
- 
-        ]);
+        for ($i = 0; $i <= $total_detalles - 1; $i++) 
+        {
+            $detalleVehiculo = DetalleVehiculo::create([
+
+                'lng_idvehiculo' => $lastInsertedId,
+                'lng_idcaracteristica' => $data['lng_idcaracteristica'][$i],
+     
+            ]);
+        }
+
+        return $detalleVehiculo;
 
     }
-
 
     public function dependiente($valor)
     {
@@ -160,7 +168,6 @@ class PublicarCarrosController extends Controller
         $modelos = DB::table('tbl_modelos')->where('lng_idmarca', $valor)->lists('str_modelo','id');
         
             //var_dump($modelos);
-            //$select ="<select id='lng_idmodelo' class='form-control' onchange='alert(this.value)'>
             $select ="<select id='modelos' class='form-control' onchange='idmodelo(this.value)'>
             
                         <option value=''>Seleccione</option>";

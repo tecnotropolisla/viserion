@@ -392,17 +392,42 @@
                                             <div id="seguridad" class="tab-pane fade  in active">
                                                 
                                                 <ul class="optional-features-list">
-                                                                            
+                                                           
+                                                       {{ $i = 0 }}                     
                                                     @foreach ($seguridad as $valor => $descripcion)
+                                                        
+                                                            
+                                                            <li class="checkbox">
+                                                                <label>
+                                                                        
+                                                                    {!! Form::checkbox('lng_idcaracteristica[{{ $i }}]', $valor) !!}
+                                                                    {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                                        
+                                                                </label>
+                                                            </li>
+
+                                                            {{ $i++ }}
+                                                        
+
+                                                    @endforeach
 
                                                         <li class="checkbox">
                                                             <label>
-                                                                    {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
-                                                                    {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                                    
+                                                                        {!! Form::checkbox('lng_idcaracteristica[0]', 17) !!}
+                                                                        {!! Form::label('lng_idcaracteristica', 'casa') !!}
+                                                                    
                                                             </label>
                                                         </li>
 
-                                                    @endforeach
+                                                        <li class="checkbox">
+                                                            <label>
+                                                                    
+                                                                        {!! Form::checkbox('lng_idcaracteristica[1]', 18) !!}
+                                                                        {!! Form::label('lng_idcaracteristica', 'perro') !!}
+                                                                    
+                                                            </label>
+                                                        </li>
 
                                                 </ul>
 
@@ -416,8 +441,10 @@
 
                                                             <li class="checkbox">
                                                                 <label>
+                                                                    <!--
                                                                         {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
                                                                         {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                                    -->
                                                                 </label>
                                                             </li>
 
@@ -436,8 +463,10 @@
 
                                                             <li class="checkbox">
                                                                 <label>
+                                                                    <!--
                                                                         {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
                                                                         {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                                    -->
                                                                 </label>
                                                             </li>
 
@@ -455,8 +484,10 @@
 
                                                         <li class="checkbox">
                                                             <label>
-                                                                    {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
-                                                                    {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                                    <!--
+                                                                        {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
+                                                                        {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                                    -->
                                                             </label>
                                                         </li>
 
@@ -474,8 +505,10 @@
 
                                                         <li class="checkbox">
                                                             <label>
-                                                                    {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
-                                                                    {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                                    <!--
+                                                                        {!! Form::checkbox('lng_idcaracteristica', $valor) !!}
+                                                                        {!! Form::label('lng_idcaracteristica', $descripcion) !!}
+                                                                    -->
                                                             </label>
                                                         </li>
 

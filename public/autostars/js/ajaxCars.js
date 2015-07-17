@@ -113,6 +113,3 @@ function idmodelo(valor){
 	lng_idmodelo.value = valor;
 	
 }
-
-
-
