@@ -3003,7 +3003,8 @@ h1.page-title{
 	margin-left:-2%;
 }
 .results-grid-view .result-item{
-	width:31%;
+	/*width:31%;*/
+	width:17.5%;
 	margin-left:2.3%;
 	float:left;
 	margin-bottom:40px;

@@ -126,7 +126,7 @@
   content: "\e01c";
 }
 .icon-expand:before {
-  content: "\e01d";
+  content: "\2b";
 }
 .icon-eye:before {
   content: "\e01e";
@@ -288,7 +288,7 @@
   content: "\e052";
 }
 .icon-plus:before {
-  content: "\e053";
+  content: "\2b";
 }
 .icon-portable-pc:before {
   content: "\e054";
