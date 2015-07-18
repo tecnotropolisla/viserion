@@ -84,9 +84,7 @@
                                     <div class="lighter"><p>Esto tomará poco tiempo... Introduce los datos que se describen a continuación:</p></div>
 
                                         <div class="tab-content col-md-12">
-                                        
-                                               
-                                               
+
                                                     <div class="form-group col-md-4">
 
                                                             {!! Form::label('lng_idtipo_vehiculo', 'Tipo de Vehiculo') !!}
@@ -517,35 +515,59 @@
                                         <i class="fa fa-image"></i>
                                         Fotos del Vehículo
                                     </h3>
+<div class="lighter"><p>Añade fotos de tu vehículo</p></div>
 
-                                    <div class="lighter"><p>Añade fotos de tu vehículo</p></div>
-                                    
-                                    <ul class="list-group">
-									   <li class="list-group-item">
-                                            {!! Form::label('blb_img0', 'Imagen N° 1') !!}
-                                            {!! Form::file('blb_img0') !!}
-                                       </li>
-									   <li class="list-group-item">
-                                            {!! Form::label('blb_img1', 'Imagen N° 2') !!}
-                                            {!! Form::file('blb_img1') !!}
-                                       </li>
-									   <li class="list-group-item">
-                                            {!! Form::label('blb_img2', 'Imagen N° 3') !!}
-                                            {!! Form::file('blb_img2') !!}
-                                       </li>
-									   <li class="list-group-item">
-                                            {!! Form::label('blb_img3', 'Imagen N° 4') !!}
-                                            {!! Form::file('blb_img3') !!}
-                                       </li>
-									   <li class="list-group-item">
-                                            {!! Form::label('blb_img4', 'Imagen N° 5') !!}
-                                            {!! Form::file('blb_img4') !!}
-                                       </li>
-									   <li class="list-group-item">
-                                            {!! Form::label('blb_img5', 'Imagen N° 6') !!}
-                                            {!! Form::file('blb_img5') !!}
-                                       </li>
-									</ul>                                                                    
+                                        <div class="tab-content col-md-12">
+
+                                            <div class="form-group col-md-4">
+                                                {!! Form::label('blb_img0', 'Imagen N° 1') !!}
+                                                {!! Form::file('blb_img0') !!}
+                                                <output id="img0">
+                                                    <i class="fa fa-picture-o" style="font-size:50px"></i>
+                                                </output>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                {!! Form::label('blb_img1', 'Imagen N° 2') !!}
+                                                {!! Form::file('blb_img1') !!}
+                                                <output id="img1">
+                                                    <i class="fa fa-picture-o" style="font-size:50px"></i>
+                                                </output>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                {!! Form::label('blb_img2', 'Imagen N° 3') !!}
+                                                {!! Form::file('blb_img2') !!}
+                                                <output id="img2">
+                                                    <i class="fa fa-picture-o" style="font-size:50px"></i>
+                                                </output>
+                                            </div> 
+
+                                        </div>
+
+                                        <div class="tab-content col-md-12">
+
+                                            <div class="form-group col-md-4">
+                                             {!! Form::label('blb_img3', 'Imagen N° 4') !!}
+                                                {!! Form::file('blb_img3') !!}
+                                                <output id="img3">
+                                                    <i class="fa fa-picture-o" style="font-size:50px"></i>
+                                                </output>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                {!! Form::label('blb_img4', 'Imagen N° 5') !!}
+                                                {!! Form::file('blb_img4') !!}
+                                                <output id="img4">
+                                                    <i class="fa fa-picture-o" style="font-size:50px"></i>
+                                                </output>
+                                            </div> 
+                                            <div class="form-group col-md-4">
+                                                {!! Form::label('blb_img5', 'Imagen N° 6') !!}
+                                                {!! Form::file('blb_img5') !!}
+                                                <output id="img5">
+                                                    <i class="fa fa-picture-o" style="font-size:50px"></i>
+                                                </output>
+                                            </div> 
+
+                                        </div>
 
                                     <hr class="fw">
                                     <h3>Añade un video de tu vehículo</h3>
