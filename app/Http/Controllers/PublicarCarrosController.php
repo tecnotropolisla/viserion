@@ -97,8 +97,12 @@ class PublicarCarrosController extends Controller
             'str_precio_venta' =>   'required|max:255',
             'lng_idpais' =>   'required|max:255',
     		'lng_idcaracteristica' =>    'required',
-    		'blb_img' =>    'required',
-    			
+    		'blb_img0' =>    'required|image:jpeg,png,jpg',
+            'blb_img1' =>    'required|image:jpeg,png,jpg',
+            'blb_img2' =>    'required|image:jpeg,png,jpg',
+            'blb_img3' =>    'required|image:jpeg,png,jpg',
+            'blb_img4' =>    'required|image:jpeg,png,jpg',
+            'blb_img5' =>    'required|image:jpeg,png,jpg',
         ]);
     }
 
@@ -157,13 +161,16 @@ class PublicarCarrosController extends Controller
             ]);
         }
 
-        $total_imagenes = count($data['blb_img']);
+        //$total_imagenes = count($data['blb_img']);
+
+        $total_imagenes = 6;
                
         for ($i = 0; $i <= $total_imagenes - 1; $i++)
         {
         	$imagenesVehiculos = ImagenesVehiculos::create([
         		'lng_idvehiculo' => $lastInsertedId,
-        		'blb_img' => addslashes(file_get_contents($data['blb_img'][$i])),
+        		'blb_img' => addslashes(file_get_contents($data['blb_img'.$i])),
+                //'blb_img' => addslashes(file_get_contents($data['blb_img'][$i])),
 	        ]);
         }
   

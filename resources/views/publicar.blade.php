@@ -521,12 +521,30 @@
                                     <div class="lighter"><p>Añade fotos de tu vehículo</p></div>
                                     
                                     <ul class="list-group">
-									  <li class="list-group-item">{!! Form::file('blb_img[0]') !!}</li>
-									  <li class="list-group-item">{!! Form::file('blb_img[1]') !!}</li>
-									  <li class="list-group-item">{!! Form::file('blb_img[2]') !!}</li>
-									  <li class="list-group-item">{!! Form::file('blb_img[3]') !!}</li>
-									  <li class="list-group-item">{!! Form::file('blb_img[4]') !!}</li>
-									  <li class="list-group-item">{!! Form::file('blb_img[5]') !!}</li>
+									   <li class="list-group-item">
+                                            {!! Form::label('blb_img0', 'Imagen N° 1') !!}
+                                            {!! Form::file('blb_img0') !!}
+                                       </li>
+									   <li class="list-group-item">
+                                            {!! Form::label('blb_img1', 'Imagen N° 2') !!}
+                                            {!! Form::file('blb_img1') !!}
+                                       </li>
+									   <li class="list-group-item">
+                                            {!! Form::label('blb_img2', 'Imagen N° 3') !!}
+                                            {!! Form::file('blb_img2') !!}
+                                       </li>
+									   <li class="list-group-item">
+                                            {!! Form::label('blb_img3', 'Imagen N° 4') !!}
+                                            {!! Form::file('blb_img3') !!}
+                                       </li>
+									   <li class="list-group-item">
+                                            {!! Form::label('blb_img4', 'Imagen N° 5') !!}
+                                            {!! Form::file('blb_img4') !!}
+                                       </li>
+									   <li class="list-group-item">
+                                            {!! Form::label('blb_img5', 'Imagen N° 6') !!}
+                                            {!! Form::file('blb_img5') !!}
+                                       </li>
 									</ul>                                                                    
 
                                     <hr class="fw">
