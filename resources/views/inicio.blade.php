@@ -184,9 +184,9 @@
                                 <div class="result-item format-standard">
 
                                     <div class="result-item-image">
-                                        <a href="{{ route('detalles') }}" class="media-box"><img src="autostars/images/car2.jpg" alt=""></a>
+                                        <a href="{{ route('detalles') }}" class="media-box"><img class="img-rounded" src="autostars/images/jeepNeel.jpg" alt=""></a>
                                         <span class="label label-default vehicle-age">2014</span>
-                                        <span class="label label-success premium-listing">Premium Listing</span>
+                                        <span class="label label-success premium-listing">Azul</span>
                                         <div class="result-item-view-buttons">
                                             <a href="https://www.youtube.com/watch?v=P5mvnA4BV7Y" data-rel="prettyPhoto"><i class="fa fa-play-circle-o"></i> Ver video</a>
                                             <a href="{{ route('detalles') }}"><i class="fa fa-plus"></i> Ver detalles</a>
@@ -203,7 +203,7 @@
                                             </div>
                                             <div class="result-item-block col2">
                                                 <div class="result-item-pricing">
-                                                    <div class="price">$48000</div>
+                                                    <div class="price" style="font-size:30px">$48.000</div>
                                                 </div>
                                                 <div class="result-item-action-buttons">
                                                     <a href="#" class="btn btn-default btn-sm"><i class="fa fa-star-o"></i> Favoritos</a>
@@ -216,11 +216,11 @@
 
                                         <div class="result-item-features">
                                             <ul class="inline">
-                                                <li>4 door SUV</li>
-                                                <li>6 cyl, 3.0 L Petrol</li>
-                                                <li>6 speed Automatic</li>
-                                                <li>4x4 Wheel Drive</li>
-                                                <li>Listed by Individual</li>
+                                                <li>Km: 6.500</li>
+                                                <li>Motor: 6,2</li>
+                                                <li>Transmisión: Automática-Secuencial</li>
+                                                <li>Dirección: Hidráulica</li>
+                                                <li>Distrito Capital</li>
                                             </ul>
                                         </div>
 

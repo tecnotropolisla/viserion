@@ -66,8 +66,11 @@
                             </ul>
                         </div>
                     </div>
+
+
                     <div class="col-md-8 col-sm-8">
                         <!-- AD LISTING FORM -->
+
 
                          {!! Form::open(['route' => 'publicar', 'class' => 'listing-add-form','enctype'=>'multipart/form-data']) !!}
                        
@@ -86,7 +89,8 @@
                                         <div class="tab-content col-md-12">
 
                                                     <div class="form-group col-md-4">
-
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idtipo_vehiculo', 'Tipo de Vehiculo') !!}
                                                             {!! Form::select('lng_idtipo_vehiculo', 
                                                                                 (['' => 'Seleccione'] + $tipo_vehiculos), 
@@ -99,6 +103,7 @@
 
                                                         <div class="form-group col-md-4">
                                                             
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idmarca', 'Marca') !!}
                                                             {!! Form::select('lng_idmarca', 
                                                                                 (['0' => 'Seleccione'] + $marcas), 
@@ -111,6 +116,7 @@
 
                                                         <div class="form-group col-md-4">
                                                             
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idmodelo', 'Modelo') !!}
 
                                                             <div id="dependiente">
@@ -126,13 +132,15 @@
                       
                                                         <div class="form-group col-md-4">
                                                             
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('str_placa', 'Placas') !!}
                                                             {!! Form::input('text', 'str_placa', '', ['class'=> 'form-control','maxlength'=> '10']) !!}
                                                         
                                                         </div>
                                                         
                                                         <div class="form-group col-md-4">
-
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idcolor', 'Cantidad de Puertas') !!}
                                                             {!! 
 
@@ -144,6 +152,7 @@
 
                                                         <div class="form-group col-md-4">
                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idcolor', 'Color') !!}
                                                             {!! Form::select('lng_idcolor', 
                                                                                 (['' => 'Seleccione'] + $colores), 
@@ -156,6 +165,7 @@
 
                                                         <div class="form-group col-md-4">
                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_iddireccion', 'Dirección') !!}
                                                             {!! Form::select('lng_iddireccion', 
                                                                                 (['' => 'Seleccione'] + $direccion), 
@@ -168,6 +178,7 @@
 
                                                         <div class="form-group col-md-4">
                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idestereo', 'Estereo') !!}
                                                             {!! Form::select('lng_idestereo', 
                                                                                 (['' => 'Seleccione'] + $estereo), 
@@ -179,7 +190,8 @@
                                                         </div>
 
                                                     <div class="form-group col-md-4">
-                                                           
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idtransmision', 'Transmision') !!}
                                                             {!! Form::select('lng_idtransmision', 
                                                                                 (['' => 'Seleccione'] + $transmision), 
@@ -191,7 +203,8 @@
                                                         </div>
 
                                                         <div class="form-group col-md-4">
-                                                           
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idtapizado', 'Tapizado') !!}
                                                             {!! Form::select('lng_idtapizado', 
                                                                                 (['' => 'Seleccione'] + $tapizado), 
@@ -203,7 +216,8 @@
                                                         </div> 
 
                                                         <div class="form-group col-md-4">
-                                                           
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idvidrios', 'Vidrios') !!}
                                                             {!! Form::select('lng_idvidrios', 
                                                                                 (['' => 'Seleccione'] + $vidrios), 
@@ -215,7 +229,8 @@
                                                         </div>
 
                                                         <div class="form-group col-md-4">
-                                                           
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idtraccion', 'Tracción') !!}
                                                             {!! Form::select('lng_idtraccion', 
                                                                                 (['' => 'Seleccione'] + $traccion), 
@@ -227,7 +242,8 @@
                                                         </div>
 
                                                         <div class="form-group col-md-4">
-                                                           
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idcombustible', 'Combustible') !!}
                                                             {!! Form::select('lng_idcombustible', 
                                                                                 (['' => 'Seleccione'] + $combustible), 
@@ -239,53 +255,42 @@
                                                         </div>                                                                                                                                                                                                                                                                            
 
                                                         <div class="form-group col-md-4">
-
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('int_ano', 'Año') !!}
                                                             {!! Form::selectRange('int_ano', 1950, 2015, null, ['class' => 'form-control']) !!} 
 
                                                         </div>
 
                                                         <div class="form-group col-md-4">
-
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('str_recorrido', 'Kilometraje') !!}
                                                             {!! Form::input('text', 'str_recorrido', '', ['class'=> 'form-control auto', 'data-v-max'=>'999999', 'data-v-min'=>'0','data-a-sep'=> '.', 'data-a-dec'=>',']) !!}
                                             	
                                                         </div>
 
                                                         <div class="form-group col-md-4">
-
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('str_motor', 'Motor') !!}
                                                             {!! Form::input('text', 'str_motor', '', ['class'=> 'form-control']) !!}
                                                         
                                                         </div> 
                                                        
                                                         <div class="form-group col-md-4">
-
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('int_cilindros', 'Cilindros') !!}
                                                             {!! Form::selectRange('int_cilindros', 1, 16, null, ['class' => 'form-control']) !!} 
 
                                                         </div>
 
-                                                        <div class="form-group col-md-2">
 
-                                                            {!! Form::label('str_precio_venta', 'Precio') !!}
-                                                            {!! Form::input('text', 'str_precio_venta', '', ['class'=> 'form-control auto', 'style'=>'width:95px', 'data-v-max'=>'999999', 'data-a-sep'=> '.', 'data-a-dec'=>',']) !!}
 
-														</div>
-														
-														<div class="form-group col-md-2">
-															{!! Form::label('lng_idpais', 'Moneda') !!}
-                                                            {!! Form::select('lng_idpais', 
-                                                                                (['' => '$'] + $paises), 
-                                                                                null, 
-                                                                                ['class' => 'form-control']
-                                                                            ) 
-                                                            !!} 
-
-                                                        </div>
-
-                                                      <div class="form-group col-md-3">
-
+                                                      <div class="form-group col-md-2">
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idnegociable', 'Negociable') !!}<br>
 
                                                             @foreach ($respuesta as $valor => $descripcion)
@@ -297,21 +302,30 @@
 
                                                         </div>
 
-                                                      <div class="form-group col-md-3">
+                                                      <div class="form-group col-md-2">
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
 
-                                                            {!! Form::label('lng_idunicodueno', 'Único Dueño') !!}<br>
+                                                           {!! Form::label('lng_idchocado', 'Chocado') !!}<br>
 
                                                             @foreach ($respuesta as $valor => $descripcion)
 
-                                                                {!! Form::radio('lng_idunicodueno', $valor) !!}
-                                                                {!! Form::label('lng_idunicodueno', $descripcion) !!} 
+                                                                {!! Form::radio('lng_idchocado', $valor) !!}
+                                                                {!! Form::label('lng_idchocado', $descripcion) !!} 
 
                                                             @endforeach
 
                                                       </div>
 
-                                                      <div class="form-group col-md-3">
+                                            </div>
 
+                                        <div class="tab-content col-md-12">
+
+
+
+                                                      <div class="form-group col-md-4">
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idfinanciamiento', 'Financiamiento') !!}<br>
 
                                                             @foreach ($respuesta as $valor => $descripcion)
@@ -323,21 +337,23 @@
 
                                                         </div>
 
-                                                      <div class="form-group col-md-3">
-
-                                                            {!! Form::label('lng_idchocado', 'Chocado') !!}<br>
+                                                      <div class="form-group col-md-4">
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
+ 
+                                                            {!! Form::label('lng_idunicodueno', 'Único Dueño') !!}<br>
 
                                                             @foreach ($respuesta as $valor => $descripcion)
 
-                                                                {!! Form::radio('lng_idchocado', $valor) !!}
-                                                                {!! Form::label('lng_idchocado', $descripcion) !!} 
+                                                                {!! Form::radio('lng_idunicodueno', $valor) !!}
+                                                                {!! Form::label('lng_idunicodueno', $descripcion) !!} 
 
                                                             @endforeach
-
                                                         </div>
 
-                                                      <div class="form-group col-md-3">
-
+                                                      <div class="form-group col-md-4">
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idmotorreparado', 'Motor Reparado') !!}<br>
 
                                                             @foreach ($respuesta as $valor => $descripcion)
@@ -595,6 +611,30 @@
                                         </p>
                                     </div>
 
+
+
+                                                        <div class="form-group ">
+                                                            
+                                                            <i class="fa fa-asterisk"></i>
+                                                            {!! Form::label('str_precio_venta', 'Precio') !!}
+                                                            {!! Form::input('text', 'str_precio_venta', '', ['class'=> 'form-control auto', 'data-v-max'=>'999999', 'data-a-sep'=> '.', 'data-a-dec'=>',']) !!}
+
+                                                        </div>
+                                                        
+                                                        <div class="form-group ">
+
+                                                            <i class="fa fa-asterisk"></i>
+                                                            {!! Form::label('lng_idpais', 'Moneda') !!}
+                                                            {!! Form::select('lng_idpais', 
+                                                                                (['' => '$'] + $paises), 
+                                                                                null, 
+                                                                                ['class' => 'form-control']
+                                                                            ) 
+                                                            !!} 
+
+                                                        </div>
+
+
                   
                                         <!-- Eliminar -->
 	                                        {!! Form::input('hidden', 'lng_idequipo_medico', 127) !!}
@@ -611,7 +651,10 @@
 
                             </section>
                         {!! Form::close() !!}
+
+
                     </div>
+
                 </div>
             </div>
         </div>

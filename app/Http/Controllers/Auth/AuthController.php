@@ -57,6 +57,7 @@ class AuthController extends Controller
             'str_twitter' => 'unique:tbl_personas',
             'str_facebook' => 'unique:tbl_personas',
             'str_instagram' => 'unique:tbl_personas',
+            'str_telefono' => 'required|max:255',
         	/* 'name' => 'required|max:255',
         	'email' => 'required|email|max:255|unique:users',
         	'password' => 'required|confirmed|min:6', */        		
@@ -94,6 +95,7 @@ class AuthController extends Controller
         		'str_facebook' => trim($data['str_facebook']),
         		'str_instagram' => trim($data['str_instagram']),
                 'lng_idservicio' => $data['lng_idservicio'],
+                'str_telefono' => $data['str_telefono'],
         ]);
     }
 
