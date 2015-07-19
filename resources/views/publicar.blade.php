@@ -69,17 +69,18 @@
 
                     <div class="col-md-8 col-sm-8">
                         
-                        {!! Form::label('', 'Seleccione el tipo de vehículo a describir:') !!}
+                        <h3>
+                            {!! Form::label('', 'Seleccione el tipo de vehículo:') !!}
+                        </h3>
+
                         <div class="btn-group" role="group" aria-label="...">
                           <button type="button" class="btn btn-default fa fa-car" onclick="formularioDinamico('carros')"> Carros</button>
-                          <button type="button" class="btn btn-default fa fa-motorcycle"> Motocicletas</button>
-                          <button type="button" class="btn btn-default fa fa-ship"> Embarcaciones</button>
-                          <button type="button" class="btn btn-default fa fa-plane"> Aeronaves</button>
+                          <button type="button" class="btn btn-default fa fa-motorcycle" onclick="formularioDinamico('motocicletas')"> Motocicletas</button>
+                          <button type="button" class="btn btn-default fa fa-ship" onclick="formularioDinamico('embarcaciones')"> Embarcaciones</button>
+                          <button type="button" class="btn btn-default fa fa-plane" onclick="formularioDinamico('aeronaves')"> Aeronaves</button>
                         </div>
 
-                        <div id="formulario">
-                            .
-                        </div>
+                        <div id="formulario">.</div>
 
                     </div>
 

@@ -95,7 +95,6 @@ function getXmlHttpObject()
     return xmlhttp;
 }
 
-
 function formularioDinamico(valor){
    
     divname = "formulario";
@@ -124,7 +123,6 @@ function idmodelo(valor){
 	lng_idmodelo.value = valor;	
 }
 
-
 function oir(){
 
     document.getElementById('blb_img0').addEventListener('change', blb_img0, false);
@@ -133,7 +131,6 @@ function oir(){
     document.getElementById('blb_img3').addEventListener('change', blb_img3, false);
     document.getElementById('blb_img4').addEventListener('change', blb_img4, false);
     document.getElementById('blb_img5').addEventListener('change', blb_img5, false);
-
 }
 
 function blb_img0(evt) {
@@ -294,4 +291,24 @@ function isNumber(evt) {
     }
 
     return true;
+}
+
+function validar(valor, nombre){
+
+    //alert(valor + "-" + nombre);
+
+    campo = document.getElementById(nombre);
+
+    if(campo.value == "" || campo.value == "0") 
+    {
+
+        var ele = document.getElementById(nombre+"_validar")
+        ele.setAttribute('class', 'fa fa-asterisk');
+
+    }else{
+
+        var ele = document.getElementById(nombre+"_validar")
+        ele.setAttribute('class', 'fa fa-check');
+
+    }
 }
