@@ -611,30 +611,82 @@
                                         </p>
                                     </div>
 
+                                    <div class="form-group ">
+
+                                        <i class="fa fa-asterisk"></i>
+                                        {!! Form::label('lng_idpais', 'País de la Publicación') !!}
+                                        {!! Form::select('lng_idpais', 
+                                                            (['' => 'Seleccione'] + $paises), 
+                                                            null, 
+                                                            ['class' => 'form-control']
+                                                        ) 
+                                        !!} 
+
+                                    </div>
+
+                                  <div class="form-group ">
+                                        
+                                        <i class="fa fa-asterisk"></i>
+                                        {!! Form::label('str_precio_venta', 'Precio') !!}
+                                        {!! Form::input('text', 'str_precio_venta', '', ['class'=> 'form-control auto', 'data-v-max'=>'999999', 'data-a-sep'=> '.', 'data-a-dec'=>',']) !!}
+
+                                    </div>
 
 
-                                                        <div class="form-group ">
-                                                            
-                                                            <i class="fa fa-asterisk"></i>
-                                                            {!! Form::label('str_precio_venta', 'Precio') !!}
-                                                            {!! Form::input('text', 'str_precio_venta', '', ['class'=> 'form-control auto', 'data-v-max'=>'999999', 'data-a-sep'=> '.', 'data-a-dec'=>',']) !!}
-
-                                                        </div>
-                                                        
-                                                        <div class="form-group ">
-
-                                                            <i class="fa fa-asterisk"></i>
-                                                            {!! Form::label('lng_idpais', 'Moneda') !!}
-                                                            {!! Form::select('lng_idpais', 
-                                                                                (['' => '$'] + $paises), 
-                                                                                null, 
-                                                                                ['class' => 'form-control']
-                                                                            ) 
-                                                            !!} 
-
-                                                        </div>
 
 
+                                    <div class="form-group ">
+
+                                        <i class="fa fa-asterisk"></i>
+                                        {!! Form::label('lng_idpais', 'Moneda') !!}
+
+                                        {!!
+
+                                         Form::select('monedas', array( 
+                                                '' => 'Seleccione',
+                                                'Dolares' => array(
+
+                                                    '1' => 'Dólar del Caribe Oriental',
+                                                    '2' => 'Dólar Bahameño',
+                                                    '3' => 'Dólar de Barbados',
+                                                    '4' => 'Dólar Beliceño',
+                                                    '5' => 'Dólar Canadiense',
+                                                    '6' => 'Dólar Estadounidense',
+                                                    '7' => 'Dolar Guyanés',
+                                                    '8' => 'Dólar Jamaicano',
+                                                    '9' => 'Dólar Surinamés',
+                                                    '10' => 'Dólar Trinitense'
+                                                ),
+
+                                                'Pesos' => array(
+                                                    '11' => 'Peso Argentino',
+                                                    '12' => 'Peso Chileno',
+                                                    '13' => 'Peso Colombiano',
+                                                    '14' => 'Peso Cubano',
+                                                    '15' => 'Peso Mexicano',
+                                                    '16' => 'Peso Dominicano',
+                                                    '17' => 'Peso Uruguayo'
+                                                ),
+
+                                                'Otras' => array(
+                                                    '18' => 'Bolivar',
+                                                    '19' => 'Colón Costarricense',
+                                                    '20' => 'Quetzal',
+                                                    '21' => 'Gourde',
+                                                    '22' => 'Lempira',
+                                                    '23' => 'Balboa',
+                                                    '24' => 'Guaraní',
+                                                    '25' => 'Nuevo Sol',
+                                                    '26' => 'Córdoba',
+                                                    '27' => 'Real Brasileño',
+                                                    '28' => 'Boliviano'
+                                                ),
+                                            ),
+                                            null, ['class' => 'form-control'])
+                                        
+                                        !!} 
+
+                                    </div>                                    
                   
                                         <!-- Eliminar -->
 	                                        {!! Form::input('hidden', 'lng_idequipo_medico', 127) !!}
