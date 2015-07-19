@@ -463,7 +463,7 @@
             	<div class="col-md-4 col-sm-6 col-xs-8">
                 	<div class="toggle-make">
                 		<a href="#"><i class="fa fa-navicon"></i></a>
-                    	<span>Browse by body style</span>
+                    	<span>troovami.com</span>
                     </div>
                 </div>
             	<div class="col-md-8 col-sm-6 col-xs-4">
@@ -471,7 +471,6 @@
                     	<li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
                     	<li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
                     	<li class="googleplus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    	<li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
                     </ul>
                 </div>
           	</div>
@@ -480,14 +479,30 @@
     		<div class="container">
                	<div class="row">
                   	<ul class="owl-carousel carousel-alt" data-columns="6" data-autoplay="" data-pagination="no" data-arrows="yes" data-single-item="no" data-items-desktop="6" data-items-desktop-small="4" data-items-mobile="3" data-items-tablet="4">
-                    	<li class="item"> <a href="results-list.html"><img src="autostars/images/body-types/wagon.png" alt=""> <span>Wagon</span></a></li>
-                    	<li class="item"> <a href="results-list.html"><img src="autostars/images/body-types/minivan.png" alt=""> <span>Minivan</span></a></li>
-                    	<li class="item"> <a href="results-list.html"><img src="autostars/images/body-types/coupe.png" alt=""> <span>Coupe</span></a></li>
-                    	<li class="item"> <a href="results-list.html"><img src="autostars/images/body-types/convertible.png" alt=""> <span>Convertible</span></a></li>
-                    	<li class="item"> <a href="results-list.html"><img src="autostars/images/body-types/crossover.png" alt=""> <span>Crossover</span></a></li>
-                    	<li class="item"> <a href="results-list.html"><img src="autostars/images/body-types/suv.png" alt=""> <span>SUV</span></a></li>
-                    	<li class="item"> <a href="results-list.html#"><img src="autostars/images/body-types/minicar.png" alt=""> <span>Minicar</span></a></li>
-                    	<li class="item"> <a href="results-list.html"><img src="autostars/images/body-types/sedan.png" alt=""> <span>Sedan</span></a></li>
+                    	
+                        @for ($i = 0; $i < 5; $i++)
+                            <li class="item">                           
+                                <a href="#" title="house.troovami.com">
+                                    <h1><i class="fa fa-home" style="color: #777"></i></h1>
+                                </a>                            
+                            </li>
+                        	<li class="item">                             
+                                <a href="#" title="mobile.troovami.com">
+                                    <h1><i class="fa fa-mobile" style="color: #777"></i></h1>
+                                </a>                            
+                            </li>
+                            <li class="item" title="learn.troovami.com">                             
+                                <a href="#">
+                                    <h1><i class="fa fa-leanpub" style="color: #777"></i></h1>
+                                </a>                            
+                            </li>
+                            <li class="item" title="hotel.troovami.com">                             
+                                <a href="#">
+                                    <h1><i class="fa fa-bed" style="color: #777"></i></h1>
+                                </a>                            
+                            </li>                                                         
+                        @endfor
+
                   	</ul>
                	</div>
             </div>

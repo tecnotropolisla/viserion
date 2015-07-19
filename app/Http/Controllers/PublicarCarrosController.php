@@ -41,6 +41,8 @@ class PublicarCarrosController extends Controller
         $combustible = DB::table('cat_datos_maestros')->where('str_tipo', 'combustible_vehiculos')->lists('str_descripcion','id');
         $paises = DB::table('cat_paises')->orderBy('str_paises')->lists('str_paises','id');
         
+
+
         return \View::make('publicar', compact('marcas','modelos','tipo_vehiculos','colores','respuesta','seguridad','sonido','exterior',
         		'confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible','paises'));
     }
@@ -97,6 +99,7 @@ class PublicarCarrosController extends Controller
             'str_precio_venta' =>   'required|max:255',
             'lng_idpais' =>   'required|max:255',
     		'lng_idcaracteristica' =>    'required',
+            'int_cilindros' => 'required|max:255',
     		'blb_img0' =>    'required|image:jpeg,png,jpg',
             'blb_img1' =>    'required|image:jpeg,png,jpg',
             'blb_img2' =>    'required|image:jpeg,png,jpg',
@@ -144,6 +147,7 @@ class PublicarCarrosController extends Controller
             'lng_iddireccion' =>   $data['lng_iddireccion'],
             'lng_idtransmision' =>   $data['lng_idtransmision'],
         	'str_comentario' =>   $data['str_comentario'],
+            'int_cilindros' => $data['int_cilindros'],
         ]);
 
         $lastInsertedId = $vehiculo->id;
@@ -176,6 +180,51 @@ class PublicarCarrosController extends Controller
   
         return $imagenesVehiculos;
     }
+
+    public function formulario($valor)
+    {
+
+        $formulario = $this->carros();
+        return $formulario;
+    }
+
+    public function carros()
+    {
+        $marcas = DB::table('cat_marcas')->orderBy('str_marca')->lists('str_marca','id');
+        $modelos = DB::table('tbl_modelos')->where('lng_idmarca', '62')->lists('str_modelo','id');
+        $tipo_vehiculos = DB::table('cat_datos_maestros')->where('str_tipo', 'vehiculos')->lists('str_descripcion','id');
+        $colores = DB::table('cat_datos_maestros')->where('str_tipo', 'color')->lists('str_descripcion','id');
+        $respuesta= DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('str_descripcion','id');
+        $seguridad = DB::table('cat_datos_maestros')->where('str_tipo', 'seguridad_vehiculos')->lists('str_descripcion','id');
+        $sonido = DB::table('cat_datos_maestros')->where('str_tipo', 'sonido_vehiculos')->lists('str_descripcion','id');
+        $exterior = DB::table('cat_datos_maestros')->where('str_tipo', 'exterior_vehiculos')->lists('str_descripcion','id');
+        $confort = DB::table('cat_datos_maestros')->where('str_tipo', 'confort_vehiculos')->lists('str_descripcion','id');
+        $accesorios_internos = DB::table('cat_datos_maestros')->where('str_tipo', 'accesoriosInternos_vehiculos')->lists('str_descripcion','id');
+        $direccion = DB::table('cat_datos_maestros')->where('str_tipo', 'direccion_vehiculos')->lists('str_descripcion','id');
+        $estereo = DB::table('cat_datos_maestros')->where('str_tipo', 'estereo_vehiculos')->lists('str_descripcion','id');
+        $transmision = DB::table('cat_datos_maestros')->where('str_tipo', 'transmision_vehiculos')->lists('str_descripcion','id');
+        $tapizado = DB::table('cat_datos_maestros')->where('str_tipo', 'tapizado_vehiculos')->lists('str_descripcion','id');
+        $vidrios = DB::table('cat_datos_maestros')->where('str_tipo', 'vidrios_vehiculos')->lists('str_descripcion','id');
+        $traccion = DB::table('cat_datos_maestros')->where('str_tipo', 'traccion_vehiculos')->lists('str_descripcion','id');
+        $combustible = DB::table('cat_datos_maestros')->where('str_tipo', 'combustible_vehiculos')->lists('str_descripcion','id');
+        $paises = DB::table('cat_paises')->orderBy('str_paises')->lists('str_paises','id');
+        
+
+        
+        return \View::make('carros', compact('marcas','modelos','tipo_vehiculos','colores','respuesta','seguridad','sonido','exterior',
+                'confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible','paises'));
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     public function dependiente($valor)
     {

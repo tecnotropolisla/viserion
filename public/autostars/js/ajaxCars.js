@@ -1,6 +1,6 @@
 var divname;
 var lng_idmarca = document.getElementById('lng_idmarca');
-var lng_idmodelo = document.getElementById('lng_idmodelo');
+
 var int_recorrido = document.getElementById('int_recorrido');
 
 var http = getXmlHttpObject();
@@ -95,8 +95,20 @@ function getXmlHttpObject()
     return xmlhttp;
 }
 
+
+function formularioDinamico(valor){
+   
+    divname = "formulario";
+    //http.open("GET", 'paginas' + url, true);
+    http.open("GET", 'Formulario/'+ valor, true);
+    http.onreadystatechange = handleHttpResponse;
+    http.send(null);
+
+}
+
 function dependiente(valor){
 
+    var lng_idmodelo = document.getElementById('lng_idmodelo');
 	lng_idmodelo.value = "";
 	
     divname = "dependiente";
@@ -109,17 +121,20 @@ function dependiente(valor){
 
 function idmodelo(valor){
 
-	//alert(valor);
-	lng_idmodelo.value = valor;
-	
+	lng_idmodelo.value = valor;	
 }
 
-document.getElementById('blb_img0').addEventListener('change', blb_img0, false);
-document.getElementById('blb_img1').addEventListener('change', blb_img1, false);
-document.getElementById('blb_img2').addEventListener('change', blb_img2, false);
-document.getElementById('blb_img3').addEventListener('change', blb_img3, false);
-document.getElementById('blb_img4').addEventListener('change', blb_img4, false);
-document.getElementById('blb_img5').addEventListener('change', blb_img5, false);
+
+function oir(){
+
+    document.getElementById('blb_img0').addEventListener('change', blb_img0, false);
+    document.getElementById('blb_img1').addEventListener('change', blb_img1, false);
+    document.getElementById('blb_img2').addEventListener('change', blb_img2, false);
+    document.getElementById('blb_img3').addEventListener('change', blb_img3, false);
+    document.getElementById('blb_img4').addEventListener('change', blb_img4, false);
+    document.getElementById('blb_img5').addEventListener('change', blb_img5, false);
+
+}
 
 function blb_img0(evt) {
 
@@ -269,4 +284,14 @@ function blb_img5(evt) {
 
         reader.readAsDataURL(f);
     }
+}
+
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+
+    return true;
 }
