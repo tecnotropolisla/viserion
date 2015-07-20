@@ -110,6 +110,10 @@ function dependiente(valor){
     var lng_idmodelo = document.getElementById('lng_idmodelo');
 	lng_idmodelo.value = "";
 	
+	var ele = document.getElementById("modelos_validar")
+    ele.setAttribute('class', 'fa fa-asterisk');
+    ele.setAttribute('style', 'color: red');
+	
     divname = "dependiente";
     //http.open("GET", 'paginas' + url, true);
     http.open("GET", 'Publicar-Vehiculo/'+ valor, true);
@@ -304,11 +308,13 @@ function validar(valor, nombre){
 
         var ele = document.getElementById(nombre+"_validar")
         ele.setAttribute('class', 'fa fa-asterisk');
+        ele.setAttribute('style', 'color: red');
 
     }else{
 
         var ele = document.getElementById(nombre+"_validar")
         ele.setAttribute('class', 'fa fa-check');
+        ele.setAttribute('style', 'color: green');
 
     }
 }
@@ -316,5 +322,6 @@ function validar(valor, nombre){
 function validarRadio(nombre){
 
     var ele = document.getElementById(nombre+"_validar")
-    ele.setAttribute('class', 'fa fa-check');  
+    ele.setAttribute('class', 'fa fa-check');
+    ele.setAttribute('style', 'color: green');
 }

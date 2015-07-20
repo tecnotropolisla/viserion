@@ -106,160 +106,224 @@
                            
                             <div class="regular-signup">
 
-                                <h3> <i class="fa fa-user-plus"></i> Crear Cuenta</h3>
+								<h3> <i class="fa fa-user-plus"></i> Crear Cuenta</h3>
+								{!! Form::open(['route' => 'register', 'class' => 'form-horizontal']) !!} 
+								
+								  <div class="form-group">
+								  
+								    {!! Form::label('name', 'Usuario',['class' => 'col-sm-2 control-label']) !!}
+								    <i id="name_validar" class="fa fa-asterisk" style="color:red;"></i>
+								    <div class="col-sm-8">
+								      
+										<div class="input-group">
+											<span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
+											{!! Form::input('text', 'name', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
+								        </div>
+								
+								    </div>
+								
+								  </div>
+								  
+								  <div class="form-group">
+								  
+								  	{!! Form::label('str_nombre', 'Nombre',['class' => 'col-sm-2 control-label']) !!} 
+									<i id="str_nombre_validar" class="fa fa-asterisk" style="color:red;"></i>
+								       
+								    <div class="col-sm-8">
+								
+										<div class="input-group">
+								        	<span class="input-group-addon" id="basic-addon1"><i class="fa fa-pencil-square-o"></i></span>
+								            {!! Form::input('text', 'str_nombre', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
+										</div>
+										      
+								    </div>
+								    
+								  </div>
+								  
+								    <div class="form-group">
+								  
+										<i id="str_apellido_validar" class="fa fa-asterisk" style="color:red;"></i>
+								        {!! Form::label('str_apellido', 'Apellido', ['class' => 'col-sm-2 control-label']) !!}
+								    	<div class="col-sm-8">
+								
+										<div class="input-group">
+											<span class="input-group-addon" id="basic-addon1"><i class="fa fa-pencil-square-o"></i></span>
+											{!! Form::input('text', 'str_apellido', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
+										</div>
+										      
+								    </div>
+								    
+								  </div>
+								  
+								  <div class="form-group">
+								  
+								    <i id="lng_idgenero_validar" class="fa fa-asterisk" style="color:red;"></i>
+									{!! Form::label('lng_idgenero', 'Género',['class' => 'col-sm-2 control-label']) !!}    
+								    <div class="col-sm-8">
+								
+										<div class="input-group">
+								        	<span class="input-group-addon" id="basic-addon1"><i class="fa fa-venus-mars"></i></span>
+								            	{!! Form::select('lng_idgenero', 
+								                	(['0' => 'Seleccione'] + $genero), 
+								                    null, 
+								                    ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+								                    ) 
+								                !!}
+								        </div>        
+								    </div>
+								    
+								  </div>
+								  
+								  <div class="form-group">
+								  
+								    <i id="dmt_fecha_nacimiento_validar" class="fa fa-asterisk" style="color:red;"></i>
+									{!! Form::label('dmt_fecha_nacimiento', 'Cumpleaños',['class' => 'col-sm-2 control-label']) !!}    
+								    <div class="col-sm-8">
+								
+										<div class="input-group">
+								        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-birthday-cake"></i></span>
+								        	{!! Form::date('dmt_fecha_nacimiento', \Carbon\Carbon::now(),['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
+								        </div>      
+								    </div>
+								    
+								  </div>
+								  
+								  <div class="form-group">
+								  
+									<i id="str_ididentificacion_validar" class="fa fa-asterisk" style="color:red;"></i>
+								    {!! Form::label('str_ididentificacion', 'Cédula',['class' => 'col-sm-2 control-label']) !!}    
+								    <div class="col-sm-8">
+								
+										<div class="input-group">
+								        	<span class="input-group-addon" id="basic-addon1"><i class="fa fa-user-secret"></i></span>
+								            {!! Form::input('text', 'str_ididentificacion', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
+								       </div>      
+								    </div>
+								    
+								  </div>
+								  
+								  <div class="form-group">
+								  
+								    <i id="lng_idpais_validar" class="fa fa-asterisk" style="color:red;"></i>
+									{!! Form::label('lng_idpais', 'País',['class' => 'col-sm-2 control-label']) !!}    
+								    <div class="col-sm-8">
+								
+										<div class="input-group">
+								        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-flag"></i></span>
+								        	{!! Form::select('lng_idpais', 
+								            	(['' => 'Seleccione'] + $paises), 
+								                null, 
+								                ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+								                ) 
+								            !!}
+								        </div>      
+								    </div>
+								    
+								  </div>
+								
+								  <div class="form-group">
+								  
+								    <i id="str_telefono_validar" class="fa fa-asterisk" style="color:red;"></i>
+									{!! Form::label('str_telefono', 'Teléfono',['class' => 'col-sm-2 control-label']) !!}    
+								    <div class="col-sm-8">
+								
+										<div class="input-group">
+								        	<span class="input-group-addon" id="basic-addon1"><i class="fa fa-phone-square"></i></span>
+								            	{!! Form::input('text', 'str_telefono', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
+								        </div>      
+								    </div>
+								    
+								  </div>
+								  
+								  <div class="form-group">
+								  
+								    <i id="email_validar" class="fa fa-asterisk" style="color:red;"></i>
+									{!! Form::label('email', 'Correo',['class' => 'col-sm-2 control-label']) !!}    
+								    <div class="col-sm-8">
+								                                
+										<div class="input-group">
+								        	<span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope-o"></i></span>
+								            {!! Form::email('email', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
+								        </div>      
+								    </div>
+								    
+								  </div>
+								  
+								  <div class="form-group">
+								  
+								    {!! Form::label('str_twitter', 'Twitter',['class' => 'col-sm-2 control-label']) !!}
+								    <div class="col-sm-8">
+								                                        
+										<div class="input-group">
+								        	<span class="input-group-addon" id="basic-addon1"><i class="fa fa-twitter"></i></span>
+								            {!! Form::input('text', 'str_twitter', '', ['class'=> 'form-control']) !!}
+								        </div>      
+								    </div>
+								    
+								  </div>
+								  
+								  <div class="form-group">
+								  
+									{!! Form::label('str_facebook', 'Facebook',['class' => 'col-sm-2 control-label']) !!}	    
+								    <div class="col-sm-8">
+								                                        
+										<div class="input-group">
+								        	<span class="input-group-addon" id="basic-addon1"><i class="fa fa-facebook"></i></span>
+								        	{!! Form::input('text', 'str_facebook', '', ['class'=> 'form-control']) !!}
+								        </div>      
+								    </div>
+								    
+								  </div> 
+								  
+								  <div class="form-group">
+								  
+								    {!! Form::label('str_instagram', 'Instagram',['class' => 'col-sm-2 control-label']) !!}
+								    <div class="col-sm-8">
+								                                        
+										<div class="input-group">
+								        	<span class="input-group-addon" id="basic-addon1"><i class="fa fa-instagram"></i></span>
+								            {!! Form::input('text', 'str_instagram', '', ['class'=> 'form-control']) !!}
+								        </div>      
+								    </div>
+								    
+								  </div>     
+								 
+								  <div class="form-group">
+								  
+								    <i id="password_validar" class="fa fa-asterisk" style="color:red;"></i>
+									{!! Form::label('password', 'Clave',['class' => 'col-sm-2 control-label']) !!}    
+								    <div class="col-sm-8">
+										             
+								        <div class="input-group">
+								        	<span class="input-group-addon" id="basic-addon1"><i class="fa fa-key"></i></span>
+								            {!! Form::password('password', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
+								        </div>      
+								    </div>
+								    
+								  </div>  
+								        
+								  <div class="form-group">
+								  
+								    <i id="password_confirmation_validar" class="fa fa-asterisk" style="color:red;"></i>
+									{!! Form::label('password_confirmation', 'Confirmar',['class' => 'col-sm-2 control-label']) !!}    
+								    <div class="col-sm-8">
+								                                
+										<div class="input-group">
+								        	<span class="input-group-addon" id="basic-addon1"><i class="fa fa-key"></i></span>
+								            	{!! Form::password('password_confirmation', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
+								        </div>       
+								    </div>
+								    
+								  </div>
+								  
+								  <div class="form-group">
+								    <div class="col-sm-offset-2 col-sm-8">
+										{!! Form::input('hidden', 'lng_idservicio','3') !!}
+								        {!! Form::submit('Guardar',['class' => 'btn btn-primary btn-lg btn-block']) !!}
+								    </div>
+								  </div>
+								{!! Form::close() !!}
 
-                                 {!! Form::open(['route' => 'register', 'class' => 'form']) !!}
-
-                                    <div class="form-group col-md-6">
-
-                                        <i id="name_validar" class="fa fa-asterisk"></i>
-                                        {!! Form::label('name', 'Usuario') !!}
-                                        <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
-                                          {!! Form::input('text', 'name', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
-                                        </div>
-
-                                        <i id="str_apellido_validar" class="fa fa-asterisk"></i>
-                                        {!! Form::label('str_apellido', 'Apellido') !!}
-                                        <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-pencil-square-o"></i></span>
-                                          {!! Form::input('text', 'str_apellido', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
-                                        </div>
-                                    </div>
-                                                            
-                                    <div class="form-group col-md-6">
-                                        
-                                        <i id="str_nombre_validar" class="fa fa-asterisk"></i>
-                                        {!! Form::label('str_nombre', 'Nombre') !!}
-                                        <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-pencil-square-o"></i></span>
-                                          {!! Form::input('text', 'str_nombre', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
-                                        </div>
-
-                                        <i id="lng_idgenero_validar" class="fa fa-asterisk"></i>
-                                        {!! Form::label('lng_idgenero', 'Género') !!}
-                                        <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-venus-mars"></i></span>
-                                            {!! Form::select('lng_idgenero', 
-                                                (['0' => 'Seleccione'] + $genero), 
-                                                null, 
-                                                ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
-                                            ) 
-                                            !!}
-                                        </div>  
-
-                                    </div>
-
-                                    <div class="form-group col-md-6">
-                                        
-                                        <i id="dmt_fecha_nacimiento_validar" class="fa fa-asterisk"></i>
-                                        {!! Form::label('dmt_fecha_nacimiento', 'Fecha de Nacimiento') !!}
-                                        <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-birthday-cake"></i></span>
-                                          {!! Form::date('dmt_fecha_nacimiento', \Carbon\Carbon::now(),['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
-                                        </div>
-
-                                        <i id="str_ididentificacion_validar" class="fa fa-asterisk"></i>
-                                        {!! Form::label('str_ididentificacion', 'Cédula / N° de Indentidad') !!}
-                                        <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user-secret"></i></span>
-                                          {!! Form::input('text', 'str_ididentificacion', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
-                                        </div>
-
-                                    </div>                        
-
-                                    <div class="form-group col-md-6">
-
-                                        <i id="lng_idpais_validar" class="fa fa-asterisk"></i>
-                                        {!! Form::label('lng_idpais', 'País') !!}
-                                        <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-flag"></i></span>
-                                            {!! Form::select('lng_idpais', 
-                                                (['' => 'Seleccione'] + $paises), 
-                                                null, 
-                                                ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
-                                            ) 
-                                            !!}
-                                        </div>
-
-                                        <i id="str_telefono_validar" class="fa fa-asterisk"></i>
-                                        {!! Form::label('str_telefono', 'Teléfono') !!}
-                                        <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-phone-square"></i></span>
-                                          {!! Form::input('text', 'str_telefono', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
-                                        </div>                                        
-
-                                    </div>
-
-                                    <div class="form-group col-md-6">
-
-                                        <i id="email_validar" class="fa fa-asterisk"></i>
-                                        {!! Form::label('email', 'Correo Electrónico') !!}
-                                        
-                                        <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope-o"></i></span>
-                                          {!! Form::email('email', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
-                                        </div>
-
-                                        {!! Form::label('str_twitter', 'Twitter') !!}
-                                        <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-twitter"></i></span>
-                                          {!! Form::input('text', 'str_twitter', '', ['class'=> 'form-control']) !!}
-                                        </div>
-
-                                    </div>
-                                    
-                                    <div class="form-group col-md-6">
-
-                                        {!! Form::label('str_facebook', 'Facebook') !!}
-                                        <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-facebook"></i></span>
-                                          {!! Form::input('text', 'str_facebook', '', ['class'=> 'form-control']) !!}
-                                        </div>
-
-                                        {!! Form::label('str_instagram', 'Instagram') !!}
-                                        <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-instagram"></i></span>
-                                          {!! Form::input('text', 'str_instagram', '', ['class'=> 'form-control']) !!}
-                                        </div>
-
-                                    </div>
-                                  
-                                    <div class="form-group col-md-6">
-                                        
-                                        <i id="password_validar" class="fa fa-asterisk"></i>
-                                        {!! Form::label('password', 'Contraseña') !!}
-                                        
-                                        <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-key"></i></span>
-                                          {!! Form::password('password', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
-                                        </div>                                        
-         
-                                    </div>
-                                        
-                                    <div class="form-group col-md-6">
-
-                                        <i id="password_confirmation_validar" class="fa fa-asterisk"></i>
-                                        {!! Form::label('password_confirmation', 'Confirmar Contraseña') !!}
-                                        
-                                        <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-key"></i></span>
-                                          {!! Form::password('password_confirmation', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
-                                        </div> 
-
-
-
-
-                                    </div>
-
-                                    <div>
-
-                                        {!! Form::input('hidden', 'lng_idservicio','3') !!}
-                                        {!! Form::submit('Guardar',['class' => 'btn btn-primary btn-lg btn-block']) !!}
-
-                                    </div>
-
-                                {!! Form::close() !!}
                             </div>
                             
                         </section>
