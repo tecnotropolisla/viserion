@@ -325,3 +325,30 @@ function validarRadio(nombre){
     ele.setAttribute('class', 'fa fa-check');
     ele.setAttribute('style', 'color: green');
 }
+
+
+function soloEnVenezuela(nombre){
+
+	var t = document.getElementById(nombre);
+	var selectedText = t.options[t.selectedIndex].text;
+			
+	if(selectedText == "Venezuela"){
+		
+		document.getElementById('monedas').selectedIndex = 0;
+		document.getElementById('monedas').disabled = false;
+		
+	}else{
+
+		document.getElementById('monedas').selectedIndex = 0;
+		document.getElementById('monedas').disabled = true;
+		
+	}
+
+}
+
+
+
+
+
+
+

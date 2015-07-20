@@ -68,19 +68,28 @@
                     </div>
 
                     <div class="col-md-8 col-sm-8">
+
+                        <div id="formulario">
                         
-                        <h3>
-                            {!! Form::label('', 'Seleccione el tipo de vehículo:') !!}
-                        </h3>
-
-                        <div class="btn-group" role="group" aria-label="...">
-                          <button type="button" class="btn btn-default fa fa-car" onclick="formularioDinamico('carros')"> Carros</button>
-                          <button type="button" class="btn btn-default fa fa-motorcycle" onclick="formularioDinamico('motocicletas')"> Motocicletas</button>
-                          <button type="button" class="btn btn-default fa fa-ship" onclick="formularioDinamico('embarcaciones')"> Embarcaciones</button>
-                          <button type="button" class="btn btn-default fa fa-plane" onclick="formularioDinamico('aeronaves')"> Aeronaves</button>
+		                    {!! Form::label('', 'Seleccione el tipo de vehículo:') !!}
+		                  
+		                    <div class="single-listing-actions ">
+		                        <div class="btn-group" role="group">
+		                            <a href="#" class="btn btn-default" title="Carros" onclick="formularioDinamico('carros')"><i class="fa fa-car"></i> <span> Carros</span></a>
+		                            <a href="#" class="btn btn-default" title="Motocicletas" onclick="formularioDinamico('motocicletas')"><i class="fa fa-motorcycle"></i> <span> Motocicletas</span></a>
+		                            <a href="#" class="btn btn-default" title="Embarcaciones" onclick="formularioDinamico('embarcaciones')"><i class="fa fa-ship"></i> <span> Embarcaciones</span></a>
+		                            <a href="#" class="btn btn-default" title="Aeronaves" onclick="formularioDinamico('aeronaves')"><i class="fa fa-plane"></i> <span> Aeronaves</span></a>
+		                        </div>
+		                        
+		                    </div> 
+							
+							<br>
+							
+	                        <p style="text-align: center;font-size: 100px;">
+	                        	<i class="fa fa-smile-o"></i>
+	                        </p>
+	                        
                         </div>
-
-                        <div id="formulario"></div>
 
                     </div>
 

@@ -29,7 +29,7 @@
   ================================================== -->
 <script src="autostars/js/modernizr.js"></script><!-- Modernizr -->
 </head>
-<body class="home">
+<body class="home" oncontextmenu="return false" onkeydown="return false">
 
 @yield('content')
   

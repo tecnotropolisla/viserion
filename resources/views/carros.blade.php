@@ -16,6 +16,8 @@
                                         <i class="fa fa-pencil-square-o"></i>
                                         Descripción del Vehículo
                                     </h3>
+                                    
+									<div class="lighter"><p>¿Cómo es tu vehículo?</p></div>
 
                                                     <div class="form-group col-md-4">
                                                             
@@ -307,8 +309,6 @@
 
                                     <div class="lighter"><p>Marca todas las caraterísticas que posee tu vehículo</p></div>
 
-
-                               
                                         <div class="panel-body">
 
 
@@ -473,14 +473,14 @@
                                             </div>
                                             <div class="form-group col-md-4">
                                                 {!! Form::label('blb_img1', 'Imagen N° 2') !!}
-                                                {!! Form::file('blb_img1') !!}
+                                                {!! Form::file('blb_img1',['onclick' =>'oir()']) !!}
                                                 <output id="img1">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
                                                 </output>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 {!! Form::label('blb_img2', 'Imagen N° 3') !!}
-                                                {!! Form::file('blb_img2') !!}
+                                                {!! Form::file('blb_img2',['onclick' =>'oir()']) !!}
                                                 <output id="img2">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
                                                 </output>
@@ -492,21 +492,21 @@
 
                                             <div class="form-group col-md-4">
                                              {!! Form::label('blb_img3', 'Imagen N° 4') !!}
-                                                {!! Form::file('blb_img3') !!}
+                                                {!! Form::file('blb_img3',['onclick' =>'oir()']) !!}
                                                 <output id="img3">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
                                                 </output>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 {!! Form::label('blb_img4', 'Imagen N° 5') !!}
-                                                {!! Form::file('blb_img4') !!}
+                                                {!! Form::file('blb_img4',['onclick' =>'oir()']) !!}
                                                 <output id="img4">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
                                                 </output>
                                             </div> 
                                             <div class="form-group col-md-4">
                                                 {!! Form::label('blb_img5', 'Imagen N° 6') !!}
-                                                {!! Form::file('blb_img5') !!}
+                                                {!! Form::file('blb_img5',['onclick' =>'oir()']) !!}
                                                 <output id="img5">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
                                                 </output>
@@ -538,7 +538,7 @@
 
                                     <div class="lighter">
                                         <p>
-                                            Aun puedes revisar todos los datos introducidos
+                                            Casi finalizamos...
                                         </p>
                                     </div>
 
@@ -549,7 +549,7 @@
                                         {!! Form::select('lng_idpais', 
                                                             (['' => 'Seleccione'] + $paises), 
                                                             null, 
-                                                            ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+                                                            ['class' => 'form-control','onchange' => 'validar(this.value,this.name);soloEnVenezuela(this.name)']
                                                         ) 
                                         !!} 
 
@@ -565,52 +565,12 @@
 
                                     <div class="form-group ">
 
-                                        <i id="monedas_validar" class="fa fa-asterisk" style="color:red;"></i>
-                                        {!! Form::label('monedas', 'Moneda') !!}
+                                        <i id="monedas_validar"></i>
+                                        {!! Form::label('monedas', 'Moneda (Solo para Venezuela)') !!}
 
                                         {!!
 
-                                         Form::select('monedas', array( 
-                                                '0' => 'Seleccione',
-                                                'Dolares' => array(
-
-                                                    '1' => 'Dólar del Caribe Oriental',
-                                                    '2' => 'Dólar Bahameño',
-                                                    '3' => 'Dólar de Barbados',
-                                                    '4' => 'Dólar Beliceño',
-                                                    '5' => 'Dólar Canadiense',
-                                                    '6' => 'Dólar Estadounidense',
-                                                    '7' => 'Dolar Guyanés',
-                                                    '8' => 'Dólar Jamaicano',
-                                                    '9' => 'Dólar Surinamés',
-                                                    '10' => 'Dólar Trinitense'
-                                                ),
-
-                                                'Pesos' => array(
-                                                    '11' => 'Peso Argentino',
-                                                    '12' => 'Peso Chileno',
-                                                    '13' => 'Peso Colombiano',
-                                                    '14' => 'Peso Cubano',
-                                                    '15' => 'Peso Mexicano',
-                                                    '16' => 'Peso Dominicano',
-                                                    '17' => 'Peso Uruguayo'
-                                                ),
-
-                                                'Otras' => array(
-                                                    '18' => 'Bolivar',
-                                                    '19' => 'Colón Costarricense',
-                                                    '20' => 'Quetzal',
-                                                    '21' => 'Gourde',
-                                                    '22' => 'Lempira',
-                                                    '23' => 'Balboa',
-                                                    '24' => 'Guaraní',
-                                                    '25' => 'Nuevo Sol',
-                                                    '26' => 'Córdoba',
-                                                    '27' => 'Real Brasileño',
-                                                    '28' => 'Boliviano'
-                                                ),
-                                            ),
-                                            null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)'])
+                                         	Form::select('monedas', array('0' => 'Seleccione', '1' => 'Bolívar', '2' => 'Dólar'), 'S',['class' => 'form-control'])
                                         
                                         !!} 
 
