@@ -80,7 +80,7 @@
                           <button type="button" class="btn btn-default fa fa-plane" onclick="formularioDinamico('aeronaves')"> Aeronaves</button>
                         </div>
 
-                        <div id="formulario">.</div>
+                        <div id="formulario"></div>
 
                     </div>
 

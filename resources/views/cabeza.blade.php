@@ -61,7 +61,7 @@
             <div class="container sp-cont">
                 <div class="search-function">
                     <a href="#" class="search-trigger"><i class="fa fa-search"></i></a>
-                    <span><i class="fa fa-phone"></i> Call us <strong>1800 011 2211</strong> <em>or</em> search</span>
+                    <span>Buscar vehículos</span>
                 </div>
                 <a href="#" class="visible-sm visible-xs" id="menu-toggle"><i class="fa fa-bars"></i></a>
                 <!-- Main Navigation -->
@@ -470,7 +470,7 @@
                 	<ul class="utility-icons social-icons social-icons-colored">
                     	<li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
                     	<li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    	<li class="googleplus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    	<li class="" style="background-color:#3f729b"><a href="#"><i class="fa fa-instagram"></i></a></li>
                     </ul>
                 </div>
           	</div>

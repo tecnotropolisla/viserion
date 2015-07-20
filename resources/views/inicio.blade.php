@@ -15,9 +15,6 @@
     <!-- Start Body Content -->
 <!-- Actions bar -->
 
-
-
-
     <div class="actions-bar tsticky">
         <div class="container">
             <div class="row">

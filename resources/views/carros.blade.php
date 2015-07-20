@@ -215,23 +215,7 @@
 
                                                         </div>
 
-
-
-                                                      <div class="form-group col-md-2">
-                                                            
-                                                            <i id="lng_idnegociable_validar" class="fa fa-asterisk"></i>
-                                                            {!! Form::label('lng_idnegociable', 'Negociable') !!}<br>
-
-                                                            @foreach ($respuesta as $valor => $descripcion)
-
-                                                                {!! Form::radio('lng_idnegociable', $valor) !!}
-                                                                {!! Form::label('lng_idnegociable', $descripcion) !!} 
-
-                                                            @endforeach
-
-                                                        </div>
-
-                                                      <div class="form-group col-md-2">
+                                                        <div class="form-group col-md-4">
                                                             
                                                             <i id="lng_idchocado_validar" class="fa fa-asterisk"></i>
 
@@ -239,34 +223,46 @@
 
                                                             @foreach ($respuesta as $valor => $descripcion)
 
-                                                                {!! Form::radio('lng_idchocado', $valor) !!}
+                                                                {!! Form::radio('lng_idchocado', $valor, null,['onclick' => 'validarRadio(this.name)']) !!}
                                                                 {!! Form::label('lng_idchocado', $descripcion) !!} 
 
                                                             @endforeach
 
-                                                      </div>
+                                                        </div>
 
                                             </div>
 
                                         <div class="tab-content col-md-12">
 
+                                                      <div class="form-group col-md-3">
+                                                            
+                                                            <i id="lng_idnegociable_validar" class="fa fa-asterisk"></i>
+                                                            {!! Form::label('lng_idnegociable', 'Negociable') !!}<br>
 
+                                                            @foreach ($respuesta as $valor => $descripcion)
 
-                                                      <div class="form-group col-md-4">
+                                                                {!! Form::radio('lng_idnegociable', $valor, null,['onclick' => 'validarRadio(this.name)']) !!}
+                                                                {!! Form::label('lng_idnegociable', $descripcion) !!} 
+
+                                                            @endforeach
+
+                                                      </div>
+
+                                                      <div class="form-group col-md-3">
                                                             
                                                             <i id="lng_idfinanciamiento_validar" class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idfinanciamiento', 'Financiamiento') !!}<br>
 
                                                             @foreach ($respuesta as $valor => $descripcion)
 
-                                                                {!! Form::radio('lng_idfinanciamiento', $valor) !!}
+                                                                {!! Form::radio('lng_idfinanciamiento', $valor, null,['onclick' => 'validarRadio(this.name)']) !!}
                                                                 {!! Form::label('lng_idfinanciamiento', $descripcion) !!} 
 
                                                             @endforeach
 
                                                         </div>
 
-                                                      <div class="form-group col-md-4">
+                                                      <div class="form-group col-md-3">
                                                             
                                                             <i id="lng_idunicodueno_validar" class="fa fa-asterisk"></i>
  
@@ -274,20 +270,20 @@
 
                                                             @foreach ($respuesta as $valor => $descripcion)
 
-                                                                {!! Form::radio('lng_idunicodueno', $valor) !!}
+                                                                {!! Form::radio('lng_idunicodueno', $valor, null,['onclick' => 'validarRadio(this.name)']) !!}
                                                                 {!! Form::label('lng_idunicodueno', $descripcion) !!} 
 
                                                             @endforeach
                                                         </div>
 
-                                                      <div class="form-group col-md-4">
+                                                      <div class="form-group col-md-3">
                                                             
                                                             <i id="lng_idmotorreparado_validar" class="fa fa-asterisk"></i>
                                                             {!! Form::label('lng_idmotorreparado', 'Motor Reparado') !!}<br>
 
                                                             @foreach ($respuesta as $valor => $descripcion)
 
-                                                                {!! Form::radio('lng_idmotorreparado', $valor) !!}
+                                                                {!! Form::radio('lng_idmotorreparado', $valor, null,['onclick' => 'validarRadio(this.name)']) !!}
                                                                 {!! Form::label('lng_idmotorreparado', $descripcion) !!} 
 
                                                             @endforeach

@@ -312,3 +312,9 @@ function validar(valor, nombre){
 
     }
 }
+
+function validarRadio(nombre){
+
+    var ele = document.getElementById(nombre+"_validar")
+    ele.setAttribute('class', 'fa fa-check');  
+}
