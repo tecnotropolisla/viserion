@@ -18,31 +18,31 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2>Únete a Troovami!</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel.</p>
+                        <h2>Bienvenidos a Troovami!</h2>
+                        <p>La nueva forma de publicar y vender tu vehículo, únete a la creciente comunidad de vendedores más grande de latinoamérica.</p>
                         <div class="spacer-20"></div>
                         <div class="icon-box ibox-rounded ibox-light ibox-effect">
                             <div class="ibox-icon">
-                                <i class="fa fa-shopping-cart"></i>
+                                <i class="fa fa-coffee"></i>
                             </div>
-                            <h3>Sell your car to make money</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus.</p>
+                            <h3>Tómate un café mientras vendes tu vehículo</h3>
+                            <p>Nosotros te ayudaremos a vender</p>
                         </div>
                         <div class="spacer-20"></div>
                         <div class="icon-box ibox-rounded ibox-light ibox-effect">
                             <div class="ibox-icon">
-                                <i class="fa fa-list-alt"></i>
+                                <i class="fa fa-share-alt"></i>
                             </div>
-                            <h3>Flexible listing options</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus.</p>
+                            <h3>Compartir tu publicación será un placer</h3>
+                            <p>Nuestras redes sociales serán tu gran aliado para vender rápida y cómodamente.</p>
                         </div>
                         <div class="spacer-20"></div>
                         <div class="icon-box ibox-rounded ibox-light ibox-effect">
                             <div class="ibox-icon">
-                                <i class="fa fa-cogs"></i>
+                                <i class="fa fa-search"></i>
                             </div>
-                            <h3>Easy to use tools</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus.</p>
+                            <h3>¿Sólo quieres búscar?</h3>
+                            <p>Revisa nuestras publicaciones, selecciona y contacta directamente al vendedor.</p>
                         </div>
                         <div class="spacer-20"></div>
                         

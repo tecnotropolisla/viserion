@@ -23,7 +23,7 @@ class ImagenesVehiculos extends Model
      * @var array
      */
     //protected $fillable = ['name', 'email', 'password'];
-      protected $fillable = ['lng_idvehiculo','blb_img','bol_eliminado','updated_at','created_at'];
+      protected $fillable = ['lng_idvehiculo','blb_img','int_peso','bol_eliminado','updated_at','created_at'];
 
       /**
      * The attributes excluded from the model's JSON form.

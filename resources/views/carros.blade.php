@@ -7,14 +7,12 @@
                                 <!-- AD LISTING FORM STEP ONE -->
                                 <div id="listing-add-form-one" class="tab-pane fade in active">
 
-                                    
-
                                         <div class="tab-content col-md-12">
                                             
 
                                     <h3 style="color: #777">
                                         <i class="fa fa-pencil-square-o"></i>
-                                        Descripción del Vehículo
+                                        Descripción del Carro
                                     </h3>
                                     
 									<div class="lighter"><p>¿Cómo es tu vehículo?</p></div>
@@ -304,7 +302,7 @@
 
                                     <h3 style="color: #777">
                                         <i class="fa fa-list-alt"></i>
-                                        Características del Vehículo
+                                        Características del Carro
                                     </h3>
 
                                     <div class="lighter"><p>Marca todas las caraterísticas que posee tu vehículo</p></div>
@@ -458,32 +456,55 @@
 
                                     <h3 style="color: #777">
                                         <i class="fa fa-image"></i>
-                                        Fotos del Vehículo
+                                        Fotos del Carro
                                     </h3>
                                         <div class="lighter"><p>Añade fotos de tu vehículo</p></div>
 
                                         <div class="tab-content col-md-12">
 
                                             <div class="form-group col-md-4">
-                                                {!! Form::label('blb_img0', 'Imagen N° 1 (Principal)') !!}
+
+                                                {!! Form::radio('principal', '1', null,['onclick' => 'imagenppal(this.value,"principal0")']) !!}
+                                                {!! Form::label('principal', 'Principal') !!} 
+
+                                                {!! Form::label('blb_img0', 'Imagen N° 1') !!}
                                                 {!! Form::file('blb_img0',['onclick' =>'oir()']) !!}
+                                                {!! Form::input('hidden', 'principal0', '',['id'=> 'principal0']) !!}
+
                                                 <output id="img0">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
                                                 </output>
+
                                             </div>
+
                                             <div class="form-group col-md-4">
+
+                                                {!! Form::radio('principal', '1', null,['onclick' => 'imagenppal(this.value,"principal1")']) !!}
+                                                {!! Form::label('principal', 'Principal') !!} 
+
                                                 {!! Form::label('blb_img1', 'Imagen N° 2') !!}
                                                 {!! Form::file('blb_img1',['onclick' =>'oir()']) !!}
+                                                {!! Form::input('hidden', 'principal1', '',['id'=> 'principal1']) !!}
+
                                                 <output id="img1">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
                                                 </output>
+
                                             </div>
+
                                             <div class="form-group col-md-4">
+
+                                                {!! Form::radio('principal', '1', null,['onclick' => 'imagenppal(this.value,"principal2")']) !!}
+                                                {!! Form::label('principal', 'Principal') !!} 
+
                                                 {!! Form::label('blb_img2', 'Imagen N° 3') !!}
                                                 {!! Form::file('blb_img2',['onclick' =>'oir()']) !!}
+                                                {!! Form::input('hidden', 'principal2', '',['id'=> 'principal2']) !!}
+
                                                 <output id="img2">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
                                                 </output>
+
                                             </div> 
 
                                         </div>
@@ -491,33 +512,58 @@
                                         <div class="tab-content col-md-12">
 
                                             <div class="form-group col-md-4">
-                                             {!! Form::label('blb_img3', 'Imagen N° 4') !!}
+
+                                                {!! Form::radio('principal', '1', null,['onclick' => 'imagenppal(this.value,"principal3")']) !!}
+                                                {!! Form::label('principal', 'Principal') !!} 
+
+                                                {!! Form::label('blb_img3', 'Imagen N° 4') !!}
                                                 {!! Form::file('blb_img3',['onclick' =>'oir()']) !!}
+                                                {!! Form::input('hidden', 'principal3', '',['id'=> 'principal3']) !!}
+
                                                 <output id="img3">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
                                                 </output>
+
                                             </div>
+
                                             <div class="form-group col-md-4">
+
+                                                {!! Form::radio('principal', '1', null,['onclick' => 'imagenppal(this.value,"principal4")']) !!}
+                                                {!! Form::label('principal', 'Principal') !!}
+
                                                 {!! Form::label('blb_img4', 'Imagen N° 5') !!}
                                                 {!! Form::file('blb_img4',['onclick' =>'oir()']) !!}
+                                                {!! Form::input('hidden', 'principal4', '',['id'=> 'principal4']) !!}
+
                                                 <output id="img4">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
                                                 </output>
-                                            </div> 
+
+                                            </div>
+
                                             <div class="form-group col-md-4">
+
+                                                {!! Form::radio('principal', '1', null,['onclick' => 'imagenppal(this.value,"principal5")']) !!}
+                                                {!! Form::label('principal', 'Principal') !!} 
+
                                                 {!! Form::label('blb_img5', 'Imagen N° 6') !!}
                                                 {!! Form::file('blb_img5',['onclick' =>'oir()']) !!}
+                                                {!! Form::input('hidden', 'principal5', '',['id'=> 'principal5']) !!}
+
                                                 <output id="img5">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
                                                 </output>
+
                                             </div> 
 
                                         </div>
 
                                     <hr class="fw">
-                                    <h3>Añade un video de tu vehículo</h3>
+                                    <h3>Añade un video de tu carro</h3>
                                     <div class="lighter"><p>Se creativo, muestranos tu vehículo con un original video</p></div>
-                                    <input type="text" class="form-control" placeholder="Youtube/Video URL">
+
+                                    {!! Form::input('text', 'str_video', '', ['class'=> 'form-control', 'placeholder'=> 'Youtube/Video URL']) !!}
+
                                     <hr class="fw">
                                     <h3>Comentario adicional sobre tu vehículo</h3>
                                     <div class="lighter"><p>Cuentanos tu experiencia con este vehículo</p></div>
@@ -533,7 +579,7 @@
 
                                     <h3 style="color: #777">
                                         <i class="fa fa-globe"></i>
-                                        Publica tu Vehículo!
+                                        Publica tu carro!
                                     </h3>
 
                                     <div class="lighter">
@@ -566,11 +612,11 @@
                                     <div class="form-group ">
 
                                         <i id="monedas_validar"></i>
-                                        {!! Form::label('monedas', 'Moneda (Solo para Venezuela)') !!}
+                                        {!! Form::label('str_moneda', 'Moneda (Solo para Venezuela)') !!}
 
                                         {!!
 
-                                         	Form::select('monedas', array('0' => 'Seleccione', '1' => 'Bolívar', '2' => 'Dólar'), 'S',['class' => 'form-control'])
+                                         	Form::select('str_moneda', array('0' => 'Seleccione', '1' => 'Bolívar', '2' => 'Dólar'), 'S',['class' => 'form-control'])
                                         
                                         !!} 
 

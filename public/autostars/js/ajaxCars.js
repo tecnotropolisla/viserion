@@ -334,21 +334,29 @@ function soloEnVenezuela(nombre){
 			
 	if(selectedText == "Venezuela"){
 		
-		document.getElementById('monedas').selectedIndex = 0;
-		document.getElementById('monedas').disabled = false;
+		document.getElementById('str_moneda').selectedIndex = 0;
+		document.getElementById('str_moneda').disabled = false;
 		
 	}else{
 
-		document.getElementById('monedas').selectedIndex = 0;
-		document.getElementById('monedas').disabled = true;
+		document.getElementById('str_moneda').selectedIndex = 0;
+		document.getElementById('str_moneda').disabled = true;
 		
 	}
 
 }
 
 
+function imagenppal(valor,nombre){
 
+    //alert(valor +"--"+ nombre);
 
+    for (var i = 0; i < 6; i++){
 
+         document.getElementById("principal"+i).value = "0";
+     }
 
+    var campo = document.getElementById(nombre);
+    campo.value = valor;
 
+}

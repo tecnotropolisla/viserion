@@ -30,7 +30,7 @@ class Vehiculo extends Model
       'lng_idunicodueno','str_recorrido','str_version','lng_idtipomotor','lng_idfinanciamiento','lng_idchocado',
       'lng_idrecibomoto','lng_idsistemaarranque','dmt_fecha_publicacion_fin','dmt_fecha_publicacion','bol_eliminado',
       'int_esloralargo','int_mangaancho','lng_idmaxtripulantes','lng_idmaterial','int_peso','int_potenciamax',
-      'str_precio_venta', 'lng_idpais'];
+      'str_precio_venta', 'lng_idpais','str_video','str_moneda','lng_idestereo','lng_iddireccion','lng_idtransmision'];
 
     /**
      * The attributes excluded from the model's JSON form.

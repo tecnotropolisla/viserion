@@ -70,25 +70,47 @@
                     <div class="col-md-8 col-sm-8">
 
                         <div id="formulario">
-                        
-		                    {!! Form::label('', 'Seleccione el tipo de vehículo:') !!}
-		                  
-		                    <div class="single-listing-actions ">
-		                        <div class="btn-group" role="group">
-		                            <a href="#" class="btn btn-default" title="Carros" onclick="formularioDinamico('carros')"><i class="fa fa-car"></i> <span> Carros</span></a>
-		                            <a href="#" class="btn btn-default" title="Motocicletas" onclick="formularioDinamico('motocicletas')"><i class="fa fa-motorcycle"></i> <span> Motocicletas</span></a>
-		                            <a href="#" class="btn btn-default" title="Embarcaciones" onclick="formularioDinamico('embarcaciones')"><i class="fa fa-ship"></i> <span> Embarcaciones</span></a>
-		                            <a href="#" class="btn btn-default" title="Aeronaves" onclick="formularioDinamico('aeronaves')"><i class="fa fa-plane"></i> <span> Aeronaves</span></a>
-		                        </div>
-		                        
-		                    </div> 
-							
-							<br>
-							
-	                        <p style="text-align: center;font-size: 100px;">
-	                        	<i class="fa fa-smile-o"></i>
-	                        </p>
-	                        
+                    	                  		                  
+                        <h2>Publique su vehículo en Troovami!</h2>
+
+                        <p>Usted podrá publicar cualquira de estos tipos de vehículos:</p>
+                        <div class="spacer-5"></div>
+                        <div class="icon-box ibox-rounded ibox-light ibox-effect">
+                            <div class="ibox-icon">
+                                <i class="fa fa-car" title="Carros" onclick="formularioDinamico('carros')"></i>
+                            </div>
+                            <h3>Carros</h3>
+                            <p>Publique con nosotros su carro o camioneta, es sencillo sólo llene los datos más relevantes.</p>
+                        </div>
+                        <div class="spacer-20"></div>
+
+                        <div class="icon-box ibox-rounded ibox-light ibox-effect">
+                            <div class="ibox-icon">
+                                <i class="fa fa-motorcycle" title="Motocicletas" onclick="formularioDinamico('motocicletas')"></i>
+                            </div>
+                            <h3>Motocicletas</h3>
+                            <p>Publicar su motocicleta nunca había sido tan fácil, en pocos minutos estará a la vista de todos.</p>
+                        </div>
+                        <div class="spacer-20"></div>
+
+                        <div class="icon-box ibox-rounded ibox-light ibox-effect">
+                            <div class="ibox-icon">
+                                <i class="fa fa-ship" title="Embarcaciones" onclick="formularioDinamico('embarcaciones')"></i>
+                            </div>
+                            <h3>Embarcaciones</h3>
+                            <p>¿Necesita vender su embarcación? No espere más y publiquela aquí.</p>
+                        </div>
+                        <div class="spacer-20"></div>
+
+                        <div class="icon-box ibox-rounded ibox-light ibox-effect">
+                            <div class="ibox-icon">
+                                <i class="fa fa-plane" title="Aeronaves" onclick="formularioDinamico('aeronaves')"></i>
+                            </div>
+                            <h3>Aeronaves</h3>
+                            <p>Cualquier tipo de aeronave, no importa la marca o el modelo será publicada y lista para ser vendida.</p>
+                        </div>
+                        <div class="spacer-20"></div>
+
                         </div>
 
                     </div>

@@ -113,19 +113,22 @@ class PublicarCarrosController extends Controller
             'lng_idunicodueno' =>   $data['lng_idunicodueno'],
             'lng_idtraccion' =>   $data['lng_idtraccion'],
             'lng_idchocado' =>  $data['lng_idchocado'],
-            'str_recorrido' =>  $data['str_recorrido'],          
+            'str_recorrido' =>  $data['str_recorrido'],
             'lng_idcombustible' =>  $data['lng_idcombustible'],
             'str_precio_venta' =>   $data['str_precio_venta'],
             'lng_idequipo_medico' =>   $data['lng_idequipo_medico'],
             'lng_idfrenado' =>   $data['lng_idfrenado'],
             'lng_idmotor' =>   $data['lng_idmotor'],
             'lng_idpais' =>   $data['lng_idpais'], 
-            'str_motor' =>   $data['str_motor'], 
+            'str_motor' =>   $data['str_motor'],
             'lng_idestereo' =>   $data['lng_idestereo'],
             'lng_iddireccion' =>   $data['lng_iddireccion'],
             'lng_idtransmision' =>   $data['lng_idtransmision'],
         	'str_comentario' =>   $data['str_comentario'],
             'int_cilindros' => $data['int_cilindros'],
+            'str_video' =>   $data['str_video'],
+            'str_moneda' => $data['str_moneda'],
+
         ]);
 
         $lastInsertedId = $vehiculo->id;
@@ -152,7 +155,7 @@ class PublicarCarrosController extends Controller
         	$imagenesVehiculos = ImagenesVehiculos::create([
         		'lng_idvehiculo' => $lastInsertedId,
         		'blb_img' => addslashes(file_get_contents($data['blb_img'.$i])),
-                //'blb_img' => addslashes(file_get_contents($data['blb_img'][$i])),
+                'int_peso' => $data['principal'.$i],
 	        ]);
         }
   

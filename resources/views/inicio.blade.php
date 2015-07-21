@@ -162,45 +162,45 @@
                 <div class="row">
                     <!-- Search Filters -->
 
-                    
                     <!-- Listing Results -->
                     <div class="results-container">
 
-
                         <div class="results-container-in">
-
 
                             <div id="results-holder" class="results-grid-view">
 
-@for ($i = 0; $i < 20; $i++)
-   
-
-
+                            @foreach ($vehiculos as $vehiculo)
 
                                 <!-- Result Item -->
                                 <div class="result-item format-standard">
 
-                                    <div class="result-item-image">
-                                        <a href="{{ route('detalles') }}" class="media-box"><img class="img-rounded" src="autostars/images/jeepNeel.jpg" alt=""></a>
-                                        <span class="label label-default vehicle-age">2014</span>
-                                        <span class="label label-success premium-listing">Azul</span>
+                                    <div class="result-item-image">                         
+                                        <a href="{{ route('detalles') }}" class="media-box"><img class="img-rounded" src="" /></a>
+                                        <span class="label label-default vehicle-age">{!! $vehiculo->int_ano !!}</span>
+                                        <span class="label label-success premium-listing">{!! $vehiculo->color !!}</span>
                                         <div class="result-item-view-buttons">
-                                            <a href="https://www.youtube.com/watch?v=P5mvnA4BV7Y" data-rel="prettyPhoto"><i class="fa fa-play-circle-o"></i> Ver video</a>
+
+                                            @if ($vehiculo->str_video == "")
+                                                <a href="#"><i class="fa fa-frown-o"></i> Sin video</a>
+                                            @else
+                                                <a href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto"><i class="fa fa-play-circle-o"></i> Ver video</a>
+                                            @endif
+
                                             <a href="{{ route('detalles') }}"><i class="fa fa-plus"></i> Ver detalles</a>
                                         </div>
                                     </div>
 
                                     <div class="result-item-in">
 
-                                        <h4 class="result-item-title"><a href="{{ route('detalles') }}">Nissan Terrano single hand driven</a></h4>
+                                        <h4 class="result-item-title"><a href="{{ route('detalles') }}">{!! $vehiculo->marca." ".$vehiculo->modelo!!}</a></h4>
                                         
                                         <div class="result-item-cont">
                                             <div class="result-item-block col1">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam..</p>
+                                                <p>{!! $vehiculo->str_comentario !!}</p>
                                             </div>
                                             <div class="result-item-block col2">
                                                 <div class="result-item-pricing">
-                                                    <div class="price" style="font-size:30px">$48.000</div>
+                                                    <div class="price" style="font-size:30px">{!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!}</div>
                                                 </div>
                                                 <div class="result-item-action-buttons">
                                                     <a href="#" class="btn btn-default btn-sm"><i class="fa fa-star-o"></i> Favoritos</a>
@@ -213,11 +213,12 @@
 
                                         <div class="result-item-features">
                                             <ul class="inline">
-                                                <li>Km: 6.500</li>
-                                                <li>Motor: 6,2</li>
-                                                <li>Transmisión: Automática-Secuencial</li>
-                                                <li>Dirección: Hidráulica</li>
-                                                <li>Distrito Capital</li>
+                                                <li>Km: {!! number_format($vehiculo->str_recorrido, null, ',', '.') !!}</li>
+                                                <li>Motor: {!! $vehiculo->str_motor !!}</li>
+                                                <li>Transmisión: {!! $vehiculo->transmision !!}</li>
+                                                <li>Dirección: {!! $vehiculo->direccion !!}</li>
+                                                <li>País: {!! $vehiculo->pais !!}</li>
+                                                <li>Locación: (Ciudad)</li>
                                             </ul>
                                         </div>
 
@@ -225,20 +226,10 @@
 
                                 </div>
                                 
-    @endfor                           
+                            @endforeach                       
                                 
-
                             </div>
-
-
-
                         </div>
-
-
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -246,11 +237,8 @@
     </div>
     <!-- End Body Content -->
 
-
-
     <!-- Start site footer -->
 		@include('pie')
     <!-- End site footer -->
-
 
 @endsection
