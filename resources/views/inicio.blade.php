@@ -175,7 +175,7 @@
                                 <div class="result-item format-standard">
 
                                     <div class="result-item-image">                         
-                                        <a href="{{ route('detalles') }}" class="media-box"><img class="img-rounded" src="" /></a>
+                                        <a href="{{ route('detalles') }}" class="media-box"><img class="img-rounded" src="data:image/jpeg;base64,{{ base64_encode($vehiculo->imagen) }}" /></a>
                                         <span class="label label-default vehicle-age">{!! $vehiculo->int_ano !!}</span>
                                         <span class="label label-success premium-listing">{!! $vehiculo->color !!}</span>
                                         <div class="result-item-view-buttons">

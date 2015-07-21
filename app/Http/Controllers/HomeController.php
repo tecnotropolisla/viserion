@@ -28,16 +28,22 @@ class HomeController extends Controller
             ->join('cat_paises as p', 'p.id', '=', 'v.lng_idpais')
 			->join('tbl_modelos as mo', 'mo.id', '=', 'v.lng_idmodelo')
 			->join('cat_marcas as ma', 'ma.id', '=', 'mo.lng_idmarca')
-            ->select('v.*', 'dm.str_descripcion as transmision', 'dm2.str_descripcion as direccion','dm3.str_descripcion as color','p.str_paises as pais','ma.str_marca as marca','mo.str_modelo as modelo')
-            ->get();
 
-    	$imagenes = DB::table('tbl_vehiculos as v')
 			->join('tbl_imagenes_vehiculos as ima', 'ima.lng_idvehiculo', '=', 'v.id')
 			->where('ima.int_peso', '=', 1)
-            ->select('ima.blb_img as imagen')
+
+            ->select('v.*','ima.blb_img as imagen', 'dm.str_descripcion as transmision', 'dm2.str_descripcion as direccion','dm3.str_descripcion as color','p.str_paises as pais','ma.str_marca as marca','mo.str_modelo as modelo')
             ->get();
 
+/*
+SELECT ima.blb_img
+FROM tbl_vehiculos AS v
+JOIN tbl_imagenes_vehiculos AS ima ON ima.lng_idvehiculo = v.id
+WHERE ima.int_peso =1*/
 
-        return \View::make('inicio', compact('vehiculos','imagenes'));
+
+
+
+        return \View::make('inicio', compact('vehiculos'));
     }
 }
