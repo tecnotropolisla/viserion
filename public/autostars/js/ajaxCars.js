@@ -127,6 +127,10 @@ function idmodelo(valor){
 	lng_idmodelo.value = valor;	
 }
 
+function oir2(){
+	document.getElementById('blb_img').addEventListener('change', blb_imgUser, false);
+}
+
 function oir(){
 
     document.getElementById('blb_img0').addEventListener('change', blb_img0, false);
@@ -135,6 +139,7 @@ function oir(){
     document.getElementById('blb_img3').addEventListener('change', blb_img3, false);
     document.getElementById('blb_img4').addEventListener('change', blb_img4, false);
     document.getElementById('blb_img5').addEventListener('change', blb_img5, false);
+    
 }
 
 function blb_img0(evt) {
@@ -287,6 +292,33 @@ function blb_img5(evt) {
     }
 }
 
+function blb_imgUser(evt) {
+
+    var files = evt.target.files; // FileList object
+    //Obtenemos la imagen del campo "file". 
+    for (var i = 0, f; f = files[i]; i++) {
+        //Solo admitimos imágenes.
+        if (!f.type.match('image.*')) {
+            continue;
+        }
+
+        var reader = new FileReader();
+
+        reader.onload = (function (theFile) {
+            return function (e) {
+                // Creamos la imagen.
+                //document.getElementById("papa").innerHTML = ['Nombre: ', escape(theFile.name), ' || Tamanio: ', escape(theFile.size), ' bytes || type: ', escape(theFile.type), '<br /><img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
+                
+                document.getElementById("imgUser").innerHTML = ['<img class="img-responsive img-rounded" style="width:250px" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
+            };
+        })(f);
+
+        reader.readAsDataURL(f);
+    }
+}
+
+
+
 function isNumber(evt) {
     evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -335,12 +367,12 @@ function soloEnVenezuela(nombre){
 	if(selectedText == "Venezuela"){
 		
 		document.getElementById('str_moneda').selectedIndex = 0;
-		document.getElementById('str_moneda').disabled = false;
+		document.getElementById('str_moneda').style.display = "inline";
 		
 	}else{
 
 		document.getElementById('str_moneda').selectedIndex = 0;
-		document.getElementById('str_moneda').disabled = true;
+		document.getElementById('str_moneda').style.display = "none";
 		
 	}
 

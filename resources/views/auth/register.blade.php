@@ -107,7 +107,7 @@
                             <div class="regular-signup">
 
 								<h3> <i class="fa fa-user-plus"></i> Crear Cuenta</h3>
-								{!! Form::open(['route' => 'register', 'class' => 'form-horizontal']) !!} 
+								{!! Form::open(['route' => 'register', 'enctype'=>'multipart/form-data', 'class' => 'form-horizontal', 'onKeypress' => 'if(event.keyCode == 13) event.returnValue = false']) !!} 
 								
 								  <div class="form-group">
 								  
@@ -124,6 +124,26 @@
 								
 								  </div>
 								  
+								  
+									  <div class="form-group">
+								  
+								    {!! Form::label('name', 'Imagen',['class' => 'col-sm-2 control-label']) !!}
+								    
+								    <div class="col-sm-8">
+								      
+										<div class="input-group">
+										
+											{!! Form::file('blb_img',['id' => 'blb_img','onclick' =>'oir2()']) !!}
+											    <output id="imgUser">
+                                                    <i class="fa fa-picture-o" style="font-size:50px"></i>
+                                                </output>
+								        </div>
+								
+								    </div>
+								
+								  </div>							  
+								  
+
 								  <div class="form-group">
 								  
 								  	{!! Form::label('str_nombre', 'Nombre',['class' => 'col-sm-2 control-label']) !!} 

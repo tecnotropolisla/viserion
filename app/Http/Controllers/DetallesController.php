@@ -18,5 +18,18 @@ class DetallesController extends Controller
     {
         return \View::make('detalles');
     }
+    
+    
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function detalles($valor)
+    {
+    	return \View::make('detallesVehiculo');
+    }
+    
 
 }

@@ -57,9 +57,16 @@ Route::group(['middleware' => 'auth'], function () {
 
  });
 
+
 Route::get('Detalle-del-Vehiculo', [
 	'uses' => 'DetallesController@index',
 	'as' =>'detalles'
+]);
+
+
+Route::get('Detalle-del-Vehiculo/{valor}', [
+		'uses' => 'DetallesController@detalles',
+		'as' =>'detalles2'
 ]);
 
 Route::get('Acceso-Restringido', [

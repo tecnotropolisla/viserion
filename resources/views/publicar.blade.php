@@ -28,6 +28,7 @@
                                 </div>
                             </div>
                             <!-- AD LISTING FORM STEPS -->
+
                             <ul class="listing-form-steps">
                                 <li class="active" data-target="#listing-add-form-one" data-toggle="tab">
                                     <a href="#">
@@ -35,6 +36,7 @@
                                         <span class="step-icon"><i class="fa fa-pencil-square-o"></i></span>
                                         <strong class="step-title">Descripción</strong>
                                        
+  
                                     </a>
                                 </li>
                                 <li data-target="#listing-add-form-two" data-toggle="tab">
@@ -64,7 +66,14 @@
                                     </a>
                                 </li>
                             </ul>
+                            
+                            
+                            
+                            
                         </div>
+                        
+                        
+                        
                     </div>
 
                     <div class="col-md-8 col-sm-8">

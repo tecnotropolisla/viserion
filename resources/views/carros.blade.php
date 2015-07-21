@@ -1,6 +1,6 @@
 <!-- AD LISTING FORM -->
 
-                         {!! Form::open(['route' => 'publicar', 'class' => 'listing-add-form','enctype'=>'multipart/form-data']) !!}
+                         {!! Form::open(['route' => 'publicar', 'class' => 'listing-add-form','enctype'=>'multipart/form-data', 'onKeypress' => 'if(event.keyCode == 13) event.returnValue = false']) !!}
                        
                             <section class="listing-form-content">
                             
@@ -9,10 +9,25 @@
 
                                         <div class="tab-content col-md-12">
                                             
+                                            
+                                        <!--     
+                                        <h3 style="color: #777">
+                                        	
+                                        	Paso
+                                         
+	                                        <span class="fa-stack fa-3px">
+											  <i class="fa fa-circle-o fa-stack-2x"></i>
+											  <strong class="fa-stack-1x " style="margin-top: .0em;">1</strong>
+											</span> 
+										</h3>
+										-->
+
+
 
                                     <h3 style="color: #777">
                                         <i class="fa fa-pencil-square-o"></i>
                                         Descripción del Carro
+
                                     </h3>
                                     
 									<div class="lighter"><p>¿Cómo es tu vehículo?</p></div>
@@ -290,9 +305,8 @@
 
                                                         </div>
 
-
                                         </div>
-                                  
+
                                 </div>
                             
                                 <!-- AD LISTING FORM STEP TWO -->
@@ -445,8 +459,8 @@
                                         </div>
                                     </div>
 
-                                        </div>
-                                   
+                                </div>
+
                                 </div>
                             
                                 <!-- AD LISTING FORM STEP THREE -->
@@ -632,7 +646,7 @@
                                         <div class="col-md-5">
                                             {!! Form::submit('Guardar',['class' => 'btn btn-primary btn-lg btn-block']) !!}
                                         </div>
-
+                                        
                                 </div>
 
                             </section>

@@ -2885,7 +2885,7 @@ h1.page-title{
 .result-item-view-buttons a{
 	display:inline-block;
 	float:left;
-	width:50%;
+	/*width:50%;*/
 	text-align:center;
 	padding:9px 0 5px;
 	background:#F9F9F9;

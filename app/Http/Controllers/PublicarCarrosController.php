@@ -95,6 +95,11 @@ class PublicarCarrosController extends Controller
      */
     public function create(array $data)
     {
+        
+        if ($data['str_moneda'] == null){
+        	$data['str_moneda'] = "Moneda local";
+        }
+        
         //return Vehiculo::create([
         $vehiculo = Vehiculo::create([
 
@@ -154,7 +159,7 @@ class PublicarCarrosController extends Controller
         {
         	$imagenesVehiculos = ImagenesVehiculos::create([
         		'lng_idvehiculo' => $lastInsertedId,
-        		'blb_img' => addslashes(file_get_contents($data['blb_img'.$i])),
+        		'blb_img' => base64_encode(file_get_contents($data['blb_img'.$i])),
                 'int_peso' => $data['principal'.$i],
 	        ]);
         }

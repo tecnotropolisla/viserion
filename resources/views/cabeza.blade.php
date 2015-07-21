@@ -22,7 +22,7 @@
                 @if (Auth::user())
                     <div class="user-login-panel logged-in-user">
                         <a href="#" class="user-login-btn" id="userdropdown" data-toggle="dropdown">
-                            <img src="autostars/images/user1.jpg" alt="">
+                            <img src="data:image/jpeg;base64,{{ Auth::user()->blb_img }}" alt="">
                             <span class="user-informa">
                                 <span class="meta-data">Bienvenido</span>
                                 <span class="user-name">{{ Auth::user()->name }}</span>

@@ -175,19 +175,26 @@
                                 <div class="result-item format-standard">
 
                                     <div class="result-item-image">                         
-                                        <a href="{{ route('detalles') }}" class="media-box"><img class="img-rounded" src="data:image/jpeg;base64,{{ base64_encode($vehiculo->imagen) }}" /></a>
-                                        <span class="label label-default vehicle-age">{!! $vehiculo->int_ano !!}</span>
-                                        <span class="label label-success premium-listing">{!! $vehiculo->color !!}</span>
+                                        <a href="{{ route('detalles2',$vehiculo->id) }}" class="media-box"><img class="" src="data:image/jpeg;base64,{{ $vehiculo->imagen }}" /></a>
+                                        <span class="vehicle-age">
+                                        <p class="label label-default">{!! $vehiculo->int_ano !!}</p>
+                                        <p class="text-center" style="margin-top: -2px;"><img class="" src="data:image/jpeg;base64,{{ $vehiculo->bandera }}" style="width:35px" /></p>                                       
+                                        </span>
+                                        <span class="  premium-listing "></span>
+                                        
                                         <div class="result-item-view-buttons">
 
                                             @if ($vehiculo->str_video == "")
-                                                <a href="#"><i class="fa fa-frown-o"></i> Sin video</a>
+                                            	<a class="col-md-6" href="{{ route('detalles') }}"><i class="fa fa-eye"></i> Ver</a>
+                                            	<a class="col-md-6" href="#"><i class="fa fa-heart"></i> Fav</a>
                                             @else
-                                                <a href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto"><i class="fa fa-play-circle-o"></i> Ver video</a>
+                                                <a class="col-md-4" href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto"><i class="fa fa-play-circle-o"></i> Video</a>
+                                            	<a class="col-md-4" href="{{ route('detalles') }}"><i class="fa fa-eye"></i> Ver</a>
+                                            	<a class="col-md-4" href="#"><i class="fa fa-heart"></i> Fav</a>
                                             @endif
-
-                                            <a href="{{ route('detalles') }}"><i class="fa fa-plus"></i> Ver detalles</a>
+                                            
                                         </div>
+
                                     </div>
 
                                     <div class="result-item-in">
@@ -200,24 +207,21 @@
                                             </div>
                                             <div class="result-item-block col2">
                                                 <div class="result-item-pricing">
-                                                    <div class="price" style="font-size:30px">{!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!}</div>
+                                                    <div class="price" style="font-size:20px">USD {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!} </div>
                                                 </div>
-                                                <div class="result-item-action-buttons">
-                                                    <a href="#" class="btn btn-default btn-sm"><i class="fa fa-star-o"></i> Favoritos</a>
-                                                    <!--
-                                                        <a href="#" class="distance-calc"><i class="fa fa-map-marker"></i> Distance from me?</a>
-                                                    -->
-                                                </div>
+                                                
+
+                                                
                                             </div>
                                         </div>
 
                                         <div class="result-item-features">
-                                            <ul class="inline">
+                                            <ul class="inline" style="font-size:12px">
+                                               <li>País: {!! $vehiculo->pais !!}</li>
                                                 <li>Km: {!! number_format($vehiculo->str_recorrido, null, ',', '.') !!}</li>
                                                 <li>Motor: {!! $vehiculo->str_motor !!}</li>
                                                 <li>Transmisión: {!! $vehiculo->transmision !!}</li>
                                                 <li>Dirección: {!! $vehiculo->direccion !!}</li>
-                                                <li>País: {!! $vehiculo->pais !!}</li>
                                                 <li>Locación: (Ciudad)</li>
                                             </ul>
                                         </div>

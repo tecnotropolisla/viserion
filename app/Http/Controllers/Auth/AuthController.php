@@ -58,6 +58,7 @@ class AuthController extends Controller
             'str_facebook' => 'unique:tbl_personas',
             'str_instagram' => 'unique:tbl_personas',
             'str_telefono' => 'required|max:255',
+        	//'blb_img' =>    'required|image:jpeg,png,jpg',
         	/* 'name' => 'required|max:255',
         	'email' => 'required|email|max:255|unique:users',
         	'password' => 'required|confirmed|min:6', */        		
@@ -73,7 +74,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        
+     
         return User::create([
         		
         	/*	
@@ -96,6 +97,7 @@ class AuthController extends Controller
         		'str_instagram' => trim($data['str_instagram']),
                 'lng_idservicio' => $data['lng_idservicio'],
                 'str_telefono' => $data['str_telefono'],
+        		'blb_img' => base64_encode(file_get_contents($data['blb_img'])),
         ]);
     }
 
