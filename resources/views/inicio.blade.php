@@ -31,18 +31,18 @@
                                     <ul class="listing tool-car-listing">
                                         <li>
                                             <div class="checkb"><input type="checkbox"></div>
-                                            <div class="imageb"><a href="{{ route('detalles') }}"><img src="images/car2.jpg" alt=""></a></div>
+                                            <div class="imageb"><a href="#"><img src="images/car2.jpg" alt=""></a></div>
                                             <div class="textb">
-                                                <a href="{{ route('detalles') }}">Nissan Terrano first hand</a>
+                                                <a href="#">Nissan Terrano first hand</a>
                                                 <span class="price">$28000</span>
                                             </div>
                                             <div class="delete"><a href="#"><i class="icon-delete"></i></a></div>
                                         </li>
                                         <li>
                                             <div class="checkb"><input type="checkbox"></div>
-                                            <div class="imageb"><a href="{{ route('detalles') }}"><img src="images/car4.jpg" alt=""></a></div>
+                                            <div class="imageb"><a href="#"><img src="images/car4.jpg" alt=""></a></div>
                                             <div class="textb">
-                                                <a href="{{ route('detalles') }}">Mercedes Benz E class</a>
+                                                <a href="#">Mercedes Benz E class</a>
                                                 <span class="price">$76000</span>
                                             </div>
                                             <div class="delete"><a href="#"><i class="icon-delete"></i></a></div>
@@ -92,17 +92,17 @@
                                 <div class="tool-box-in">
                                     <ul class="listing tool-view-listing">
                                         <li>
-                                            <div class="imageb"><a href="{{ route('detalles') }}"><img src="images/car2.jpg" alt=""></a></div>
+                                            <div class="imageb"><a href="#"><img src="images/car2.jpg" alt=""></a></div>
                                             <div class="textb">
-                                                <a href="{{ route('detalles') }}">Nissan Terrano first hand</a>
+                                                <a href="">Nissan Terrano first hand</a>
                                                 <span class="price">$28000</span>
                                             </div>
-                                            <div class="save"><a href="{{ route('detalles') }}"><i class="fa fa-star-o"></i></a></div>
+                                            <div class="save"><a href="#"><i class="fa fa-star-o"></i></a></div>
                                         </li>
                                         <li>
-                                            <div class="imageb"><a href="{{ route('detalles') }}"><img src="images/car4.jpg" alt=""></a></div>
+                                            <div class="imageb"><a href="#"><img src="images/car4.jpg" alt=""></a></div>
                                             <div class="textb">
-                                                <a href="{{ route('detalles') }}">Mercedes Benz E class</a>
+                                                <a href="#">Mercedes Benz E class</a>
                                                 <span class="price">$76000</span>
                                             </div>
                                             <div class="save"><a href="#"><i class="fa fa-star-o"></i></a></div>
@@ -175,7 +175,7 @@
                                 <div class="result-item format-standard">
 
                                     <div class="result-item-image">                         
-                                        <a href="{{ route('detalles2',$vehiculo->id) }}" class="media-box"><img class="" src="data:image/jpeg;base64,{{ $vehiculo->imagen }}" /></a>
+                                        <a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="data:image/jpeg;base64,{{ $vehiculo->imagen }}" /></a>
                                         <span class="vehicle-age">
                                         <p class="label label-default">{!! $vehiculo->int_ano !!}</p>
                                         <p class="text-center" style="margin-top: -2px;"><img class="" src="data:image/jpeg;base64,{{ $vehiculo->bandera }}" style="width:35px" /></p>                                       
@@ -185,11 +185,11 @@
                                         <div class="result-item-view-buttons">
 
                                             @if ($vehiculo->str_video == "")
-                                            	<a class="col-md-6" href="{{ route('detalles') }}"><i class="fa fa-eye"></i> Ver</a>
+                                            	<a class="col-md-6" href="{{ route('detalles',$vehiculo->id) }}"><i class="fa fa-eye"></i> Ver</a>
                                             	<a class="col-md-6" href="#"><i class="fa fa-heart"></i> Fav</a>
                                             @else
                                                 <a class="col-md-4" href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto"><i class="fa fa-play-circle-o"></i> Video</a>
-                                            	<a class="col-md-4" href="{{ route('detalles') }}"><i class="fa fa-eye"></i> Ver</a>
+                                            	<a class="col-md-4" href="{{ route('detalles',$vehiculo->id) }}"><i class="fa fa-eye"></i> Ver</a>
                                             	<a class="col-md-4" href="#"><i class="fa fa-heart"></i> Fav</a>
                                             @endif
                                             
@@ -199,7 +199,7 @@
 
                                     <div class="result-item-in">
 
-                                        <h4 class="result-item-title"><a href="{{ route('detalles') }}">{!! $vehiculo->marca." ".$vehiculo->modelo!!}</a></h4>
+                                        <h4 class="result-item-title"><a href="{{ route('detalles',$vehiculo->id) }}">{!! $vehiculo->marca." ".$vehiculo->modelo!!}</a></h4>
                                         
                                         <div class="result-item-cont">
                                             <div class="result-item-block col1">
@@ -207,7 +207,7 @@
                                             </div>
                                             <div class="result-item-block col2">
                                                 <div class="result-item-pricing">
-                                                    <div class="price" style="font-size:20px">USD {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!} </div>
+                                                    <div class="price" style="font-size:20px">$ {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!} </div>
                                                 </div>
                                                 
 

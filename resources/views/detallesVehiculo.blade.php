@@ -3,17 +3,17 @@
 @section('content')
 
 <!--[if lt IE 7]>
-	<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
 <![endif]-->
 <div class="body">
 
-	<!-- Start Site Header -->
+    <!-- Start Site Header -->
 @include('cabeza')
-	<!-- End Site Header -->
+    <!-- End Site Header -->
 
 
     <!-- Start Body Content -->
-    <div class="main" role="main">
+ <div class="main" role="main">
         <div id="content" class="content full">
             <div class="container">
                 <!-- Vehicle Details -->
@@ -411,13 +411,12 @@
             </div>
         </div>
     </div>
+
+
     <!-- End Body Content -->
 
-
-
     <!-- Start site footer -->
-		@include('pie')
+        @include('pie')
     <!-- End site footer -->
-
 
 @endsection
