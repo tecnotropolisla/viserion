@@ -478,12 +478,12 @@
 
                                             <div class="form-group col-md-4">
 
-                                                {!! Form::radio('principal', '1', null,['onclick' => 'imagenppal(this.value,"principal0")']) !!}
+                                                {!! Form::radio('principal', '1', null,['onclick' => 'imagenppal(this.value,"principal0")','checked']) !!}
                                                 {!! Form::label('principal', 'Principal') !!} 
 
                                                 {!! Form::label('blb_img0', 'Imagen N° 1') !!}
                                                 {!! Form::file('blb_img0',['onclick' =>'oir()']) !!}
-                                                {!! Form::input('hidden', 'principal0', '',['id'=> 'principal0']) !!}
+                                                {!! Form::input('hidden', 'principal0', '1',['id'=> 'principal0']) !!}
 
                                                 <output id="img0">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
@@ -498,7 +498,7 @@
 
                                                 {!! Form::label('blb_img1', 'Imagen N° 2') !!}
                                                 {!! Form::file('blb_img1',['onclick' =>'oir()']) !!}
-                                                {!! Form::input('hidden', 'principal1', '',['id'=> 'principal1']) !!}
+                                                {!! Form::input('hidden', 'principal1', '0',['id'=> 'principal1']) !!}
 
                                                 <output id="img1">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
@@ -513,7 +513,7 @@
 
                                                 {!! Form::label('blb_img2', 'Imagen N° 3') !!}
                                                 {!! Form::file('blb_img2',['onclick' =>'oir()']) !!}
-                                                {!! Form::input('hidden', 'principal2', '',['id'=> 'principal2']) !!}
+                                                {!! Form::input('hidden', 'principal2', '0',['id'=> 'principal2']) !!}
 
                                                 <output id="img2">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
@@ -532,7 +532,7 @@
 
                                                 {!! Form::label('blb_img3', 'Imagen N° 4') !!}
                                                 {!! Form::file('blb_img3',['onclick' =>'oir()']) !!}
-                                                {!! Form::input('hidden', 'principal3', '',['id'=> 'principal3']) !!}
+                                                {!! Form::input('hidden', 'principal3', '0',['id'=> 'principal3']) !!}
 
                                                 <output id="img3">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
@@ -547,7 +547,7 @@
 
                                                 {!! Form::label('blb_img4', 'Imagen N° 5') !!}
                                                 {!! Form::file('blb_img4',['onclick' =>'oir()']) !!}
-                                                {!! Form::input('hidden', 'principal4', '',['id'=> 'principal4']) !!}
+                                                {!! Form::input('hidden', 'principal4', '0',['id'=> 'principal4']) !!}
 
                                                 <output id="img4">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
@@ -562,7 +562,7 @@
 
                                                 {!! Form::label('blb_img5', 'Imagen N° 6') !!}
                                                 {!! Form::file('blb_img5',['onclick' =>'oir()']) !!}
-                                                {!! Form::input('hidden', 'principal5', '',['id'=> 'principal5']) !!}
+                                                {!! Form::input('hidden', 'principal5', '0',['id'=> 'principal5']) !!}
 
                                                 <output id="img5">
                                                     <i class="fa fa-picture-o" style="font-size:50px"></i>
@@ -625,15 +625,16 @@
 
                                     <div class="form-group ">
 
-                                        <i id="monedas_validar"></i>
-                                        {!! Form::label('str_moneda', 'Moneda (Solo para Venezuela)') !!}
-
-                                        {!!
-
-                                         	Form::select('str_moneda', array('0' => 'Seleccione', '1' => 'Bolívar', '2' => 'Dólar'), 'S',['class' => 'form-control'])
-                                        
-                                        !!} 
-
+                                        <div id="monedas_validar">
+	                                        {!! Form::label('str_moneda', 'Moneda (Sólo para Venezuela)') !!}
+	
+	                                        {!!
+	
+	                                         	Form::select('str_moneda', array('0' => 'Seleccione', '1' => 'Bolívar', '2' => 'Dólar'), 'S',['class' => 'form-control'])
+	                                        
+	                                        !!} 
+										</div>
+										
                                     </div>                                    
                   
                                         <!-- Eliminar -->

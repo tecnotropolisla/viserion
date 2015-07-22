@@ -2,17 +2,7 @@
 
 @section('content')
 
-<!--[if lt IE 7]>
-	<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-<![endif]-->
-<div class="body">
-
-	<!-- Start Site Header -->
-@include('cabeza')
-	<!-- End Site Header -->
-
-
-    <!-- Start Body Content -->
+<!-- Start Body Content -->
 <!-- Actions bar -->
 
     <div class="actions-bar tsticky">
@@ -175,6 +165,7 @@
                                 <div class="result-item format-standard">
 
                                     <div class="result-item-image">                         
+                                        <!-- <a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="data:image/jpeg;base64,{{ $vehiculo->imagen }}" /></a>-->
                                         <a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="data:image/jpeg;base64,{{ $vehiculo->imagen }}" /></a>
                                         <span class="vehicle-age">
                                         <p class="label label-default">{!! $vehiculo->int_ano !!}</p>
@@ -239,10 +230,5 @@
             </div>
         </div>
     </div>
-    <!-- End Body Content -->
-
-    <!-- Start site footer -->
-		@include('pie')
-    <!-- End site footer -->
 
 @endsection

@@ -367,12 +367,12 @@ function soloEnVenezuela(nombre){
 	if(selectedText == "Venezuela"){
 		
 		document.getElementById('str_moneda').selectedIndex = 0;
-		document.getElementById('str_moneda').style.display = "inline";
+		document.getElementById('monedas_validar').style.display = "inline";
 		
 	}else{
 
 		document.getElementById('str_moneda').selectedIndex = 0;
-		document.getElementById('str_moneda').style.display = "none";
+		document.getElementById('monedas_validar').style.display = "none";
 		
 	}
 

@@ -5675,3 +5675,7 @@ body{
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
 	
 }
+
+#monedas_validar{
+	display:none;
+}

@@ -58,71 +58,14 @@
         </div>
     </footer>
 
-        <a id="back-to-top"><i class="fa fa-angle-double-up"></i></a>  
-</div>
+
 
 
 
 <!-- Login -->
 
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"  aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4>Iniciar Sesión</h4>
-            </div>
-            <div class="modal-body">
 
-                {!! Form::open(['route' => 'login', 'class' => 'form']) !!}
-                    <div class="form-group">
-                        <label>Correo Electrónico</label>
-                        {!! Form::email('email', '', ['class'=> 'form-control']) !!}
-                    </div>
-                    <div class="form-group">
-                        <label>Contraseña</label>
-                        {!! Form::password('password', ['class'=> 'form-control']) !!}
-                    </div>
-                    <div class="checkbox">
-                        <label><input name="remember" type="checkbox"> Recordarme</label>
-                    </div>
-                    <div>                            
-                        {!! Form::submit('Entrar',['class' => 'btn btn-primary']) !!}
-                    </div>
-                {!! Form::close() !!}
-
-            </div>
-<!--
-            <div class="modal-footer">
-                <button type="button" class="btn btn-block btn-facebook btn-social"><i class="fa fa-facebook"></i> Login with Facebook</button>
-                <button type="button" class="btn btn-block btn-twitter btn-social"><i class="fa fa-twitter"></i> Login with Twitter</button>
-            </div>
--->
-        </div>
-    </div>
-</div>
 
 <!-- End Login -->
 
-<script src="autostars/js/jquery-2.0.0.min.js"></script> <!-- Jquery Library Call -->
-<script src="autostars/vendor/prettyphoto/js/prettyphoto.js"></script> <!-- PrettyPhoto Plugin -->
-<script src="autostars/js/ui-plugins.js"></script> <!-- UI Plugins -->
-<script src="autostars/js/helper-plugins.js"></script> <!-- Helper Plugins -->
-<script src="autostars/vendor/owl-carousel/js/owl.carousel.min.js"></script> <!-- Owl Carousel -->
-<script src="autostars/vendor/password-checker.js"></script> <!-- Password Checker -->
-<script src="autostars/js/bootstrap.js"></script> <!-- UI -->
-<!-- <script src="autostars/js/init.js"></script>  All Scripts -->
-<script src="autostars/vendor/flexslider/js/jquery.flexslider.js"></script> <!-- FlexSlider -->
-<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script src="autostars/style-switcher/js/jquery_cookie.js"></script>
-<script src="autostars/style-switcher/js/script.js"></script>
 
-<!-- Propios -->
-<script src="autostars/js/init_cars.js"></script> <!-- All Scripts -->
-<script src="autostars/js/ajaxCars.js"></script> <!-- Ajax -->
-<script src="autostars/js/autoNumeric.js"></script>
-<script type="text/javascript">
-jQuery(function($) {
-    $('.auto').autoNumeric('init');
-});
-</script>
