@@ -2,8 +2,11 @@
 
 @section('content')
 
+@foreach ($vehiculos as $vehiculo)
 
-
+	{!! $vehiculo->str_video !!} 
+	
+@endforeach
 
     <!-- Start Body Content -->
     <div class="main" role="main">
@@ -30,17 +33,33 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="single-listing-images">
+                            
                                 <div class="featured-image format-image">
-                                    <a href="autostars/images/car1-b.jpg" data-rel="prettyPhoto[gallery]" class="media-box"><img src="autostars/images/car1-b.jpg" alt=""></a>
+                                    <a href="data:image/jpeg;base64,{{ $vehiculo->imagen }}" data-rel="prettyPhoto[gallery]" class="media-box"><img src="data:image/jpeg;base64,{{ $vehiculo->imagen }}" alt=""></a>
                                 </div>
+                                
                                 <div class="additional-images">
-                                        <ul class="owl-carousel" data-columns="4" data-pagination="no" data-arrows="yes" data-single-item="no" data-items-desktop="4" data-items-desktop-small="4" data-items-tablet="3" data-items-mobile="3">
-                                            <li class="item format-video"> <a href="https://www.youtube.com/watch?v=P5mvnA4BV7Y" data-rel="prettyPhoto[gallery]" class="media-box"><img src="autostars/images/car2.jpg" alt=""></a></li>
-                                            <li class="item format-image"> <a href="autostars/images/car1-in.jpg" data-rel="prettyPhoto[gallery]" class="media-box"><img src="autostars/images/car1-in.jpg" alt=""></a></li>
-                                            <li class="item format-image"> <a href="autostars/images/car2-in.jpg" data-rel="prettyPhoto[gallery]" class="media-box"><img src="autostars/images/car2-in.jpg" alt=""></a></li>
-                                            <li class="item format-image"> <a href="autostars/images/car3-in.jpg" data-rel="prettyPhoto[gallery]" class="media-box"><img src="autostars/images/car3-in.jpg" alt=""></a></li>
-                                            <li class="item format-image"> <a href="autostars/images/car4-in.jpg" data-rel="prettyPhoto[gallery]" class="media-box"><img src="autostars/images/car4-in.jpg" alt=""></a></li>
-                                        </ul>
+
+									<ul class="owl-carousel" data-columns="4" data-pagination="no" data-arrows="yes" data-single-item="no" data-items-desktop="4" data-items-desktop-small="4" data-items-tablet="3" data-items-mobile="3">
+	                                        
+	                                       @if ($vehiculo->str_video != "")
+		                                        
+		                                   		<li class="item format-video"> <a href="{{ $vehiculo->str_video }}" data-rel="prettyPhoto[gallery]" class="media-box"><img src="data:image/jpeg;base64,{{ $vehiculo->imagen }}" alt=""></a></li>
+		                                        
+		                                   @endif
+		                                   
+	                                       @foreach ($imagenes as $imagen)
+                                  
+												<li class="item format-image">
+													 <a href="data:image/jpeg;base64,{{ $imagen->imagen }}" data-rel="prettyPhoto[gallery]" class="media-box">
+													 	<img src="data:image/jpeg;base64,{{ $imagen->imagen }}" alt="">
+													 </a>
+												</li>
+											
+											@endforeach 					
+
+	                                </ul>
+                     
                                 </div>
                             </div>
                         </div>

@@ -165,7 +165,6 @@
                                 <div class="result-item format-standard">
 
                                     <div class="result-item-image">                         
-                                        <!-- <a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="data:image/jpeg;base64,{{ $vehiculo->imagen }}" /></a>-->
                                         <a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="data:image/jpeg;base64,{{ $vehiculo->imagen }}" /></a>
                                         <span class="vehicle-age">
                                         <p class="label label-default">{!! $vehiculo->int_ano !!}</p>
