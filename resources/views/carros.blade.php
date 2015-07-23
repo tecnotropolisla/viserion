@@ -579,7 +579,7 @@
                                     {!! Form::input('text', 'str_video', '', ['class'=> 'form-control', 'placeholder'=> 'Youtube/Video URL']) !!}
 
                                     <hr class="fw">
-                                    <h3>Comentario adicional sobre tu vehículo</h3>
+                                    <h3>Descripción de la publicación</h3>
                                     <div class="lighter"><p>Cuentanos tu experiencia con este vehículo</p></div>
                                     
                                         {!! Form::textarea('str_comentario','',['class' =>'form-control', 'rows' => '10']) !!}
@@ -614,6 +614,24 @@
                                         !!} 
 
                                     </div>
+
+                                    <div class="form-group">
+
+                                        <i id="modelos_validar" class="fa fa-asterisk" style="color:red;"></i>
+                                        {!! Form::label('lng_idciudad', 'Ciudad') !!}
+
+                                        <div id="dependiente2">
+                                            {!! Form::select('lng_idciudad', 
+                                                                (['0' => 'Seleccione']), 
+                                                                null, 
+                                                                ['class' => 'form-control']
+                                                            ) 
+                                            !!} 
+                                        </div>
+
+                                    </div>
+
+
 
                                     <div class="form-group ">
                                         
