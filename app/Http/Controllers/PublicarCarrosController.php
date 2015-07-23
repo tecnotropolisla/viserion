@@ -33,18 +33,19 @@ class PublicarCarrosController extends Controller
      */
     public function postPublicar(Request $request)
     {
-
-        $validator = $this->validator($request->all());
+ /*       
+    	$validator = $this->validator($request->all());
 
         if ($validator->fails()) {
             $this->throwValidationException(
                 $request, $validator
             );
         }
-
+*/
         $this->create($request->all());
 
-        return redirect($this->redirectPath());
+        return redirect($this->redirectPath()); 
+        
     }
 
     /**
@@ -95,8 +96,8 @@ class PublicarCarrosController extends Controller
      */
     public function create(array $data)
     {
-        
-        if ($data['str_moneda'] == null){
+    	/*
+    	if ($data['str_moneda'] == null){
         	$data['str_moneda'] = "Moneda local";
         }
         
@@ -151,12 +152,10 @@ class PublicarCarrosController extends Controller
             ]);
         }
 
-        //$total_imagenes = count($data['blb_img']);
-
         $total_imagenes = 6;
-               
+                
         for ($i = 0; $i <= $total_imagenes - 1; $i++)
-        {
+        {   
         	$imagenesVehiculos = ImagenesVehiculos::create([
         		'lng_idvehiculo' => $lastInsertedId,
         		'blb_img' => base64_encode(file_get_contents($data['blb_img'.$i])),
@@ -164,7 +163,22 @@ class PublicarCarrosController extends Controller
 	        ]);
         }
   
-        return $imagenesVehiculos;
+        return $imagenesVehiculos;*/
+        
+    	
+    	
+    	$total_imagenes = 6;
+    	
+    	for ($i = 0; $i <= $total_imagenes - 1; $i++)
+    	{
+			echo $data['blb_img'.$i]."<br>";
+    	}
+    	
+
+   
+        die;
+        
+        
     }
 
     public function formulario($valor)
@@ -303,4 +317,41 @@ class PublicarCarrosController extends Controller
     {
         //
     }
+    
+    public function cortarImagenes($nombre)
+    {
+    	
+    	/*
+    	echo $nombre;
+    	echo "<br>";
+    	echo base64_encode(file_get_contents($nombre ) );
+    	echo "<br>";
+    	echo $filename = $_FILES['blb_img0']['tmp_name'];
+    	*/
+    	
+    	//die();
+    	
+    	$filename = $nombre;
+    		
+    	$percent = 0.5;
+    	 
+    	// Content type
+    	header('Content-Type: image/jpeg');
+    	 
+    	// Get new dimensions
+    	list($width, $height) = getimagesize($filename);
+    	//$new_width = $width * $percent;
+    	//$new_height = $height * $percent;
+    	$new_width = 600; //* $percent;
+    	$new_height = 400;//$height * $percent;
+    	 
+    	// Resample
+    	$image_p = imagecreatetruecolor($new_width, $new_height);
+    	$image = imagecreatefromjpeg($filename);
+    	imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+    	 
+    	// Output
+    	return imagejpeg($image_p, null, 100);
+    } 
+    
 }

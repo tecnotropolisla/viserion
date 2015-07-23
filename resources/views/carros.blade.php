@@ -1,6 +1,6 @@
 <!-- AD LISTING FORM -->
 
-                         {!! Form::open(['route' => 'publicar', 'class' => 'listing-add-form','enctype'=>'multipart/form-data', 'onKeypress' => 'if(event.keyCode == 13) event.returnValue = false']) !!}
+                         {!! Form::open(['route' => 'publicar', 'class' => 'listing-add-form','enctype'=>'multipart/form-data', 'id' => 'formularioVehiculo', 'onKeypress' => 'if(event.keyCode == 13) event.returnValue = false']) !!}
                        
                             <section class="listing-form-content">
                             
@@ -663,7 +663,7 @@
                                         {!! Form::input('hidden', 'lng_idmodelo', '') !!}
                                         
                                         <div class="col-md-5">
-                                            {!! Form::submit('Guardar',['class' => 'btn btn-primary btn-lg btn-block']) !!}
+                                            {!! Form::button('Guardar',['class' => 'btn btn-primary btn-lg btn-block','onclick' => 'confirmar()']) !!}
                                         </div>
                                         
                                 </div>

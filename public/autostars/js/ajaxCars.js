@@ -378,7 +378,6 @@ function soloEnVenezuela(nombre){
 
 }
 
-
 function imagenppal(valor,nombre){
 
     //alert(valor +"--"+ nombre);
@@ -392,3 +391,16 @@ function imagenppal(valor,nombre){
     campo.value = valor;
 
 }
+
+function confirmar() {
+    
+	var x = document.getElementById("formularioVehiculo").elements.length;
+	
+    if (confirm("¿Completó satisfactoriamente los datos solicitados?") == true) {
+       
+        document.getElementById("formularioVehiculo").submit();
+        
+    } 
+  
+}
+
