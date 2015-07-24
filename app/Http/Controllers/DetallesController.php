@@ -22,7 +22,29 @@ class DetallesController extends Controller
 	            join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id
 	            where ima.int_peso = 1
 	            and v.id = '.$valor));*/
-	    
+
+        //busco el id del vehículo para saber si existe:
+        $vehiculos = DB::table('tbl_vehiculos as v')
+        ->where('v.id', '=', $valor)
+                ->select('v.*')
+                ->get();
+
+        //Mi variable bandera para establecer si pasa o no a determinada vista:
+        $flag = false;
+
+        foreach ($vehiculos as $value) {
+            if (!empty($value->id)) {
+                 //echo $value->id;
+                 $flag = true;
+            }   
+        }
+         
+        if ($flag == false) {
+            //echo "no existe";
+            return \View::make('errors.404');
+        }
+
+        //Descripción del vehículo:
 	    $vehiculos = DB::table('tbl_vehiculos as v')
 	    ->join('cat_datos_maestros as dm', 'dm.id', '=', 'v.lng_idtransmision')
 	    ->join('cat_datos_maestros as dm2', 'dm2.id', '=', 'v.lng_iddireccion')
@@ -59,13 +81,13 @@ class DetallesController extends Controller
             'mo.str_modelo as modelo')
 	    ->get();
 	    
-	    //SELECT `blb_img`,`int_peso` FROM `tbl_imagenes_vehiculos` WHERE `lng_idvehiculo` = 1
-	    
+        //Imágenes del vehículo:
 	    $imagenes = DB::table('tbl_imagenes_vehiculos as ima')
 	    ->where('ima.lng_idvehiculo', '=', $valor)
 	    ->select('ima.int_peso','ima.blb_img as imagen')
 	    ->get();
 
+        //Características del vehículo:
         $caracteristicas = DB::table('tbl_detalles_vehiculos as dv')
         ->join('cat_datos_maestros as dm', 'dm.id', '=', 'dv.lng_idcaracteristica')
         ->where('dv.lng_idvehiculo', '=', $valor)

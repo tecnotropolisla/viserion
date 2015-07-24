@@ -7,9 +7,14 @@
             <div class="container">
                 <div class="text-align-center error-404">
                     <h1 class="">Acceso Restringido</h1>
-                    <hr class="sm">
-                    <p><strong>Por favor inicie sesión</strong></p>
-                    <p>El contenido de esta página es solo para usuarios registrados <i class="fa fa-frown-o"></i></p>
+                    El contenido de esta página es sólo para usuarios registrados<br>
+                    <h3><i class="fa fa-frown-o"></i></h3>
+                    
+                    <p>
+                        <a href="#" class="" data-toggle="modal" data-target="#loginModal">
+                            <button type="button" class="btn btn-primary">Iniciar Sesión</button>
+                        </a>
+                    </p>
 
                     <p>
                         <a href="{{ route('register') }}">

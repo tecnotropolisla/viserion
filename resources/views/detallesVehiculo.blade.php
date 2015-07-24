@@ -23,17 +23,17 @@
                     </div>
                     <div class="single-listing-actions">
                         <div class="btn-group pull-right" role="group">
-                            <a href="#" class="btn btn-default" title="Save this car"><i class="fa fa-heart"></i> <span>Favoritos</span></a>
+                            <a href="#" class="btn btn-default" title="Añadir a favoritos"><i class="fa fa-heart"></i> <span>Favoritos</span></a>
 
                             @if (Auth::guest())
 
                                 <div class="user-login-panel">
-                                    <a href="#" data-toggle="modal" data-target="#loginModal" class="btn btn-default" title="Make an offer"><i class="fa fa-eye"></i> <span> Contacto</span></a>
+                                    <a href="#" data-toggle="modal" data-target="#loginModal" class="btn btn-default" title="Ver datos del contacto"><i class="fa fa-eye"></i> <span> Contacto</span></a>
                                 </div>
 
                             @endif
 
-                            <a href="#" data-toggle="modal" data-target="#sendModal" class="btn btn-default" title="Send to a friend"><i class="fa fa-share-alt"></i> <span>Compartir</span></a>                         
+                            <a href="#" data-toggle="modal" data-target="#sendModal" class="btn btn-default" title="Compartir en redes sociales"><i class="fa fa-share-alt"></i> <span>Compartir</span></a>                         
                         </div>
                         
                         <div class="btn btn-info price">$ {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!}  </div>
@@ -606,7 +606,54 @@
                                 </div>
                             </div>                        
 
+                            <div class="sidebar-widget widget seller-contact-widget">
+                                
+                                <div class="vehicle-enquiry-in">
 
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                          <div class="panel-body">
+                                            <br><br><p class="text-align-center"> Anunciantes</p><br><br>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                </div>
+                            </div> 
+                            <div class="sidebar-widget widget seller-contact-widget">
+                                
+                                <div class="vehicle-enquiry-in">
+
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                          <div class="panel-body">
+                                            <br><br><p class="text-align-center"> Anunciantes</p><br><br>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                </div>
+                            </div> 
+                            <div class="sidebar-widget widget seller-contact-widget">
+                                
+                                <div class="vehicle-enquiry-in">
+
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                          <div class="panel-body">
+                                            <br><br><p class="text-align-center"> Anunciantes</p><br><br>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                </div>
+                            </div> 
                         </div>
                     </div>
                 </article>
