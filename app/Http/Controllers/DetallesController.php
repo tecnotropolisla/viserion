@@ -41,11 +41,15 @@ class DetallesController extends Controller
 	    ->join('tbl_modelos as mo', 'mo.id', '=', 'v.lng_idmodelo')
 	    ->join('cat_marcas as ma', 'ma.id', '=', 'mo.lng_idmarca')
 	    ->join('tbl_imagenes_vehiculos as ima', 'ima.lng_idvehiculo', '=', 'v.id')
+        ->join('tbl_personas as per', 'per.id', '=', 'v.lng_idpersona')
+        ->join('cat_paises as p2', 'p2.id', '=', 'per.lng_idpais')
 	    ->where('v.id', '=', $valor)
 	    ->Where(function ($query) {
 	    	$query->where('ima.int_peso', '=', 1);
 	    })
-	    ->select('v.*','ima.blb_img as imagen', 'p.blb_img as bandera','dm.str_descripcion as transmision', 
+	    ->select('v.*','per.name as usuario','p2.str_paises as pais_persona','p2.blb_img as bandera_persona','per.str_nombre as nombre_persona','per.str_apellido as apellido_persona','per.email',
+            'per.str_ididentificacion','per.str_telefono','per.str_twitter','per.str_facebook','per.str_instagram',
+            'per.blb_img as ima_persona','ima.blb_img as imagen', 'p.blb_img as bandera','dm.str_descripcion as transmision', 
             'dm2.str_descripcion as direccion','dm3.str_descripcion as color', 'dm4.str_descripcion as estereo',
             'dm5.str_descripcion as tapizado', 'dm6.str_descripcion as vidrios', 'dm7.str_descripcion as traccion',
             'dm8.str_descripcion as combustible', 'dm9.str_descripcion as negociable', 

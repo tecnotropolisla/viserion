@@ -58,7 +58,7 @@ class AuthController extends Controller
             'str_facebook' => 'unique:tbl_personas',
             'str_instagram' => 'unique:tbl_personas',
             'str_telefono' => 'required|max:255',
-        	//'blb_img' =>    'required|image:jpeg,png,jpg',
+        	'blb_img' =>    'required|image:jpeg,png,jpg',
         	/* 'name' => 'required|max:255',
         	'email' => 'required|email|max:255|unique:users',
         	'password' => 'required|confirmed|min:6', */        		

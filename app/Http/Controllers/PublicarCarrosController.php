@@ -33,7 +33,7 @@ class PublicarCarrosController extends Controller
      */
     public function postPublicar(Request $request)
     {
- /*       
+        
     	$validator = $this->validator($request->all());
 
         if ($validator->fails()) {
@@ -41,7 +41,6 @@ class PublicarCarrosController extends Controller
                 $request, $validator
             );
         }
-*/
         $this->create($request->all());
 
         return redirect($this->redirectPath()); 
@@ -96,7 +95,7 @@ class PublicarCarrosController extends Controller
      */
     public function create(array $data)
     {
-    	/*
+
     	if ($data['str_moneda'] == null){
         	$data['str_moneda'] = "Moneda local";
         }
@@ -163,21 +162,7 @@ class PublicarCarrosController extends Controller
 	        ]);
         }
   
-        return $imagenesVehiculos;*/
-        
-    	
-    	
-    	$total_imagenes = 6;
-    	
-    	for ($i = 0; $i <= $total_imagenes - 1; $i++)
-    	{
-			echo $data['blb_img'.$i]."<br>";
-    	}
-    	
-
-   
-        die;
-        
+        return $imagenesVehiculos;
         
     }
 

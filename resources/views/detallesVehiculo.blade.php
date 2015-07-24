@@ -2,15 +2,9 @@
 
 @section('content')
 
-
-
 @foreach ($vehiculos as $vehiculo)
 
-	
 @endforeach
-
-
-
 
     <!-- Start Body Content -->
     <div class="main" role="main">
@@ -19,17 +13,33 @@
                 <!-- Vehicle Details -->
                 <article class="single-vehicle-details">
                     <div class="single-vehicle-title">
-                        <span class="badge-premium-listing">Premium listing</span>
-                        <h2 class="post-title">{!! $vehiculo->marca !!}  {!! $vehiculo->modelo !!} </h2>
+                        <span class="badge-premium-listing">
+                            
+                            <img src="data:image/jpeg;base64,{{ $vehiculo->bandera }}" alt="{!! $vehiculo->pais !!}" title="{!! $vehiculo->pais !!}" style="width:35px"> {!! $vehiculo->pais !!}
+
+                        </span>
+
+                        <h2 class="post-title">{!! $vehiculo->marca !!}  {!! $vehiculo->modelo !!} {!! $vehiculo->int_ano !!}</h2>
                     </div>
                     <div class="single-listing-actions">
                         <div class="btn-group pull-right" role="group">
-                            <a href="#" class="btn btn-default" title="Save this car"><i class="fa fa-heart"></i> <span>Añadir a Favoritos</span></a>                                                     
-                            <a href="#" data-toggle="modal" data-target="#offerModal" class="btn btn-default" title="Make an offer"><i class="fa fa-eye"></i> <span>Ver Contacto</span></a>
+                            <a href="#" class="btn btn-default" title="Save this car"><i class="fa fa-heart"></i> <span>Favoritos</span></a>
+
+                            @if (Auth::guest())
+
+                                <div class="user-login-panel">
+                                    <a href="#" data-toggle="modal" data-target="#loginModal" class="btn btn-default" title="Make an offer"><i class="fa fa-eye"></i> <span> Contacto</span></a>
+                                </div>
+
+                            @endif
+
                             <a href="#" data-toggle="modal" data-target="#sendModal" class="btn btn-default" title="Send to a friend"><i class="fa fa-share-alt"></i> <span>Compartir</span></a>                         
                         </div>
+                        
                         <div class="btn btn-info price">$ {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!}  </div>
+                    
                     </div>
+                    
                     <div class="row">
                         <div class="col-md-8">
                             <div class="single-listing-images">
@@ -64,19 +74,83 @@
                             </div>
                         </div>
                         <div class="col-md-4">
+
                             <div class="sidebar-widget widget">
 
+                            @if (Auth::user())
+
+
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h3 class="panel-title"><img src="data:image/jpeg;base64,{{ $vehiculo->bandera_persona }}" alt="{!! $vehiculo->pais_persona !!}" title="{!! $vehiculo->pais_persona !!}" style="width:35px"> Datos del contacto</h3>
+                              </div>
+                                  <div class="panel-body">
+                                    <div class="row">
+                                      <div class="col-xs-6 col-md-4 thumbnail">
+                                        
+                                            <img src="data:image/jpeg;base64,{{ $vehiculo->ima_persona }}" alt="{!! $vehiculo->nombre_persona !!} {!! $vehiculo->apellido_persona !!}" title="{!! $vehiculo->nombre_persona !!} {!! $vehiculo->apellido_persona !!}" style="width:100%">
+
+                                      </div>
+
+                                         Usuario: <b>{!! $vehiculo->usuario !!}</b><br>
+                                         Nombre: <b>{!! $vehiculo->nombre_persona !!} {!! $vehiculo->apellido_persona !!}</b><br>
+                                         País: {!! $vehiculo->pais_persona !!}<br><br>
+
+                                    </div>
+                                        <i class="fa fa-phone"></i> <b>{!! $vehiculo->str_telefono !!}</b><br>
+                                        <i class="fa fa-envelope"></i> <a href="mailto:{!! $vehiculo->email !!}">{!! $vehiculo->email !!}</a><br>
+
+                                        @if ($vehiculo->str_twitter != "") <i class="fa fa-twitter"></i> <b>{!! $vehiculo->str_twitter !!}</b><br> @endif
+                                        @if ($vehiculo->str_facebook != "") <i class="fa fa-facebook"></i> <b>{!! $vehiculo->str_facebook !!}</b><br> @endif
+                                        @if ($vehiculo->str_instagram != "") <i class="fa fa-instagram"></i> <b>{!! $vehiculo->str_instagram !!}</b><br>@endif
+
+                                  </div>
+                                </div>
+
+                            @endif
+                                
+                                <br>
+
                                 <ul class="list-group">
-                                     <li class="list-group-item"> <span class="badge">País</span> <img src="data:image/jpeg;base64,{{ $vehiculo->bandera }}" alt="{!! $vehiculo->pais !!}" title="{!! $vehiculo->pais !!}" style="width:35px"> </li>
+                                     
                                     <li class="list-group-item"> <span class="badge">Ciudad</span> ------- </li>
-                                    <li class="list-group-item"> <span class="badge">Año</span> {!! $vehiculo->int_ano !!}</li>
-                                    <li class="list-group-item"> <span class="badge">Marca</span> {!! $vehiculo->marca !!}</li>
-                                    <li class="list-group-item"> <span class="badge">Modelo</span> {!! $vehiculo->modelo !!}</li>
                                     <li class="list-group-item"> <span class="badge">Recorrido</span> {!! number_format($vehiculo->str_recorrido, null, ',', '.') !!} </li>
                                     <li class="list-group-item"> <span class="badge">Color</span> {!! $vehiculo->color !!}</li>
                                     <li class="list-group-item"> <span class="badge">Motor</span> {!! $vehiculo->str_motor !!}</li>
 
                                 </ul>
+                                
+                                <br>
+
+                            @if (Auth::guest())
+                                <div class="vehicle-enquiry-in">
+
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                          <div class="panel-body">
+                                            <br><br><p class="text-align-center"> <i class="fa fa-google"></i> Ads 1 by Google</p><br><br>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                </div>
+
+                                 <div class="vehicle-enquiry-in">
+
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                          <div class="panel-body">
+                                            <br><br><p class="text-align-center"> <i class="fa fa-google"></i> Ads 2 by Google</p><br><br>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                </div>
+                            @endif
 
                             </div>
                         </div>
@@ -505,7 +579,7 @@
                                       <div class="col-md-12">
                                         <div class="panel panel-default">
                                           <div class="panel-body">
-                                            <br><br><p class="text-align-center"> <i class="fa fa-google"></i> Ads by Google</p><br><br>
+                                            <br><br><p class="text-align-center"> <i class="fa fa-google"></i> Ads 3 by Google</p><br><br>
                                           </div>
                                         </div>
                                       </div>
@@ -530,41 +604,7 @@
                                     </div>
 
                                 </div>
-                            </div>
-
-                            <div class="sidebar-widget widget seller-contact-widget">
-                                
-                                <div class="vehicle-enquiry-in">
-
-                                    <div class="row">
-                                      <div class="col-md-12">
-                                        <div class="panel panel-default">
-                                          <div class="panel-body">
-                                            <br><br><p class="text-align-center"> Anunciantes</p><br><br>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="sidebar-widget widget seller-contact-widget">
-                                
-                                <div class="vehicle-enquiry-in">
-
-                                    <div class="row">
-                                      <div class="col-md-12">
-                                        <div class="panel panel-default">
-                                          <div class="panel-body">
-                                            <br><br><p class="text-align-center"> Anunciantes</p><br><br>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                </div>
-                            </div>                            
+                            </div>                        
 
 
                         </div>
@@ -574,7 +614,5 @@
             </div>
         </div>
     </div>
-
-
 
 @endsection
