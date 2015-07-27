@@ -149,17 +149,17 @@
 
             <nav>
                 <ul class="pagination">
-                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true"><i class="fa fa-chevron-left"></i></span></a></li>
+                    <li class="disabled"><a aria-label="Previous"><span aria-hidden="true"><i class="fa fa-chevron-left"></i></span></a></li>
                     
                     @foreach ($total as $paginas) @endforeach
 
                         @for ($i = 1; $i < $paginas + 1; $i++)
 
-                            <li class=""><a href="#" onclick="paginar({!! $i !!})">{!! $i !!} <span class="sr-only"></span></a></li>
+                            <li class=""><a onclick="paginar({!! $i !!})">{!! $i !!} <span class="sr-only"></span></a></li>
 
                         @endfor
                    
-                    <li class=""><a href="#" aria-label="Next"><span aria-hidden="true"><i class="fa fa-chevron-right"></i></span></a></li>
+                    <li class=""><a aria-label="Next"><span aria-hidden="true"><i class="fa fa-chevron-right"></i></span></a></li>
                 </ul>
             </nav>
 

@@ -94,11 +94,11 @@ class HomeController extends Controller
                                             <div class="result-item-view-buttons">';
 
                                                 if ($vehiculo->str_video == ""){
-            $resultados .=                         '<a class="col-md-6" href=" route('.'detalles'.','.$vehiculo->id.') "><i class="fa fa-eye"></i> Ver</a>
+            $resultados .=                         '<a class="col-md-6" href="Detalle-del-Vehiculo/'.$vehiculo->id.'"><i class="fa fa-eye"></i> Ver</a>
                                                     <a class="col-md-6" href="#"><i class="fa fa-heart"></i> Fav</a>';
                                                 }else{
             $resultados .=                         '<a class="col-md-4" href="'.$vehiculo->str_video.'" data-rel="prettyPhoto"><i class="fa fa-play-circle-o"></i> Video</a>
-                                                    <a class="col-md-4" href="route('.'detalles'.','.$vehiculo->id.') "><i class="fa fa-eye"></i> Ver</a>
+                                                    <a class="col-md-4" href="Detalle-del-Vehiculo/'.$vehiculo->id.'"><i class="fa fa-eye"></i> Ver</a>
                                                     <a class="col-md-4" href="#"><i class="fa fa-heart"></i> Fav</a>';
                                                 }
                                                 
