@@ -17,6 +17,11 @@ Route::get('/', [
 	'as' =>'home'
 ]);
 
+Route::get('Pagina/{valor}',[
+				'uses' => 'HomeController@paginar',
+				'as' => 'paginar'
+]);
+
 // Authentication routes...
 Route::get('Iniciar-Sesion', [
 				'uses' => 'Auth\AuthController@getLogin',

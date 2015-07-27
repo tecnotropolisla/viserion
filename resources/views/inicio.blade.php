@@ -140,9 +140,29 @@
                         </div>
                     </div>
                     <!-- Small Screens Filters Toggle Button -->
-                    <button class="btn btn-default visible-xs" id="Show-Filters">Search Filters</button> 
+                    <button class="btn btn-default visible-xs" id="Show-Filters">Search Filters</button>
+                                                <!-- Paginar-->
+
                 </div>
+
             </div>
+
+            <nav>
+                <ul class="pagination">
+                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true"><i class="fa fa-chevron-left"></i></span></a></li>
+                    
+                    @foreach ($total as $paginas) @endforeach
+
+                        @for ($i = 1; $i < $paginas + 1; $i++)
+
+                            <li class=""><a href="#" onclick="paginar({!! $i !!})">{!! $i !!} <span class="sr-only"></span></a></li>
+
+                        @endfor
+                   
+                    <li class=""><a href="#" aria-label="Next"><span aria-hidden="true"><i class="fa fa-chevron-right"></i></span></a></li>
+                </ul>
+            </nav>
+
         </div>
     </div>
 
@@ -199,9 +219,6 @@
                                                 <div class="result-item-pricing">
                                                     <div class="price" style="font-size:20px">$ {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!} </div>
                                                 </div>
-                                                
-
-                                                
                                             </div>
                                         </div>
 

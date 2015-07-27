@@ -122,6 +122,16 @@ function dependiente(valor){
 
 }
 
+function paginar(valor){
+
+    divname = "results-holder";
+    //http.open("GET", 'paginas' + url, true);
+    http.open("GET", 'Pagina/'+ valor, true);
+    http.onreadystatechange = handleHttpResponse;
+    http.send(null);
+
+}
+
 function idmodelo(valor){
 
 	lng_idmodelo.value = valor;	
