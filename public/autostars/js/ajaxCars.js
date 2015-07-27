@@ -124,12 +124,47 @@ function dependiente(valor){
 
 function paginar(valor){
 
+	document.getElementById('pag').value = valor;
     divname = "results-holder";
+   
+    paginas = Number(document.getElementById('paginas').value);
+
+    for ($x = 1; $x <= paginas; $x++){
+        var ele = document.getElementById("numeroPag"+$x)
+        ele.setAttribute('class', '');
+    }
+    
+    var ele = document.getElementById("numeroPag"+valor)
+    ele.setAttribute('class', 'active');
+   
     //http.open("GET", 'paginas' + url, true);
     http.open("GET", 'Pagina/'+ valor, true);
     http.onreadystatechange = handleHttpResponse;
     http.send(null);
 
+}
+
+function siguiente(){
+	
+	valor = Number(document.getElementById('pag').value) + 1;
+	paginas = Number(document.getElementById('paginas').value);
+	
+	if(valor <= paginas ){
+		document.getElementById('pag').value = valor;
+		paginar(valor);
+	}
+	
+}
+
+function anterior(){
+	
+	valor = Number(document.getElementById('pag').value) - 1;
+
+	if(valor > 0){
+		document.getElementById('pag').value = valor;
+		paginar(valor);
+	}
+	
 }
 
 function idmodelo(valor){
@@ -366,6 +401,7 @@ function validarRadio(nombre){
     var ele = document.getElementById(nombre+"_validar")
     ele.setAttribute('class', 'fa fa-check');
     ele.setAttribute('style', 'color: green');
+    
 }
 
 

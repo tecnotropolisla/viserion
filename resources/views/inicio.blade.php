@@ -148,18 +148,29 @@
             </div>
 
             <nav>
+            	
+            	{!! Form::input('hidden', 'pag', 1 , ['id'=> 'pag']) !!}
+            	
                 <ul class="pagination">
-                    <li class="disabled"><a aria-label="Previous"><span aria-hidden="true"><i class="fa fa-chevron-left"></i></span></a></li>
+                    <li class=""><a onclick="anterior()" aria-label="Previous"><span aria-hidden="true"><i class="fa fa-chevron-left"></i></span></a></li>
                     
                     @foreach ($total as $paginas) @endforeach
 
                         @for ($i = 1; $i < $paginas + 1; $i++)
-
-                            <li class=""><a onclick="paginar({!! $i !!})">{!! $i !!} <span class="sr-only"></span></a></li>
+                       
+                            <li id="numeroPag{{$i}}" class="">
+                            	<a onclick="paginar({{$i}})">
+                            		{!! $i !!} 
+                            		<span class="sr-only"></span>
+                            	</a>
+                            </li>
 
                         @endfor
                    
-                    <li class=""><a aria-label="Next"><span aria-hidden="true"><i class="fa fa-chevron-right"></i></span></a></li>
+                   	
+                   	{!! Form::input('hidden', 'paginas', $i-1 , ['id'=> 'paginas']) !!}
+                   	
+                    <li class=""><a onclick="siguiente()" aria-label="Next"><span aria-hidden="true"><i class="fa fa-chevron-right"></i></span></a></li>
                 </ul>
             </nav>
 
