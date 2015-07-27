@@ -84,7 +84,7 @@ class HomeController extends Controller
                                     '<div class="result-item format-standard">
 
                                         <div class="result-item-image">                         
-                                            <a href="route('.'detalles'.','.$vehiculo->id.')" class="media-box"><img class="" src="data:image/jpeg;base64,'.$vehiculo->imagen.'" /></a>
+                                            <a href="Detalle-del-Vehiculo/'.$vehiculo->id.'" class="media-box"><img class="" src="data:image/jpeg;base64,'.$vehiculo->imagen.'" /></a>
                                             <span class="vehicle-age">
                                             <p class="label label-default">'.$vehiculo->int_ano.'</p>
                                             <p class="text-center" style="margin-top: -2px;"><img class="" src="data:image/jpeg;base64, '.$vehiculo->bandera.'" style="width:35px" /></p>                                       
@@ -108,7 +108,7 @@ class HomeController extends Controller
 
                                         <div class="result-item-in">
 
-                                            <h4 class="result-item-title"><a href=" route('.'detalles'.','.$vehiculo->id.') ">'.$vehiculo->marca." ".$vehiculo->modelo.'</a></h4>
+                                            <h4 class="result-item-title"><a href="Detalle-del-Vehiculo/'.$vehiculo->id.'">'.$vehiculo->marca." ".$vehiculo->modelo.'</a></h4>
                                             
                                             <div class="result-item-cont">
                                                 <div class="result-item-block col1">
