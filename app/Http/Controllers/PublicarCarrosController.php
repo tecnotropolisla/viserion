@@ -22,7 +22,7 @@ class PublicarCarrosController extends Controller
      */
     public function index()
     {
-        return \View::make('publicar');
+        //
     }
 
     /**
@@ -166,35 +166,15 @@ class PublicarCarrosController extends Controller
         
     }
 
-    public function formulario($valor)
-    {
-
-        switch ($valor) {
-
-            case 'carros':
-                $formulario = $this->carros();
-                break;
-
-            case 'motocicletas':
-                $formulario = "Formulario de motocicletas en construccion";
-                break;
-
-            case 'embarcaciones':
-                $formulario = "Formulario embarcaciones en construccion";
-                break;
-
-            case 'aeronaves':
-                $formulario = "Formulario de aeronaves en construccion";
-                break;                                                
-
-        }
-
-        return $formulario;
-    }
-
     public function carros()
     {
-        $marcas = DB::table('cat_marcas')->orderBy('str_marca')->lists('str_marca','id');
+    	$marcas = DB::table('cat_marcas as m')
+    	->join('cat_datos_maestros as dm', 'dm.id', '=', 'm.lng_idtipo')
+    	->where('m.lng_idtipo', '=', 8)
+    	->orderBy('str_marca')
+    	->select('str_marca','m.id')
+    	->lists('str_marca','m.id');
+    	        
         $modelos = DB::table('tbl_modelos')->where('lng_idmarca', '62')->lists('str_modelo','id');
         $tipo_vehiculos = DB::table('cat_datos_maestros')->where('str_tipo', 'vehiculos')->lists('str_descripcion','id');
         $colores = DB::table('cat_datos_maestros')->where('str_tipo', 'color')->lists('str_descripcion','id');

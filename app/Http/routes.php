@@ -46,19 +46,28 @@ Route::post('Crear-Cuenta', 'Auth\AuthController@postRegister');
 
 Route::group(['middleware' => 'auth'], function () {
  
-	Route::get('Publicar-Vehiculo', [
-		'uses' => 'PublicarCarrosController@index',
+	Route::get('Publicar', [
+		'uses' => 'PublicarController@index',
 		'as' =>'publicar'
 	]);
+	
+	//Carros:
+	/*****************************************************************************************/	
+		Route::get('Publicar-Carro', [
+				'uses' => 'PublicarCarrosController@carros',
+				'as' =>'publicarCarro'
+		]);
+	
+		Route::post('Publicar-Carro', [
+			'uses' => 'PublicarCarrosController@postPublicar',
+			'as' =>'publicarCarro'
+		]);
+	
+		Route::get('Publicar-Carro/{valor}','PublicarCarrosController@dependiente');
+	/*****************************************************************************************/
 
-	Route::post('Publicar-Vehiculo', [
-		'uses' => 'PublicarCarrosController@postPublicar',
-		'as' =>'publicar'
-	]);
-
-	Route::get('Publicar-Vehiculo/{valor}','PublicarCarrosController@dependiente');
-
-	Route::get('Formulario/{valor}','PublicarCarrosController@formulario');
+	
+	Route::get('Formulario/{valor}','PublicarController@formulario');
 
  });
 

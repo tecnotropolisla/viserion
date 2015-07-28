@@ -116,7 +116,7 @@ function dependiente(valor){
 	
     divname = "dependiente";
     //http.open("GET", 'paginas' + url, true);
-    http.open("GET", 'Publicar-Vehiculo/'+ valor, true);
+    http.open("GET", 'Publicar-Carro/'+ valor, true);
     http.onreadystatechange = handleHttpResponse;
     http.send(null);
 
