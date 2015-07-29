@@ -93,17 +93,19 @@
                                       </div>
 
                                          Usuario: <b>{!! $vehiculo->usuario !!}</b><br>
-                                         Nombre: <b>{!! $vehiculo->nombre_persona !!} {!! $vehiculo->apellido_persona !!}</b><br>
-                                         País: {!! $vehiculo->pais_persona !!}<br><br>
+                                         Nombre: <b>{!! $vehiculo->nombre_persona !!}, {!! $vehiculo->apellido_persona !!}</b><br>
+                                         País: {!! $vehiculo->pais_persona !!}<br>
+                                         Inscrito: {!! $vehiculo->fecha_inscripcion !!}
+                                        <br>
 
                                     </div>
                                         <i class="fa fa-phone"></i> <b>{!! $vehiculo->str_telefono !!}</b><br>
                                         <i class="fa fa-envelope"></i> <a href="mailto:{!! $vehiculo->email !!}">{!! $vehiculo->email !!}</a><br>
-
+                                        <!--
                                         @if ($vehiculo->str_twitter != "") <i class="fa fa-twitter"></i> <b>{!! $vehiculo->str_twitter !!}</b><br> @endif
                                         @if ($vehiculo->str_facebook != "") <i class="fa fa-facebook"></i> <b>{!! $vehiculo->str_facebook !!}</b><br> @endif
                                         @if ($vehiculo->str_instagram != "") <i class="fa fa-instagram"></i> <b>{!! $vehiculo->str_instagram !!}</b><br>@endif
-
+                                        -->
                                   </div>
                                 </div>
 
@@ -162,131 +164,126 @@
                         <div class="col-md-8">
                             <div class="tabs vehicle-details-tabs">
                                 <ul class="nav nav-tabs">
-                                    <li class="active"> <a data-toggle="tab" href="#vehicle-overview">Descripción</a></li>
-                                    <li> <a data-toggle="tab" href="#vehicle-add-features">Especificaciones</a></li>
+                                    <li class="active"> <a data-toggle="tab" href="#vehicle-add-features">Especificaciones</a></li>
                                     <li> <a data-toggle="tab" href="#vehicle-specs">Características</a></li>
                                     
                                     <!--<li> <a data-toggle="tab" href="#vehicle-location">Ubicación</a> </li>-->
 
                                 </ul>
                                 <div class="tab-content">
-                                    <div id="vehicle-overview" class="tab-pane fade in active">
-                                        <p>
-                                            {!! $vehiculo->str_comentario !!}
-                                        </p>
-                                        
-                                    </div>
 
-                                    <div id="vehicle-add-features" class="tab-pane fade">
+                                    <div id="vehicle-add-features" class="tab-pane fade in active">
 
+                                        {!! $vehiculo->str_comentario !!}
+                                            
+                                            <br><br>
+                                            <table class="table-specifications table table-striped table-hover">
+                                                
+                                                <tbody>
 
+                                                    <tr>
+                                                        <td>Año</td>
+                                                        <td>{!! $vehiculo->int_ano !!}</td>
+                                                    </tr>
 
-                                                      <table class="table-specifications table table-striped table-hover">
-                                                            <tbody>
+                                                    <tr>
+                                                        <td>Marca</td>
+                                                        <td>{!! $vehiculo->marca !!}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Modelo</td>
+                                                        <td>{!! $vehiculo->modelo !!}</td>
+                                                    </tr>
 
-                                                                <tr>
-                                                                    <td>Año</td>
-                                                                    <td>{!! $vehiculo->int_ano !!}</td>
-                                                                </tr>
+                                                    <tr>
+                                                        <td>Recorrido</td>
+                                                        <td>{!! number_format($vehiculo->str_recorrido, null, ',', '.') !!}</td>
+                                                    </tr>
 
-                                                                <tr>
-                                                                    <td>Marca</td>
-                                                                    <td>{!! $vehiculo->marca !!}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Modelo</td>
-                                                                    <td>{!! $vehiculo->modelo !!}</td>
-                                                                </tr>
+                                                    <tr>
+                                                        <td>Color</td>
+                                                        <td>{!! $vehiculo->color !!}</td>
+                                                    </tr>
 
-                                                                <tr>
-                                                                    <td>Recorrido</td>
-                                                                    <td>{!! number_format($vehiculo->str_recorrido, null, ',', '.') !!}</td>
-                                                                </tr>
+                                                    <tr>
+                                                        <td>Motor</td>
+                                                        <td>{!! $vehiculo->str_motor !!}</td>
+                                                    </tr>
 
-                                                                <tr>
-                                                                    <td>Color</td>
-                                                                    <td>{!! $vehiculo->color !!}</td>
-                                                                </tr>
+                                                    <tr>
+                                                        <td>Cilindros</td>
+                                                        <td>{!! $vehiculo->int_cilindros !!}</td>
+                                                    </tr>
 
-                                                                <tr>
-                                                                    <td>Motor</td>
-                                                                    <td>{!! $vehiculo->str_motor !!}</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Cilindros</td>
-                                                                    <td>{!! $vehiculo->int_cilindros !!}</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Placa</td>
-                                                                    <td>{!! $vehiculo->str_placa !!}</td>
-                                                                </tr>
+                                                    <tr>
+                                                        <td>Placa</td>
+                                                        <td>{!! $vehiculo->str_placa !!}</td>
+                                                    </tr>
 
 
-                                                                <tr>
-                                                                    <td>Puertas</td>
-                                                                    <td>{!! $vehiculo->int_cantidad_puertas !!}</td>
-                                                                </tr>
+                                                    <tr>
+                                                        <td>Puertas</td>
+                                                        <td>{!! $vehiculo->int_cantidad_puertas !!}</td>
+                                                    </tr>
 
-                                                                <tr>
-                                                                    <td>Estereo</td>
-                                                                    <td>{!! $vehiculo->estereo !!}</td>
-                                                                </tr>
+                                                    <tr>
+                                                        <td>Estereo</td>
+                                                        <td>{!! $vehiculo->estereo !!}</td>
+                                                    </tr>
 
-                                                                <tr>
-                                                                    <td>Tapizado</td>
-                                                                    <td>{!! $vehiculo->tapizado !!}</td>
-                                                                </tr>
+                                                    <tr>
+                                                        <td>Tapizado</td>
+                                                        <td>{!! $vehiculo->tapizado !!}</td>
+                                                    </tr>
 
-                                                                <tr>
-                                                                    <td>Vidrios</td>
-                                                                    <td>{!! $vehiculo->vidrios !!}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Tracción</td>
-                                                                    <td>{!! $vehiculo->traccion !!}</td>
-                                                                </tr>
+                                                    <tr>
+                                                        <td>Vidrios</td>
+                                                        <td>{!! $vehiculo->vidrios !!}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tracción</td>
+                                                        <td>{!! $vehiculo->traccion !!}</td>
+                                                    </tr>
 
-                                                                <tr>
-                                                                    <td>Transmisión</td>
-                                                                    <td>{!! $vehiculo->transmision !!}</td>
-                                                                </tr>
+                                                    <tr>
+                                                        <td>Transmisión</td>
+                                                        <td>{!! $vehiculo->transmision !!}</td>
+                                                    </tr>
 
-                                                                <tr>
-                                                                    <td>Dirección</td>
-                                                                    <td>{!! $vehiculo->direccion !!}</td>
-                                                                </tr>
+                                                    <tr>
+                                                        <td>Dirección</td>
+                                                        <td>{!! $vehiculo->direccion !!}</td>
+                                                    </tr>
 
-                                                                <tr>
-                                                                    <td>Combustible</td>
-                                                                    <td>{!! $vehiculo->combustible !!}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Negociable</td>
-                                                                    <td>{!! $vehiculo->negociable !!}</td>
-                                                                </tr>
+                                                    <tr>
+                                                        <td>Combustible</td>
+                                                        <td>{!! $vehiculo->combustible !!}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Negociable</td>
+                                                        <td>{!! $vehiculo->negociable !!}</td>
+                                                    </tr>
 
-                                                                <tr>
-                                                                    <td>Financiamiento</td>
-                                                                    <td>{!! $vehiculo->financiamiento !!}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Chocado</td>
-                                                                    <td>{!! $vehiculo->chocado !!}</td>
-                                                                </tr>
+                                                    <tr>
+                                                        <td>Financiamiento</td>
+                                                        <td>{!! $vehiculo->financiamiento !!}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Chocado</td>
+                                                        <td>{!! $vehiculo->chocado !!}</td>
+                                                    </tr>
 
-                                                                <tr>
-                                                                    <td>Unico Dueño</td>
-                                                                    <td>{!! $vehiculo->unicodueno !!}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Motor Reparado</td>
-                                                                    <td>{!! $vehiculo->reparado !!}</td>
-                                                                </tr>
+                                                    <tr>
+                                                        <td>Unico Dueño</td>
+                                                        <td>{!! $vehiculo->unicodueno !!}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Motor Reparado</td>
+                                                        <td>{!! $vehiculo->reparado !!}</td>
+                                                    </tr>
 
-                                                            </tbody>
-                                                        </table>
+                                                </tbody>
+                                            </table>
                                     </div>
 
                                     <div id="vehicle-specs" class="tab-pane fade">

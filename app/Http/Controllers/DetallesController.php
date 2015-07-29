@@ -7,21 +7,12 @@ use Illuminate\Http\Request;
 use Troovami\Http\Requests;
 use Troovami\Http\Controllers\Controller;
 use DB;
+use Carbon\Carbon;
 
 class DetallesController extends Controller
 {
     public function detalles($valor)
     {
-	    /*$vehiculos = DB::select(DB::raw('select v.id from tbl_vehiculos as v
-	            join cat_datos_maestros as dm on dm.id = v.lng_idtransmision
-	            join cat_datos_maestros as dm2 on dm2.id = v.lng_iddireccion
-	            join cat_datos_maestros as dm3 on dm3.id = v.lng_idcolor
-	            join cat_paises as p on p.id = v.lng_idpais
-	            join tbl_modelos as mo on mo.id = v.lng_idmodelo
-	            join cat_marcas as ma on ma.id = mo.lng_idmarca
-	            join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id
-	            where ima.int_peso = 1
-	            and v.id = '.$valor));*/
 
         //busco el id del vehículo para saber si existe:
         $vehiculos = DB::table('tbl_vehiculos as v')
@@ -77,7 +68,7 @@ class DetallesController extends Controller
             'dm8.str_descripcion as combustible', 'dm9.str_descripcion as negociable', 
             'dm10.str_descripcion as financiamiento', 'dm11.str_descripcion as chocado', 
             'dm12.str_descripcion as unicodueno', 'dm13.str_descripcion as reparado',
-            'p.str_paises as pais','ma.str_marca as marca',
+            'p.str_paises as pais','ma.str_marca as marca', 'per.created_at as fecha_inscripcion',
             'mo.str_modelo as modelo')
 	    ->get();
 	    
@@ -94,6 +85,12 @@ class DetallesController extends Controller
         ->select('dm.str_descripcion','dm.str_tipo')
         ->get();
 
+/*
+        $fecha = Carbon::now();
+        $fecha = $fecha->format('d-m-Y');
+        array_push($vehiculos,$fecha);
+        //var_dump($vehiculos);die();
+*/
         return \View::make('detallesVehiculo', compact('vehiculos','imagenes','caracteristicas'));
 
     }
