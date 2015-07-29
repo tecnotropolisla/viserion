@@ -17,7 +17,7 @@ trait AuthenticatesUsers
     public function getLogin()
     {
         //return view('auth.login');
-        return view('login2');
+        return view('errors.denegado');
     }
 
     /**

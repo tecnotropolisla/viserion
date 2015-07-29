@@ -1,4 +1,3 @@
-
     <footer class="site-footer">
        	<div class="site-footer-top">
        		<div class="container">
@@ -57,15 +56,3 @@
             </div>
         </div>
     </footer>
-
-
-
-
-
-<!-- Login -->
-
-
-
-<!-- End Login -->
-
-
