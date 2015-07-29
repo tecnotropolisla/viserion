@@ -84,13 +84,11 @@ class DetallesController extends Controller
         ->where('dv.lng_idvehiculo', '=', $valor)
         ->select('dm.str_descripcion','dm.str_tipo')
         ->get();
+        
+        $vehiculos[0]->fecha_inscripcion = substr($vehiculos[0]->created_at, 0,10);    
+        $var = explode('-',$vehiculos[0]->fecha_inscripcion);
+        $vehiculos[0]->fecha_inscripcion = "$var[2]-$var[1]-$var[0]";
 
-/*
-        $fecha = Carbon::now();
-        $fecha = $fecha->format('d-m-Y');
-        array_push($vehiculos,$fecha);
-        //var_dump($vehiculos);die();
-*/
         return \View::make('detallesVehiculo', compact('vehiculos','imagenes','caracteristicas'));
 
     }

@@ -67,7 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
 	/*****************************************************************************************/
 
 	
-	Route::get('Formulario/{valor}','PublicarController@formulario');
+	Route::get('Formulario/{valor}','PublicarCarrosController@formulario');
 
  });
 

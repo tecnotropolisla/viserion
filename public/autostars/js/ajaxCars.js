@@ -95,11 +95,14 @@ function getXmlHttpObject()
     return xmlhttp;
 }
 
-function formularioDinamico(valor){
+function formularioDinamico(){
    
-    divname = "formulario";
+	var t = document.getElementById('lng_idtipo_vehiculo');
+	var selectedText = t.options[t.selectedIndex].text;
+
+    divname = "formularioAnexo";
     //http.open("GET", 'paginas' + url, true);
-    http.open("GET", 'Formulario/'+ valor, true);
+    http.open("GET", 'Formulario/'+ selectedText, true);
     http.onreadystatechange = handleHttpResponse;
     http.send(null);
 

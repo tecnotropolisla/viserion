@@ -4,6 +4,7 @@ namespace Illuminate\Foundation\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 trait AuthenticatesUsers
 {
@@ -32,17 +33,45 @@ trait AuthenticatesUsers
             'email' => 'required|email', 'password' => 'required',
         ]);
 
-        $credentials = $this->getCredentials($request);
-
-        if (Auth::attempt($credentials, $request->has('remember'))) {
-            return redirect()->intended($this->redirectPath());
+        $correoPersona = DB::table('tbl_personas as per')
+        ->where('per.email', '=', $request['email'])
+        ->select('per.bol_eliminado','per.email')
+        ->get();        
+        
+        if (!$correoPersona){
+        	
+        	return back()->withErrors(['El correo: '. $request['email']. ' no existe']);
+        	
         }
 
-        return redirect($this->loginPath())
-            ->withInput($request->only('email', 'remember'))
-            ->withErrors([
-                'email' => $this->getFailedLoginMessage(),
-            ]);
+        $persona = DB::table('tbl_personas as per')
+        ->where('per.email', '=', $request['email'])
+        ->Where(function ($query) {
+        	$query->where('per.bol_eliminado','=',false);
+        })
+        ->select('per.bol_eliminado','per.email')
+        ->get();
+
+        if((!$persona)){
+        	
+        	return back()->withErrors(['La cuenta con el correo: '. $request['email']. ' esta desactivada']);
+        	
+        }else{
+        	
+        	$credentials = $this->getCredentials($request);
+        		
+        	if (Auth::attempt($credentials, $request->has('remember'))) {
+        		return redirect()->intended($this->redirectPath());
+        	}
+        		
+        	return redirect($this->loginPath())
+        	->withInput($request->only('email', 'remember'))
+        	->withErrors([
+        	'email' => $this->getFailedLoginMessage(),
+        	]);
+        	
+        }
+       	
     }
 
     /**

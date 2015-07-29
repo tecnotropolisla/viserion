@@ -17,31 +17,5 @@ class PublicarController extends Controller
     public function index()
     {
          return \View::make('publicar');
-    }
-    
-    public function formulario($valor)
-    {
-    
-    	switch ($valor) {
-    
-    		case 'carros':
-    			$formulario = $this->carros();
-    			break;
-    
-    		case 'motocicletas':
-    			$formulario = "Formulario de motocicletas en construccion";
-    			break;
-    
-    		case 'embarcaciones':
-    			$formulario = "Formulario embarcaciones en construccion";
-    			break;
-    
-    		case 'aeronaves':
-    			$formulario = "Formulario de aeronaves en construccion";
-    			break;
-    
-    	}
-    
-    	return $formulario;
-    }    
+    }   
 }

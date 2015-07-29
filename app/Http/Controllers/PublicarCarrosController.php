@@ -193,10 +193,50 @@ class PublicarCarrosController extends Controller
         $combustible = DB::table('cat_datos_maestros')->where('str_tipo', 'combustible_vehiculos')->lists('str_descripcion','id');
         $paises = DB::table('cat_paises')->orderBy('str_paises')->lists('str_paises','id');
         
-        return \View::make('carros.carros', compact('marcas','modelos','tipo_vehiculos','colores','respuesta','seguridad','sonido','exterior',
+        return \View::make('carros.formulario', compact('marcas','modelos','tipo_vehiculos','colores','respuesta','seguridad','sonido','exterior',
                 'confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible','paises'));
     }
 
+    public function formulario($valor)
+    {
+    	switch ($valor) {
+    
+    		case 'Ambulancias':
+    				$respuesta= DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('str_descripcion','id');
+    				return \View::make('carros.ambulancias',compact('respuesta'));
+    			break;
+    
+    		case 'Autobuses':
+    				$respuesta= DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('str_descripcion','id');
+    				return \View::make('carros.autobuses',compact('respuesta'));
+    			break;
+    
+    		case 'Blindados':
+    				return \View::make('carros.blindados');
+    			break;
+    
+    		case 'Camiones':
+    				return \View::make('carros.ambulancias');
+    			break;
+    			
+    		case 'Carros de Golf':
+    				return \View::make('carros.carrosGolf');
+    			break;
+    			
+    		case 'Gruas':
+    			 	return \View::make('carros.gruas');
+    			 break;
+    			 
+    		case 'Kartings':
+    			  	return \View::make('carros.kartings');
+    			  break;
+    			  
+    		case 'Maquinaria Pesada':
+    			  	return \View::make('carros.maquinariaPesada');
+    			  break;
+    	}
+    }
+    
     public function dependiente($valor)
     {
 
