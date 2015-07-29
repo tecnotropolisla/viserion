@@ -13,7 +13,7 @@ class HomeController extends Controller
 	public function index()
     {
 
-        $tamano_pagina = 2; //Número de registros por página
+        $tamano_pagina = 20; //Número de registros por página
         $total_vehiculos = DB::table('tbl_vehiculos')->count();
         $paginas = ceil($total_vehiculos / $tamano_pagina);
 
@@ -44,7 +44,7 @@ class HomeController extends Controller
         
         //echo $pagina;die();
 
-        $tamano_pagina = 2; //Número de registros por página
+        $tamano_pagina = 20; //Número de registros por página
         $total_vehiculos = DB::table('tbl_vehiculos')->count();
         $paginas = ceil($total_vehiculos / $tamano_pagina);
 
@@ -74,71 +74,8 @@ class HomeController extends Controller
                 //->skip() = offset
                 //->take() = limit
 
-
-        $resultados = '';
-        foreach ($vehiculos as $vehiculo)
-        {
-
-           $resultados .=
-
-                                    '<div class="result-item format-standard">
-
-                                        <div class="result-item-image">                         
-                                            <a href="Detalle-del-Vehiculo/'.$vehiculo->id.'" class="media-box"><img class="" src="data:image/jpeg;base64,'.$vehiculo->imagen.'" /></a>
-                                            <span class="vehicle-age">
-                                            <p class="label label-default">'.$vehiculo->int_ano.'</p>
-                                            <p class="text-center" style="margin-top: -2px;"><img class="" src="data:image/jpeg;base64, '.$vehiculo->bandera.'" style="width:35px" /></p>                                       
-                                            </span>
-                                            <span class="  premium-listing "></span>
-                                            
-                                            <div class="result-item-view-buttons">';
-
-                                                if ($vehiculo->str_video == ""){
-            $resultados .=                         '<a class="col-md-6" href="Detalle-del-Vehiculo/'.$vehiculo->id.'"><i class="fa fa-eye"></i> Ver</a>
-                                                    <a class="col-md-6" href="#"><i class="fa fa-heart"></i> Fav</a>';
-                                                }else{
-            $resultados .=                         '<a class="col-md-4" href="'.$vehiculo->str_video.'" data-rel="prettyPhoto"><i class="fa fa-play-circle-o"></i> Video</a>
-                                                    <a class="col-md-4" href="Detalle-del-Vehiculo/'.$vehiculo->id.'"><i class="fa fa-eye"></i> Ver</a>
-                                                    <a class="col-md-4" href="#"><i class="fa fa-heart"></i> Fav</a>';
-                                                }
-                                                
-            $resultados .=                 '</div>
-
-                                        </div>
-
-                                        <div class="result-item-in">
-
-                                            <h4 class="result-item-title"><a href="Detalle-del-Vehiculo/'.$vehiculo->id.'">'.$vehiculo->marca." ".$vehiculo->modelo.'</a></h4>
-                                            
-                                            <div class="result-item-cont">
-                                                <div class="result-item-block col1">
-                                                    <p>'.$vehiculo->str_comentario.'</p>
-                                                </div>
-                                                <div class="result-item-block col2">
-                                                    <div class="result-item-pricing">
-                                                        <div class="price" style="font-size:20px">$ '.number_format($vehiculo->str_precio_venta, null, ',', '.').' </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="result-item-features">
-                                                <ul class="inline" style="font-size:12px">
-                                                   <li>País: '.$vehiculo->pais.'</li>
-                                                    <li>Km: '.number_format($vehiculo->str_recorrido, null, ',', '.').'</li>
-                                                    <li>Motor: '.$vehiculo->str_motor.'</li>
-                                                    <li>Transmisión: '.$vehiculo->transmision.'</li>
-                                                    <li>Dirección: '.$vehiculo->direccion.'</li>
-                                                    <li>Locación: (Ciudad)</li>
-                                                </ul>
-                                            </div>
-
-                                        </div>
-
-                                    </div>';
-        }
-
-        return $resultados;
-
+            return \View::make('paginador',compact('vehiculos'));
+           
     }
 
 }

@@ -199,15 +199,19 @@ class PublicarCarrosController extends Controller
 
     public function formulario($valor)
     {
+    	
+    	
+    	$respuesta= DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('str_descripcion','id');
+    	
     	switch ($valor) {
     
     		case 'Ambulancias':
-    				$respuesta= DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('str_descripcion','id');
+    				
     				return \View::make('carros.ambulancias',compact('respuesta'));
     			break;
     
     		case 'Autobuses':
-    				$respuesta= DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('str_descripcion','id');
+    				
     				return \View::make('carros.autobuses',compact('respuesta'));
     			break;
     
