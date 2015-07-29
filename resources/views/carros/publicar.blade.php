@@ -57,7 +57,7 @@
 	
 	                                        {!!
 	
-	                                         	Form::select('str_moneda', array('0' => 'Seleccione', '1' => 'Bolívar', '2' => 'Dólar'), 'S',['class' => 'form-control'])
+	                                         	Form::select('str_moneda', array('0' => 'Seleccione', 'Bolivares' => 'Bolivares', 'Dolares' => 'Dolares'), 'S',['class' => 'form-control'])
 	                                        
 	                                        !!} 
 										</div>
