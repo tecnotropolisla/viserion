@@ -95,7 +95,7 @@ class AuthController extends Controller
         		'str_twitter' => trim($data['str_twitter']),
         		'str_facebook' => trim($data['str_facebook']),
         		'str_instagram' => trim($data['str_instagram']),
-                'lng_idservicio' => $data['lng_idservicio'],
+                'lng_idservicio' => 5,
                 'str_telefono' => $data['str_telefono'],
         		'blb_img' => base64_encode(file_get_contents($data['blb_img'])),
         ]);

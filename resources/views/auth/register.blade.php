@@ -328,7 +328,7 @@
 								  
 								  <div class="form-group">
 								    <div class="col-sm-offset-2 col-sm-8">
-										{!! Form::input('hidden', 'lng_idservicio','3') !!}
+										
 								        {!! Form::submit('Guardar',['class' => 'btn btn-primary btn-lg btn-block']) !!}
 								    </div>
 								  </div>
