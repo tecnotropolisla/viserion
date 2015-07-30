@@ -40,8 +40,6 @@
 
                                     </div>
 
-
-
                                     <div class="form-group ">
                                         
                                         <i id="str_precio_venta_validar" class="fa fa-asterisk" style="color:red;"></i>

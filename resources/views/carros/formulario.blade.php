@@ -74,12 +74,6 @@
                                         <div id="formularioAnexo"></div>
 
                                     </div>
-
-                                    <div class="tab-content col-md-12">
-                                    
-                                        @include('carros.respuestas')
-
-                                    </div>
 									
                                 </div>
                             

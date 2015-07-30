@@ -79,11 +79,6 @@ class PublicarCarrosController extends Controller
     		'lng_idcaracteristica' =>    'required',
             'int_cilindros' => 'required|max:255',
     		'blb_img0' =>    'required|image:jpeg,png,jpg',
-            'blb_img1' =>    'required|image:jpeg,png,jpg',
-            'blb_img2' =>    'required|image:jpeg,png,jpg',
-            'blb_img3' =>    'required|image:jpeg,png,jpg',
-            'blb_img4' =>    'required|image:jpeg,png,jpg',
-            'blb_img5' =>    'required|image:jpeg,png,jpg',
         ]);
     }
 
@@ -124,11 +119,9 @@ class PublicarCarrosController extends Controller
 
             //'lng_idequipo_medico' =>   $data['lng_idequipo_medico'],
             //'lng_idfrenado' =>   $data['lng_idfrenado'],
-            //'lng_idmotor' =>   $data['lng_idmotor'],
-
 
             'lng_idpais' =>   $data['lng_idpais'], 
-            'int_cilindrada' =>   $data['int_cilindrada'],
+            'str_cilindrada' =>   $data['str_cilindrada'],
             'lng_idestereo' =>   $data['lng_idestereo'],
             'lng_iddireccion' =>   $data['lng_iddireccion'],
             'lng_idtransmision' =>   $data['lng_idtransmision'],
@@ -173,7 +166,7 @@ class PublicarCarrosController extends Controller
     {
     	$marcas = DB::table('cat_marcas as m')
     	->join('cat_datos_maestros as dm', 'dm.id', '=', 'm.lng_idtipo')
-    	->where('m.lng_idtipo', '=', 8)//CAMBIAR ID A 154!!!!!!!
+    	->where('m.lng_idtipo', '=', 153)
     	->orderBy('str_marca')
     	->select('str_marca','m.id')
     	->lists('str_marca','m.id');
@@ -226,7 +219,7 @@ class PublicarCarrosController extends Controller
 
                     $marcas = DB::table('cat_marcas as m')
                     ->join('cat_datos_maestros as dm', 'dm.id', '=', 'm.lng_idtipo')
-                    ->where('m.lng_idtipo', '=', 8)//CAMBIAR ID A 154!!!!!!!
+                    ->where('m.lng_idtipo', '=', 153)
                     ->orderBy('str_marca')
                     ->select('str_marca','m.id')
                     ->lists('str_marca','m.id');

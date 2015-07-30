@@ -121,7 +121,7 @@ Descripción
             <div class="form-group col-md-4">
                     
                     <i id="lng_idtransmision_validar" class="fa fa-asterisk" style="color:red;"></i>
-                    {!! Form::label('lng_idtransmision', 'Transmision') !!}
+                    {!! Form::label('lng_idtransmision', 'Transmisión') !!}
                     {!! Form::select('lng_idtransmision', 
                                         (['' => 'Seleccione'] + $transmision), 
                                         null, 
@@ -187,7 +187,8 @@ Descripción
                     
                     <i id="int_ano_validar" class="fa fa-asterisk" style="color:red;"></i>
                     {!! Form::label('int_ano', 'Año') !!}
-                    {!! Form::selectRange('int_ano', 1950, 2015, null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']) !!} 
+                    <?php $ano = date('Y')?>
+                    {!! Form::selectRange('int_ano', 1950, $ano , null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']) !!} 
 
                 </div>
 
@@ -201,9 +202,9 @@ Descripción
 
                 <div class="form-group col-md-4">
                     
-                    <i id="int_cilindrada_validar" class="fa fa-asterisk" style="color:red;"></i>
-                    {!! Form::label('int_cilindrada', 'Cilindrada') !!}
-                    {!! Form::input('text', 'int_cilindrada', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
+                    <i id="str_cilindrada_validar" class="fa fa-asterisk" style="color:red;"></i>
+                    {!! Form::label('str_cilindrada', 'Cilindrada') !!}
+                    {!! Form::input('text', 'str_cilindrada', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
                 
                 </div> 
                
@@ -214,6 +215,75 @@ Descripción
                     {!! Form::selectRange('int_cilindros', 1, 16, null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']) !!} 
 
                 </div>
-
-
-
+                
+			    <div class="form-group col-md-4">
+			        
+			        <i id="lng_idchocado_validar" class="fa fa-asterisk" style="color:red;"></i>
+			
+			       {!! Form::label('lng_idchocado', 'Chocado') !!}<br>
+			
+					{!! Form::select('lng_idchocado', 
+						(['' => 'Seleccione'] + $respuesta), 
+							null, 
+							['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+						) 
+					!!}
+			
+			    </div>
+			
+			  <div class="form-group col-md-4">
+			        
+			        <i id="lng_idnegociable_validar" class="fa fa-asterisk" style="color:red;"></i>
+			        {!! Form::label('lng_idnegociable', 'Negociable') !!}<br>
+			        
+			        {!! Form::select('lng_idnegociable', 
+			        	(['' => 'Seleccione'] + $respuesta), 
+			            	null, 
+			            	['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+			            ) 
+					!!} 
+			
+			  </div>
+			
+			  <div class="form-group col-md-4">
+			        
+			        <i id="lng_idfinanciamiento_validar" class="fa fa-asterisk" style="color:red;"></i>
+			        {!! Form::label('lng_idfinanciamiento', 'Financiamiento') !!}<br>
+			
+			        {!! Form::select('lng_idfinanciamiento', 
+			        	(['' => 'Seleccione'] + $respuesta), 
+			            	null, 
+			                ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+			            ) 
+					!!} 
+			
+			    </div>
+			
+			  <div class="form-group col-md-4">
+			        
+			        <i id="lng_idunicodueno_validar" class="fa fa-asterisk" style="color:red;"></i>
+			
+			        {!! Form::label('lng_idunicodueno', 'Único Dueño') !!}<br>
+			
+					{!! Form::select('lng_idunicodueno', 
+						(['' => 'Seleccione'] + $respuesta), 
+							null, 
+							['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+						) 
+					!!} 
+			        
+			    </div>
+			
+			  <div class="form-group col-md-4">
+			        
+			        <i id="lng_idmotorreparado_validar" class="fa fa-asterisk" style="color:red;"></i>
+			        {!! Form::label('lng_idmotorreparado', 'Motor Reparado') !!}<br>
+			
+					{!! Form::select('lng_idmotorreparado', 
+						(['' => 'Seleccione'] + $respuesta), 
+							null, 
+							['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+						) 
+			        !!} 
+			
+			    </div>

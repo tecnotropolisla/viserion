@@ -35,24 +35,26 @@
                                                             
                                                             <i id="lng_idventana_validar" class="fa fa-asterisk" style="color:red;"></i>
                                                             {!! Form::label('lng_idventana', 'Ventanas Panoramicas') !!}<br>
-                                                            @foreach ($respuesta as $valor => $descripcion)
-
-                                                                {!! Form::radio('lng_idventana', $valor, null,['onclick' => 'validarRadio(this.name)']) !!}
-                                                                {!! Form::label('lng_idventana', $descripcion) !!} 
-
-                                                            @endforeach
+                                                           
+															{!! Form::select('lng_idventana', 
+																(['' => 'Seleccione'] + $respuesta), 
+																	null, 
+																	['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+																) 
+															!!}
+															                                                            
                                                         </div>
 
                                                         <div class="form-group col-md-4">
                                                            
                                                             <i id="lng_idbano_validar" class="fa fa-asterisk" style="color:red;"></i>
                                                             {!! Form::label('lng_idbano', 'Baño') !!}<br>
-
-                                                            @foreach ($respuesta as $valor => $descripcion)
-
-                                                                {!! Form::radio('lng_idbano', $valor, null,['onclick' => 'validarRadio(this.name)']) !!}
-                                                                {!! Form::label('lng_idbano', $descripcion) !!} 
-
-                                                            @endforeach
+                                                            
+															{!! Form::select('lng_idbano', 
+																(['' => 'Seleccione'] + $respuesta), 
+																	null, 
+																	['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+																) 
+															!!}                                                             
                                                             
                                                         </div>
