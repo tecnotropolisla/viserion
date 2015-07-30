@@ -83,13 +83,14 @@ Descripción
                    
                     <i id="lng_idcolor_validar" class="fa fa-asterisk" style="color:red;"></i>
                     {!! Form::label('lng_idcolor', 'Color') !!}
-                    {!! Form::select('lng_idcolor', 
-                                        (['' => 'Seleccione'] + $colores), 
-                                        null, 
-                                        ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
-                                    ) 
-                    !!} 
 
+                    <select id="lng_idcolor" name="lng_idcolor" class="form-control" onchange = "validar(this.value,this.name)">
+                    	<option value="">Seleccione</option>
+		                    @foreach ($colores as $color)
+		                    	<option style="background-color:{!! $color->str_caracteristica !!} " value="{!! $color->id !!}">{!! $color->str_descripcion !!}</option>
+		                    @endforeach
+                    </select>                                 
+                    
                 </div>
 
                 <div class="form-group col-md-4">
@@ -203,8 +204,8 @@ Descripción
                 <div class="form-group col-md-4">
                     
                     <i id="str_cilindrada_validar" class="fa fa-asterisk" style="color:red;"></i>
-                    {!! Form::label('str_cilindrada', 'Cilindrada') !!}
-                    {!! Form::input('text', 'str_cilindrada', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
+                    {!! Form::label('str_cilindrada', 'Cilindrada (CC)') !!}
+                    {!! Form::input('text', 'str_cilindrada', '', ['class'=> 'form-control', 'maxlength' => '4' , 'onkeypress'=>'return isNumber(event)','onchange' => 'validar(this.value,this.name)']) !!}
                 
                 </div> 
                

@@ -173,7 +173,16 @@ class PublicarCarrosController extends Controller
     	        
         $modelos = DB::table('tbl_modelos')->where('lng_idmarca', '62')->lists('str_modelo','id');
         $tipo_vehiculos = DB::table('cat_datos_maestros')->where('str_tipo', 'vehiculos')->lists('str_descripcion','id');
-        $colores = DB::table('cat_datos_maestros')->where('str_tipo', 'color')->lists('str_descripcion','id');
+        
+        /*$colores = DB::table('cat_datos_maestros')
+        ->where('str_tipo', 'color')
+        ->lists('str_descripcion','id');*/
+        
+        $colores = DB::table('cat_datos_maestros')
+        ->where('str_tipo', 'color')
+        ->select('id','str_descripcion','str_caracteristica')
+        ->get();        
+        
         $respuesta= DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('str_descripcion','id');
         $seguridad = DB::table('cat_datos_maestros')->where('str_tipo', 'seguridad_vehiculos')->lists('str_descripcion','id');
         $sonido = DB::table('cat_datos_maestros')->where('str_tipo', 'sonido_vehiculos')->lists('str_descripcion','id');
@@ -238,11 +247,14 @@ class PublicarCarrosController extends Controller
     			 break;
     			 
     		case 'Kartings':
-    			  	return \View::make('carros.kartings');
+    				$desplazamiento = DB::table('cat_datos_maestros')->where('str_tipo', 'desplazamiento_vehiculos')->lists('str_descripcion','id');
+    				$arranque = DB::table('cat_datos_maestros')->where('str_tipo', 'arranque_vehiculos')->lists('str_descripcion','id');
+    			  	return \View::make('carros.kartings',compact('desplazamiento','arranque'));
     			  break;
     			  
     		case 'Maquinaria Pesada':
-    			  	return \View::make('carros.maquinariaPesada');
+    				$enfriamiento = DB::table('cat_datos_maestros')->where('str_tipo', 'enfriamiento_vehiculos')->lists('str_descripcion','id');
+    			  	return \View::make('carros.maquinariaPesada',compact('respuesta','enfriamiento'));
     			  break;
     	}
     }

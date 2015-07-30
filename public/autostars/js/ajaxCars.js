@@ -469,3 +469,14 @@ function validarUrl(valor)  {
         return (false);
     }
 }
+
+function colorear(){
+
+	alert('entro');
+    //var ele = document.getElementById(nombre)
+    //ele.setAttribute('style', 'color: #FF5568');
+	//document.getElementById("sel").options[1].selected
+    
+}
+
+
