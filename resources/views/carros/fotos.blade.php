@@ -106,12 +106,16 @@
 
                                     <hr class="fw">
                                     <h3>Añade un video de tu carro</h3>
-                                    <div class="lighter"><p>Se creativo, muestranos tu vehículo con un original video</p></div>
+                                    <div class="lighter">
+                                        <p>Se creativo, muestranos tu vehículo con un original video</p>
+                                    </div>
 
-                                    {!! Form::input('text', 'str_video', '', ['class'=> 'form-control', 'placeholder'=> 'Youtube/Video URL']) !!}
+                                    {!! Form::input('text', 'str_video', '', ['id'=>'str_video','class'=> 'form-control', 'placeholder'=> 'Youtube/Video URL', 'onchange' => 'validarUrl(this.value)']) !!}
 
                                     <hr class="fw">
                                     <h3>Descripción de la publicación</h3>
-                                    <div class="lighter"><p>Cuentanos tu experiencia con este vehículo</p></div>
+                                    <div class="lighter">
+                                        <p>Cuentanos tu experiencia con este vehículo (Máximo 500 caracteres)</p>
+                                    </div>
                                     
-                                        {!! Form::textarea('str_comentario','',['class' =>'form-control', 'rows' => '10']) !!}
+                                        {!! Form::textarea('str_comentario','',['maxlength'=>'500','class' =>'form-control', 'rows' => '10']) !!}

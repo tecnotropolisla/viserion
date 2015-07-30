@@ -1,1 +1,61 @@
-<?php
+            
+EN LA BD:
+str_motor cambiar por int_cilindrada <br>
+lng_idmotor cambiar por lng_idmarca_motor
+
+            <div class="form-group col-md-4">
+                    
+                    <i id="lng_idfrenado_validar" class="fa fa-asterisk" style="color:red;"></i>
+                    {!! Form::label('lng_idfrenado', 'Frenado') !!}
+                    {!! Form::select('lng_idfrenado', 
+                                        (['' => 'Seleccione'] + $frenado), 
+                                        null, 
+                                        ['class' => 'form-control', 'onchange' => 'validar(this.value,this.name);formularioDinamico()']
+                                    ) 
+                    !!} 
+
+                </div>
+
+                <div class="form-group col-md-4">
+                    
+                    <i id="int_carga_validar" class="fa fa-asterisk" style="color:red;"></i>
+                    {!! Form::label('int_carga', 'Capacidad de Carga (Kg)') !!}
+                    {!! Form::input('text', 'int_carga', '', ['class'=> 'form-control','maxlength' => '6' ,'onkeypress'=>'return isNumber(event)','onchange' => 'validar(this.value,this.name)']) !!}
+        
+                </div>
+
+                <div class="form-group col-md-4">
+                    
+                    <i id="int_lastre_validar" class="fa fa-asterisk" style="color:red;"></i>
+                    {!! Form::label('int_lastre', 'Capacidad de Lastre (Kg)') !!}
+                    {!! Form::input('text', 'int_lastre', '', ['class'=> 'form-control','maxlength' => '6' ,'onkeypress'=>'return isNumber(event)','onchange' => 'validar(this.value,this.name)']) !!}
+        
+                </div>
+
+                <div class="form-group col-md-4">
+                    
+                    <i id="str_motor_validar" class="fa fa-asterisk" style="color:red;"></i>
+                    {!! Form::label('lng_idmarca_motor', 'Marca del Motor') !!}
+                    {!! Form::select('lng_idmarca_motor', 
+                                        (['0' => 'Seleccione'] + $marcas), 
+                                        null, 
+                                        ['class' => 'form-control','onchange'=>'validar(this.value,this.name)']
+                                    ) 
+                    !!} 
+                </div>
+
+                <div class="form-group col-md-4">
+                    
+                    <i id="dbl_neumatico_validar" class="fa fa-asterisk" style="color:red;"></i>
+                    {!! Form::label('dbl_neumatico', 'Medida del Neumatico') !!}
+                    {!! Form::input('text', 'dbl_neumatico', '', ['class'=> 'form-control','maxlength' => '15' ,'onkeypress'=>'return isNumber(event)','onchange' => 'validar(this.value,this.name)']) !!}
+        
+                </div>
+
+                <div class="form-group col-md-4">
+                    
+                    <i id="dbl_potenciamax_validar" class="fa fa-asterisk" style="color:red;"></i>
+                    {!! Form::label('dbl_potenciamax', 'Potencia Máxima') !!}
+                    {!! Form::input('text', 'dbl_potenciamax', '', ['class'=> 'form-control','maxlength' => '15' ,'onkeypress'=>'return isNumber(event)','onchange' => 'validar(this.value,this.name)']) !!}
+        
+                </div>

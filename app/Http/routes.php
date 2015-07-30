@@ -64,10 +64,9 @@ Route::group(['middleware' => 'auth'], function () {
 		]);
 	
 		Route::get('Publicar-Carro/{valor}','PublicarCarrosController@dependiente');
-	/*****************************************************************************************/
 
-	
-	Route::get('Formulario/{valor}','PublicarCarrosController@formulario');
+		Route::get('Formulario/{valor}','PublicarCarrosController@formulario');
+	/*****************************************************************************************/
 
  });
 

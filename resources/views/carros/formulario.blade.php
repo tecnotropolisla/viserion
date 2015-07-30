@@ -1,4 +1,4 @@
-@extends('app')
+@extends('app2')
 
 @section('content')
 
@@ -67,11 +67,19 @@
                                 <!-- AD LISTING FORM STEP ONE -->
                                 <div id="listing-add-form-one" class="tab-pane fade in active">
 
-									@include('carros.camposGenericos')
-									
-									<div id="formularioAnexo">
-										
-									</div>
+                                    <div class="tab-content col-md-12">
+
+                                        @include('carros.camposGenericos')
+
+                                        <div id="formularioAnexo"></div>
+
+                                    </div>
+
+                                    <div class="tab-content col-md-12">
+                                    
+                                        @include('carros.respuestas')
+
+                                    </div>
 									
                                 </div>
                             

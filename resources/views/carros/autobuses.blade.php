@@ -24,16 +24,11 @@
                                                         </div>
                       
                                                         <div class="form-group col-md-4">
-                                                            <i id="lng_idbano_validar" class="fa fa-asterisk" style="color:red;"></i>
-                                                  			{!! Form::label('lng_idbano', 'Baño') !!}<br>
 
-                                                            @foreach ($respuesta as $valor => $descripcion)
+                                                            <i id="int_pasajeros_validar" class="fa fa-asterisk" style="color:red;"></i>
+                                                            {!! Form::label('int_pasajeros', 'Capacidad de Personas') !!}
+                                                            {!! Form::input('text', 'int_pasajeros', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
 
-                                                                {!! Form::radio('lng_idbano', $valor, null,['onclick' => 'validarRadio(this.name)']) !!}
-                                                                {!! Form::label('lng_idbano', $descripcion) !!} 
-
-                                                            @endforeach
-                                                            
                                                         </div>
                                                         
                                                         <div class="form-group col-md-4">
@@ -50,9 +45,14 @@
 
                                                         <div class="form-group col-md-4">
                                                            
-                                                            <i id="int_pasajeros_validar" class="fa fa-asterisk" style="color:red;"></i>
-                                                            {!! Form::label('int_pasajeros', 'Capacidad de Personas') !!}
-         													{!! Form::input('text', 'int_pasajeros', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
+                                                            <i id="lng_idbano_validar" class="fa fa-asterisk" style="color:red;"></i>
+                                                            {!! Form::label('lng_idbano', 'Baño') !!}<br>
 
+                                                            @foreach ($respuesta as $valor => $descripcion)
 
+                                                                {!! Form::radio('lng_idbano', $valor, null,['onclick' => 'validarRadio(this.name)']) !!}
+                                                                {!! Form::label('lng_idbano', $descripcion) !!} 
+
+                                                            @endforeach
+                                                            
                                                         </div>

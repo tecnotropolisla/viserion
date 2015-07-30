@@ -10,12 +10,22 @@ use DB;
 
 class HomeController extends Controller
 {
-	public function index()
+	/**
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->tamano_pagina = 20;
+    }
+
+    public function index()
     {
 
-        $tamano_pagina = 20; //Número de registros por página
+        //$tamano_pagina = 20; //Número de registros por página
         $total_vehiculos = DB::table('tbl_vehiculos')->count();
-        $paginas = ceil($total_vehiculos / $tamano_pagina);
+        //$paginas = ceil($total_vehiculos / $tamano_pagina);
+        $paginas = ceil($total_vehiculos / $this->tamano_pagina);
 
         $vehiculos = DB::table('tbl_vehiculos as v')
             ->join('cat_datos_maestros as dm', 'dm.id', '=', 'v.lng_idtransmision')
@@ -28,7 +38,7 @@ class HomeController extends Controller
 			->where('ima.int_peso', '=', 1)
             ->select('v.*','ima.blb_img as imagen', 'p.blb_img as bandera','dm.str_descripcion as transmision', 'dm2.str_descripcion as direccion','dm3.str_descripcion as color','p.str_paises as pais','ma.str_marca as marca','mo.str_modelo as modelo')
             //->get();
-            ->skip(0)->take($tamano_pagina)->get();
+            ->skip(0)->take($this->tamano_pagina)->get();
 
                 //->skip() = offset
                 //->take() = limit
@@ -41,22 +51,20 @@ class HomeController extends Controller
 
     public function paginar($pagina)
     {
-        
-        //echo $pagina;die();
-
-        $tamano_pagina = 20; //Número de registros por página
+        //$tamano_pagina = 20; //Número de registros por página
         $total_vehiculos = DB::table('tbl_vehiculos')->count();
-        $paginas = ceil($total_vehiculos / $tamano_pagina);
+        //$paginas = ceil($total_vehiculos / $tamano_pagina);
+        $paginas = ceil($total_vehiculos / $this->tamano_pagina);
 
         if (!$pagina) {
            $inicio = 0;
            $pagina = 1;
         }
         else {
-           $inicio = ($pagina - 1) * $tamano_pagina;
+           $inicio = ($pagina - 1) * $this->tamano_pagina;
         }
         //calculo el total de páginas
-        $total_paginas = ceil($total_vehiculos / $tamano_pagina);
+        $total_paginas = ceil($total_vehiculos / $this->tamano_pagina);
 
         $vehiculos = DB::table('tbl_vehiculos as v')
             ->join('cat_datos_maestros as dm', 'dm.id', '=', 'v.lng_idtransmision')
@@ -69,7 +77,7 @@ class HomeController extends Controller
             ->where('ima.int_peso', '=', 1)
             ->select('v.*','ima.blb_img as imagen', 'p.blb_img as bandera','dm.str_descripcion as transmision', 'dm2.str_descripcion as direccion','dm3.str_descripcion as color','p.str_paises as pais','ma.str_marca as marca','mo.str_modelo as modelo')
             //->get();
-            ->skip($inicio)->take($tamano_pagina)->get();
+            ->skip($inicio)->take($this->tamano_pagina)->get();
 
                 //->skip() = offset
                 //->take() = limit

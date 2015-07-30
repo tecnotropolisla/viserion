@@ -121,11 +121,14 @@ class PublicarCarrosController extends Controller
             'str_recorrido' =>  $data['str_recorrido'],
             'lng_idcombustible' =>  $data['lng_idcombustible'],
             'str_precio_venta' =>   $data['str_precio_venta'],
-            'lng_idequipo_medico' =>   $data['lng_idequipo_medico'],
-            'lng_idfrenado' =>   $data['lng_idfrenado'],
-            'lng_idmotor' =>   $data['lng_idmotor'],
+
+            //'lng_idequipo_medico' =>   $data['lng_idequipo_medico'],
+            //'lng_idfrenado' =>   $data['lng_idfrenado'],
+            //'lng_idmotor' =>   $data['lng_idmotor'],
+
+
             'lng_idpais' =>   $data['lng_idpais'], 
-            'str_motor' =>   $data['str_motor'],
+            'int_cilindrada' =>   $data['int_cilindrada'],
             'lng_idestereo' =>   $data['lng_idestereo'],
             'lng_iddireccion' =>   $data['lng_iddireccion'],
             'lng_idtransmision' =>   $data['lng_idtransmision'],
@@ -170,7 +173,7 @@ class PublicarCarrosController extends Controller
     {
     	$marcas = DB::table('cat_marcas as m')
     	->join('cat_datos_maestros as dm', 'dm.id', '=', 'm.lng_idtipo')
-    	->where('m.lng_idtipo', '=', 8)
+    	->where('m.lng_idtipo', '=', 8)//CAMBIAR ID A 154!!!!!!!
     	->orderBy('str_marca')
     	->select('str_marca','m.id')
     	->lists('str_marca','m.id');
@@ -220,7 +223,17 @@ class PublicarCarrosController extends Controller
     			break;
     
     		case 'Camiones':
-    				return \View::make('carros.ambulancias');
+
+                    $marcas = DB::table('cat_marcas as m')
+                    ->join('cat_datos_maestros as dm', 'dm.id', '=', 'm.lng_idtipo')
+                    ->where('m.lng_idtipo', '=', 8)//CAMBIAR ID A 154!!!!!!!
+                    ->orderBy('str_marca')
+                    ->select('str_marca','m.id')
+                    ->lists('str_marca','m.id');
+
+
+                    $frenado = DB::table('cat_datos_maestros')->where('str_tipo', 'frenado_vehiculos')->lists('str_descripcion','id');
+    				return \View::make('carros.camiones',compact('frenado','marcas'));
     			break;
     			
     		case 'Carros de Golf':

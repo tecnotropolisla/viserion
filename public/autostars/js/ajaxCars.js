@@ -453,3 +453,19 @@ function confirmar() {
   
 }
 
+function isValidUrl(url){
+
+    var regex=/^(ht|f)tps?:\/\/\w+([\.\-\w]+)?\.([a-z]{2,4}|travel)(:\d{2,5})?(\/.*)?$/i
+    return regex.test(url);
+
+}
+
+function validarUrl(valor)  {
+    if(!isValidUrl(valor) )
+    {
+        alert("La dirección URL es incorrecta");
+        document.getElementById('str_video').focus();
+        document.getElementById('str_video').value = "";
+        return (false);
+    }
+}

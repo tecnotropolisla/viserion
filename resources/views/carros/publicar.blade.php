@@ -64,9 +64,4 @@
 										
                                     </div>                                    
                   
-                                        <!-- Eliminar -->
-                                            {!! Form::input('hidden', 'lng_idequipo_medico', 127) !!}
-                                            {!! Form::input('hidden', 'lng_idfrenado', 128) !!}
-                                            {!! Form::input('hidden', 'lng_idmotor', 64) !!}
-                                        <!-- Eliminar -->
                                         {!! Form::input('hidden', 'lng_idmodelo', '') !!}                                        
