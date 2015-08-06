@@ -11,7 +11,7 @@ use Troovami\Vehiculo;
 use Troovami\DetalleVehiculo;
 use Troovami\ImagenesVehiculos;
 use Illuminate\Support\Facades\Auth;
-
+use Troovami\Consultas;
 
 class PublicarCarrosController extends Controller
 {
@@ -164,41 +164,25 @@ class PublicarCarrosController extends Controller
 
     public function carros()
     {
-    	$marcas = DB::table('cat_marcas as m')
-    	->join('tbl_tipos_marcas as tm', 'tm.lng_idmarca', '=', 'm.id')
-    	->join('cat_datos_maestros as dm', 'dm.id', '=', 'tm.lng_idtipo')
-    	->where('dm.id', '=', 153)
-    	->orderBy('m.str_marca')
-    	->select('m.str_marca','m.id')
-    	->lists('str_marca','id');
-    	//->get();
-  	        
-        $modelos = DB::table('tbl_modelos')->where('lng_idmarca', '62')->lists('str_modelo','id');
-        $tipo_vehiculos = DB::table('cat_datos_maestros')->where('str_tipo', 'automoviles')->lists('str_descripcion','id');
-        
-        /*$colores = DB::table('cat_datos_maestros')
-        ->where('str_tipo', 'color')
-        ->lists('str_descripcion','id');*/
-        
-        $colores = DB::table('cat_datos_maestros')
-        ->where('str_tipo', 'color')
-        ->select('id','str_descripcion','str_caracteristica')
-        ->get();        
-        
-        $respuesta= DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('str_descripcion','id');
-        $seguridad = DB::table('cat_datos_maestros')->where('str_tipo', 'seguridad_vehiculos')->lists('str_descripcion','id');
-        $sonido = DB::table('cat_datos_maestros')->where('str_tipo', 'sonido_vehiculos')->lists('str_descripcion','id');
-        $exterior = DB::table('cat_datos_maestros')->where('str_tipo', 'exterior_vehiculos')->lists('str_descripcion','id');
-        $confort = DB::table('cat_datos_maestros')->where('str_tipo', 'confort_vehiculos')->lists('str_descripcion','id');
-        $accesorios_internos = DB::table('cat_datos_maestros')->where('str_tipo', 'accesoriosInternos_vehiculos')->lists('str_descripcion','id');
-        $direccion = DB::table('cat_datos_maestros')->where('str_tipo', 'direccion_vehiculos')->lists('str_descripcion','id');
-        $estereo = DB::table('cat_datos_maestros')->where('str_tipo', 'estereo_vehiculos')->lists('str_descripcion','id');
-        $transmision = DB::table('cat_datos_maestros')->where('str_tipo', 'transmision_vehiculos')->lists('str_descripcion','id');
-        $tapizado = DB::table('cat_datos_maestros')->where('str_tipo', 'tapizado_vehiculos')->lists('str_descripcion','id');
-        $vidrios = DB::table('cat_datos_maestros')->where('str_tipo', 'vidrios_vehiculos')->lists('str_descripcion','id');
-        $traccion = DB::table('cat_datos_maestros')->where('str_tipo', 'traccion_vehiculos')->lists('str_descripcion','id');
-        $combustible = DB::table('cat_datos_maestros')->where('str_tipo', 'combustible_vehiculos')->lists('str_descripcion','id');
-        $paises = DB::table('cat_paises')->orderBy('str_paises')->lists('str_paises','id');
+    
+        $marcas = Consultas::querys('marcas');
+        $modelos = Consultas::querys('modelos'); 
+  	    $tipo_vehiculos = Consultas::querys('tipo_vehiculos');   
+        $colores = Consultas::querys('colores');
+        $respuesta = Consultas::querys('respuesta');
+        $seguridad = Consultas::querys('seguridad');
+        $sonido = Consultas::querys('sonido');
+        $exterior = Consultas::querys('exterior');
+        $confort = Consultas::querys('confort');
+        $accesorios_internos = Consultas::querys('accesorios_internos');
+        $direccion = Consultas::querys('direccion');
+        $estereo = Consultas::querys('estereo');
+        $transmision = Consultas::querys('transmision');
+        $tapizado = Consultas::querys('tapizado');
+        $vidrios = Consultas::querys('vidrios');
+        $traccion = Consultas::querys('traccion');
+        $combustible = Consultas::querys('combustible');
+        $paises = Consultas::querys('paises');
         
         return \View::make('carros.formulario', compact('marcas','modelos','tipo_vehiculos','colores','respuesta','seguridad','sonido','exterior',
                 'confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible','paises'));
@@ -206,19 +190,16 @@ class PublicarCarrosController extends Controller
 
     public function formulario($valor)
     {
-    	
-    	
-    	$respuesta= DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('str_descripcion','id');
-    	
+        
     	switch ($valor) {
     
     		case 'Ambulancias':
-    				
+                    $respuesta = Consultas::querys('respuesta');
     				return \View::make('carros.ambulancias',compact('respuesta'));
     			break;
     
     		case 'Autobuses':
-    				
+                    $respuesta = Consultas::querys('respuesta');
     				return \View::make('carros.autobuses',compact('respuesta'));
     			break;
     
@@ -227,17 +208,8 @@ class PublicarCarrosController extends Controller
     			break;
     
     		case 'Camiones':
-
-                    $marcas = DB::table('cat_marcas as m')
-                    ->join('cat_datos_maestros as dm', 'dm.id', '=', 'm.lng_idtipo')
-                    ->where('m.lng_idtipo', '=', 153)
-                    ->orderBy('str_marca')
-                    ->select('str_marca','m.id')
-                    ->lists('str_marca','m.id');
-
-
-                    $frenado = DB::table('cat_datos_maestros')->where('str_tipo', 'frenado_vehiculos')->lists('str_descripcion','id');
-    				return \View::make('carros.camiones',compact('frenado','marcas'));
+                    $frenado = Consultas::querys('frenado'); 
+                    return \View::make('carros.camiones',compact('frenado'));
     			break;
     			
     		case 'Carros de Golf':
@@ -249,18 +221,20 @@ class PublicarCarrosController extends Controller
     			 break;
     			 
     		case 'Kartings':
-    				$desplazamiento = DB::table('cat_datos_maestros')->where('str_tipo', 'desplazamiento_vehiculos')->lists('str_descripcion','id');
-    				$arranque = DB::table('cat_datos_maestros')->where('str_tipo', 'arranque_vehiculos')->lists('str_descripcion','id');
+                    $desplazamiento = Consultas::querys('desplazamiento'); 
+                    $arranque = Consultas::querys('arranque'); 
     			  	return \View::make('carros.kartings',compact('desplazamiento','arranque'));
     			  break;
     			  
     		case 'Maquinaria Pesada':
-    				$enfriamiento = DB::table('cat_datos_maestros')->where('str_tipo', 'enfriamiento_vehiculos')->lists('str_descripcion','id');
+    				$respuesta = Consultas::querys('respuesta');
+                    $enfriamiento = Consultas::querys('enfriamiento'); 
     			  	return \View::make('carros.maquinariaPesada',compact('respuesta','enfriamiento'));
     			  break;
     	}
     }
     
+
     public function dependiente($valor)
     {
 

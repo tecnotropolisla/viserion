@@ -9,7 +9,7 @@
                                                         <div class="form-group col-md-4">
                                                             
                                                             <i id="int_pisos_validar" class="fa fa-asterisk" style="color:red;"></i>
-                                                            {!! Form::label('int_pisos', 'Pisos') !!}
+                                                            {!! Form::label('int_pisos', 'Cantidad de Pisos') !!}
                                                             {!! Form::selectRange('int_pisos', 1, 2, null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']) !!} 
 
 
