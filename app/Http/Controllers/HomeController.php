@@ -28,7 +28,7 @@ class HomeController extends Controller
         $paginas = ceil($total_vehiculos / $this->tamano_pagina);
 
         $vehiculos = DB::table('tbl_vehiculos as v')
-            ->join('cat_datos_maestros as dm', 'dm.id', '=', 'v.lng_idtransmision')
+            ->leftjoin('cat_datos_maestros as dm', 'dm.id', '=', 'v.lng_idtransmision')//Transmisión no es obligatoria
             ->join('cat_datos_maestros as dm2', 'dm2.id', '=', 'v.lng_iddireccion')
             ->join('cat_datos_maestros as dm3', 'dm3.id', '=', 'v.lng_idcolor')
             ->join('cat_paises as p', 'p.id', '=', 'v.lng_idpais')
@@ -69,7 +69,7 @@ class HomeController extends Controller
         $total_paginas = ceil($total_vehiculos / $this->tamano_pagina);
 
         $vehiculos = DB::table('tbl_vehiculos as v')
-            ->join('cat_datos_maestros as dm', 'dm.id', '=', 'v.lng_idtransmision')
+            ->leftjoin('cat_datos_maestros as dm', 'dm.id', '=', 'v.lng_idtransmision')//Transmisión no es obligatoria
             ->join('cat_datos_maestros as dm2', 'dm2.id', '=', 'v.lng_iddireccion')
             ->join('cat_datos_maestros as dm3', 'dm3.id', '=', 'v.lng_idcolor')
             ->join('cat_paises as p', 'p.id', '=', 'v.lng_idpais')

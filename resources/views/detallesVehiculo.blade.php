@@ -118,7 +118,18 @@
                                     <li class="list-group-item"> <span class="badge">Ciudad</span> ------- </li>
                                     <li class="list-group-item"> <span class="badge">Recorrido</span> {!! number_format($vehiculo->str_recorrido, null, ',', '.') !!} </li>
                                     <li class="list-group-item"> <span class="badge">Color</span> {!! $vehiculo->color !!}</li>
-                                    <li class="list-group-item"> <span class="badge">Motor</span> {!! $vehiculo->str_cilindrada !!}</li>
+                                    <li class="list-group-item"> <span class="badge">Motor</span> 
+
+                                        @if ($vehiculo->str_cilindrada == "")
+
+                                            Sin Información
+
+                                        @else
+                                            {!! $vehiculo->str_cilindrada !!}
+
+                                        @endif
+
+                                    </li>
 
                                 </ul>
                                 
@@ -207,7 +218,18 @@
 
                                                     <tr>
                                                         <td>Motor</td>
-                                                        <td>{!! $vehiculo->str_cilindrada !!}</td>
+                                                        <td>
+
+                                                           @if ($vehiculo->str_cilindrada == "")
+
+                                                                Sin Información
+
+                                                            @else
+                                                                {!! $vehiculo->str_cilindrada !!}
+
+                                                            @endif
+
+                                                        </td>
                                                     </tr>
 
                                                     <tr>

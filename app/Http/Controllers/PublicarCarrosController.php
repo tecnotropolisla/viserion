@@ -58,27 +58,38 @@ class PublicarCarrosController extends Controller
         
     	return Validator::make($data, [
                 
-            'lng_idtipo_vehiculo' =>    'required|max:255',
-            'str_placa' =>  'required|string|max:255|unique:tbl_vehiculos',
-            'lng_idmodelo' =>   'required|max:255',
-            'int_ano' =>    'required|max:255',
-            'int_cantidad_puertas' =>   'required|integer|max:255',
-            'lng_idcolor' =>    'required|max:255',
-            'lng_idnegociable' =>   'required|max:255',
-            'lng_idmotorreparado' =>    'required|max:255',
-            'lng_idfinanciamiento' =>   'required|max:255',
-            'lng_idtapizado' =>   'required|max:255',
-            'lng_idvidrios' =>   'required|max:255',
-            'lng_idunicodueno' =>   'required|max:255',
-            'lng_idtraccion' =>   'required|max:255',
-            'lng_idchocado' =>  'required|max:255',
-            'str_recorrido' =>  'required|max:255',
-        	'lng_idcombustible' =>  'required|integer',
-            'str_precio_venta' =>   'required|max:255',
-            'lng_idpais' =>   'required|max:255',
-    		'lng_idcaracteristica' =>    'required',
-            'int_cilindros' => 'required|max:255',
-    		'blb_img0' =>    'required|image:jpeg,png,jpg',
+            'lng_idtipo_vehiculo' => 'required|max:255',
+            'lng_idmodelo' => 'required|max:255',
+            'str_placa' => 'required|string|max:255|unique:tbl_vehiculos',
+            'int_cantidad_puertas' => 'required|integer|max:255',
+            'lng_idcolor' => 'required|max:255',
+            'lng_iddireccion' => 'required|max:255',
+            'lng_idestereo' => 'required|max:255',
+            //'lng_idtransmision' => 'required|max:255',
+            'lng_idtapizado' => 'required|max:255',
+            'lng_idvidrios' => 'required|max:255',
+            'lng_idtraccion' => 'required|max:255',
+            'lng_idcombustible' => 'required|integer',
+            'int_ano' => 'required|max:255',
+            'str_recorrido' => 'required|max:255',
+            //'str_cilindrada' => 'required|max:255',
+            //'int_cilindros' => 'required|max:255',
+            'lng_idchocado' => 'required|max:255',
+            'lng_idnegociable' => 'required|max:255',
+            'lng_idfinanciamiento' => 'required|max:255',
+            'lng_idunicodueno' => 'required|max:255',
+            'lng_idmotorreparado' => 'required|max:255',
+            
+            'lng_idcaracteristica' => 'required',
+
+            'str_precio_venta' => 'required|max:255',
+            'lng_idpais' => 'required|max:255',
+    		'blb_img0' => 'required|image:jpeg,png,jpg',
+            'blb_img1' => 'required|image:jpeg,png,jpg',
+            'blb_img2' => 'required|image:jpeg,png,jpg',
+            'blb_img3' => 'required|image:jpeg,png,jpg',
+            'blb_img4' => 'required|image:jpeg,png,jpg',
+            'blb_img5' => 'required|image:jpeg,png,jpg',
         ]);
     }
 
@@ -90,45 +101,54 @@ class PublicarCarrosController extends Controller
      */
     public function create(array $data)
     {
-
-    	if ($data['str_moneda'] == null){
-        	$data['str_moneda'] = "Moneda local";
-        }
-        
+       
         //return Vehiculo::create([
         $vehiculo = Vehiculo::create([
 
+            //carros y camionetas
+            //carros especiales
+            //carros de coleccion
+            //carros de competencia
+            //chocados
+            //equipamientos
+            //motorhome
+            //recreacion
+            //taxis
+            //tunning
+
             'lng_idpersona' =>  Auth::user()->id,
             'lng_idtipo_vehiculo' =>    $data['lng_idtipo_vehiculo'],
-            'str_placa' =>  trim($data['str_placa']),
             'lng_idmodelo' =>   $data['lng_idmodelo'],
-            'int_ano' =>    $data['int_ano'],
+            'str_placa' =>  trim($data['str_placa']),
             'int_cantidad_puertas' =>   $data['int_cantidad_puertas'],
             'lng_idcolor' =>    $data['lng_idcolor'],
-            'lng_idnegociable' =>  $data['lng_idnegociable'],
-            'lng_idmotorreparado' =>    $data['lng_idmotorreparado'],
-            'lng_idfinanciamiento' =>   $data['lng_idfinanciamiento'],
+            'lng_iddireccion' =>   $data['lng_iddireccion'],
+            'lng_idestereo' =>   $data['lng_idestereo'],
+            'lng_idtransmision' =>   $data['lng_idtransmision'],
             'lng_idtapizado' =>   $data['lng_idtapizado'],
             'lng_idvidrios' =>  $data['lng_idvidrios'],
-            'lng_idunicodueno' =>   $data['lng_idunicodueno'],
             'lng_idtraccion' =>   $data['lng_idtraccion'],
-            'lng_idchocado' =>  $data['lng_idchocado'],
-            'str_recorrido' =>  $data['str_recorrido'],
             'lng_idcombustible' =>  $data['lng_idcombustible'],
+            'int_ano' =>    $data['int_ano'],
+            'str_recorrido' =>  $data['str_recorrido'],
+            'str_cilindrada' =>   $data['str_cilindrada'],
+            'int_cilindros' => $data['int_cilindros'],
+            'lng_idchocado' =>  $data['lng_idchocado'],
+            'lng_idnegociable' =>  $data['lng_idnegociable'],
+            'lng_idfinanciamiento' =>   $data['lng_idfinanciamiento'],
+            'lng_idunicodueno' =>   $data['lng_idunicodueno'],           
+            'lng_idmotorreparado' =>    $data['lng_idmotorreparado'],
+
+            'str_video' =>   $data['str_video'],
+            'str_comentario' =>   $data['str_comentario'],
+            'lng_idpais' =>   $data['lng_idpais'], 
             'str_precio_venta' =>   $data['str_precio_venta'],
+            'str_moneda' => $data['str_moneda'],
+
+            //ambulancias
 
             //'lng_idequipo_medico' =>   $data['lng_idequipo_medico'],
-            //'lng_idfrenado' =>   $data['lng_idfrenado'],
-
-            'lng_idpais' =>   $data['lng_idpais'], 
-            'str_cilindrada' =>   $data['str_cilindrada'],
-            'lng_idestereo' =>   $data['lng_idestereo'],
-            'lng_iddireccion' =>   $data['lng_iddireccion'],
-            'lng_idtransmision' =>   $data['lng_idtransmision'],
-        	'str_comentario' =>   $data['str_comentario'],
-            'int_cilindros' => $data['int_cilindros'],
-            'str_video' =>   $data['str_video'],
-            'str_moneda' => $data['str_moneda'],
+            //'lng_idfrenado' =>   $data['lng_idfrenado'], 
 
         ]);
 
@@ -164,7 +184,6 @@ class PublicarCarrosController extends Controller
 
     public function carros()
     {
-    
         $marcas = Consultas::querys('marcas');
         $modelos = Consultas::querys('modelos'); 
   	    $tipo_vehiculos = Consultas::querys('tipo_vehiculos');   

@@ -44,18 +44,19 @@
                                         
                                         <i id="str_precio_venta_validar" class="fa fa-asterisk" style="color:red;"></i>
                                         {!! Form::label('str_precio_venta', 'Precio') !!}
-                                        {!! Form::input('text', 'str_precio_venta', '', ['class'=> 'form-control', 'onkeypress'=>'return isNumber(event)','onchange' => 'validar(this.value,this.name)']) !!}
+                                        {!! Form::input('text', 'str_precio_venta', '', ['class'=> 'form-control', 'maxlength' => '10','onkeypress'=>'return isNumber(event)','onchange' => 'validar(this.value,this.name)']) !!}
 
                                     </div>
 
                                     <div class="form-group ">
 
                                         <div id="monedas_validar">
+                                            <i id="str_moneda_validar" class="fa fa-asterisk" style="color:red;"></i>
 	                                        {!! Form::label('str_moneda', 'Moneda (Sólo para Venezuela)') !!}
 	
 	                                        {!!
 	
-	                                         	Form::select('str_moneda', array('0' => 'Seleccione', 'Bolivares' => 'Bolivares', 'Dolares' => 'Dolares'), 'S',['class' => 'form-control'])
+	                                         	Form::select('str_moneda', array('0' => 'Seleccione', 'Bolívares' => 'Bolívares', 'Dólares' => 'Dólares'), 'S',['class' => 'form-control','onchange' => 'validar(this.value,this.name)'])
 	                                        
 	                                        !!} 
 										</div>
