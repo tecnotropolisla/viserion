@@ -76,6 +76,13 @@ class Consultas extends Model
 					return $caracteristicas;
 				break;
 
+                case 'modelos':
+                        $modelos = DB::table('tbl_modelos')
+                        ->where('lng_idmarca', $valor)
+                        ->lists('str_modelo','id');
+                    return $modelos;
+                break;
+
 	        }
 	}
 

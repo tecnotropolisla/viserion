@@ -34,13 +34,14 @@ class PublicarCarrosController extends Controller
     public function postPublicar(Request $request)
     {
         
-    	$validator = $this->validator($request->all());
+        $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
             $this->throwValidationException(
                 $request, $validator
             );
         }
+    
         $this->create($request->all());
 
         return redirect($this->redirectPath()); 
@@ -102,53 +103,79 @@ class PublicarCarrosController extends Controller
     public function create(array $data)
     {
        
+        if(!isset($data['lng_idequipo_medico'])){$data['lng_idequipo_medico'] = null;} 
+
+        if(!isset($data['lng_idarranque'])){$data['lng_idarranque'] = null;}
+
+        if(!isset($data['lng_iddesplazamiento'])){$data['lng_iddesplazamiento'] = null;}
+
+        if(!isset($data['int_carga'])){$data['int_carga'] = null;}
+
+        if(!isset($data['int_lastre'])){$data['int_lastre'] = null;}
+
+        if(!isset($data['str_version'])){$data['str_version'] = null;}        
+
+        if(!isset($data['int_pisos'])){$data['int_pisos'] = null;}
+
+        if(!isset($data['int_pasajeros'])){$data['int_pasajeros'] = null;}  
+
+        if(!isset($data['lng_idventana'])){$data['lng_idventana'] = null;}  
+
+        if(!isset($data['str_carroceria'])){$data['str_carroceria'] = null;}  
+
+        if(!isset($data['lng_idbano'])){$data['lng_idbano'] = null;}  
+
+        if(!isset($data['lng_idfrenado'])){$data['lng_idfrenado'] = null;}  
+
+        if(!isset($data['dbl_neumatico'])){$data['dbl_neumatico'] = null;}  
+
+        if(!isset($data['dbl_potenciamax'])){$data['dbl_potenciamax'] = null;}
+ 
         //return Vehiculo::create([
         $vehiculo = Vehiculo::create([
 
-            //carros y camionetas
-            //carros especiales
-            //carros de coleccion
-            //carros de competencia
-            //chocados
-            //equipamientos
-            //motorhome
-            //recreacion
-            //taxis
-            //tunning
-
             'lng_idpersona' =>  Auth::user()->id,
-            'lng_idtipo_vehiculo' =>    $data['lng_idtipo_vehiculo'],
-            'lng_idmodelo' =>   $data['lng_idmodelo'],
-            'str_placa' =>  trim($data['str_placa']),
-            'int_cantidad_puertas' =>   $data['int_cantidad_puertas'],
-            'lng_idcolor' =>    $data['lng_idcolor'],
-            'lng_iddireccion' =>   $data['lng_iddireccion'],
-            'lng_idestereo' =>   $data['lng_idestereo'],
-            'lng_idtransmision' =>   $data['lng_idtransmision'],
-            'lng_idtapizado' =>   $data['lng_idtapizado'],
-            'lng_idvidrios' =>  $data['lng_idvidrios'],
-            'lng_idtraccion' =>   $data['lng_idtraccion'],
-            'lng_idcombustible' =>  $data['lng_idcombustible'],
-            'int_ano' =>    $data['int_ano'],
-            'str_recorrido' =>  $data['str_recorrido'],
-            'str_cilindrada' =>   $data['str_cilindrada'],
+            'lng_idtipo_vehiculo' => $data['lng_idtipo_vehiculo'],
+            'lng_idmodelo' => $data['lng_idmodelo'],
+            'str_placa' => trim($data['str_placa']),
+            'int_cantidad_puertas' => $data['int_cantidad_puertas'],
+            'lng_idcolor' => $data['lng_idcolor'],
+            'lng_iddireccion' => $data['lng_iddireccion'],
+            'lng_idestereo' => $data['lng_idestereo'],
+            'lng_idtransmision' => $data['lng_idtransmision'],
+            'lng_idtapizado' => $data['lng_idtapizado'],
+            'lng_idvidrios' => $data['lng_idvidrios'],
+            'lng_idtraccion' => $data['lng_idtraccion'],
+            'lng_idcombustible' => $data['lng_idcombustible'],
+            'int_ano' => $data['int_ano'],
+            'str_recorrido' => $data['str_recorrido'],
+            'str_cilindrada' => trim($data['str_cilindrada']),
             'int_cilindros' => $data['int_cilindros'],
-            'lng_idchocado' =>  $data['lng_idchocado'],
-            'lng_idnegociable' =>  $data['lng_idnegociable'],
-            'lng_idfinanciamiento' =>   $data['lng_idfinanciamiento'],
-            'lng_idunicodueno' =>   $data['lng_idunicodueno'],           
-            'lng_idmotorreparado' =>    $data['lng_idmotorreparado'],
+            'lng_idchocado' => $data['lng_idchocado'],
+            'lng_idnegociable' => $data['lng_idnegociable'],
+            'lng_idfinanciamiento' => $data['lng_idfinanciamiento'],
+            'lng_idunicodueno' => $data['lng_idunicodueno'],           
+            'lng_idmotorreparado' => $data['lng_idmotorreparado'],
 
-            'str_video' =>   $data['str_video'],
-            'str_comentario' =>   $data['str_comentario'],
-            'lng_idpais' =>   $data['lng_idpais'], 
-            'str_precio_venta' =>   $data['str_precio_venta'],
-            'str_moneda' => $data['str_moneda'],
+            'str_video' => trim($data['str_video']),
+            'str_comentario' => trim($data['str_comentario']),
+            'lng_idpais' => $data['lng_idpais'], 
+            'str_precio_venta' => trim($data['str_precio_venta']),
+            'str_moneda' => trim($data['str_moneda']),
 
-            //ambulancias
-
-            //'lng_idequipo_medico' =>   $data['lng_idequipo_medico'],
-            //'lng_idfrenado' =>   $data['lng_idfrenado'], 
+            'lng_idequipo_medico' => $data['lng_idequipo_medico'],
+            'lng_iddesplazamiento' => $data['lng_iddesplazamiento'],
+            'int_carga' => $data['int_carga'],
+            'lng_idarranque' => $data['lng_idarranque'],
+            'int_lastre' => $data['int_lastre'], 
+            'str_version' => trim($data['str_version']),
+            'int_pisos' => $data['int_pisos'],
+            'int_pasajeros' => $data['int_pasajeros'],
+            'str_carroceria' => trim($data['str_carroceria']), 
+            'lng_idbano' => $data['lng_idbano'],
+            'dbl_neumatico' => $data['dbl_neumatico'],
+            'dbl_potenciamax' => $data['dbl_potenciamax'],                                 
+            'lng_idfrenado' => $data['lng_idfrenado'], 
 
         ]);
 
@@ -207,11 +234,26 @@ class PublicarCarrosController extends Controller
                 'confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible','paises'));
     }
 
+    //Este método lo llamo desde routes.php pero se genera desde una función de ajax,
+    //para crear contenido dinámico al formulario.
+    //Nota: ver el archivo ajaxCars.js, función "formularioDinamico()" :)
     public function formulario($valor)
     {
         
     	switch ($valor) {
     
+            case 'Carros de Golf':
+                    return \View::make('carros.carrosGolf');
+                break;
+                
+            case 'Gruas':
+                    return \View::make('carros.gruas');
+                 break;
+
+            case 'Blindados':
+                    return \View::make('carros.blindados');
+                break;
+
     		case 'Ambulancias':
                     $respuesta = Consultas::querys('respuesta');
     				return \View::make('carros.ambulancias',compact('respuesta'));
@@ -221,30 +263,19 @@ class PublicarCarrosController extends Controller
                     $respuesta = Consultas::querys('respuesta');
     				return \View::make('carros.autobuses',compact('respuesta'));
     			break;
-    
-    		case 'Blindados':
-    				return \View::make('carros.blindados');
-    			break;
-    
+
     		case 'Camiones':
                     $frenado = Consultas::querys('frenado'); 
                     return \View::make('carros.camiones',compact('frenado'));
     			break;
     			
-    		case 'Carros de Golf':
-    				return \View::make('carros.carrosGolf');
-    			break;
-    			
-    		case 'Gruas':
-    			 	return \View::make('carros.gruas');
-    			 break;
-    			 
     		case 'Kartings':
                     $desplazamiento = Consultas::querys('desplazamiento'); 
                     $arranque = Consultas::querys('arranque'); 
     			  	return \View::make('carros.kartings',compact('desplazamiento','arranque'));
     			  break;
-    			  
+    		
+            //QUITAR, VA EN OTRO CONTROLADOR!!!!!
     		case 'Maquinaria Pesada':
     				$respuesta = Consultas::querys('respuesta');
                     $enfriamiento = Consultas::querys('enfriamiento'); 
@@ -252,15 +283,14 @@ class PublicarCarrosController extends Controller
     			  break;
     	}
     }
-    
 
+    //Este método lo llamo desde routes.php pero se genera desde una función de ajax,
+    //para crear un campo select dinámico en el formulario.
+    //Nota: ver el archivo ajaxCars.js, función "dependiente(valor)" :)    
     public function dependiente($valor)
     {
-
         //echo $valor;
-
-        $modelos = DB::table('tbl_modelos')->where('lng_idmarca', $valor)->lists('str_modelo','id');
-        
+        $modelos = Consultas::querysValor('modelos',$valor);
             //var_dump($modelos);
             $select ="<select id='modelos' name='modelos' class='form-control' onchange='idmodelo(this.value);validar(this.value,this.name)'>
             

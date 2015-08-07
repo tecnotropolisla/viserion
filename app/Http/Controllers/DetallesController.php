@@ -16,7 +16,6 @@ class DetallesController extends Controller
     {
 
         //busco el id del vehículo para saber si existe:
-
         $vehiculos = Consultas::querysValor('vehiculos',$valor);
 
         //Mi variable bandera para establecer si pasa o no a determinada vista:

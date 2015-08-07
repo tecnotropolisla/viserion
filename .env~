@@ -4,7 +4,7 @@ APP_KEY=D8P7SvkGxpk90jatExdGJiNtQajQQo8v
 
 DB_HOST=192.168.1.115
 DB_DATABASE=tecnotropolislaDrogon
-DB_USERNAME=nbarazarte
+DB_USERNAME=neel
 DB_PASSWORD=1234
 
 CACHE_DRIVER=file

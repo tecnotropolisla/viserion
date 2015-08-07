@@ -15,7 +15,7 @@
                                                     <div class="form-group col-md-4">
                                                             
                                                             <i id="lng_iddesplazamiento_validar" class="fa fa-asterisk" style="color:red;"></i>
-                                                            {!! Form::label('lng_idarranque', 'Desplazamiento (CC)') !!}<br>
+                                                            {!! Form::label('lng_iddesplazamiento', 'Desplazamiento (CC)') !!}<br>
                                                             
 															{!! Form::select('lng_iddesplazamiento', 
 																(['' => 'Seleccione'] + $desplazamiento), 

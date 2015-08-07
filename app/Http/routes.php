@@ -12,15 +12,60 @@
 |
 */
 
-Route::get('/', [
-	'uses' => 'HomeController@index',
-	'as' =>'home'
-]);
+/**********************Accesos Públicos:*****************************************/
 
-Route::get('Pagina/{valor}',[
-				'uses' => 'HomeController@paginar',
-				'as' => 'paginar'
-]);
+	Route::get('/', [
+		'uses' => 'HomeController@index',
+		'as' =>'home'
+	]);
+
+	Route::get('Pagina/{valor}',[
+					'uses' => 'HomeController@paginar',
+					'as' => 'paginar'
+	]);
+
+	Route::get('Detalle-del-Vehiculo/{valor}', [
+			'uses' => 'DetallesController@detalles',
+			'as' =>'detalles'
+	]);
+		
+	Route::get('Acceso-Restringido', [
+					'uses' => 'DenegadoController@index',
+					'as' =>'denegado'
+	]);
+
+/**********************************************************************************/
+
+/**********************Accesos con autenticación:**********************************/
+
+Route::group(['middleware' => 'auth'], function () {
+ 
+	Route::get('Publicar', [
+		'uses' => 'PublicarController@index',
+		'as' =>'publicar'
+	]);
+	
+	//Carros:
+		Route::get('Publicar-Carro', [
+				'uses' => 'PublicarCarrosController@carros',
+				'as' =>'publicarCarro'
+		]);
+	
+		Route::post('Publicar-Carro', [
+			'uses' => 'PublicarCarrosController@postPublicar',
+			'as' =>'publicarCarro'
+		]);
+	
+	//Estas rutas las llamo desde el archivo ajaxCars.js:
+
+	//Función "dependiente(valor)" :)
+		Route::get('Publicar-Carro/{valor}','PublicarCarrosController@dependiente');
+
+	//Función "formularioDinamico()" :)
+		Route::get('Formulario/{valor}','PublicarCarrosController@formulario');
+ });
+
+/***********************************************************************************/
 
 // Authentication routes...
 Route::get('Iniciar-Sesion', [
@@ -43,39 +88,3 @@ Route::get('Crear-Cuenta', [
 ]);
 
 Route::post('Crear-Cuenta', 'Auth\AuthController@postRegister');
-
-Route::group(['middleware' => 'auth'], function () {
- 
-	Route::get('Publicar', [
-		'uses' => 'PublicarController@index',
-		'as' =>'publicar'
-	]);
-	
-	//Carros:
-	/*****************************************************************************************/	
-		Route::get('Publicar-Carro', [
-				'uses' => 'PublicarCarrosController@carros',
-				'as' =>'publicarCarro'
-		]);
-	
-		Route::post('Publicar-Carro', [
-			'uses' => 'PublicarCarrosController@postPublicar',
-			'as' =>'publicarCarro'
-		]);
-	
-		Route::get('Publicar-Carro/{valor}','PublicarCarrosController@dependiente');
-
-		Route::get('Formulario/{valor}','PublicarCarrosController@formulario');
-	/*****************************************************************************************/
-
- });
-
-Route::get('Detalle-del-Vehiculo/{valor}', [
-		'uses' => 'DetallesController@detalles',
-		'as' =>'detalles'
-]);
-	
-Route::get('Acceso-Restringido', [
-				'uses' => 'DenegadoController@index',
-				'as' =>'denegado'
-]);
