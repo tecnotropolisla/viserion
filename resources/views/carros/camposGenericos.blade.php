@@ -213,7 +213,7 @@ Descripción
                     
                     <i id="int_cilindros_validar" class="fa fa-check" style="color:green;"></i>
                     {!! Form::label('int_cilindros', 'N° de Cilindros') !!}
-                    {!! Form::selectRange('int_cilindros', 2, 16, null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']) !!} 
+                    {!! Form::selectRange('int_cilindros', 1, 16, null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']) !!} 
 
                 </div>
                 
