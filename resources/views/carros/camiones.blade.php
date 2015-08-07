@@ -37,8 +37,8 @@
 
                 <div class="form-group col-md-4">
                     
-                    <i id="dbl_potenciamax_validar" class="fa fa-asterisk" style="color:red;"></i>
-                    {!! Form::label('dbl_potenciamax', 'Potencia Máxima') !!}
-                    {!! Form::input('text', 'dbl_potenciamax', '', ['class'=> 'form-control','maxlength' => '15' ,'onkeypress'=>'return isNumber(event)','onchange' => 'validar(this.value,this.name)']) !!}
+                    <i id="int_potenciamax_validar" class="fa fa-asterisk" style="color:red;"></i>
+                    {!! Form::label('int_potenciamax', 'Potencia Máxima') !!}
+                    {!! Form::input('text', 'int_potenciamax', '', ['class'=> 'form-control','maxlength' => '15' ,'onkeypress'=>'return isNumber(event)','onchange' => 'validar(this.value,this.name)']) !!}
         
                 </div>

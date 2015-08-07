@@ -114,7 +114,7 @@ class PublicarCarrosController extends Controller
         if(!isset($data['lng_idbano'])){$data['lng_idbano'] = null;}  
         if(!isset($data['lng_idfrenado'])){$data['lng_idfrenado'] = null;}  
         if(!isset($data['dbl_neumatico'])){$data['dbl_neumatico'] = null;}  
-        if(!isset($data['dbl_potenciamax'])){$data['dbl_potenciamax'] = null;}
+        if(!isset($data['int_potenciamax'])){$data['int_potenciamax'] = null;}
          
         //return Vehiculo::create([
         $vehiculo = Vehiculo::create([
@@ -157,7 +157,7 @@ class PublicarCarrosController extends Controller
             'str_carroceria' => trim($data['str_carroceria']), 
             'lng_idbano' => $data['lng_idbano'],
             'dbl_neumatico' => $data['dbl_neumatico'],
-            'dbl_potenciamax' => $data['dbl_potenciamax'],                                 
+            'int_potenciamax' => $data['int_potenciamax'],                                 
             'lng_idfrenado' => $data['lng_idfrenado'], 
 
         ]);
