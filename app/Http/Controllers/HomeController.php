@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->tamano_pagina = 2;
+        $this->tamano_pagina = 20;
     }
 
     public function index()

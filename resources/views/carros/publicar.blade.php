@@ -56,7 +56,7 @@
 	
 	                                        {!!
 	
-	                                         	Form::select('str_moneda', array('0' => 'Seleccione', 'Bolívares' => 'Bolívares', 'Dólares' => 'Dólares'), 'S',['class' => 'form-control','onchange' => 'validar(this.value,this.name)'])
+	                                         	Form::select('str_moneda', array('' => 'Seleccione', 'Bolívares' => 'Bolívares', 'Dólares' => 'Dólares'), 'S',['class' => 'form-control','onchange' => 'validar(this.value,this.name)'])
 	                                        
 	                                        !!} 
 										</div>

@@ -5,7 +5,7 @@
                     {!! Form::select('lng_idfrenado', 
                                         (['' => 'Seleccione'] + $frenado), 
                                         null, 
-                                        ['class' => 'form-control', 'onchange' => 'validar(this.value,this.name);formularioDinamico()']
+                                        ['class' => 'form-control', 'onchange' => 'validar(this.value,this.name);']
                                     ) 
                     !!} 
 

@@ -69,7 +69,7 @@ Descripción
                 
                 <div class="form-group col-md-4">
                     
-                    <i id="int_cantidad_puertas_validar" class="fa fa-asterisk" style="color:red;"></i>
+                    <i id="int_cantidad_puertas_validar" class="fa fa-check" style="color:green;"></i>
                     {!! Form::label('int_cantidad_puertas', 'Cantidad de Puertas') !!}
                     {!! 
 
@@ -121,7 +121,7 @@ Descripción
 
             <div class="form-group col-md-4">
                     
-                    <!--<i id="lng_idtransmision_validar" class="fa fa-asterisk" style="color:red;"></i>-->
+                    <i id="lng_idtransmision_validar" class="fa fa-asterisk" style="color:red;"></i>
                     {!! Form::label('lng_idtransmision', 'Transmisión') !!}
                     {!! Form::select('lng_idtransmision', 
                                         (['' => 'Seleccione'] + $transmision), 
@@ -186,7 +186,7 @@ Descripción
 
                 <div class="form-group col-md-4">
                     
-                    <i id="int_ano_validar" class="fa fa-asterisk" style="color:red;"></i>
+                    <i id="int_ano_validar" class="fa fa-check" style="color:green;"></i>
                     {!! Form::label('int_ano', 'Año') !!}
                     <?php $ano = date('Y')?>
                     {!! Form::selectRange('int_ano', 1950, $ano , null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']) !!} 
@@ -203,7 +203,7 @@ Descripción
 
                 <div class="form-group col-md-4">
                     
-                    <!--<i id="str_cilindrada_validar" class="fa fa-asterisk" style="color:red;"></i>-->
+                    <i id="str_cilindrada_validar" class="fa fa-asterisk" style="color:red;"></i>
                     {!! Form::label('str_cilindrada', 'Cilindrada (CC)') !!}
                     {!! Form::input('text', 'str_cilindrada', '', ['class'=> 'form-control', 'maxlength' => '4' , 'onkeypress'=>'return isNumber(event)','onchange' => 'validar(this.value,this.name)']) !!}
                 
@@ -211,9 +211,9 @@ Descripción
                
                 <div class="form-group col-md-4">
                     
-                    <!--<i id="int_cilindros_validar" class="fa fa-asterisk" style="color:red;"></i>-->
-                    {!! Form::label('int_cilindros', 'Cilindros') !!}
-                    {!! Form::selectRange('int_cilindros', 1, 16, null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']) !!} 
+                    <i id="int_cilindros_validar" class="fa fa-check" style="color:green;"></i>
+                    {!! Form::label('int_cilindros', 'N° de Cilindros') !!}
+                    {!! Form::selectRange('int_cilindros', 2, 16, null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']) !!} 
 
                 </div>
                 

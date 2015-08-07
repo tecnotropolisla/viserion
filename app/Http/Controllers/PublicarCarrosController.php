@@ -33,7 +33,7 @@ class PublicarCarrosController extends Controller
      */
     public function postPublicar(Request $request)
     {
-        
+      	
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
@@ -41,7 +41,7 @@ class PublicarCarrosController extends Controller
                 $request, $validator
             );
         }
-    
+    	
         $this->create($request->all());
 
         return redirect($this->redirectPath()); 
@@ -56,24 +56,23 @@ class PublicarCarrosController extends Controller
      */
     protected function validator(array $data)
     {
-        
     	return Validator::make($data, [
                 
             'lng_idtipo_vehiculo' => 'required|max:255',
             'lng_idmodelo' => 'required|max:255',
             'str_placa' => 'required|string|max:255|unique:tbl_vehiculos',
-            'int_cantidad_puertas' => 'required|integer|max:255',
+            //'int_cantidad_puertas' => 'required|integer|max:255',
             'lng_idcolor' => 'required|max:255',
             'lng_iddireccion' => 'required|max:255',
             'lng_idestereo' => 'required|max:255',
-            //'lng_idtransmision' => 'required|max:255',
+            'lng_idtransmision' => 'required|max:255',
             'lng_idtapizado' => 'required|max:255',
             'lng_idvidrios' => 'required|max:255',
             'lng_idtraccion' => 'required|max:255',
             'lng_idcombustible' => 'required|integer',
-            'int_ano' => 'required|max:255',
+            //'int_ano' => 'required|max:255',
             'str_recorrido' => 'required|max:255',
-            //'str_cilindrada' => 'required|max:255',
+            'str_cilindrada' => 'required|max:255',
             //'int_cilindros' => 'required|max:255',
             'lng_idchocado' => 'required|max:255',
             'lng_idnegociable' => 'required|max:255',
@@ -102,35 +101,21 @@ class PublicarCarrosController extends Controller
      */
     public function create(array $data)
     {
-       
-        if(!isset($data['lng_idequipo_medico'])){$data['lng_idequipo_medico'] = null;} 
-
+    	if(!isset($data['lng_idequipo_medico'])){$data['lng_idequipo_medico'] = null;} 
         if(!isset($data['lng_idarranque'])){$data['lng_idarranque'] = null;}
-
         if(!isset($data['lng_iddesplazamiento'])){$data['lng_iddesplazamiento'] = null;}
-
         if(!isset($data['int_carga'])){$data['int_carga'] = null;}
-
         if(!isset($data['int_lastre'])){$data['int_lastre'] = null;}
-
         if(!isset($data['str_version'])){$data['str_version'] = null;}        
-
         if(!isset($data['int_pisos'])){$data['int_pisos'] = null;}
-
         if(!isset($data['int_pasajeros'])){$data['int_pasajeros'] = null;}  
-
         if(!isset($data['lng_idventana'])){$data['lng_idventana'] = null;}  
-
         if(!isset($data['str_carroceria'])){$data['str_carroceria'] = null;}  
-
         if(!isset($data['lng_idbano'])){$data['lng_idbano'] = null;}  
-
         if(!isset($data['lng_idfrenado'])){$data['lng_idfrenado'] = null;}  
-
         if(!isset($data['dbl_neumatico'])){$data['dbl_neumatico'] = null;}  
-
         if(!isset($data['dbl_potenciamax'])){$data['dbl_potenciamax'] = null;}
- 
+         
         //return Vehiculo::create([
         $vehiculo = Vehiculo::create([
 
@@ -156,13 +141,11 @@ class PublicarCarrosController extends Controller
             'lng_idfinanciamiento' => $data['lng_idfinanciamiento'],
             'lng_idunicodueno' => $data['lng_idunicodueno'],           
             'lng_idmotorreparado' => $data['lng_idmotorreparado'],
-
             'str_video' => trim($data['str_video']),
             'str_comentario' => trim($data['str_comentario']),
             'lng_idpais' => $data['lng_idpais'], 
             'str_precio_venta' => trim($data['str_precio_venta']),
             'str_moneda' => trim($data['str_moneda']),
-
             'lng_idequipo_medico' => $data['lng_idequipo_medico'],
             'lng_iddesplazamiento' => $data['lng_iddesplazamiento'],
             'int_carga' => $data['int_carga'],
@@ -178,10 +161,11 @@ class PublicarCarrosController extends Controller
             'lng_idfrenado' => $data['lng_idfrenado'], 
 
         ]);
-
+		
+        //Último id:
         $lastInsertedId = $vehiculo->id;
 
-        //asigno los valores de un array a otro para reniniciar los indices desde 0
+        //Asigno los valores de un array a otro para reniniciar los indices desde 0
         $detalles = array_values($data['lng_idcaracteristica']);
         
         $total_detalles = count($detalles);
@@ -209,6 +193,7 @@ class PublicarCarrosController extends Controller
         
     }
 
+    //Este método llama a la vista del formulario de carros:
     public function carros()
     {
         $marcas = Consultas::querys('marcas');
@@ -239,7 +224,6 @@ class PublicarCarrosController extends Controller
     //Nota: ver el archivo ajaxCars.js, función "formularioDinamico()" :)
     public function formulario($valor)
     {
-        
     	switch ($valor) {
     
             case 'Carros de Golf':
@@ -274,13 +258,7 @@ class PublicarCarrosController extends Controller
                     $arranque = Consultas::querys('arranque'); 
     			  	return \View::make('carros.kartings',compact('desplazamiento','arranque'));
     			  break;
-    		
-            //QUITAR, VA EN OTRO CONTROLADOR!!!!!
-    		case 'Maquinaria Pesada':
-    				$respuesta = Consultas::querys('respuesta');
-                    $enfriamiento = Consultas::querys('enfriamiento'); 
-    			  	return \View::make('carros.maquinariaPesada',compact('respuesta','enfriamiento'));
-    			  break;
+    			  
     	}
     }
 
@@ -369,41 +347,5 @@ class PublicarCarrosController extends Controller
     {
         //
     }
-    
-    public function cortarImagenes($nombre)
-    {
-    	
-    	/*
-    	echo $nombre;
-    	echo "<br>";
-    	echo base64_encode(file_get_contents($nombre ) );
-    	echo "<br>";
-    	echo $filename = $_FILES['blb_img0']['tmp_name'];
-    	*/
-    	
-    	//die();
-    	
-    	$filename = $nombre;
-    		
-    	$percent = 0.5;
-    	 
-    	// Content type
-    	header('Content-Type: image/jpeg');
-    	 
-    	// Get new dimensions
-    	list($width, $height) = getimagesize($filename);
-    	//$new_width = $width * $percent;
-    	//$new_height = $height * $percent;
-    	$new_width = 600; //* $percent;
-    	$new_height = 400;//$height * $percent;
-    	 
-    	// Resample
-    	$image_p = imagecreatetruecolor($new_width, $new_height);
-    	$image = imagecreatefromjpeg($filename);
-    	imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-    	 
-    	// Output
-    	return imagejpeg($image_p, null, 100);
-    } 
     
 }
