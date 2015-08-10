@@ -127,45 +127,54 @@ function dependiente(valor){
 
 function buscarCiudad(letra){
 
-    var lng_idpais = document.getElementById('lng_idpais').value;
-    var pais = lng_idpais;
+   var lng_idpais = document.getElementById('lng_idpais').value;
+   var pais = lng_idpais;
+   
+   if(lng_idpais == ""){
+	   
+	   alert('Seleccione el Pais de la Publicación')
+   
+   }else{
+	   
+	   var buscador = document.getElementById('buscador').value;
+	            
+	    var ele = document.getElementById("lng_idciudad_validar")
+	    ele.setAttribute('class', 'fa fa-asterisk');
+	    ele.setAttribute('style', 'color: red');
+	    
+	    divname = "dependiente2";
+	
+	    if(buscador != ""){
+	    	
+	    	document.getElementById(divname).style.display = 'inline';
+		    //http.open("GET", 'paginas' + url, true);
+		    http.open("GET", 'Ciudades/'+ letra + '/Pais/'+pais, true);
+		    http.onreadystatechange = handleHttpResponse;
+		    http.send(null);
+		}else{
+			document.getElementById(divname).style.display = 'none';
+	    }
+   }
+}
 
-    var lng_idciudad = document.getElementById('lng_idciudad').value;
-    var ciudad = lng_idciudad;
-        
+function mostrarCiudad(){
+	divname = "buscadorCiudades";
+	document.getElementById(divname).style.display = 'inline';
+}
+
+function seleccion(id,ciudad){
+    
+    document.getElementById('idciudad').value = id;
+    document.getElementById('lng_idciudad').value = ciudad;
+    
+	divname = "buscadorCiudades";
+	document.getElementById(divname).style.display = 'none';
+	
     var ele = document.getElementById("lng_idciudad_validar")
-    ele.setAttribute('class', 'fa fa-asterisk');
-    ele.setAttribute('style', 'color: red');
-    
-    divname = "dependiente2";
+    ele.setAttribute('class', 'fa fa-check');
+    ele.setAttribute('style', 'color: green');
 
-    if(ciudad != "")
-    {
-        document.getElementById(divname).style.display = 'inline';
-        //http.open("GET", 'paginas' + url, true);
-        http.open("GET", 'Ciudades/'+ letra + '/Pais/'+pais, true);
-        http.onreadystatechange = handleHttpResponse;
-        http.send(null);
-    }else{
-         document.getElementById(divname).style.display = 'none';
-    }
-    
 }
-
-function seleccion(){
-
-    //alert(valor);
-    
-    divname = "dependiente2";
-
-var valor = 1;
-var texto = "pruebas"; 
-
-    document.getElementById('idciudad').value = valor;
-    document.getElementById('lng_idciudad').value = texto;
-    document.getElementById(divname).style.display = 'none';
-}
-
 
 function paginar(valor){
 
