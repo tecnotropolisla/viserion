@@ -36,6 +36,9 @@ class Consultas extends Model
 		        ->join('cat_datos_maestros as dm12', 'dm12.id', '=', 'v.lng_idunicodueno')
 		        ->join('cat_datos_maestros as dm13', 'dm13.id', '=', 'v.lng_idmotorreparado')
 			    ->join('cat_paises as p', 'p.id', '=', 'v.lng_idpais')
+			    
+			    ->join('cat_ciudades as ciu', 'ciu.id', '=', 'v.lng_idciudad')
+			    
 			    ->join('tbl_modelos as mo', 'mo.id', '=', 'v.lng_idmodelo')
 			    ->join('cat_marcas as ma', 'ma.id', '=', 'mo.lng_idmarca')
 			    ->join('tbl_imagenes_vehiculos as ima', 'ima.lng_idvehiculo', '=', 'v.id')
@@ -53,7 +56,7 @@ class Consultas extends Model
 		            'dm8.str_descripcion as combustible', 'dm9.str_descripcion as negociable', 
 		            'dm10.str_descripcion as financiamiento', 'dm11.str_descripcion as chocado', 
 		            'dm12.str_descripcion as unicodueno', 'dm13.str_descripcion as reparado',
-		            'p.str_paises as pais','ma.str_marca as marca', 'per.created_at as fecha_inscripcion',
+		            'p.str_paises as pais', 'ciu.str_ciudad as ciudad', 'ma.str_marca as marca', 'per.created_at as fecha_inscripcion',
 		            'mo.str_modelo as modelo')
 			    ->get();
 			    return $vehiculoDetalle;

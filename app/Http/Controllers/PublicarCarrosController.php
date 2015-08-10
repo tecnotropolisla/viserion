@@ -84,6 +84,7 @@ class PublicarCarrosController extends Controller
 
             'str_precio_venta' => 'required|max:255',
             'lng_idpais' => 'required|max:255',
+    		'lng_idciudad' => 'required|max:255',
     		'blb_img0' => 'required|image:jpeg,png,jpg',
             'blb_img1' => 'required|image:jpeg,png,jpg',
             'blb_img2' => 'required|image:jpeg,png,jpg',
@@ -143,7 +144,10 @@ class PublicarCarrosController extends Controller
             'lng_idmotorreparado' => $data['lng_idmotorreparado'],
             'str_video' => trim($data['str_video']),
             'str_comentario' => trim($data['str_comentario']),
-            'lng_idpais' => $data['lng_idpais'], 
+            
+        	'lng_idpais' => $data['lng_idpais'], 
+        	'lng_idciudad' => $data['lng_idciudad'],
+        		
             'str_precio_venta' => trim($data['str_precio_venta']),
             'str_moneda' => trim($data['str_moneda']),
             'lng_idequipo_medico' => $data['lng_idequipo_medico'],

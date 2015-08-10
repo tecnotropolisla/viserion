@@ -115,7 +115,7 @@
 
                                 <ul class="list-group">
                                      
-                                    <li class="list-group-item"> <span class="badge">Ciudad</span> ------- </li>
+                                    <li class="list-group-item"> <span class="badge">Ciudad</span> {!! $vehiculo->ciudad !!} </li>
                                     <li class="list-group-item"> <span class="badge">Recorrido</span> {!! number_format($vehiculo->str_recorrido, null, ',', '.') !!} </li>
                                     <li class="list-group-item"> <span class="badge">Color</span> {!! $vehiculo->color !!}</li>
                                     <li class="list-group-item"> <span class="badge">Motor</span> 
