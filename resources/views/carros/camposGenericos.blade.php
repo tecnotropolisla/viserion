@@ -56,6 +56,7 @@ Descripción
                                         ) 
                         !!} 
                     </div>
+                    {!! Form::input('hidden', 'lng_idmodelo', '') !!}    
                         
                 </div>
 

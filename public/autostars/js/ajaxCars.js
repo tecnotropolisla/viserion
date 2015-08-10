@@ -119,11 +119,53 @@ function dependiente(valor){
 	
     divname = "dependiente";
     //http.open("GET", 'paginas' + url, true);
-    http.open("GET", 'Publicar-Carro/'+ valor, true);
+    http.open("GET", 'Modelos/'+ valor, true);
     http.onreadystatechange = handleHttpResponse;
     http.send(null);
 
 }
+
+function buscarCiudad(letra){
+
+    var lng_idpais = document.getElementById('lng_idpais').value;
+    var pais = lng_idpais;
+
+    var lng_idciudad = document.getElementById('lng_idciudad').value;
+    var ciudad = lng_idciudad;
+        
+    var ele = document.getElementById("lng_idciudad_validar")
+    ele.setAttribute('class', 'fa fa-asterisk');
+    ele.setAttribute('style', 'color: red');
+    
+    divname = "dependiente2";
+
+    if(ciudad != "")
+    {
+        document.getElementById(divname).style.display = 'inline';
+        //http.open("GET", 'paginas' + url, true);
+        http.open("GET", 'Ciudades/'+ letra + '/Pais/'+pais, true);
+        http.onreadystatechange = handleHttpResponse;
+        http.send(null);
+    }else{
+         document.getElementById(divname).style.display = 'none';
+    }
+    
+}
+
+function seleccion(){
+
+    //alert(valor);
+    
+    divname = "dependiente2";
+
+var valor = 1;
+var texto = "pruebas"; 
+
+    document.getElementById('idciudad').value = valor;
+    document.getElementById('lng_idciudad').value = texto;
+    document.getElementById(divname).style.display = 'none';
+}
+
 
 function paginar(valor){
 

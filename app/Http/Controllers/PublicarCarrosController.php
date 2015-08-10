@@ -284,6 +284,25 @@ class PublicarCarrosController extends Controller
         return $select;
     }
 
+    public function dependiente2($letra,$pais)
+    {
+        
+       $ciudades = Consultas::querysValor2('ciudades',$letra,$pais);
+
+        //var_dump($ciudades);
+       
+        $select ="<div class='list-group'>";
+        
+            foreach ($ciudades as $ciudad) 
+            {
+                $select.='<button type="button" onclick="seleccion()" class="list-group-item">'.$ciudad->str_ciudad.'</button>';
+            }
+
+        $select.="</div>";
+
+        return $select;
+    }
+
     /**
      * Get the post register / login redirect path.
      *

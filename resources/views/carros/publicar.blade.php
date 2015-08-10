@@ -26,17 +26,19 @@
 
                                     <div class="form-group">
 
-                                        <i id="modelos_validar" class="fa fa-asterisk" style="color:red;"></i>
+                                        <i id="lng_idciudad_validar" class="fa fa-asterisk" style="color:red;"></i>
                                         {!! Form::label('lng_idciudad', 'Ciudad') !!}
 
-                                        <div id="dependiente2">
-                                            {!! Form::select('lng_idciudad', 
-                                                                (['0' => 'Seleccione']), 
-                                                                null, 
-                                                                ['class' => 'form-control']
-                                                            ) 
-                                            !!} 
-                                        </div>
+    
+                                        {!! Form::input('text', 'lng_idciudad', '', 
+                                            ['class'=> 'form-control', 'maxlength' => '20',
+                                                'onkeyup'=>'buscarCiudad(this.value)',
+                                                'onchange' => 'validar(this.value,this.name)']) 
+                                        !!}
+
+                                        {!! Form::input('text', 'idciudad', '',['id' =>'idciudad']) !!} 
+
+                                        <div id="dependiente2"></div>
 
                                     </div>
 
@@ -63,4 +65,4 @@
 										
                                     </div>                                    
                   
-                                        {!! Form::input('hidden', 'lng_idmodelo', '') !!}                                        
+                                                                            
