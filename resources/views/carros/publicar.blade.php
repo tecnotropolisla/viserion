@@ -18,50 +18,45 @@
                                         {!! Form::select('lng_idpais', 
                                                             (['' => 'Seleccione'] + $paises), 
                                                             null, 
-                                                            ['class' => 'form-control','onchange' => 'validar(this.value,this.name);soloEnVenezuela(this.name)']
+                                                            ['class' => 'form-control','onchange' => 'validar(this.value,this.name);soloEnVenezuela(this.name);limpiarCiudad()']
                                                         ) 
                                         !!} 
 
                                     </div>
 
                                     <div class="form-group">
-
-                                        <i id="lng_idciudad_validar" class="fa fa-asterisk" style="color:red;"></i>
-                                        {!! Form::label('lng_idciudad', 'Ciudad') !!}
-
-                                        {!! Form::input('text', 'lng_idciudad', '', 
-                                            ['class'=> 'form-control', 'readonly', 'maxlength' => '20',
-                                                'onclick'=>'mostrarCiudad()']) 
-                                        !!}
-
-                                        {!! Form::input('hidden', 'idciudad', '',['id' =>'idciudad']) !!} 
-
+                                    
+                                    	<i id="lng_idciudad_validar" class="fa fa-asterisk" style="color:red;"></i>
+                                    	{!! Form::label('lng_idciudad', 'Ciudad') !!}
+                                    	
+                                    	
+                                    	
+										<div id="ciudad-global" class="input-group">
+											{!! Form::input('text', 'lng_idciudad', 'Seleccione', 
+	                                            ['class'=> 'form-control', 'readonly', 'maxlength' => '20',
+	                                                'onclick'=>'mostrarCiudad()']) 
+                                        	!!} 
+										  	<a class="input-group-addon btn btn-default btn-sm" onclick="mostrarCiudad()"><span class="caret"></span></a>  
+										</div>
+										
+                                        {!! Form::input('hidden', 'idciudad', '',['id' =>'idciudad']) !!}
+                                        
+										<div id="buscadorCiudades">									                                                                                      
+									        <div class='list-group'>
+									        	<div class='input-group'>									       
+													{!! Form::input('text', 'buscador', '', 
+														['class'=> 'form-control', 'id' => 'buscador', 'maxlength' => '20',
+															'onkeyup'=>'buscarCiudad(this.value)']) 
+													!!}	
+													<a class="input-group-addon btn btn-default btn-sm"><span class="caret"></span></a>
+												</div>
+																				        	
+												<div id="dependiente2"></div>
+									        </div>                                                      
+										</div>
+										
                                     </div>
                                     
-									<div id="buscadorCiudades" class="form-group">
-									                                                                                      
-									        <div class='list-group'>
-									       
-									        	<button type="button" class="list-group-item disabled">Seleccione la Ciudad</button>
-									        	
-												{!! Form::input('text', 'buscador', '', 
-													['class'=> 'form-control', 'id' => 'buscador', 'maxlength' => '20',
-														'onkeyup'=>'buscarCiudad(this.value)']) 
-												!!}
-									        	
-												<div id="dependiente2"></div>
-									
-									        </div>                                                      
-									
-									</div>                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-
                                     <div class="form-group ">
                                         
                                         <i id="str_precio_venta_validar" class="fa fa-asterisk" style="color:red;"></i>

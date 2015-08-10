@@ -5681,5 +5681,34 @@ body{
 }
 
 #buscadorCiudades{
+	display:none;	
+	float:left;
+	margin: 0 0 0 0;
+	width:100%		
+}
+#buscadorCiudades .list-group{
+	margin: 0 0 0 0;
+}
+#buscadorCiudades .list-group input {
+	margin: 0 0 0 0;
+}
+#dependiente2{
 	display:none;
+	float:left;
+	background-color:#FFF;
+	position:absolute;
+	z-index:9999;
+	width:95.5%;
+	overflow: scroll;	
+	max-height: 300px;
+}
+#dependiente2 p {
+	color: #555;
+	margin:0px;
+	padding-left: 2px;
+	width:100%;
+}
+#dependiente2 p:hover {
+	background-color: #E96C4C;
+	color:#FFF;
 }

@@ -1,8 +1,4 @@
 
             @foreach ($ciudades as $ciudad) 
-            
-                <button type="button" onclick="seleccion('{!! $ciudad->id !!}','{!! $ciudad->str_ciudad !!}')" class="list-group-item">
-                	{!! $ciudad->str_ciudad !!}
-                </button>
-            
+            	<p onclick="seleccion('{!! $ciudad->id !!}','{!! $ciudad->str_ciudad !!}')">{!! $ciudad->str_ciudad !!}</p>            
             @endforeach
