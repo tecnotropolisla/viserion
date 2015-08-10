@@ -5680,18 +5680,6 @@ body{
 	display:none;
 }
 
-#buscadorCiudades{
-	display:none;	
-	float:left;
-	margin: 0 0 0 0;
-	width:100%		
-}
-#buscadorCiudades .list-group{
-	margin: 0 0 0 0;
-}
-#buscadorCiudades .list-group input {
-	margin: 0 0 0 0;
-}
 #dependiente2{
 	display:none;
 	float:left;

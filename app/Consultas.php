@@ -82,6 +82,13 @@ class Consultas extends Model
                     ->lists('str_modelo','id');
                 return $modelos;
             break;
+            
+            case 'ciudades':
+            
+            	$ciudades = DB::select("select id, str_ciudad from cat_ciudades where lng_idpais = ".$valor." ");
+            
+            	return $ciudades;
+            break;            
 
         }
 	}

@@ -18,7 +18,7 @@
                                         {!! Form::select('lng_idpais', 
                                                             (['' => 'Seleccione'] + $paises), 
                                                             null, 
-                                                            ['class' => 'form-control','onchange' => 'validar(this.value,this.name);soloEnVenezuela(this.name);limpiarCiudad()']
+                                                            ['class' => 'form-control','onchange' => 'validar(this.value,this.name);soloEnVenezuela(this.name);buscarCiudadPorPais(this.value)']
                                                         ) 
                                         !!} 
 
@@ -29,31 +29,14 @@
                                     	<i id="lng_idciudad_validar" class="fa fa-asterisk" style="color:red;"></i>
                                     	{!! Form::label('lng_idciudad', 'Ciudad') !!}
                                     	
-                                    	
-                                    	
-										<div id="ciudad-global" class="input-group">
-											{!! Form::input('text', 'lng_idciudad', 'Seleccione', 
-	                                            ['class'=> 'form-control', 'readonly', 'maxlength' => '20',
-	                                                'onclick'=>'mostrarCiudad()']) 
-                                        	!!} 
-										  	<a class="input-group-addon btn btn-default btn-sm" onclick="mostrarCiudad()"><span class="caret"></span></a>  
-										</div>
-										
-                                        {!! Form::input('hidden', 'idciudad', '',['id' =>'idciudad']) !!}
+                                        {!! Form::input('hidden', 'lng_idciudad', '',['id' =>'lng_idciudad']) !!}
                                         
-										<div id="buscadorCiudades">									                                                                                      
-									        <div class='list-group'>
-									        	<div class='input-group'>									       
-													{!! Form::input('text', 'buscador', '', 
+                                        			{!! Form::input('text', 'buscador', '', 
 														['class'=> 'form-control', 'id' => 'buscador', 'maxlength' => '20',
-															'onkeyup'=>'buscarCiudad(this.value)']) 
+															'onkeyup'=>'buscarCiudadPorLetra(this.value)','onclick'=>'verCiudades()']) 
 													!!}	
-													<a class="input-group-addon btn btn-default btn-sm"><span class="caret"></span></a>
-												</div>
-																				        	
-												<div id="dependiente2"></div>
-									        </div>                                                      
-										</div>
+                                        
+										<div id="dependiente2"></div>
 										
                                     </div>
                                     

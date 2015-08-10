@@ -125,78 +125,70 @@ function dependiente(valor){
 
 }
 
-function mostrarCiudad(){
-
-   var lng_idpais = document.getElementById('lng_idpais').value;
-   var buscador = document.getElementById('buscador').value;
-   
-   if(lng_idpais != ""){
-
-		document.getElementById('buscadorCiudades').style.display = 'inline';
-		document.getElementById('ciudad-global').style.visibility = 'hidden';
-		document.getElementById('ciudad-global').style.position = 'absolute';
-	   
-   }
-}
-
-function buscarCiudad(letra){
-
-    var ele = document.getElementById("lng_idciudad_validar")
-    ele.setAttribute('class', 'fa fa-asterik');
+function buscarCiudadPorPais(lng_idpais){
+	
+	document.getElementById('lng_idciudad').value = "";
+    document.getElementById('buscador').value = "";
+    
+	var ele = document.getElementById("lng_idciudad_validar")
+    ele.setAttribute('class', 'fa fa-asterisk');
     ele.setAttribute('style', 'color: red');	
 	
-	var lng_idpais = document.getElementById('lng_idpais').value;
-   var buscador = document.getElementById('buscador').value;
-   
-   divname = "dependiente2";
-    	  
-	if( (lng_idpais != "") && (buscador != "") ){
-		
-	
-		document.getElementById(divname).style.display = 'inline';
+    divname = "dependiente2";
+    
+    if (lng_idpais != ""){
+		document.getElementById(divname).style.display = 'none';
 	    //http.open("GET", 'paginas' + url, true);
-	    http.open("GET", 'Ciudades/'+ letra + '/Pais/'+lng_idpais, true);
+	    http.open("GET", 'Pais/'+lng_idpais, true);
 	    http.onreadystatechange = handleHttpResponse;
 	    http.send(null);
-	    
-	}else{
-		document.getElementById(divname).style.display = 'none';
-	}
+    }else{
+    	document.getElementById(divname).style.display = 'none';
+    }
 }
 
+function verCiudades(){
+	divname = "dependiente2";
+	document.getElementById(divname).style.display = 'inline';
+}
 
+function buscarCiudadPorLetra(letra){
+
+    var ele = document.getElementById("lng_idciudad_validar")
+    ele.setAttribute('class', 'fa fa-asterisk');
+    ele.setAttribute('style', 'color: red');	
+	
+    var lng_idpais = document.getElementById('lng_idpais').value;
+    var buscador = document.getElementById('buscador').value;
+       
+    divname = "dependiente2";
+    
+    if ((lng_idpais != "") && (buscador != "")){
+    	document.getElementById(divname).style.display = 'inline';
+        //http.open("GET", 'paginas' + url, true);
+        http.open("GET", 'Ciudades/'+ letra + '/Pais/'+lng_idpais, true);
+        http.onreadystatechange = handleHttpResponse;
+        http.send(null);
+        
+    }else{
+    	document.getElementById(divname).style.display = 'none';
+    }
+  
+}
 
 function seleccion(id,ciudad){
-    	
-	document.getElementById('idciudad').value = id;
-    document.getElementById('lng_idciudad').value = ciudad;
     
-    document.getElementById('buscador').value = "";
-    document.getElementById('dependiente2').innerHTML = "";
-    
-	divname = "buscadorCiudades";
+	divname = "dependiente2";
 	document.getElementById(divname).style.display = 'none';
 	
+	document.getElementById('lng_idciudad').value = id;
+    document.getElementById('buscador').value = ciudad;
+    
     var ele = document.getElementById("lng_idciudad_validar")
     ele.setAttribute('class', 'fa fa-check');
-    ele.setAttribute('style', 'color: green');
-    document.getElementById('ciudad-global').style.visibility = 'visible';
-    document.getElementById('ciudad-global').style.position = 'relative';
-
+    ele.setAttribute('style', 'color: green');	 
+   
 }
-
-function limpiarCiudad(){
-	
-    document.getElementById('idciudad').value = "";
-    document.getElementById('lng_idciudad').value = "";
-    
-	divname = "buscadorCiudades";
-	document.getElementById(divname).style.display = 'none';
-	
-	
-	
-}
-
 
 function paginar(valor){
 

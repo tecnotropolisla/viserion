@@ -292,6 +292,15 @@ class PublicarCarrosController extends Controller
        return \View::make('ciudades',compact('ciudades')); 
 
     }
+    
+    public function dependiente3($pais)
+    {
+    
+    	$ciudades = Consultas::querysValor('ciudades',$pais);
+    	//var_dump($ciudades);
+    	return \View::make('ciudades',compact('ciudades'));
+    
+    }    
 
     /**
      * Get the post register / login redirect path.
