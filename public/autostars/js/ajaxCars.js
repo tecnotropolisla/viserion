@@ -127,6 +127,7 @@ function dependiente(valor){
 
 function buscarCiudadPorPais(lng_idpais){
 	
+	//alert(lng_idpais);
 	document.getElementById('lng_idciudad').value = "";
     document.getElementById('buscador').value = "";
     
@@ -148,8 +149,16 @@ function buscarCiudadPorPais(lng_idpais){
 }
 
 function verCiudades(){
+	
+	var lng_idpais = document.getElementById('lng_idpais').value;
+	buscarCiudadPorPais(lng_idpais);
 	divname = "dependiente2";
-	document.getElementById(divname).style.display = 'inline';
+	
+	if(lng_idpais != ""){
+		document.getElementById(divname).style.display = 'inline';
+	}else{
+		document.getElementById(divname).style.display = 'none';
+	}
 }
 
 function buscarCiudadPorLetra(letra){

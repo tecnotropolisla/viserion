@@ -201,14 +201,6 @@ Descripción
                     {!! Form::input('text', 'str_recorrido', '', ['class'=> 'form-control','maxlength' => '6' ,'onkeypress'=>'return isNumber(event)','onchange' => 'validar(this.value,this.name)']) !!}
         
                 </div>
-
-                <div class="form-group col-md-4">
-                    
-                    <i id="str_cilindrada_validar" class="fa fa-asterisk" style="color:red;"></i>
-                    {!! Form::label('str_cilindrada', 'Cilindrada (CC)') !!}
-                    {!! Form::input('text', 'str_cilindrada', '', ['class'=> 'form-control', 'maxlength' => '4' , 'onkeypress'=>'return isNumber(event)','onchange' => 'validar(this.value,this.name)']) !!}
-                
-                </div> 
                
                 <div class="form-group col-md-4">
                     

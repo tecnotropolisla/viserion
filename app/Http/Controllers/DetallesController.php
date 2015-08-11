@@ -42,7 +42,7 @@ class DetallesController extends Controller
         //Características del vehículo:
         $caracteristicas = Consultas::querysValor('caracteristicas',$valor);
         
-        $vehiculos[0]->fecha_inscripcion = substr($vehiculos[0]->created_at, 0,10);    
+        $vehiculos[0]->fecha_inscripcion = substr($vehiculos[0]->fecha_inscripcion, 0,10);    
         $var = explode('-',$vehiculos[0]->fecha_inscripcion);
         $vehiculos[0]->fecha_inscripcion = "$var[2]-$var[1]-$var[0]";
 

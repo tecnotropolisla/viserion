@@ -35,10 +35,9 @@ class Consultas extends Model
 		        ->join('cat_datos_maestros as dm11', 'dm11.id', '=', 'v.lng_idchocado')
 		        ->join('cat_datos_maestros as dm12', 'dm12.id', '=', 'v.lng_idunicodueno')
 		        ->join('cat_datos_maestros as dm13', 'dm13.id', '=', 'v.lng_idmotorreparado')
-			    ->join('cat_paises as p', 'p.id', '=', 'v.lng_idpais')
-			    
-			    ->join('cat_ciudades as ciu', 'ciu.id', '=', 'v.lng_idciudad')
-			    
+		        ->join('cat_datos_maestros as dm14', 'dm14.id', '=', 'v.lng_idcilindrada')		        
+			    ->join('cat_paises as p', 'p.id', '=', 'v.lng_idpais')			    
+			    ->join('cat_ciudades as ciu', 'ciu.id', '=', 'v.lng_idciudad')			    
 			    ->join('tbl_modelos as mo', 'mo.id', '=', 'v.lng_idmodelo')
 			    ->join('cat_marcas as ma', 'ma.id', '=', 'mo.lng_idmarca')
 			    ->join('tbl_imagenes_vehiculos as ima', 'ima.lng_idvehiculo', '=', 'v.id')
@@ -55,7 +54,7 @@ class Consultas extends Model
 		            'dm5.str_descripcion as tapizado', 'dm6.str_descripcion as vidrios', 'dm7.str_descripcion as traccion',
 		            'dm8.str_descripcion as combustible', 'dm9.str_descripcion as negociable', 
 		            'dm10.str_descripcion as financiamiento', 'dm11.str_descripcion as chocado', 
-		            'dm12.str_descripcion as unicodueno', 'dm13.str_descripcion as reparado',
+		            'dm12.str_descripcion as unicodueno', 'dm13.str_descripcion as reparado', 'dm14.str_descripcion as cilindrada',
 		            'p.str_paises as pais', 'ciu.str_ciudad as ciudad', 'ma.str_marca as marca', 'per.created_at as fecha_inscripcion',
 		            'mo.str_modelo as modelo')
 			    ->get();
@@ -91,8 +90,18 @@ class Consultas extends Model
             	$ciudades = DB::select("select id, str_ciudad from cat_ciudades where lng_idpais = ".$valor." ");
             
             	return $ciudades;
-            break;            
-
+            break;
+            
+            case 'cilindrada':
+            	$cilindrada = DB::table('cat_datos_maestros')
+            	->where('str_caracteristica', $valor)
+            	->Where(function ($query) {
+            		$query->where('str_tipo', '=', 'desplazamiento_vehiculos');
+            	})
+            	//->select('str_descripcion','id')
+            	->lists('str_descripcion','id');
+            	return $cilindrada;
+            	break;
         }
 	}
 
@@ -132,11 +141,6 @@ class Consultas extends Model
             case 'respuesta':
                 $respuesta= DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('str_descripcion','id');
                 return $respuesta;
-            break;
-
-            case 'desplazamiento':
-                $desplazamiento = DB::table('cat_datos_maestros')->where('str_tipo', 'desplazamiento_vehiculos')->lists('str_descripcion','id');
-                return $desplazamiento;
             break;
 
             case 'arranque':

@@ -72,7 +72,7 @@ class PublicarCarrosController extends Controller
             'lng_idcombustible' => 'required|integer',
             //'int_ano' => 'required|max:255',
             'str_recorrido' => 'required|max:255',
-            'str_cilindrada' => 'required|max:255',
+            'lng_idcilindrada' => 'required|max:255',
             //'int_cilindros' => 'required|max:255',
             'lng_idchocado' => 'required|max:255',
             'lng_idnegociable' => 'required|max:255',
@@ -135,7 +135,7 @@ class PublicarCarrosController extends Controller
             'lng_idcombustible' => $data['lng_idcombustible'],
             'int_ano' => $data['int_ano'],
             'str_recorrido' => $data['str_recorrido'],
-            'str_cilindrada' => trim($data['str_cilindrada']),
+            'lng_idcilindrada' => trim($data['lng_idcilindrada']),
             'int_cilindros' => $data['int_cilindros'],
             'lng_idchocado' => $data['lng_idchocado'],
             'lng_idnegociable' => $data['lng_idnegociable'],
@@ -258,10 +258,15 @@ class PublicarCarrosController extends Controller
     			break;
     			
     		case 'Kartings':
-                    $desplazamiento = Consultas::querys('desplazamiento'); 
+                    $cilindrada = Consultas::querysValor('cilindrada','karting'); 
                     $arranque = Consultas::querys('arranque'); 
-    			  	return \View::make('carros.kartings',compact('desplazamiento','arranque'));
+    			  	return \View::make('carros.kartings',compact('cilindrada','arranque'));
     			  break;
+    			  
+    		case 'Carros y Camionetas':
+    			  	$cilindrada = Consultas::querysValor('cilindrada','carros');    			  	
+    			  	return \View::make('carros.carrosCamionetas',compact('cilindrada'));
+    			  	break;    			  
     			  
     	}
     }
