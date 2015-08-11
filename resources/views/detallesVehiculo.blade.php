@@ -118,7 +118,7 @@
                                     <li class="list-group-item"> <span class="badge">Ciudad</span> {!! $vehiculo->ciudad !!} </li>
                                     <li class="list-group-item"> <span class="badge">Recorrido</span> {!! number_format($vehiculo->str_recorrido, null, ',', '.') !!} </li>
                                     <li class="list-group-item"> <span class="badge">Color</span> {!! $vehiculo->color !!}</li>
-                                    <li class="list-group-item"> <span class="badge">Motor</span> {!! $vehiculo->cilindrada !!} </li>
+                                    <li class="list-group-item"> <span class="badge">Motor</span> {!! $vehiculo->cilindrada !!} cc</li>
 
                                 </ul>
                                 
@@ -207,7 +207,7 @@
 
                                                     <tr>
                                                         <td>Motor</td>
-                                                        <td>{!! $vehiculo->cilindrada !!}</td>
+                                                        <td>{!! $vehiculo->cilindrada !!} cc</td>
                                                     </tr>
 
                                                     <tr>
