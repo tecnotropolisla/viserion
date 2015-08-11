@@ -151,7 +151,6 @@ class PublicarCarrosController extends Controller
             'str_precio_venta' => trim($data['str_precio_venta']),
             'str_moneda' => trim($data['str_moneda']),
             'lng_idequipo_medico' => $data['lng_idequipo_medico'],
-            'lng_iddesplazamiento' => $data['lng_iddesplazamiento'],
             'int_carga' => $data['int_carga'],
             'lng_idarranque' => $data['lng_idarranque'],
             'int_lastre' => $data['int_lastre'], 
