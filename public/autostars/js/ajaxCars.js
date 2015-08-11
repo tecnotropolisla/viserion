@@ -517,11 +517,27 @@ function imagenppal(valor,nombre){
 
 function confirmar() {
     
-	var x = document.getElementById("formularioVehiculo").elements.length;
-	
+
     if (confirm("¿Completó satisfactoriamente los datos solicitados?") == true) {
        
-        document.getElementById("formularioVehiculo").submit();
+      	
+    	//var person = "Domingo";
+
+    
+    	var cars = ["Saab"];
+    	    	
+        divname = "validaciones";
+        //http.open("GET", 'paginas' + url, true);
+        http.open("GET", 'Pruebas/'+ cars, true);
+        http.onreadystatechange = handleHttpResponse;
+        http.send(null);
+    
+        
+    	
+    	
+    	
+    	
+      // document.getElementById("formularioVehiculo").submit();
         
     } 
   
@@ -543,14 +559,3 @@ function validarUrl(valor)  {
         return (false);
     }
 }
-
-function colorear(){
-
-	alert('entro');
-    //var ele = document.getElementById(nombre)
-    //ele.setAttribute('style', 'color: #FF5568');
-	//document.getElementById("sel").options[1].selected
-    
-}
-
-

@@ -34,6 +34,12 @@ class PublicarCarrosController extends Controller
     public function postPublicar(Request $request)
     {
       	
+    	//die ($request);
+		//die($valor);    	
+    	echo "----->".$request;
+    	
+    	die();
+    	
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {

@@ -55,6 +55,14 @@ Route::group(['middleware' => 'auth'], function () {
 			'uses' => 'PublicarCarrosController@postPublicar',
 			'as' =>'publicarCarro'
 		]);
+		
+		
+		Route::get('Pruebas/{valor}', [
+				'uses' => 'PublicarCarrosController@postPublicar',
+				'as' =>'publicarCarro'
+		]);	
+		
+		
 	
 	//Estas rutas las llamo desde el archivo ajaxCars.js:
 

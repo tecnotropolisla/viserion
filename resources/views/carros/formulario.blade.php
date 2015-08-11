@@ -72,6 +72,8 @@
                                         @include('carros.camposGenericos')
 
                                         <div id="formularioAnexo"></div>
+                                        
+                                        <div id="validaciones">aqui</div>
 
                                     </div>
 									

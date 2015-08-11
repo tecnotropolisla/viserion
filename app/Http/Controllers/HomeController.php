@@ -36,11 +36,11 @@ class HomeController extends Controller
 			->join('tbl_modelos as mo', 'mo.id', '=', 'v.lng_idmodelo')
 			->join('cat_marcas as ma', 'ma.id', '=', 'mo.lng_idmarca')
 			->join('tbl_imagenes_vehiculos as ima', 'ima.lng_idvehiculo', '=', 'v.id')
-						
+			->join('cat_ciudades as ciu', 'ciu.id', '=', 'v.lng_idciudad')						
 			->where('ima.int_peso', '=', 1)
             ->select('v.*','ima.blb_img as imagen', 'p.blb_img as bandera','dm.str_descripcion as transmision', 
             		'dm2.str_descripcion as direccion','dm3.str_descripcion as color','dm4.str_descripcion as cilindrada','p.str_paises as pais',
-            		'ma.str_marca as marca','mo.str_modelo as modelo')
+            		'ciu.str_ciudad as ciudad','ma.str_marca as marca','mo.str_modelo as modelo')
             //->get();
             ->skip(0)->take($this->tamano_pagina)->get();
 
@@ -79,10 +79,11 @@ class HomeController extends Controller
             ->join('tbl_modelos as mo', 'mo.id', '=', 'v.lng_idmodelo')
             ->join('cat_marcas as ma', 'ma.id', '=', 'mo.lng_idmarca')
             ->join('tbl_imagenes_vehiculos as ima', 'ima.lng_idvehiculo', '=', 'v.id')
+            ->join('cat_ciudades as ciu', 'ciu.id', '=', 'v.lng_idciudad')
             ->where('ima.int_peso', '=', 1)
             ->select('v.*','ima.blb_img as imagen', 'p.blb_img as bandera','dm.str_descripcion as transmision', 
             		'dm2.str_descripcion as direccion','dm3.str_descripcion as color','dm4.str_descripcion as cilindrada','p.str_paises as pais',
-            		'ma.str_marca as marca','mo.str_modelo as modelo')
+            		'ciu.str_ciudad as ciudad','ma.str_marca as marca','mo.str_modelo as modelo')
             //->get();
             ->skip($inicio)->take($this->tamano_pagina)->get();
 
