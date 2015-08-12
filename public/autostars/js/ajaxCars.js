@@ -1,7 +1,7 @@
 var divname;
-var lng_idmarca = document.getElementById('lng_idmarca');
 
-var int_recorrido = document.getElementById('int_recorrido');
+//var lng_idmarca = document.getElementById('lng_idmarca');
+//var int_recorrido = document.getElementById('int_recorrido');
 
 var http = getXmlHttpObject();
 
@@ -110,10 +110,7 @@ function formularioDinamico(){
 
 function dependiente(valor){
 
-    var lng_idmodelo = document.getElementById('lng_idmodelo');
-	lng_idmodelo.value = "";
-	
-	var ele = document.getElementById("modelos_validar")
+	var ele = document.getElementById("lng_idmodelo_validar")
     ele.setAttribute('class', 'fa fa-asterisk');
     ele.setAttribute('style', 'color: red');
 	
@@ -242,11 +239,6 @@ function anterior(){
 		paginar(valor);
 	}
 	
-}
-
-function idmodelo(valor){
-
-	lng_idmodelo.value = valor;	
 }
 
 function oir2(){
@@ -439,8 +431,6 @@ function blb_imgUser(evt) {
     }
 }
 
-
-
 function isNumber(evt) {
     evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -481,7 +471,6 @@ function validarRadio(nombre){
     
 }
 
-
 function soloEnVenezuela(nombre){
 
 	var t = document.getElementById(nombre);
@@ -515,32 +504,57 @@ function imagenppal(valor,nombre){
 
 }
 
+function camposPublicar(){
+	
+	var lng_idtipo_vehiculo = document.getElementById("lng_idtipo_vehiculo").value;
+	var lng_idmarca = document.getElementById("lng_idmarca").value;
+	
+	formularioDinamico();
+	setTimeout('dependiente('+lng_idmarca+')',500);
+	
+	if (lng_idtipo_vehiculo != ""){
+	
+		var campos = [
+		              "lng_idtipo_vehiculo",
+		              "lng_idmarca",
+		              "str_placa",
+		              "int_cantidad_puertas",
+		              "lng_idcolor",
+		              "lng_iddireccion",
+		              "lng_idestereo",
+		              "lng_idtransmision",
+		              "lng_idtapizado",
+		              "lng_idvidrios",
+		              "lng_idtraccion",
+		              "lng_idcombustible",
+		              "int_ano",
+		              "str_recorrido",
+		              "int_cilindros",
+		              "lng_idchocado",
+		              "lng_idnegociable",
+		              "lng_idfinanciamiento",
+		              "lng_idunicodueno",
+		              "lng_idmotorreparado",
+		              "lng_idpais",
+		              "lng_idciudad",
+		              "str_precio_venta",
+		              "str_moneda"
+		            ];
+	    
+		for (i = 0; i< campos.length; i++)
+	    {
+	    	validar(document.getElementById(campos[i]).value, document.getElementById(campos[i]).name);
+	    }
+	}
+}
+
 function confirmar() {
     
-
     if (confirm("¿Completó satisfactoriamente los datos solicitados?") == true) {
-       
-      	
-    	//var person = "Domingo";
 
-    
-    	var cars = ["Saab"];
-    	    	
-        divname = "validaciones";
-        //http.open("GET", 'paginas' + url, true);
-        http.open("GET", 'Pruebas/'+ cars, true);
-        http.onreadystatechange = handleHttpResponse;
-        http.send(null);
-    
+       document.getElementById("formularioVehiculo").submit();
         
-    	
-    	
-    	
-    	
-      // document.getElementById("formularioVehiculo").submit();
-        
-    } 
-  
+    }
 }
 
 function isValidUrl(url){

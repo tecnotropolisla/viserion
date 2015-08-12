@@ -178,7 +178,8 @@ class Consultas extends Model
                 $colores = DB::table('cat_datos_maestros')
                 ->where('str_tipo', 'color')
                 ->select('id','str_descripcion','str_caracteristica')
-                ->get();  
+                ->lists('str_descripcion','id');
+                //->get();  
                 return $colores;
             break;
 

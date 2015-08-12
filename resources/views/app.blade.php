@@ -33,7 +33,7 @@
 <![endif]-->
 
 </head>
-<body class="home">
+<body class="home" onload="camposPublicar()">
 
 	<div class="body">
 	

@@ -33,13 +33,6 @@ class PublicarCarrosController extends Controller
      */
     public function postPublicar(Request $request)
     {
-      	
-    	//die ($request);
-		//die($valor);    	
-    	echo "----->".$request;
-    	
-    	die();
-    	
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
@@ -284,7 +277,7 @@ class PublicarCarrosController extends Controller
         //echo $valor;
         $modelos = Consultas::querysValor('modelos',$valor);
             //var_dump($modelos);
-            $select ="<select id='modelos' name='modelos' class='form-control' onchange='idmodelo(this.value);validar(this.value,this.name)'>
+            $select ="<select id='lng_idmodelo' name='lng_idmodelo' class='form-control' onchange='validar(this.value,this.name)'>
             
                         <option value=''>Seleccione</option>";
 

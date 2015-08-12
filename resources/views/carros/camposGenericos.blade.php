@@ -45,18 +45,17 @@ Descripción
 
                 <div class="form-group col-md-4">
                     
-                    <i id="modelos_validar" class="fa fa-asterisk" style="color:red;"></i>
+                    <i id="lng_idmodelo_validar" class="fa fa-asterisk" style="color:red;"></i>
                     {!! Form::label('lng_idmodelo', 'Modelo del Vehículo') !!}
 
                     <div id="dependiente">
-                        {!! Form::select('modelos', 
-                                            (['0' => 'Seleccione']), 
-                                            null, 
-                                            ['class' => 'form-control','onchange'=>'idmodelo(this.value)']
-                                        ) 
-                        !!} 
+
+	                    <select id="lng_idmodelo" name="lng_idmodelo" class="form-control" onchange = "">
+	                    	<option value="">Seleccione</option>
+	                    </select>
+
                     </div>
-                    {!! Form::input('hidden', 'lng_idmodelo', '') !!}    
+                    
                         
                 </div>
 
@@ -85,12 +84,15 @@ Descripción
                     <i id="lng_idcolor_validar" class="fa fa-asterisk" style="color:red;"></i>
                     {!! Form::label('lng_idcolor', 'Color') !!}
 
-                    <select id="lng_idcolor" name="lng_idcolor" class="form-control" onchange = "validar(this.value,this.name)">
-                    	<option value="">Seleccione</option>
-		                    @foreach ($colores as $color)
-		                    	<option style="background-color:{!! $color->str_caracteristica !!} " value="{!! $color->id !!}">{!! $color->str_descripcion !!}</option>
-		                    @endforeach
-                    </select>                                 
+                    {!! Form::select('lng_idcolor', 
+                                        (['0' => 'Seleccione'] + $colores), 
+                                        null, 
+                                        ['id'=> 'lng_idcolor','class' => 'form-control','onchange'=>'validar(this.value,this.name)']
+                                    ) 
+                    !!} 
+                    
+
+                                                   
                     
                 </div>
 
