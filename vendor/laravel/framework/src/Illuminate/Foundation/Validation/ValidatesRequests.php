@@ -58,6 +58,10 @@ trait ValidatesRequests
             return new JsonResponse($errors, 422);
         }
 
+ 
+       //print_r($request->input());die();
+        
+        
         return redirect()->to($this->getRedirectUrl())
                         ->withInput($request->input())
                         ->withErrors($errors, $this->errorBag());

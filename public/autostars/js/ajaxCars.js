@@ -95,19 +95,6 @@ function getXmlHttpObject()
     return xmlhttp;
 }
 
-function formularioDinamico(){
-   
-	var t = document.getElementById('lng_idtipo_vehiculo');
-	var selectedText = t.options[t.selectedIndex].text;
-
-    divname = "formularioAnexo";
-    //http.open("GET", 'paginas' + url, true);
-    http.open("GET", 'Formulario/'+ selectedText, true);
-    http.onreadystatechange = handleHttpResponse;
-    http.send(null);
-
-}
-
 function dependiente(valor){
 
 	var ele = document.getElementById("lng_idmodelo_validar")
@@ -507,16 +494,13 @@ function imagenppal(valor,nombre){
 function camposPublicar(){
 	
 	var lng_idtipo_vehiculo = document.getElementById("lng_idtipo_vehiculo").value;
-	var lng_idmarca = document.getElementById("lng_idmarca").value;
-	
-	formularioDinamico();
-	setTimeout('dependiente('+lng_idmarca+')',500);
-	
+
 	if (lng_idtipo_vehiculo != ""){
 	
 		var campos = [
 		              "lng_idtipo_vehiculo",
 		              "lng_idmarca",
+		              "lng_idmodelo",
 		              "str_placa",
 		              "int_cantidad_puertas",
 		              "lng_idcolor",

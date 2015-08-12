@@ -71,7 +71,30 @@
 
                                         @include('carros.camposGenericos')
 
-                                        <div id="formularioAnexo"></div>
+                                        <div id="formularioAnexo">
+                                        
+	                                        <div id="ambulancias">
+	                                        	@include('carros.ambulancias')
+	                                        </div>
+                                         
+	                                        <div id="autobuses">
+	                                        	@include('carros.autobuses')
+	                                        </div>   
+	                                                                             
+	                                        <div id="blindados">
+	                                        	@include('carros.blindados')
+	                                        </div>
+	                                        
+	                                        <div id="camiones">
+	                                        	@include('carros.camiones')
+	                                        </div>
+	                                        
+	                                        <div id="carrosCamionetas">
+	                                        	@include('carros.carrosCamionetas')
+	                                        </div>	                                        
+	                                                                                                                          
+                                        
+                                        </div>
 
                                     </div>
 									

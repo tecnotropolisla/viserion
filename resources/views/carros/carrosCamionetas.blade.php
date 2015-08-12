@@ -4,7 +4,7 @@
                                                             {!! Form::label('lng_idcilindrada', 'Cilindrada (CC)') !!}<br>
                                                             
 															{!! Form::select('lng_idcilindrada', 
-																(['' => 'Seleccione'] + $cilindrada), 
+																(['' => 'Seleccione'] + $cilindrada2), 
 																	null, 
 																	['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
 																) 

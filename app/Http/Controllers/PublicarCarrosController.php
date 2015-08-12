@@ -55,8 +55,16 @@ class PublicarCarrosController extends Controller
      */
     protected function validator(array $data)
     {
+    
+    	//echo "->".$data['lng_idmodelo'];
+    	//die();
+    	
     	return Validator::make($data, [
                 
+    			
+    		//carros y camionetas:
+    		//'lng_idcilindrada' => 'required|max:255',
+    			
             'lng_idtipo_vehiculo' => 'required|max:255',
             'lng_idmodelo' => 'required|max:255',
             'str_placa' => 'required|string|max:255|unique:tbl_vehiculos',
@@ -71,7 +79,7 @@ class PublicarCarrosController extends Controller
             'lng_idcombustible' => 'required|integer',
             //'int_ano' => 'required|max:255',
             'str_recorrido' => 'required|max:255',
-            'lng_idcilindrada' => 'required|max:255',
+            
             //'int_cilindros' => 'required|max:255',
             'lng_idchocado' => 'required|max:255',
             'lng_idnegociable' => 'required|max:255',
@@ -217,56 +225,15 @@ class PublicarCarrosController extends Controller
         $combustible = Consultas::querys('combustible');
         $paises = Consultas::querys('paises');
         
+        $frenado = Consultas::querys('frenado');
+        $arranque = Consultas::querys('arranque');
+        
+        $cilindrada1 = Consultas::querysValor('cilindrada','karting'); 
+        $cilindrada2 = Consultas::querysValor('cilindrada','carros');
+        
         return \View::make('carros.formulario', compact('marcas','modelos','tipo_vehiculos','colores','respuesta','seguridad','sonido','exterior',
-                'confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible','paises'));
-    }
-
-    //Este método lo llamo desde routes.php pero se genera desde una función de ajax,
-    //para crear contenido dinámico al formulario.
-    //Nota: ver el archivo ajaxCars.js, función "formularioDinamico()" :)
-    public function formulario($valor)
-    {
-    	switch ($valor) {
-    
-            case 'Carros de Golf':
-                    return \View::make('carros.carrosGolf');
-                break;
-                
-            case 'Gruas':
-                    return \View::make('carros.gruas');
-                 break;
-
-            case 'Blindados':
-                    return \View::make('carros.blindados');
-                break;
-
-    		case 'Ambulancias':
-                    $respuesta = Consultas::querys('respuesta');
-    				return \View::make('carros.ambulancias',compact('respuesta'));
-    			break;
-    
-    		case 'Autobuses':
-                    $respuesta = Consultas::querys('respuesta');
-    				return \View::make('carros.autobuses',compact('respuesta'));
-    			break;
-
-    		case 'Camiones':
-                    $frenado = Consultas::querys('frenado'); 
-                    return \View::make('carros.camiones',compact('frenado'));
-    			break;
-    			
-    		case 'Kartings':
-                    $cilindrada = Consultas::querysValor('cilindrada','karting'); 
-                    $arranque = Consultas::querys('arranque'); 
-    			  	return \View::make('carros.kartings',compact('cilindrada','arranque'));
-    			  break;
-    			  
-    		case 'Carros y Camionetas':
-    			  	$cilindrada = Consultas::querysValor('cilindrada','carros');    			  	
-    			  	return \View::make('carros.carrosCamionetas',compact('cilindrada'));
-    			  	break;    			  
-    			  
-    	}
+                'confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible','paises',
+        		'frenado','arranque','cilindrada1','cilindrada2'));
     }
 
     //Este método lo llamo desde routes.php pero se genera desde una función de ajax,

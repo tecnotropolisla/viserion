@@ -50,13 +50,15 @@ Descripción
 
                     <div id="dependiente">
 
-	                    <select id="lng_idmodelo" name="lng_idmodelo" class="form-control" onchange = "">
-	                    	<option value="">Seleccione</option>
-	                    </select>
+	                    {!! Form::select('lng_idmodelo', 
+	                                        (['0' => 'Seleccione'] + $modelos), 
+	                                        null, 
+	                                        ['id'=>'lng_idmodelo','class' => 'form-control','onchange'=>'validar(this.value,this.name)']
+	                                    ) 
+	                    !!} 
 
                     </div>
                     
-                        
                 </div>
 
                 <div class="form-group col-md-4">

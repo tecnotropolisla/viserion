@@ -68,7 +68,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('Ciudades/{letra}/Pais/{pais}','PublicarCarrosController@dependiente2');
 
 	//Función "formularioDinamico()" :)
-		Route::get('Formulario/{valor}','PublicarCarrosController@formulario');
+		//Route::get('Formulario/{valor}','PublicarCarrosController@formulario');
  });
 
 /***********************************************************************************/
