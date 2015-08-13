@@ -244,7 +244,7 @@ class PublicarCarrosController extends Controller
     	//echo $valor;
     	$marcas = Consultas::querysValor('marcas',$valor);
     	//var_dump($modelos);
-    	$select ="<select id='lng_idmarca' name='lng_idmarca' class='form-control' onchange='validar(this.value,this.name)'>
+    	$select ="<select id='lng_idmarca' name='lng_idmarca' class='form-control' onchange='dependienteModelos(this.value)'>
     
                         <option value=''>Seleccione</option>";
     
