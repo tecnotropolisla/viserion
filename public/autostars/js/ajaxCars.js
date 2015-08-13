@@ -97,10 +97,11 @@ function getXmlHttpObject()
 
 function dependiente(valor){
 
-	var ele = document.getElementById("lng_idmodelo_validar")
+	/*
+    var ele = document.getElementById("lng_idmodelo_validar")
     ele.setAttribute('class', 'fa fa-asterisk');
     ele.setAttribute('style', 'color: red');
-	
+	*/
     divname = "dependiente";
     //http.open("GET", 'paginas' + url, true);
     http.open("GET", 'Modelos/'+ valor, true);
@@ -115,9 +116,11 @@ function buscarCiudadPorPais(lng_idpais){
 	document.getElementById('lng_idciudad').value = "";
     document.getElementById('buscador').value = "";
     
+    /*
 	var ele = document.getElementById("lng_idciudad_validar")
     ele.setAttribute('class', 'fa fa-asterisk');
-    ele.setAttribute('style', 'color: red');	
+    ele.setAttribute('style', 'color: red');
+    */
 	
     divname = "dependiente2";
     
@@ -147,10 +150,12 @@ function verCiudades(){
 
 function buscarCiudadPorLetra(letra){
 
+    /*
     var ele = document.getElementById("lng_idciudad_validar")
     ele.setAttribute('class', 'fa fa-asterisk');
     ele.setAttribute('style', 'color: red');	
-	
+	*/
+
     var lng_idpais = document.getElementById('lng_idpais').value;
     var buscador = document.getElementById('buscador').value;
        
@@ -431,7 +436,7 @@ function isNumber(evt) {
 function validar(valor, nombre){
 
     //alert(valor + "-" + nombre);
-
+/*
     campo = document.getElementById(nombre);
 
     if(campo.value == "" || campo.value == "0") 
@@ -448,6 +453,8 @@ function validar(valor, nombre){
         ele.setAttribute('style', 'color: green');
 
     }
+
+    */
 }
 
 function validarRadio(nombre){
@@ -493,43 +500,96 @@ function imagenppal(valor,nombre){
 
 function camposPublicar(){
 	
-	var lng_idtipo_vehiculo = document.getElementById("lng_idtipo_vehiculo").value;
+	formularioDinamico();
 
-	if (lng_idtipo_vehiculo != ""){
-	
-		var campos = [
-		              "lng_idtipo_vehiculo",
-		              "lng_idmarca",
-		              "lng_idmodelo",
-		              "str_placa",
-		              "int_cantidad_puertas",
-		              "lng_idcolor",
-		              "lng_iddireccion",
-		              "lng_idestereo",
-		              "lng_idtransmision",
-		              "lng_idtapizado",
-		              "lng_idvidrios",
-		              "lng_idtraccion",
-		              "lng_idcombustible",
-		              "int_ano",
-		              "str_recorrido",
-		              "int_cilindros",
-		              "lng_idchocado",
-		              "lng_idnegociable",
-		              "lng_idfinanciamiento",
-		              "lng_idunicodueno",
-		              "lng_idmotorreparado",
-		              "lng_idpais",
-		              "lng_idciudad",
-		              "str_precio_venta",
-		              "str_moneda"
-		            ];
-	    
-		for (i = 0; i< campos.length; i++)
-	    {
-	    	validar(document.getElementById(campos[i]).value, document.getElementById(campos[i]).name);
-	    }
-	}
+}
+
+function formularioDinamico(){
+ 
+    var t = document.getElementById("lng_idtipo_vehiculo");
+    var selectedText = t.options[t.selectedIndex].text;
+   
+    if (selectedText == "Ambulancias")
+    {
+        document.getElementById('ambulancias').style.display = "inline";
+        document.getElementById('autobuses').style.display = "none";
+        document.getElementById('camiones').style.display = "none";
+        document.getElementById('carrosCamionetas').style.display = "none";
+        document.getElementById('carrosGolf').style.display = "none";
+        document.getElementById('gruas').style.display = "none";
+        document.getElementById('kartings').style.display = "none";
+
+    }else if (selectedText == "Autobuses"){
+
+        document.getElementById('ambulancias').style.display = "none";
+        document.getElementById('autobuses').style.display = "inline";
+        document.getElementById('camiones').style.display = "none";
+        document.getElementById('carrosCamionetas').style.display = "none";
+        document.getElementById('carrosGolf').style.display = "none";
+        document.getElementById('gruas').style.display = "none";
+        document.getElementById('kartings').style.display = "none";
+
+    }else if (selectedText == "Camiones"){
+
+        document.getElementById('ambulancias').style.display = "none";
+        document.getElementById('autobuses').style.display = "none";
+        document.getElementById('camiones').style.display = "inline";
+        document.getElementById('carrosCamionetas').style.display = "none";
+        document.getElementById('carrosGolf').style.display = "none";
+        document.getElementById('gruas').style.display = "none";
+        document.getElementById('kartings').style.display = "none";
+
+    } else if (selectedText == "Carros y Camionetas"){
+
+        document.getElementById('ambulancias').style.display = "none";
+        document.getElementById('autobuses').style.display = "none";
+        document.getElementById('camiones').style.display = "none";
+        document.getElementById('carrosCamionetas').style.display = "inline";
+        document.getElementById('carrosGolf').style.display = "none";
+        document.getElementById('gruas').style.display = "none";
+        document.getElementById('kartings').style.display = "none";
+
+    }else if (selectedText == "Carros de Golf"){
+
+        document.getElementById('ambulancias').style.display = "none";
+        document.getElementById('autobuses').style.display = "none";
+        document.getElementById('camiones').style.display = "none";
+        document.getElementById('carrosCamionetas').style.display = "none";
+        document.getElementById('carrosGolf').style.display = "inline";
+        document.getElementById('gruas').style.display = "none";
+        document.getElementById('kartings').style.display = "none";
+
+    }else if (selectedText == "Gruas"){
+
+        document.getElementById('ambulancias').style.display = "none";
+        document.getElementById('autobuses').style.display = "none";
+        document.getElementById('camiones').style.display = "none";
+        document.getElementById('carrosCamionetas').style.display = "none";
+        document.getElementById('carrosGolf').style.display = "none";
+        document.getElementById('gruas').style.display = "inline";
+        document.getElementById('kartings').style.display = "none";
+
+    }else if (selectedText == "Kartings"){
+
+        document.getElementById('ambulancias').style.display = "none";
+        document.getElementById('autobuses').style.display = "none";
+        document.getElementById('camiones').style.display = "none";
+        document.getElementById('carrosCamionetas').style.display = "none";
+        document.getElementById('carrosGolf').style.display = "none";
+        document.getElementById('gruas').style.display = "none";
+        document.getElementById('kartings').style.display = "inline";
+    
+    }else{
+
+        document.getElementById('ambulancias').style.display = "none";
+        document.getElementById('autobuses').style.display = "none";
+        document.getElementById('camiones').style.display = "none";
+        document.getElementById('carrosCamionetas').style.display = "none";
+        document.getElementById('carrosGolf').style.display = "none";
+        document.getElementById('gruas').style.display = "none";
+        document.getElementById('kartings').style.display = "none";
+    }   
+
 }
 
 function confirmar() {

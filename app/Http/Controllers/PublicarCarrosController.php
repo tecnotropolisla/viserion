@@ -55,20 +55,13 @@ class PublicarCarrosController extends Controller
      */
     protected function validator(array $data)
     {
-    
-    	//echo "->".$data['lng_idmodelo'];
-    	//die();
-    	
+
     	return Validator::make($data, [
-                
-    			
-    		//carros y camionetas:
-    		//'lng_idcilindrada' => 'required|max:255',
-    			
+                    			
             'lng_idtipo_vehiculo' => 'required|max:255',
             'lng_idmodelo' => 'required|max:255',
             'str_placa' => 'required|string|max:255|unique:tbl_vehiculos',
-            //'int_cantidad_puertas' => 'required|integer|max:255',
+            'int_cantidad_puertas' => 'required|integer|max:255',
             'lng_idcolor' => 'required|max:255',
             'lng_iddireccion' => 'required|max:255',
             'lng_idestereo' => 'required|max:255',
@@ -77,10 +70,10 @@ class PublicarCarrosController extends Controller
             'lng_idvidrios' => 'required|max:255',
             'lng_idtraccion' => 'required|max:255',
             'lng_idcombustible' => 'required|integer',
-            //'int_ano' => 'required|max:255',
+            'int_ano' => 'required|max:255',
             'str_recorrido' => 'required|max:255',
-            
-            //'int_cilindros' => 'required|max:255',
+            'int_cilindros' => 'required|max:255',
+            'str_version' => 'required|max:255',
             'lng_idchocado' => 'required|max:255',
             'lng_idnegociable' => 'required|max:255',
             'lng_idfinanciamiento' => 'required|max:255',
@@ -88,16 +81,20 @@ class PublicarCarrosController extends Controller
             'lng_idmotorreparado' => 'required|max:255',
             
             'lng_idcaracteristica' => 'required',
-
-            'str_precio_venta' => 'required|max:255',
-            'lng_idpais' => 'required|max:255',
-    		'lng_idciudad' => 'required|max:255',
-    		'blb_img0' => 'required|image:jpeg,png,jpg',
+            /*
+            'blb_img0' => 'required|image:jpeg,png,jpg',
             'blb_img1' => 'required|image:jpeg,png,jpg',
             'blb_img2' => 'required|image:jpeg,png,jpg',
             'blb_img3' => 'required|image:jpeg,png,jpg',
             'blb_img4' => 'required|image:jpeg,png,jpg',
             'blb_img5' => 'required|image:jpeg,png,jpg',
+            */
+
+            'str_precio_venta' => 'required|max:255',
+            'lng_idpais' => 'required|max:255',
+    		'lng_idciudad' => 'required|max:255',
+
+
         ]);
     }
 
@@ -108,22 +105,7 @@ class PublicarCarrosController extends Controller
      * @return Vehiculo
      */
     public function create(array $data)
-    {
-    	if(!isset($data['lng_idequipo_medico'])){$data['lng_idequipo_medico'] = null;} 
-        if(!isset($data['lng_idarranque'])){$data['lng_idarranque'] = null;}
-        if(!isset($data['lng_iddesplazamiento'])){$data['lng_iddesplazamiento'] = null;}
-        if(!isset($data['int_carga'])){$data['int_carga'] = null;}
-        if(!isset($data['int_lastre'])){$data['int_lastre'] = null;}
-        if(!isset($data['str_version'])){$data['str_version'] = null;}        
-        if(!isset($data['int_pisos'])){$data['int_pisos'] = null;}
-        if(!isset($data['int_pasajeros'])){$data['int_pasajeros'] = null;}  
-        if(!isset($data['lng_idventana'])){$data['lng_idventana'] = null;}  
-        if(!isset($data['str_carroceria'])){$data['str_carroceria'] = null;}  
-        if(!isset($data['lng_idbano'])){$data['lng_idbano'] = null;}  
-        if(!isset($data['lng_idfrenado'])){$data['lng_idfrenado'] = null;}  
-        if(!isset($data['dbl_neumatico'])){$data['dbl_neumatico'] = null;}  
-        if(!isset($data['int_potenciamax'])){$data['int_potenciamax'] = null;}
-         
+    {         
         //return Vehiculo::create([
         $vehiculo = Vehiculo::create([
 
@@ -151,10 +133,8 @@ class PublicarCarrosController extends Controller
             'lng_idmotorreparado' => $data['lng_idmotorreparado'],
             'str_video' => trim($data['str_video']),
             'str_comentario' => trim($data['str_comentario']),
-            
         	'lng_idpais' => $data['lng_idpais'], 
         	'lng_idciudad' => $data['lng_idciudad'],
-        		
             'str_precio_venta' => trim($data['str_precio_venta']),
             'str_moneda' => trim($data['str_moneda']),
             'lng_idequipo_medico' => $data['lng_idequipo_medico'],
@@ -224,10 +204,8 @@ class PublicarCarrosController extends Controller
         $traccion = Consultas::querys('traccion');
         $combustible = Consultas::querys('combustible');
         $paises = Consultas::querys('paises');
-        
         $frenado = Consultas::querys('frenado');
         $arranque = Consultas::querys('arranque');
-        
         $cilindrada1 = Consultas::querysValor('cilindrada','karting'); 
         $cilindrada2 = Consultas::querysValor('cilindrada','carros');
         

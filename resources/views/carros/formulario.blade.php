@@ -80,20 +80,27 @@
 	                                        <div id="autobuses">
 	                                        	@include('carros.autobuses')
 	                                        </div>   
-	                                                                             
-	                                        <div id="blindados">
-	                                        	@include('carros.blindados')
-	                                        </div>
-	                                        
+	                                                                             	                                        
 	                                        <div id="camiones">
 	                                        	@include('carros.camiones')
 	                                        </div>
 	                                        
 	                                        <div id="carrosCamionetas">
 	                                        	@include('carros.carrosCamionetas')
-	                                        </div>	                                        
-	                                                                                                                          
-                                        
+	                                        </div>
+
+                                            <div id="carrosGolf">
+                                                @include('carros.carrosGolf')
+                                            </div>
+
+                                            <div id="gruas">
+                                                @include('carros.gruas')
+                                            </div>
+
+                                            <div id="kartings">
+                                                @include('carros.kartings')
+                                            </div>
+
                                         </div>
 
                                     </div>

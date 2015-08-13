@@ -13,8 +13,8 @@
 
                                     <div class="form-group ">
 
-                                        <i id="lng_idpais_validar" class="fa fa-asterisk" style="color:red;"></i>
-                                        {!! Form::label('lng_idpais', 'País de la Publicación') !!}
+                                        <!-- <i id="lng_idpais_validar" class="fa fa-asterisk" style="color:red;"></i>-->
+                                        {!! Form::label('lng_idpais', '* País de la Publicación') !!}
                                         {!! Form::select('lng_idpais', 
                                                             (['' => 'Seleccione'] + $paises), 
                                                             null, 
@@ -26,8 +26,8 @@
 
                                     <div class="form-group">
                                     
-                                    	<i id="lng_idciudad_validar" class="fa fa-asterisk" style="color:red;"></i>
-                                    	{!! Form::label('lng_idciudad', 'Ciudad') !!}
+                                    	<!-- <i id="lng_idciudad_validar" class="fa fa-asterisk" style="color:red;"></i>-->
+                                    	{!! Form::label('lng_idciudad', '* Ciudad') !!}
                                     	
                                         {!! Form::input('hidden', 'lng_idciudad', '',['id' =>'lng_idciudad']) !!}
                                         
@@ -42,8 +42,8 @@
                                     
                                     <div class="form-group ">
                                         
-                                        <i id="str_precio_venta_validar" class="fa fa-asterisk" style="color:red;"></i>
-                                        {!! Form::label('str_precio_venta', 'Precio') !!}
+                                        <!-- <i id="str_precio_venta_validar" class="fa fa-asterisk" style="color:red;"></i>-->
+                                        {!! Form::label('str_precio_venta', '* Precio') !!}
                                         {!! Form::input('text', 'str_precio_venta', '', ['class'=> 'form-control', 'maxlength' => '10','onkeypress'=>'return isNumber(event)','onchange' => 'validar(this.value,this.name)']) !!}
 
                                     </div>
@@ -51,7 +51,7 @@
                                     <div class="form-group ">
 
                                         <div id="monedas_validar">
-                                            <i id="str_moneda_validar" class="fa fa-asterisk" style="color:red;"></i>
+                                            <!-- <i id="str_moneda_validar" class="fa fa-asterisk" style="color:red;"></i>-->
 	                                        {!! Form::label('str_moneda', 'Moneda (Sólo para Venezuela)') !!}
 	
 	                                        {!!

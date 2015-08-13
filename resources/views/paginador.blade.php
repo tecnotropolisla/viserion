@@ -44,11 +44,11 @@
                                         <div class="result-item-features">
                                             <ul class="inline" style="font-size:12px">
                                                <li>País: {!! $vehiculo->pais !!}</li>
+                                                <li>Ciudad: {!! $vehiculo->ciudad !!}</li>
                                                 <li>Km: {!! number_format($vehiculo->str_recorrido, null, ',', '.') !!}</li>
-                                                <li>Motor: {!! $vehiculo->str_cilindrada !!}</li>
+                                                <li>Motor: {!! $vehiculo->cilindrada !!}</li>
                                                 <li>Transmisión: {!! $vehiculo->transmision !!}</li>
                                                 <li>Dirección: {!! $vehiculo->direccion !!}</li>
-                                                <li>Locación: (Ciudad)</li>
                                             </ul>
                                         </div>
 

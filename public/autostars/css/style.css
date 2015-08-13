@@ -5675,6 +5675,28 @@ body{
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
 	
 }
+                                                     
+#ambulancias{
+	display:none;
+}                                           
+#autobuses{
+	display:none;
+}                                        
+#camiones{
+	display:none;
+}                                              
+#carrosCamionetas{
+	display:none;
+}                                         
+#carrosGolf{
+	display:none;
+}
+#gruas{
+	display:none;
+}
+#kartings{
+	display:none;
+}
 
 #monedas_validar{
 	display:none;
