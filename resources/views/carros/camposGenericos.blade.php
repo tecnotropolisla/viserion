@@ -40,7 +40,7 @@ Descripción
                     
                     <div id="dependienteMarcas">
 	                    {!! Form::select('lng_idmarca', 
-	                                        (['0' => 'Seleccione'] + $marcas), 
+	                                        (['' => 'Seleccione'] + $marcas), 
 	                                        null, 
 	                                        ['class' => 'form-control','onchange'=>'dependienteModelos(this.value)']
 	                                    ) 
@@ -57,7 +57,7 @@ Descripción
                     <div id="dependienteModelos">
 
 	                    {!! Form::select('lng_idmodelo', 
-	                                        (['0' => 'Seleccione'] + $modelos), 
+	                                        (['' => 'Seleccione'] + $modelos), 
 	                                        null, 
 	                                        ['id'=>'lng_idmodelo','class' => 'form-control','onchange'=>'validar(this.value,this.name)']
 	                                    ) 
@@ -93,7 +93,7 @@ Descripción
                     {!! Form::label('lng_idcolor', '* Color') !!}
 
                     {!! Form::select('lng_idcolor', 
-                                        (['0' => 'Seleccione'] + $colores), 
+                                        (['' => 'Seleccione'] + $colores), 
                                         null, 
                                         ['id'=> 'lng_idcolor','class' => 'form-control','onchange'=>'validar(this.value,this.name)']
                                     ) 
