@@ -97,34 +97,37 @@ function getXmlHttpObject()
 
 function dependienteModelos(valor){
 
-	/*
-    var ele = document.getElementById("lng_idmodelo_validar")
-    ele.setAttribute('class', 'fa fa-asterisk');
-    ele.setAttribute('style', 'color: red');
-	*/
-    divname = "dependienteModelos";
-    //http.open("GET", 'paginas' + url, true);
-    http.open("GET", 'Modelos/'+ valor, true);
-    http.onreadystatechange = handleHttpResponse;
-    http.send(null);
-
+	if (valor != ""){
+		/*
+	    var ele = document.getElementById("lng_idmodelo_validar")
+	    ele.setAttribute('class', 'fa fa-asterisk');
+	    ele.setAttribute('style', 'color: red');
+		*/
+	    divname = "dependienteModelos";
+	    //http.open("GET", 'paginas' + url, true);
+	    http.open("GET", 'Modelos/'+ valor, true);
+	    http.onreadystatechange = handleHttpResponse;
+	    http.send(null);
+	}
 }
 
 function dependienteMarcas(valor){
 
-	/*
-    var ele = document.getElementById("lng_idmodelo_validar")
-    ele.setAttribute('class', 'fa fa-asterisk');
-    ele.setAttribute('style', 'color: red');
-	*/
-    divname = "dependienteMarcas";
-    //http.open("GET", 'paginas' + url, true);
-    http.open("GET", 'Marcas/'+ valor, true);
-    http.onreadystatechange = handleHttpResponse;
-    http.send(null);
+	if (valor != ""){
+		/*
+	    var ele = document.getElementById("lng_idmodelo_validar")
+	    ele.setAttribute('class', 'fa fa-asterisk');
+	    ele.setAttribute('style', 'color: red');
+		*/
+	
+	    divname = "dependienteMarcas";
+	    //http.open("GET", 'paginas' + url, true);
+	    http.open("GET", 'Marcas/'+ valor, true);
+	    http.onreadystatechange = handleHttpResponse;
+	    http.send(null);
+	}
 
 }
-
 
 function buscarCiudadPorPais(lng_idpais){
 	
@@ -524,7 +527,10 @@ function formularioDinamico(){
  
     var t = document.getElementById("lng_idtipo_vehiculo");
     var selectedText = t.options[t.selectedIndex].text;
-   
+     
+    document.getElementById('lng_idmarca').selectedIndex = 0
+    document.getElementById('lng_idmodelo').selectedIndex = 0
+    
     if (selectedText == "Ambulancias")
     {
         document.getElementById('ambulancias').style.display = "inline";
