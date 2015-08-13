@@ -58,8 +58,11 @@ Route::group(['middleware' => 'auth'], function () {
 	
 	//Estas rutas las llamo desde el archivo ajaxCars.js:
 
-		//Función "dependiente(valor)" :)
-		Route::get('Modelos/{valor}','PublicarCarrosController@dependiente');
+		//Función "dependienteModelos(valor)" :)
+		Route::get('Modelos/{valor}','PublicarCarrosController@dependienteModelos');
+
+		//Función "dependienteMarcas(valor)" :)
+		Route::get('Marcas/{valor}','PublicarCarrosController@dependienteMarcas');		
 	
 		//Función "buscarCiudadPorPais(lng_idpais)" :)
 		Route::get('Pais/{pais}','PublicarCarrosController@dependiente3');

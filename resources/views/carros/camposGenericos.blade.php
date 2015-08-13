@@ -27,7 +27,7 @@ Descripción
                     {!! Form::select('lng_idtipo_vehiculo', 
                                         (['' => 'Seleccione'] + $tipo_vehiculos), 
                                         null, 
-                                        ['class' => 'form-control', 'onchange' => 'validar(this.value,this.name);formularioDinamico()']
+                                        ['class' => 'form-control', 'onchange' => 'dependienteMarcas(this.value);formularioDinamico()']
                                     ) 
                     !!} 
 
@@ -37,13 +37,16 @@ Descripción
                     
                     <!-- <i id="lng_idmarca_validar" class="fa fa-asterisk" style="color:red;"></i> -->
                     {!! Form::label('lng_idmarca', '* Marca del Vehículo') !!}
-                    {!! Form::select('lng_idmarca', 
-                                        (['0' => 'Seleccione'] + $marcas), 
-                                        null, 
-                                        ['class' => 'form-control','onchange'=>'dependiente(this.value)']
-                                    ) 
-                    !!} 
-
+                    
+                    <div id="dependienteMarcas">
+	                    {!! Form::select('lng_idmarca', 
+	                                        (['0' => 'Seleccione'] + $marcas), 
+	                                        null, 
+	                                        ['class' => 'form-control','onchange'=>'dependienteModelos(this.value)']
+	                                    ) 
+	                    !!}
+					</div>
+					
                 </div>                      
 
                 <div class="form-group col-md-4">
@@ -51,7 +54,7 @@ Descripción
                     <!-- <i id="lng_idmodelo_validar" class="fa fa-asterisk" style="color:red;"></i> -->
                     {!! Form::label('lng_idmodelo', '* Modelo del Vehículo') !!}
 
-                    <div id="dependiente">
+                    <div id="dependienteModelos">
 
 	                    {!! Form::select('lng_idmodelo', 
 	                                        (['0' => 'Seleccione'] + $modelos), 

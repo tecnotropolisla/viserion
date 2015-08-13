@@ -95,20 +95,36 @@ function getXmlHttpObject()
     return xmlhttp;
 }
 
-function dependiente(valor){
+function dependienteModelos(valor){
 
 	/*
     var ele = document.getElementById("lng_idmodelo_validar")
     ele.setAttribute('class', 'fa fa-asterisk');
     ele.setAttribute('style', 'color: red');
 	*/
-    divname = "dependiente";
+    divname = "dependienteModelos";
     //http.open("GET", 'paginas' + url, true);
     http.open("GET", 'Modelos/'+ valor, true);
     http.onreadystatechange = handleHttpResponse;
     http.send(null);
 
 }
+
+function dependienteMarcas(valor){
+
+	/*
+    var ele = document.getElementById("lng_idmodelo_validar")
+    ele.setAttribute('class', 'fa fa-asterisk');
+    ele.setAttribute('style', 'color: red');
+	*/
+    divname = "dependienteMarcas";
+    //http.open("GET", 'paginas' + url, true);
+    http.open("GET", 'Marcas/'+ valor, true);
+    http.onreadystatechange = handleHttpResponse;
+    http.send(null);
+
+}
+
 
 function buscarCiudadPorPais(lng_idpais){
 	
