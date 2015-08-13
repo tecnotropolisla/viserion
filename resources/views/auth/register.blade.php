@@ -7,7 +7,7 @@
         <div id="content" class="content full">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <h2>Bienvenidos a Troovami!</h2>
                         <p>La nueva forma de publicar y vender tu vehículo, únete a la creciente comunidad de vendedores más grande de latinoamérica.</p>
                         <div class="spacer-20"></div>
@@ -39,7 +39,7 @@
                         <hr class="fw">
                         
                         <header>
-                            <h3>Users testimonials</h3>
+                            <h3>Testimonios</h3>
                         </header>
                         <div class="spacer-40"></div>
                         <!-- Testimonials -->
@@ -90,19 +90,20 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-8">
 
                         <section class="signup-form sm-margint">
                            
                             <div class="regular-signup">
 
 								<h3> <i class="fa fa-user-plus"></i> Crear Cuenta</h3>
+								<p>(*) Campos obligatorios</p>
 								{!! Form::open(['route' => 'register', 'enctype'=>'multipart/form-data', 'class' => 'form-horizontal', 'onKeypress' => 'if(event.keyCode == 13) event.returnValue = false']) !!} 
 								
 								  <div class="form-group">
 								  
-								    {!! Form::label('name', 'Usuario',['class' => 'col-sm-2 control-label']) !!}
-								    <i id="name_validar" class="fa fa-asterisk" style="color:red;"></i>
+								    {!! Form::label('name', '* Usuario',['class' => 'col-sm-2 control-label']) !!}
+								    <!-- <i id="name_validar" class="fa fa-asterisk" style="color:red;"></i>-->
 								    <div class="col-sm-8">
 								      
 										<div class="input-group">
@@ -136,8 +137,8 @@
 
 								  <div class="form-group">
 								  
-								  	{!! Form::label('str_nombre', 'Nombre',['class' => 'col-sm-2 control-label']) !!} 
-									<i id="str_nombre_validar" class="fa fa-asterisk" style="color:red;"></i>
+								  	{!! Form::label('str_nombre', '* Nombre',['class' => 'col-sm-2 control-label']) !!} 
+									<!-- <i id="str_nombre_validar" class="fa fa-asterisk" style="color:red;"></i>-->
 								       
 								    <div class="col-sm-8">
 								
@@ -152,8 +153,8 @@
 								  
 								    <div class="form-group">
 								  
-										<i id="str_apellido_validar" class="fa fa-asterisk" style="color:red;"></i>
-								        {!! Form::label('str_apellido', 'Apellido', ['class' => 'col-sm-2 control-label']) !!}
+										<!-- <i id="str_apellido_validar" class="fa fa-asterisk" style="color:red;"></i>-->
+								        {!! Form::label('str_apellido', '* Apellido', ['class' => 'col-sm-2 control-label']) !!}
 								    	<div class="col-sm-8">
 								
 										<div class="input-group">
@@ -167,8 +168,8 @@
 								  
 								  <div class="form-group">
 								  
-								    <i id="lng_idgenero_validar" class="fa fa-asterisk" style="color:red;"></i>
-									{!! Form::label('lng_idgenero', 'Género',['class' => 'col-sm-2 control-label']) !!}    
+								   <!-- <i id="lng_idgenero_validar" class="fa fa-asterisk" style="color:red;"></i>-->
+									{!! Form::label('lng_idgenero', '* Género',['class' => 'col-sm-2 control-label']) !!}    
 								    <div class="col-sm-8">
 								
 										<div class="input-group">
@@ -186,8 +187,8 @@
 								  
 								  <div class="form-group">
 								  
-								    <i id="dmt_fecha_nacimiento_validar" class="fa fa-asterisk" style="color:red;"></i>
-									{!! Form::label('dmt_fecha_nacimiento', 'Cumpleaños',['class' => 'col-sm-2 control-label']) !!}    
+								    <!-- <i id="dmt_fecha_nacimiento_validar" class="fa fa-asterisk" style="color:red;"></i>-->
+									{!! Form::label('dmt_fecha_nacimiento', '* Cumpleaños',['class' => 'col-sm-2 control-label']) !!}    
 								    <div class="col-sm-8">
 								
 										<div class="input-group">
@@ -200,8 +201,8 @@
 								  
 								  <div class="form-group">
 								  
-									<i id="str_ididentificacion_validar" class="fa fa-asterisk" style="color:red;"></i>
-								    {!! Form::label('str_ididentificacion', 'Cédula',['class' => 'col-sm-2 control-label']) !!}    
+									<!-- <i id="str_ididentificacion_validar" class="fa fa-asterisk" style="color:red;"></i>-->
+								    {!! Form::label('str_ididentificacion', '* Cédula',['class' => 'col-sm-2 control-label']) !!}    
 								    <div class="col-sm-8">
 								
 										<div class="input-group">
@@ -214,8 +215,8 @@
 								  
 								  <div class="form-group">
 								  
-								    <i id="lng_idpais_validar" class="fa fa-asterisk" style="color:red;"></i>
-									{!! Form::label('lng_idpais', 'País',['class' => 'col-sm-2 control-label']) !!}    
+								   <!-- <i id="lng_idpais_validar" class="fa fa-asterisk" style="color:red;"></i>-->
+									{!! Form::label('lng_idpais', '* País',['class' => 'col-sm-2 control-label']) !!}    
 								    <div class="col-sm-8">
 								
 										<div class="input-group">
@@ -233,8 +234,8 @@
 								
 								  <div class="form-group">
 								  
-								    <i id="str_telefono_validar" class="fa fa-asterisk" style="color:red;"></i>
-									{!! Form::label('str_telefono', 'Teléfono',['class' => 'col-sm-2 control-label']) !!}    
+								    <!-- <i id="str_telefono_validar" class="fa fa-asterisk" style="color:red;"></i>-->
+									{!! Form::label('str_telefono', '* Teléfono',['class' => 'col-sm-2 control-label']) !!}    
 								    <div class="col-sm-8">
 								
 										<div class="input-group">
@@ -247,8 +248,8 @@
 								  
 								  <div class="form-group">
 								  
-								    <i id="email_validar" class="fa fa-asterisk" style="color:red;"></i>
-									{!! Form::label('email', 'Correo',['class' => 'col-sm-2 control-label']) !!}    
+								    <!-- <i id="email_validar" class="fa fa-asterisk" style="color:red;"></i>-->
+									{!! Form::label('email', '* Correo',['class' => 'col-sm-2 control-label']) !!}    
 								    <div class="col-sm-8">
 								                                
 										<div class="input-group">
@@ -300,8 +301,8 @@
 								 
 								  <div class="form-group">
 								  
-								    <i id="password_validar" class="fa fa-asterisk" style="color:red;"></i>
-									{!! Form::label('password', 'Clave',['class' => 'col-sm-2 control-label']) !!}    
+								    <!-- <i id="password_validar" class="fa fa-asterisk" style="color:red;"></i>-->
+									{!! Form::label('password', '* Clave',['class' => 'col-sm-2 control-label']) !!}    
 								    <div class="col-sm-8">
 										             
 								        <div class="input-group">
@@ -314,8 +315,8 @@
 								        
 								  <div class="form-group">
 								  
-								    <i id="password_confirmation_validar" class="fa fa-asterisk" style="color:red;"></i>
-									{!! Form::label('password_confirmation', 'Confirmar',['class' => 'col-sm-2 control-label']) !!}    
+								    <!-- <i id="password_confirmation_validar" class="fa fa-asterisk" style="color:red;"></i>-->
+									{!! Form::label('password_confirmation', '* Confirmar',['class' => 'col-sm-2 control-label']) !!}    
 								    <div class="col-sm-8">
 								                                
 										<div class="input-group">

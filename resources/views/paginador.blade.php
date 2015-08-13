@@ -1,4 +1,4 @@
- @foreach ($vehiculos as $vehiculo)
+@foreach ($vehiculos as $vehiculo)
 
                                 <!-- Result Item -->
                                 <div class="result-item format-standard">
@@ -44,11 +44,11 @@
                                         <div class="result-item-features">
                                             <ul class="inline" style="font-size:12px">
                                                <li>País: {!! $vehiculo->pais !!}</li>
-                                                <li>Ciudad: {!! $vehiculo->ciudad !!}</li>
-                                                <li>Km: {!! number_format($vehiculo->str_recorrido, null, ',', '.') !!}</li>
-                                                <li>Motor: {!! $vehiculo->cilindrada !!}</li>
-                                                <li>Transmisión: {!! $vehiculo->transmision !!}</li>
-                                                <li>Dirección: {!! $vehiculo->direccion !!}</li>
+                                               <li>Ciudad: {!! $vehiculo->ciudad !!}</li>
+                                               <li>Km: {!! number_format($vehiculo->str_recorrido, null, ',', '.') !!}</li>
+                                               <li>Motor: {!! $vehiculo->cilindrada !!} cc</li>
+                                               <li>Transmisión: {!! $vehiculo->transmision !!}</li>
+                                               <li>Dirección: {!! $vehiculo->direccion !!}</li>                                                
                                             </ul>
                                         </div>
 

@@ -20,7 +20,7 @@
 	                       @foreach ($menu as $opciones)
 	                        
 		                        <div class="icon-box ibox-rounded ibox-light ibox-effect">
-		                         <a href="{!! $opciones->ruta !!}">
+		                         <a href="{!! $opciones->ruta !!}" onclick="">
 		                        
 		                            <div class="ibox-icon">
 		                                <i class="{!! $opciones->icono !!}" title="{!! $opciones->titulo !!}"></i>
