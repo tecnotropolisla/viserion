@@ -124,21 +124,21 @@ Route::group(['middleware' => 'auth'], function () {
 				'as' =>'publicarTrailer'
 			]);
 	
-		});
+		//Estas rutas las llamo desde el archivo ajaxCars.js:
 
-	//Estas rutas las llamo desde el archivo ajaxCars.js:
+			//Función "dependienteModelos(valor)" :)
+			Route::get('Modelos/{valor}','MaestroController@dependienteModelos');
 
-		//Función "dependienteModelos(valor)" :)
-		Route::get('Modelos/{valor}','MaestroController@dependienteModelos');
-
-		//Función "dependienteMarcas(valor)" :)
-		Route::get('Marcas/{valor}','MaestroController@dependienteMarcas');		
-	
-		//Función "buscarCiudadPorPais(lng_idpais)" :)
-		Route::get('Pais/{pais}','MaestroController@dependiente3');
+			//Función "dependienteMarcas(valor)" :)
+			Route::get('Marcas/{valor}','MaestroController@dependienteMarcas');		
 		
-		//Función "buscarCiudadPorLetra(letra)" :)
-		Route::get('Ciudades/{letra}/Pais/{pais}','MaestroController@dependiente2');
+			//Función "buscarCiudadPorPais(lng_idpais)" :)
+			Route::get('Pais/{pais}','MaestroController@dependiente3');
+			
+			//Función "buscarCiudadPorLetra(letra)" :)
+			Route::get('Ciudades/{letra}/Pais/{pais}','MaestroController@dependiente2');
+
+		});
 
  });
 

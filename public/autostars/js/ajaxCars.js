@@ -517,12 +517,6 @@ function imagenppal(valor,nombre){
 
 }
 
-function camposPublicar(){
-	
-	formularioDinamico();
-
-}
-
 function formularioDinamico(){
  
     var t = document.getElementById("lng_idtipo_vehiculo");
