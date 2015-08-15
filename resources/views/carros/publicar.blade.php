@@ -1,7 +1,7 @@
                                     <br>
 
                                     <h3 style="color: #777">
-                                        <i class="fa fa-globe"></i>
+                                        <i class="fa fa-newspaper-o"></i>
                                         Publicar
                                     </h3>
 

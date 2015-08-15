@@ -45,30 +45,100 @@ Route::group(['middleware' => 'auth'], function () {
 		'as' =>'publicar'
 	]);
 	
-	//Carros:
-		Route::get('Publicar-Carro', [
-				'uses' => 'PublicarCarrosController@carros',
+	Route::group(['prefix' => 'Publicar'], function () {
+
+		//Carros:
+			Route::get('Carros', [
+					'uses' => 'PublicarCarrosController@vehiculo',
+					'as' =>'publicarCarro'
+			]);
+		
+			Route::post('Carros', [
+				'uses' => 'PublicarCarrosController@postPublicar',
 				'as' =>'publicarCarro'
-		]);
+			]);
+
+		//Motocicletas:
+			Route::get('Motocicletas', [
+					'uses' => 'PublicarMotocicletasController@vehiculo',
+					'as' =>'publicarMotocicleta'
+			]);
+		
+			Route::post('Motocicletas', [
+				'uses' => 'PublicarMotocicletasController@postPublicar',
+				'as' =>'publicarMotocicleta'
+			]);
+
+		//Aeronaves:
+			Route::get('Aeronaves', [
+					'uses' => 'PublicarAeronavesController@vehiculo',
+					'as' =>'publicarAeronave'
+			]);
+		
+			Route::post('Aeronaves', [
+				'uses' => 'PublicarAeronavesController@postPublicar',
+				'as' =>'publicarAeronave'
+			]);
+
+		//Embarcaciones:
+			Route::get('Embarcaciones', [
+					'uses' => 'PublicarEmbarcacionesController@vehiculo',
+					'as' =>'publicarEmbarcacion'
+			]);
+		
+			Route::post('Embarcaciones', [
+				'uses' => 'PublicarEmbarcacionesController@postPublicar',
+				'as' =>'publicarEmbarcacion'
+			]);
+
+		//Maquinaria Agricola:
+			Route::get('Maquinaria-Agricola', [
+					'uses' => 'PublicarMaquinariaAgricolaController@vehiculo',
+					'as' =>'publicarMaquinariaAgricola'
+			]);
+		
+			Route::post('Maquinaria-Agricola', [
+				'uses' => 'PublicarMaquinariaAgricolaController@postPublicar',
+				'as' =>'publicarMaquinariaAgricola'
+			]);
+
+		//Maquinaria Pesada:
+			Route::get('Maquinaria-Pesada', [
+					'uses' => 'PublicarMaquinariaPesadaController@vehiculo',
+					'as' =>'publicarMaquinariaPesada'
+			]);
+		
+			Route::post('Maquinaria-Pesada', [
+				'uses' => 'PublicarMaquinariaPesadaController@postPublicar',
+				'as' =>'publicarMaquinariaPesada'
+			]);
+
+		//Trailers:
+			Route::get('Trailers', [
+					'uses' => 'PublicarTrailerController@vehiculo',
+					'as' =>'publicarTrailer'
+			]);
+		
+			Route::post('Trailers', [
+				'uses' => 'PublicarTrailerController@postPublicar',
+				'as' =>'publicarTrailer'
+			]);
 	
-		Route::post('Publicar-Carro', [
-			'uses' => 'PublicarCarrosController@postPublicar',
-			'as' =>'publicarCarro'
-		]);
-	
+		});
+
 	//Estas rutas las llamo desde el archivo ajaxCars.js:
 
 		//Función "dependienteModelos(valor)" :)
-		Route::get('Modelos/{valor}','PublicarCarrosController@dependienteModelos');
+		Route::get('Modelos/{valor}','MaestroController@dependienteModelos');
 
 		//Función "dependienteMarcas(valor)" :)
-		Route::get('Marcas/{valor}','PublicarCarrosController@dependienteMarcas');		
+		Route::get('Marcas/{valor}','MaestroController@dependienteMarcas');		
 	
 		//Función "buscarCiudadPorPais(lng_idpais)" :)
-		Route::get('Pais/{pais}','PublicarCarrosController@dependiente3');
+		Route::get('Pais/{pais}','MaestroController@dependiente3');
 		
 		//Función "buscarCiudadPorLetra(letra)" :)
-		Route::get('Ciudades/{letra}/Pais/{pais}','PublicarCarrosController@dependiente2');
+		Route::get('Ciudades/{letra}/Pais/{pais}','MaestroController@dependiente2');
 
  });
 

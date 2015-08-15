@@ -82,17 +82,11 @@ class Consultas extends Model
 				$marcas = DB::table('cat_marcas as m')
 				->join('tbl_tipos_marcas as tm', 'tm.lng_idmarca', '=', 'm.id')
 				->join('cat_datos_maestros as dm', 'dm.id', '=', 'tm.lng_idtipo')
-				
 				->join('tbl_subtipos_marcas as stm', 'stm.lng_idtipo_marca', '=', 'tm.id')
-				
 				->where('stm.lng_idsubtipo', '=', $valor)
-				
-				
 				->Where(function ($query) {
 					$query->where('dm.id', '=', 153);
 				})
-				
-				
 				->orderBy('m.str_marca')
 				->select('m.str_marca','m.id')
 				->lists('str_marca','id');
@@ -147,8 +141,9 @@ class Consultas extends Model
                 $menu = DB::table('cat_datos_maestros')
 		    	->where('str_tipo', 'tipos')
 		    	->Where(function ($query) {
-		    		$query->where('int_peso', '=', 1);
+		    		$query->where('int_peso', '>', 0);
 		    	})
+                ->orderBy('int_peso')
 		    	->select('str_descripcion as titulo','str_caracteristica as detalle','str_caracteristica2 as icono','str_caracteristica3 as ruta')
 		    	->get();
                 return $menu;

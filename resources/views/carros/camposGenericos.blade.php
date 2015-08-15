@@ -1,15 +1,3 @@
-<!--     
-<h3 style="color: #777">
-	
-	Paso
- 
-    <span class="fa-stack fa-3px">
-	  <i class="fa fa-circle-o fa-stack-2x"></i>
-	  <strong class="fa-stack-1x " style="margin-top: .0em;">1</strong>
-	</span> 
-</h3>
--->
-
 <h3 style="color: #777">
 <i class="fa fa-pencil-square-o"></i>
 Descripción

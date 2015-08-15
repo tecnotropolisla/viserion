@@ -9,6 +9,10 @@
                 <div class="row">
                 
                     <div class="col-md-8 col-sm-8">
+                    	<ol class="breadcrumb">
+                          <li><a href="{!! route('home') !!}"> <i class="fa fa-home"></i> Inicio</a></li>
+                          <li class="active"> <i class="fa fa-newspaper-o"></i> Publicar</li>
+                        </ol>
 
                         <div id="formulario">
                     	                  		                  
