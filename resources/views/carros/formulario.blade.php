@@ -120,10 +120,6 @@
 	                                        <div id="camiones">
 	                                        	@include('carros.camiones')
 	                                        </div>
-	                                        
-	                                        <div id="carrosCamionetas">
-	                                        	@include('carros.carrosCamionetas')
-	                                        </div>
 
                                             <div id="carrosGolf">
                                                 @include('carros.carrosGolf')

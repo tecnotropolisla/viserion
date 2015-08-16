@@ -73,6 +73,7 @@ class PublicarCarrosController extends Controller
             'int_ano' => 'required|max:255',
             'str_recorrido' => 'required|max:255',
             'int_cilindros' => 'required|max:255',
+            'lng_idcilindrada' => 'required|max:255',
             'str_version' => 'required|max:255',
             'lng_idchocado' => 'required|max:255',
             'lng_idnegociable' => 'required|max:255',
@@ -206,12 +207,11 @@ class PublicarCarrosController extends Controller
         $paises = Consultas::querys('paises');
         $frenado = Consultas::querys('frenado');
         $arranque = Consultas::querys('arranque');
-        $cilindrada1 = Consultas::querysValor('cilindrada','karting'); 
-        $cilindrada2 = Consultas::querysValor('cilindrada','carros');
-        
+        $cilindrada = Consultas::querys('cilindrada'); 
+               
         return \View::make('carros.formulario', compact('marcas','modelos','tipo_vehiculos','colores','respuesta','seguridad','sonido','exterior',
                 'confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible','paises',
-        		'frenado','arranque','cilindrada1','cilindrada2'));
+        		'frenado','arranque','cilindrada'));
     }   
 
     /**

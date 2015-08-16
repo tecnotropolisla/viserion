@@ -120,12 +120,26 @@ function dependienteMarcas(valor){
 	    ele.setAttribute('style', 'color: red');
 		*/
 	
-	    divname = "dependienteMarcas";
+        divname = "dependienteMarcas";
 	    //http.open("GET", 'paginas' + url, true);
 	    http.open("GET", 'Marcas/'+ valor, true);
 	    http.onreadystatechange = handleHttpResponse;
 	    http.send(null);
+
+        setTimeout('dependienteCilindrada('+valor+')',500);
+        
 	}
+
+}
+
+function dependienteCilindrada(valor){
+
+    //alert(valor);
+    divname = "dependienteCilindrada";
+    //http.open("GET", 'paginas' + url, true);
+    http.open("GET", 'Cilindrada/'+ valor, true);
+    http.onreadystatechange = handleHttpResponse;
+    http.send(null);
 
 }
 
@@ -530,7 +544,6 @@ function formularioDinamico(){
         document.getElementById('ambulancias').style.display = "inline";
         document.getElementById('autobuses').style.display = "none";
         document.getElementById('camiones').style.display = "none";
-        document.getElementById('carrosCamionetas').style.display = "none";
         document.getElementById('carrosGolf').style.display = "none";
         document.getElementById('gruas').style.display = "none";
         document.getElementById('kartings').style.display = "none";
@@ -540,7 +553,6 @@ function formularioDinamico(){
         document.getElementById('ambulancias').style.display = "none";
         document.getElementById('autobuses').style.display = "inline";
         document.getElementById('camiones').style.display = "none";
-        document.getElementById('carrosCamionetas').style.display = "none";
         document.getElementById('carrosGolf').style.display = "none";
         document.getElementById('gruas').style.display = "none";
         document.getElementById('kartings').style.display = "none";
@@ -550,7 +562,6 @@ function formularioDinamico(){
         document.getElementById('ambulancias').style.display = "none";
         document.getElementById('autobuses').style.display = "none";
         document.getElementById('camiones').style.display = "inline";
-        document.getElementById('carrosCamionetas').style.display = "none";
         document.getElementById('carrosGolf').style.display = "none";
         document.getElementById('gruas').style.display = "none";
         document.getElementById('kartings').style.display = "none";
@@ -560,7 +571,6 @@ function formularioDinamico(){
         document.getElementById('ambulancias').style.display = "none";
         document.getElementById('autobuses').style.display = "none";
         document.getElementById('camiones').style.display = "none";
-        document.getElementById('carrosCamionetas').style.display = "inline";
         document.getElementById('carrosGolf').style.display = "none";
         document.getElementById('gruas').style.display = "none";
         document.getElementById('kartings').style.display = "none";
@@ -570,7 +580,6 @@ function formularioDinamico(){
         document.getElementById('ambulancias').style.display = "none";
         document.getElementById('autobuses').style.display = "none";
         document.getElementById('camiones').style.display = "none";
-        document.getElementById('carrosCamionetas').style.display = "none";
         document.getElementById('carrosGolf').style.display = "inline";
         document.getElementById('gruas').style.display = "none";
         document.getElementById('kartings').style.display = "none";
@@ -580,7 +589,6 @@ function formularioDinamico(){
         document.getElementById('ambulancias').style.display = "none";
         document.getElementById('autobuses').style.display = "none";
         document.getElementById('camiones').style.display = "none";
-        document.getElementById('carrosCamionetas').style.display = "none";
         document.getElementById('carrosGolf').style.display = "none";
         document.getElementById('gruas').style.display = "inline";
         document.getElementById('kartings').style.display = "none";
@@ -590,7 +598,6 @@ function formularioDinamico(){
         document.getElementById('ambulancias').style.display = "none";
         document.getElementById('autobuses').style.display = "none";
         document.getElementById('camiones').style.display = "none";
-        document.getElementById('carrosCamionetas').style.display = "none";
         document.getElementById('carrosGolf').style.display = "none";
         document.getElementById('gruas').style.display = "none";
         document.getElementById('kartings').style.display = "inline";
@@ -600,7 +607,6 @@ function formularioDinamico(){
         document.getElementById('ambulancias').style.display = "none";
         document.getElementById('autobuses').style.display = "none";
         document.getElementById('camiones').style.display = "none";
-        document.getElementById('carrosCamionetas').style.display = "none";
         document.getElementById('carrosGolf').style.display = "none";
         document.getElementById('gruas').style.display = "none";
         document.getElementById('kartings').style.display = "none";

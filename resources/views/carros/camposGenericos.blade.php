@@ -209,6 +209,20 @@ Descripción
                 </div>
 
                 <div class="form-group col-md-4">
+                        
+                       <!-- <i id="lng_idcilindrada_validar" class="fa fa-asterisk" style="color:red;"></i> -->
+                        {!! Form::label('lng_idcilindrada', '* Cilindrada (CC)') !!}<br>
+                        <div id="dependienteCilindrada">   
+                            {!! Form::select('lng_idcilindrada', 
+                                (['' => 'Seleccione'] + $cilindrada), 
+                                    null, 
+                                    ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+                                ) 
+                            !!}                                                               
+                        </div>
+                </div>
+
+                <div class="form-group col-md-4">
                     
                     <!-- <i id="str_version_validar" class="fa fa-asterisk" style="color:red;"></i> -->
                     {!! Form::label('str_version', '* Versión') !!}

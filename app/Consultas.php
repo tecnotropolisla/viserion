@@ -8,9 +8,9 @@ use DB;
 class Consultas extends Model
 {
     
-	protected function querysValor($query,$valor){
+	protected function querysValor($consulta,$valor){
 
-		switch ($query) {
+		switch ($consulta) {
 
             case 'vehiculos':
                  $vehiculos = DB::table('tbl_vehiculos as v')
@@ -113,16 +113,16 @@ class Consultas extends Model
             	->Where(function ($query) {
             		$query->where('str_tipo', '=', 'desplazamiento_vehiculos');
             	})
-            	//->select('str_descripcion','id')
+            	->select('str_descripcion','id')
             	->lists('str_descripcion','id');
             	return $cilindrada;
             	break;
         }
 	}
 
-    protected function querysValor2($query,$valor,$valor2){
+    protected function querysValor2($consulta,$valor,$valor2){
 
-        switch ($query) {
+        switch ($consulta) {
 
             case 'ciudades':
 
@@ -133,9 +133,9 @@ class Consultas extends Model
         }
     }   
 
-	protected function querys($query){
+	protected function querys($consulta){
 
-        switch ($query) {
+        switch ($consulta) {
 
             case 'menu':
                 $menu = DB::table('cat_datos_maestros')
@@ -267,6 +267,14 @@ class Consultas extends Model
                 ->lists('p.str_paises','p.id');
                 return $paises;
             break;
+
+            case 'cilindrada':
+                $cilindrada = DB::table('cat_datos_maestros')
+                ->where('str_tipo', '=', 'desplazamiento_vehiculos')
+                ->select('str_descripcion','id')
+                ->lists('str_descripcion','id');
+                return $cilindrada;
+                break;
 
         }
 

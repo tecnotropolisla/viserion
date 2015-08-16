@@ -53,7 +53,34 @@ class MaestroController extends Controller
         $select.="</select>";
     
         return $select;
-    }    
+    }
+
+    //Este método lo llamo desde routes.php pero se genera desde una función de ajax,
+    //para crear un campo select dinámico en el formulario.
+    //Nota: ver el archivo ajaxCars.js, función "dependienteCilindrada(valor)" :)
+    public function dependienteCilindrada($valor)
+    {
+        $valor2 = "carros";
+
+        if($valor == "141"){
+            $valor2 = "karting";
+        }
+
+        $cilindrada = Consultas::querysValor('cilindrada',$valor2);
+        //var_dump($modelos);
+        $select ="<select id='lng_idcilindrada' name='lng_idcilindrada' class='form-control' onchange=''>
+    
+                        <option value=''>Seleccione</option>";
+    
+        foreach ($cilindrada as $key => $value)
+        {
+            $select.=" <option value='".$key."'>".$value."</option>";
+        }
+    
+        $select.="</select>";
+    
+        return $select;
+    }  
 
     public function dependiente2($letra,$pais)
     {

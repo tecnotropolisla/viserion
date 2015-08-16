@@ -119,11 +119,7 @@
 	                                                                             	                                        
 	                                        <div id="camiones">
 	                                        	@include('aeronaves.camiones')
-	                                        </div>
-	                                        
-	                                        <div id="carrosCamionetas">
-	                                        	@include('aeronaves.carrosCamionetas')
-	                                        </div>
+	                                        </div>	                                       
 
                                             <div id="carrosGolf">
                                                 @include('aeronaves.carrosGolf')

@@ -130,7 +130,10 @@ Route::group(['middleware' => 'auth'], function () {
 			Route::get('Modelos/{valor}','MaestroController@dependienteModelos');
 
 			//Función "dependienteMarcas(valor)" :)
-			Route::get('Marcas/{valor}','MaestroController@dependienteMarcas');		
+			Route::get('Marcas/{valor}','MaestroController@dependienteMarcas');
+
+			//Función "dependienteCilindrada(valor)" :)
+			Route::get('Cilindrada/{valor}','MaestroController@dependienteCilindrada');				
 		
 			//Función "buscarCiudadPorPais(lng_idpais)" :)
 			Route::get('Pais/{pais}','MaestroController@dependiente3');
