@@ -45,7 +45,7 @@
                             <div class="single-listing-images">
                             
                                 <div class="featured-image format-image">
-                                    <a href="data:image/jpeg;base64,{{ $vehiculo->imagen }}" data-rel="prettyPhoto[gallery]" class="media-box"><img src="data:image/jpeg;base64,{{ $vehiculo->imagen }}" alt=""></a>
+                                    <a href="data:image/jpeg;base64,{{ $vehiculo->imagen }}" data-rel="prettyPhoto[gallery]" class="media-box"><img src="data:image/jpeg;base64,{{ $vehiculo->imagen }}" style="width: 100%" alt=""></a>
                                 </div>
                                 
                                 <div class="additional-images">

@@ -78,7 +78,25 @@ class Consultas extends Model
 				return $caracteristicas;
 			break;
 
-			case 'marcas':
+			case 'tipo_vehiculos':
+				$tipo_vehiculos = DB::table('cat_datos_maestros')
+				->where('str_tipo', $valor)
+				->lists('str_descripcion','id');
+				return $tipo_vehiculos;
+			break;
+				
+			case 'marcasTipos':
+				$marcas = DB::table('cat_marcas as m')
+				->join('tbl_tipos_marcas as tm', 'tm.lng_idmarca', '=', 'm.id')
+				->join('cat_datos_maestros as dm', 'dm.id', '=', 'tm.lng_idtipo')
+				->where('dm.id', '=', $valor)
+				->orderBy('m.str_marca')
+				->select('m.str_marca','m.id')
+				->lists('str_marca','id');
+				return $marcas;
+			break;
+				
+			case 'marcasSubtipos':
 				$marcas = DB::table('cat_marcas as m')
 				->join('tbl_tipos_marcas as tm', 'tm.lng_idmarca', '=', 'm.id')
 				->join('cat_datos_maestros as dm', 'dm.id', '=', 'tm.lng_idtipo')
@@ -109,14 +127,80 @@ class Consultas extends Model
             
             case 'cilindrada':
             	$cilindrada = DB::table('cat_datos_maestros')
-            	->where('str_caracteristica', $valor)
+            	->where('str_caracteristica', '=', $valor)
             	->Where(function ($query) {
             		$query->where('str_tipo', '=', 'desplazamiento_vehiculos');
             	})
             	->select('str_descripcion','id')
             	->lists('str_descripcion','id');
             	return $cilindrada;
-            	break;
+            break;
+            
+            //La utiliza el formulario carros.camposGenericos. 
+            //Al cambiar el campo lng_idtipo_vehiculo llama a la funcion
+            //dependienteMarcas(valor) y luego a dependienteCilindrada(valor) en el archivo ajax.js
+            //Ver tambien dependienteCilindrada(valor) en MaestroController.php
+            case 'cilindradaTipos':
+            	$cilindrada = DB::table('cat_datos_maestros')
+            	->where('str_caracteristica2', $valor)
+            	->Where(function ($query) {
+            		$query->where('str_tipo', '=', 'desplazamiento_vehiculos');
+            	})
+            	->select('str_descripcion','id')
+            	->lists('str_descripcion','id');
+            	return $cilindrada;
+            break;
+            
+            case 'seguridad':
+            	$seguridad = DB::table('cat_datos_maestros')
+            	->where('str_caracteristica', $valor)
+            	->Where(function ($query) {
+            		$query->where('str_tipo', '=', 'seguridad_vehiculos');
+            	})
+            	->lists('str_descripcion','id');
+            	return $seguridad;
+            break;
+            
+            case 'sonido':
+            	$sonido = DB::table('cat_datos_maestros')
+            	->where('str_caracteristica', $valor)
+            	->Where(function ($query) {
+            		$query->where('str_tipo', '=', 'sonido_vehiculos');
+            	})            	
+            	->lists('str_descripcion','id');
+            	return $sonido;
+            break;
+            
+            case 'exterior':
+            	$exterior = DB::table('cat_datos_maestros')
+            	->where('str_caracteristica', $valor)
+            	->Where(function ($query) {
+            		$query->where('str_tipo', '=', 'exterior_vehiculos');
+            	})            	
+            	->lists('str_descripcion','id');
+            	return $exterior;
+            break;
+            
+            case 'confort':
+            	$confort = DB::table('cat_datos_maestros')
+            	->where('str_caracteristica', $valor)
+            	->Where(function ($query) {
+            		$query->where('str_tipo', '=', 'confort_vehiculos');
+            	})            	
+            	->lists('str_descripcion','id');
+            	return $confort;
+            break;
+            
+            case 'accesorios_internos':
+            	$accesorios_internos = DB::table('cat_datos_maestros')
+            	->where('str_caracteristica', $valor)
+            	->Where(function ($query) {
+            		$query->where('str_tipo', '=', 'accesoriosInternos_vehiculos');
+            	})            	
+            	->lists('str_descripcion','id');
+            	return $accesorios_internos;
+            break;   
+            
         }
 	}
 
@@ -169,25 +253,9 @@ class Consultas extends Model
                 return $enfriamiento;
             break;
 
-            case 'marcas':
-                $marcas = DB::table('cat_marcas as m')
-                ->join('tbl_tipos_marcas as tm', 'tm.lng_idmarca', '=', 'm.id')
-                ->join('cat_datos_maestros as dm', 'dm.id', '=', 'tm.lng_idtipo')
-                ->where('dm.id', '=', 153)
-                ->orderBy('m.str_marca')
-                ->select('m.str_marca','m.id')
-                ->lists('str_marca','id');
-                return $marcas;
-            break;
-
             case 'modelos':
                 $modelos = DB::table('tbl_modelos')->lists('str_modelo','id');
                 return $modelos;
-            break;
-
-            case 'tipo_vehiculos':
-                $tipo_vehiculos = DB::table('cat_datos_maestros')->where('str_tipo', 'automoviles')->lists('str_descripcion','id');
-                return $tipo_vehiculos;
             break;
 
             case 'colores':
@@ -197,31 +265,6 @@ class Consultas extends Model
                 ->lists('str_descripcion','id');
                 //->get();  
                 return $colores;
-            break;
-
-            case 'seguridad':
-                $seguridad = DB::table('cat_datos_maestros')->where('str_tipo', 'seguridad_vehiculos')->lists('str_descripcion','id');
-                return $seguridad;
-            break;
-
-            case 'sonido':
-                $sonido = DB::table('cat_datos_maestros')->where('str_tipo', 'sonido_vehiculos')->lists('str_descripcion','id');
-                return $sonido;
-            break;
-
-            case 'exterior':
-                $exterior = DB::table('cat_datos_maestros')->where('str_tipo', 'exterior_vehiculos')->lists('str_descripcion','id');
-                return $exterior;
-            break;
-
-            case 'confort':
-                $confort = DB::table('cat_datos_maestros')->where('str_tipo', 'confort_vehiculos')->lists('str_descripcion','id');
-                return $confort;
-            break;
-
-            case 'accesorios_internos':
-                $accesorios_internos = DB::table('cat_datos_maestros')->where('str_tipo', 'accesoriosInternos_vehiculos')->lists('str_descripcion','id');
-                return $accesorios_internos;
             break;
 
             case 'direccion':
@@ -266,15 +309,7 @@ class Consultas extends Model
                 ->select('p.str_paises','p.id')
                 ->lists('p.str_paises','p.id');
                 return $paises;
-            break;
-
-            case 'cilindrada':
-                $cilindrada = DB::table('cat_datos_maestros')
-                ->where('str_tipo', '=', 'desplazamiento_vehiculos')
-                ->select('str_descripcion','id')
-                ->lists('str_descripcion','id');
-                return $cilindrada;
-                break;
+            break;         
 
         }
 

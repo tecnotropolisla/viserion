@@ -39,7 +39,7 @@ class MaestroController extends Controller
     public function dependienteMarcas($valor)
     {
         //echo $valor;
-        $marcas = Consultas::querysValor('marcas',$valor);
+        $marcas = Consultas::querysValor('marcasSubtipos',$valor);
         //var_dump($modelos);
         $select ="<select id='lng_idmarca' name='lng_idmarca' class='form-control' onchange='dependienteModelos(this.value)'>
     
@@ -66,7 +66,7 @@ class MaestroController extends Controller
             $valor2 = "karting";
         }
 
-        $cilindrada = Consultas::querysValor('cilindrada',$valor2);
+        $cilindrada = Consultas::querysValor('cilindradaTipos',$valor2);
         //var_dump($modelos);
         $select ="<select id='lng_idcilindrada' name='lng_idcilindrada' class='form-control' onchange=''>
     

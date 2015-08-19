@@ -82,14 +82,14 @@ class PublicarCarrosController extends Controller
             'lng_idmotorreparado' => 'required|max:255',
             
             'lng_idcaracteristica' => 'required',
-            /*
+            
             'blb_img0' => 'required|image:jpeg,png,jpg',
             'blb_img1' => 'required|image:jpeg,png,jpg',
             'blb_img2' => 'required|image:jpeg,png,jpg',
             'blb_img3' => 'required|image:jpeg,png,jpg',
             'blb_img4' => 'required|image:jpeg,png,jpg',
             'blb_img5' => 'required|image:jpeg,png,jpg',
-            */
+            
 
             'str_precio_venta' => 'required|max:255',
             'lng_idpais' => 'required|max:255',
@@ -187,16 +187,16 @@ class PublicarCarrosController extends Controller
     //Este método llama a la vista del formulario de carros:
     public function vehiculo()
     {
-        $marcas = Consultas::querys('marcas');
+        $marcas = Consultas::querysValor('marcasTipos','153');
         $modelos = Consultas::querys('modelos'); 
-  	    $tipo_vehiculos = Consultas::querys('tipo_vehiculos');   
+  	    $tipo_vehiculos = Consultas::querysValor('tipo_vehiculos','automoviles');   
         $colores = Consultas::querys('colores');
         $respuesta = Consultas::querys('respuesta');
-        $seguridad = Consultas::querys('seguridad');
-        $sonido = Consultas::querys('sonido');
-        $exterior = Consultas::querys('exterior');
-        $confort = Consultas::querys('confort');
-        $accesorios_internos = Consultas::querys('accesorios_internos');
+       $seguridad = Consultas::querysValor('seguridad','automoviles');
+       $sonido = Consultas::querysValor('sonido','automoviles');
+       $exterior = Consultas::querysValor('exterior','automoviles');
+       $confort = Consultas::querysValor('confort','automoviles');
+       $accesorios_internos = Consultas::querysValor('accesorios_internos','automoviles');
         $direccion = Consultas::querys('direccion');
         $estereo = Consultas::querys('estereo');
         $transmision = Consultas::querys('transmision');
@@ -207,7 +207,7 @@ class PublicarCarrosController extends Controller
         $paises = Consultas::querys('paises');
         $frenado = Consultas::querys('frenado');
         $arranque = Consultas::querys('arranque');
-        $cilindrada = Consultas::querys('cilindrada'); 
+        $cilindrada = Consultas::querysValor('cilindrada','automoviles'); 
                
         return \View::make('carros.formulario', compact('marcas','modelos','tipo_vehiculos','colores','respuesta','seguridad','sonido','exterior',
                 'confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible','paises',

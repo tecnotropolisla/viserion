@@ -12,7 +12,7 @@
                         <ol class="breadcrumb">
                           <li><a href="{!! route('home') !!}"> <i class="fa fa-home"></i> Inicio</a></li>
                           <li><a href="{!! route('publicar') !!}"> <i class="fa fa-newspaper-o"></i> Publicar</a></li>
-                          <li class="active"> <i class="fa fa-motorcycle"></i> Motocicletas</li>
+                          <li class="active"> <i class="fa fa-car"></i> Carros</li>
                         </ol>
                         <!-- SIDEBAR -->
                         <div class="listing-form-steps-wrapper tbssticky">
@@ -96,7 +96,7 @@
 
                     <div class="col-md-8 col-sm-8">
 
-				    	{!! Form::open(['route' => 'publicarMotocicleta', 'class' => 'listing-add-form','enctype'=>'multipart/form-data', 'id' => 'formularioVehiculo', 'onKeypress' => 'if(event.keyCode == 13) event.returnValue = false']) !!}
+				    	{!! Form::open(['route' => 'publicarCarro', 'class' => 'listing-add-form','enctype'=>'multipart/form-data', 'id' => 'formularioVehiculo', 'onKeypress' => 'if(event.keyCode == 13) event.returnValue = false']) !!}
                        
                             <section class="listing-form-content">
                             
@@ -105,32 +105,32 @@
 
                                     <div class="tab-content col-md-12">
 
-                                        @include('motocicletas.camposGenericos')
+                                        @include('carros.camposGenericos')
 
                                         <div id="formularioAnexo">
                                         
 	                                        <div id="ambulancias">
-	                                        	@include('motocicletas.ambulancias')
+	                                        	@include('carros.ambulancias')
 	                                        </div>
                                          
 	                                        <div id="autobuses">
-	                                        	@include('motocicletas.autobuses')
+	                                        	@include('carros.autobuses')
 	                                        </div>   
 	                                                                             	                                        
 	                                        <div id="camiones">
-	                                        	@include('motocicletas.camiones')
+	                                        	@include('carros.camiones')
 	                                        </div>
-                                            
+
                                             <div id="carrosGolf">
-                                                @include('motocicletas.carrosGolf')
+                                                @include('carros.carrosGolf')
                                             </div>
 
                                             <div id="gruas">
-                                                @include('motocicletas.gruas')
+                                                @include('carros.gruas')
                                             </div>
 
                                             <div id="kartings">
-                                                @include('motocicletas.kartings')
+                                                @include('carros.kartings')
                                             </div>
 
                                         </div>
@@ -142,21 +142,21 @@
                                 <!-- AD LISTING FORM STEP TWO -->
                                 <div id="listing-add-form-two" class="tab-pane fade">
 
-									@include('motocicletas.caracteristicas')
+									@include('carros.caracteristicas')
 
                                 </div>
                             
                                 <!-- AD LISTING FORM STEP THREE -->
                                 <div id="listing-add-form-three" class="tab-pane fade">
                                     
-									@include('motocicletas.fotos')
+									@include('carros.fotos')
 
                                 </div>
                             
                                 <!-- AD LISTING FORM STEP FIVE -->
                                 <div id="listing-add-form-four" class="tab-pane fade">
 
-									@include('motocicletas.publicar')
+									@include('carros.publicar')
 									
                                     <div class="col-md-5">
                                     	{!! Form::button('Guardar',['class' => 'btn btn-primary btn-lg btn-block','onclick' => 'confirmar()']) !!}
