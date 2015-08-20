@@ -54,49 +54,315 @@ class PublicarCarrosController extends Controller
      */
     protected function validator(array $data)
     {
+    	$tipo = $data['lng_idtipo_vehiculo'];
+    	
+    	switch ($tipo){
+    		
+    		//Los id de los case se pueden consultar en cat_datos_maestros con el str_tipo 'automoviles'    		
+    		case '8'://Carros y Camionetas
+    		case '132'://Blindados
+    		case '134'://Carros Especiales
+    		case '135'://Carros de Colección
+    		case '136'://Carros de Competencia
+    		case '138'://Chocados
+    		case '140'://Gruas
+    		case '143'://Motorhome
+    		case '145'://Recreación
+    		case '146'://Taxi
+    		case '148'://Tuning
+    			
+		    	return Validator::make($data, [
+		                    			
+		            'lng_idtipo_vehiculo' => 'required|max:255',
+		    		'lng_idmarca' => 'required|max:255',
+		            'lng_idmodelo' => 'required|max:255',
+		            'str_placa' => 'required|string|max:255|unique:tbl_vehiculos',
+		            'int_cantidad_puertas' => 'required|integer|max:255',
+		            'lng_idcolor' => 'required|max:255',
+		            'lng_iddireccion' => 'required|max:255',
+		            'lng_idestereo' => 'required|max:255',
+		            'lng_idtransmision' => 'required|max:255',
+		            'lng_idtapizado' => 'required|max:255',
+		            'lng_idvidrios' => 'required|max:255',
+		            'lng_idtraccion' => 'required|max:255',
+		            'lng_idcombustible' => 'required|integer',
+		            'int_ano' => 'required|max:255',
+		            'str_recorrido' => 'required|max:255',
+		            'int_cilindros' => 'required|max:255',
+		            'lng_idcilindrada' => 'required|max:255',
+		            'lng_idchocado' => 'required|max:255',
+		            'lng_idnegociable' => 'required|max:255',
+		            'lng_idfinanciamiento' => 'required|max:255',
+		            'lng_idunicodueno' => 'required|max:255',
+		            'lng_idmotorreparado' => 'required|max:255',
+		            'int_pasajeros' => 'required|max:255',
+		            
+		            'lng_idcaracteristica' => 'required',
+		            
+		            'blb_img0' => 'required|image:jpeg,png,jpg',
+		            'blb_img1' => 'required|image:jpeg,png,jpg',
+		            'blb_img2' => 'required|image:jpeg,png,jpg',
+		            'blb_img3' => 'required|image:jpeg,png,jpg',
+		            'blb_img4' => 'required|image:jpeg,png,jpg',
+		            'blb_img5' => 'required|image:jpeg,png,jpg',
+		            
+		            'str_precio_venta' => 'required|max:255',
+		            'lng_idpais' => 'required|max:255',
+		    		'lng_idciudad' => 'required|max:255',
+		
+		        ]);
+		    	
+    		break;
+    		
+    		case '130'://Ambulancias
+    			
+    			return Validator::make($data, [
+    					 
+    					'lng_idtipo_vehiculo' => 'required|max:255',
+    					'lng_idmarca' => 'required|max:255',
+    					'lng_idmodelo' => 'required|max:255',
+    					'str_placa' => 'required|string|max:255|unique:tbl_vehiculos',
+    					'int_cantidad_puertas' => 'required|integer|max:255',
+    					'lng_idcolor' => 'required|max:255',
+    					'lng_iddireccion' => 'required|max:255',
+    					'lng_idestereo' => 'required|max:255',
+    					'lng_idtransmision' => 'required|max:255',
+    					'lng_idtapizado' => 'required|max:255',
+    					'lng_idvidrios' => 'required|max:255',
+    					'lng_idtraccion' => 'required|max:255',
+    					'lng_idcombustible' => 'required|integer',
+    					'int_ano' => 'required|max:255',
+    					'str_recorrido' => 'required|max:255',
+    					'int_cilindros' => 'required|max:255',
+    					'lng_idcilindrada' => 'required|max:255',
+    					'lng_idchocado' => 'required|max:255',
+    					'lng_idnegociable' => 'required|max:255',
+    					'lng_idfinanciamiento' => 'required|max:255',
+    					'lng_idunicodueno' => 'required|max:255',
+    					'lng_idmotorreparado' => 'required|max:255',
+    					'int_pasajeros' => 'required|max:255',
+    					
+    					'lng_idequipo_medico' => 'required|max:255',
+    					
+    					'lng_idcaracteristica' => 'required',
+    			
+    					'blb_img0' => 'required|image:jpeg,png,jpg',
+    					'blb_img1' => 'required|image:jpeg,png,jpg',
+    					'blb_img2' => 'required|image:jpeg,png,jpg',
+    					'blb_img3' => 'required|image:jpeg,png,jpg',
+    					'blb_img4' => 'required|image:jpeg,png,jpg',
+    					'blb_img5' => 'required|image:jpeg,png,jpg',
+    			
+    					'str_precio_venta' => 'required|max:255',
+    					'lng_idpais' => 'required|max:255',
+    					'lng_idciudad' => 'required|max:255',
+    			
+    			]);    			
+    			
+    		break;
+    		
+    		case '131'://Autobuses
+    			
+    			return Validator::make($data, [
+    			
+    					'lng_idtipo_vehiculo' => 'required|max:255',
+    					'lng_idmarca' => 'required|max:255',
+    					'lng_idmodelo' => 'required|max:255',
+    					'str_placa' => 'required|string|max:255|unique:tbl_vehiculos',
+    					'int_cantidad_puertas' => 'required|integer|max:255',
+    					'lng_idcolor' => 'required|max:255',
+    					'lng_iddireccion' => 'required|max:255',
+    					'lng_idestereo' => 'required|max:255',
+    					'lng_idtransmision' => 'required|max:255',
+    					'lng_idtapizado' => 'required|max:255',
+    					'lng_idvidrios' => 'required|max:255',
+    					'lng_idtraccion' => 'required|max:255',
+    					'lng_idcombustible' => 'required|integer',
+    					'int_ano' => 'required|max:255',
+    					'str_recorrido' => 'required|max:255',
+    					'int_cilindros' => 'required|max:255',
+    					'lng_idcilindrada' => 'required|max:255',
+    					'lng_idchocado' => 'required|max:255',
+    					'lng_idnegociable' => 'required|max:255',
+    					'lng_idfinanciamiento' => 'required|max:255',
+    					'lng_idunicodueno' => 'required|max:255',
+    					'lng_idmotorreparado' => 'required|max:255',
+    					'int_pasajeros' => 'required|max:255',
+    						
+    					'str_carroceria' => 'required|max:255',
+    					'lng_idventana' => 'required|max:255',
+    					'lng_idbano' => 'required|max:255',
+    						
+    					'lng_idcaracteristica' => 'required',
+    					 
+    					'blb_img0' => 'required|image:jpeg,png,jpg',
+    					'blb_img1' => 'required|image:jpeg,png,jpg',
+    					'blb_img2' => 'required|image:jpeg,png,jpg',
+    					'blb_img3' => 'required|image:jpeg,png,jpg',
+    					'blb_img4' => 'required|image:jpeg,png,jpg',
+    					'blb_img5' => 'required|image:jpeg,png,jpg',
+    					 
+    					'str_precio_venta' => 'required|max:255',
+    					'lng_idpais' => 'required|max:255',
+    					'lng_idciudad' => 'required|max:255',
+    					 
+    			]);    			
+    			
+    		break;
+    		
+    		case '133'://Camiones
 
-    	return Validator::make($data, [
-                    			
-            'lng_idtipo_vehiculo' => 'required|max:255',
-    		'lng_idmarca' => 'required|max:255',
-            'lng_idmodelo' => 'required|max:255',
-            'str_placa' => 'required|string|max:255|unique:tbl_vehiculos',
-            'int_cantidad_puertas' => 'required|integer|max:255',
-            'lng_idcolor' => 'required|max:255',
-            'lng_iddireccion' => 'required|max:255',
-            'lng_idestereo' => 'required|max:255',
-            'lng_idtransmision' => 'required|max:255',
-            'lng_idtapizado' => 'required|max:255',
-            'lng_idvidrios' => 'required|max:255',
-            'lng_idtraccion' => 'required|max:255',
-            'lng_idcombustible' => 'required|integer',
-            'int_ano' => 'required|max:255',
-            'str_recorrido' => 'required|max:255',
-            'int_cilindros' => 'required|max:255',
-            'lng_idcilindrada' => 'required|max:255',
-            'str_version' => 'required|max:255',
-            'lng_idchocado' => 'required|max:255',
-            'lng_idnegociable' => 'required|max:255',
-            'lng_idfinanciamiento' => 'required|max:255',
-            'lng_idunicodueno' => 'required|max:255',
-            'lng_idmotorreparado' => 'required|max:255',
-            
-            'lng_idcaracteristica' => 'required',
-            
-            'blb_img0' => 'required|image:jpeg,png,jpg',
-            'blb_img1' => 'required|image:jpeg,png,jpg',
-            'blb_img2' => 'required|image:jpeg,png,jpg',
-            'blb_img3' => 'required|image:jpeg,png,jpg',
-            'blb_img4' => 'required|image:jpeg,png,jpg',
-            'blb_img5' => 'required|image:jpeg,png,jpg',
-            
+    			return Validator::make($data, [
+    					 
+    					'lng_idtipo_vehiculo' => 'required|max:255',
+    					'lng_idmarca' => 'required|max:255',
+    					'lng_idmodelo' => 'required|max:255',
+    					'str_placa' => 'required|string|max:255|unique:tbl_vehiculos',
+    					'int_cantidad_puertas' => 'required|integer|max:255',
+    					'lng_idcolor' => 'required|max:255',
+    					'lng_iddireccion' => 'required|max:255',
+    					'lng_idestereo' => 'required|max:255',
+    					'lng_idtransmision' => 'required|max:255',
+    					'lng_idtapizado' => 'required|max:255',
+    					'lng_idvidrios' => 'required|max:255',
+    					'lng_idtraccion' => 'required|max:255',
+    					'lng_idcombustible' => 'required|integer',
+    					'int_ano' => 'required|max:255',
+    					'str_recorrido' => 'required|max:255',
+    					'int_cilindros' => 'required|max:255',
+    					'lng_idcilindrada' => 'required|max:255',
+    					'lng_idchocado' => 'required|max:255',
+    					'lng_idnegociable' => 'required|max:255',
+    					'lng_idfinanciamiento' => 'required|max:255',
+    					'lng_idunicodueno' => 'required|max:255',
+    					'lng_idmotorreparado' => 'required|max:255',
+    					'int_pasajeros' => 'required|max:255',
+    			
+    					'lng_idfrenado' => 'required|max:255',
+    					'int_carga' => 'required|max:255',
+    					'int_lastre' => 'required|max:255',
+    					'dbl_neumatico' => 'required|max:255',
+    					'int_potenciamax' => 'required|max:255',
+    			
+    					'lng_idcaracteristica' => 'required',
+    			
+    					'blb_img0' => 'required|image:jpeg,png,jpg',
+    					'blb_img1' => 'required|image:jpeg,png,jpg',
+    					'blb_img2' => 'required|image:jpeg,png,jpg',
+    					'blb_img3' => 'required|image:jpeg,png,jpg',
+    					'blb_img4' => 'required|image:jpeg,png,jpg',
+    					'blb_img5' => 'required|image:jpeg,png,jpg',
+    			
+    					'str_precio_venta' => 'required|max:255',
+    					'lng_idpais' => 'required|max:255',
+    					'lng_idciudad' => 'required|max:255',
+    			
+    			]);
+    			
+    		break;
+    		
+    		case '137'://Carros de Golf
+    		
+    			return Validator::make($data, [
+    		
+    			'lng_idtipo_vehiculo' => 'required|max:255',
+    			'lng_idmarca' => 'required|max:255',
+    			'lng_idmodelo' => 'required|max:255',
 
-            'str_precio_venta' => 'required|max:255',
-            'lng_idpais' => 'required|max:255',
-    		'lng_idciudad' => 'required|max:255',
+    			'lng_idcolor' => 'required|max:255',
+    			'lng_iddireccion' => 'required|max:255',
+    			'lng_idestereo' => 'required|max:255',
+    			'lng_idtransmision' => 'required|max:255',
+    			'lng_idtapizado' => 'required|max:255',
 
+    			'lng_idtraccion' => 'required|max:255',
+    			'lng_idcombustible' => 'required|integer',
+    			'int_ano' => 'required|max:255',
 
-        ]);
+    			'lng_idchocado' => 'required|max:255',
+    			'lng_idnegociable' => 'required|max:255',
+    			'lng_idfinanciamiento' => 'required|max:255',
+    			'lng_idunicodueno' => 'required|max:255',
+    			'lng_idmotorreparado' => 'required|max:255',
+    			'int_pasajeros' => 'required|max:255',
+    			
+    			'int_carga' => 'required|max:255',
+    			    			 
+    			'lng_idcaracteristica' => 'required',
+    			 
+    			'blb_img0' => 'required|image:jpeg,png,jpg',
+    			'blb_img1' => 'required|image:jpeg,png,jpg',
+    			'blb_img2' => 'required|image:jpeg,png,jpg',
+    			'blb_img3' => 'required|image:jpeg,png,jpg',
+    			'blb_img4' => 'required|image:jpeg,png,jpg',
+    			'blb_img5' => 'required|image:jpeg,png,jpg',
+    			 
+    			'str_precio_venta' => 'required|max:255',
+    			'lng_idpais' => 'required|max:255',
+    			'lng_idciudad' => 'required|max:255',
+    			 
+    			]);
+    			 
+    		break;    		
+    		    		
+    		case '141'://Kartings
+    			
+    			return Validator::make($data, [
+    					 
+    					'lng_idtipo_vehiculo' => 'required|max:255',
+    					'lng_idmarca' => 'required|max:255',
+    					'lng_idmodelo' => 'required|max:255',
+    					'str_placa' => 'required|string|max:255|unique:tbl_vehiculos',
+    					'int_cantidad_puertas' => 'required|integer|max:255',
+    					'lng_idcolor' => 'required|max:255',
+    					'lng_iddireccion' => 'required|max:255',
+    					'lng_idestereo' => 'required|max:255',
+    					'lng_idtransmision' => 'required|max:255',
+    					'lng_idtapizado' => 'required|max:255',
+    					'lng_idvidrios' => 'required|max:255',
+    					'lng_idtraccion' => 'required|max:255',
+    					'lng_idcombustible' => 'required|integer',
+    					'int_ano' => 'required|max:255',
+    					'str_recorrido' => 'required|max:255',
+    					'int_cilindros' => 'required|max:255',
+    					'lng_idcilindrada' => 'required|max:255',
+    					'lng_idchocado' => 'required|max:255',
+    					'lng_idnegociable' => 'required|max:255',
+    					'lng_idfinanciamiento' => 'required|max:255',
+    					'lng_idunicodueno' => 'required|max:255',
+    					'lng_idmotorreparado' => 'required|max:255',
+    					'int_pasajeros' => 'required|max:255',
+    			
+    					'lng_idarranque' => 'required|max:255',
+    			
+    					'lng_idcaracteristica' => 'required',
+    			
+    					'blb_img0' => 'required|image:jpeg,png,jpg',
+    					'blb_img1' => 'required|image:jpeg,png,jpg',
+    					'blb_img2' => 'required|image:jpeg,png,jpg',
+    					'blb_img3' => 'required|image:jpeg,png,jpg',
+    					'blb_img4' => 'required|image:jpeg,png,jpg',
+    					'blb_img5' => 'required|image:jpeg,png,jpg',
+    			
+    					'str_precio_venta' => 'required|max:255',
+    					'lng_idpais' => 'required|max:255',
+    					'lng_idciudad' => 'required|max:255',
+    			
+    			]);
+    			
+    		break; 
+    		
+    		default:
+    			
+    			return Validator::make($data, [
+    					 
+    					'lng_idtipo_vehiculo' => 'required|max:255',
+    			]);
+    			
+    		break;
+    		
+    	}
+    
     }
 
     /**

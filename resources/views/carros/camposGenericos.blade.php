@@ -66,14 +66,36 @@ Descripción
                 <div class="form-group col-md-4">
                     
                     <!-- <i id="int_cantidad_puertas_validar" class="fa fa-check" style="color:green;"></i>-->
-                    {!! Form::label('int_cantidad_puertas', '* Cantidad de Puertas') !!}
-                    {!! 
-
-                        Form::selectRange('int_cantidad_puertas', 2, 5, null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)'])
+                    {!! Form::label('int_cantidad_puertas', 'Cantidad de Puertas') !!}
+                                          
+    					<select id='int_cantidad_puertas' name='int_cantidad_puertas' class='form-control' onchange=''>            
+	                        <option value=''>Seleccione</option>
+								@for ($i = 0; $i < 6; $i++)
+								
+								   <option value='{{ $i }}'>{{ $i }}</option>
+								    								    
+								@endfor	                        						
+																			               						
+						</select>
                     
-                    !!}
-                
                 </div>
+                
+				<div class="form-group col-md-4">
+				
+				<!-- <i id="int_pasajeros_validar" class="fa fa-check" style="color:green;"></i> -->
+				{!! Form::label('int_pasajeros', '* Capacidad de Personas') !!}
+				
+    					<select id='int_pasajeros' name='int_pasajeros' class='form-control' onchange=''>            
+	                        <option value=''>Seleccione</option>
+								@for ($i = 2; $i < 120+1; $i++)
+								
+								   <option value='{{ $i }}'>{{ $i }}</option>
+								    								    
+								@endfor	                        						
+																			               						
+						</select>
+				
+				</div>                
 
                 <div class="form-group col-md-4">
                    
@@ -86,10 +108,7 @@ Descripción
                                         ['id'=> 'lng_idcolor','class' => 'form-control','onchange'=>'validar(this.value,this.name)']
                                     ) 
                     !!} 
-                    
 
-                                                   
-                    
                 </div>
 
                 <div class="form-group col-md-4">
@@ -188,8 +207,17 @@ Descripción
                     <!-- <i id="int_ano_validar" class="fa fa-check" style="color:green;"></i> -->
                     {!! Form::label('int_ano', '* Año') !!}
                     <?php $ano = date('Y')?>
-                    {!! Form::selectRange('int_ano', 1950, $ano , null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']) !!} 
-
+                    
+    					<select id='int_ano' name='int_ano' class='form-control' onchange=''>            
+	                        <option value=''>Seleccione</option>
+								@for ($i = 1950; $i < $ano+1; $i++)
+								
+								   <option value='{{ $i }}'>{{ $i }}</option>
+								    								    
+								@endfor	                        						
+																			               						
+						</select>
+					
                 </div>
 
                 <div class="form-group col-md-4">
@@ -225,7 +253,7 @@ Descripción
                 <div class="form-group col-md-4">
                     
                     <!-- <i id="str_version_validar" class="fa fa-asterisk" style="color:red;"></i> -->
-                    {!! Form::label('str_version', '* Versión') !!}
+                    {!! Form::label('str_version', 'Versión') !!}
                     {!! Form::input('text', 'str_version', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
 
                 </div> 
