@@ -18,7 +18,7 @@
                                                         <div class="form-group col-md-4">
                                                             
                                                             <!-- <i id="lng_idventana_validar" class="fa fa-asterisk" style="color:red;"></i> -->
-                                                            {!! Form::label('lng_idventana', '* Ventanas Panoramicas') !!}<br>
+                                                            {!! Form::label('lng_idventana', '* Ventana Panorámica') !!}<br>
                                                            
 															{!! Form::select('lng_idventana', 
 																(['' => 'Seleccione'] + $respuesta), 

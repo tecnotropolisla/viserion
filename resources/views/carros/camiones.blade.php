@@ -1,7 +1,7 @@
             <div class="form-group col-md-4">
                     
                     <!-- <i id="lng_idfrenado_validar" class="fa fa-asterisk" style="color:red;"></i> -->
-                    {!! Form::label('lng_idfrenado', '* Frenado') !!}
+                    {!! Form::label('lng_idfrenado', '* Sistema de Frenado') !!}
                     {!! Form::select('lng_idfrenado', 
                                         (['' => 'Seleccione'] + $frenado), 
                                         null, 
