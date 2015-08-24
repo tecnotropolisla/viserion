@@ -6,60 +6,70 @@
                                     </h3>
                                         <div class="lighter"><p>Añade fotos de tu vehículo</p></div>
 
-                                       <!--  <div class="tab-content col-md-12">-->
+			
+			<!-- Modal -->
+			<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog modal-lg" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">Editar Imágen</h4>
+			      </div>
+			      <div class="modal-body">
 
-<div class="col-md-6 col-md-offset-3">
-<br>
-<div class="panel panel-default" id="popup">
-  <div class="panel-heading">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="popupHidden();"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>
-    Panel title
-  </div>
-  <!-- .panel-heading -->
-  <div class="panel-body">
-    
-    <div class="row">
-    	<div class="col-md-12">
-    		<span class="btn btn-default btn-lg btn-block btn-file">
-        <i class="fa fa-image"></i> Examinar Imagen... <input type="file" id="file">
-        </span>
-    <div class="imageBox">
-        <div class="thumbBox"></div>
-        <div class="spinner" style="display: none">
-        <i class="glyphicon glyphicon-picture" style="font-size:10em;"></i>
-        </div>
-    </div>
-  </div>
-    	</div>
-    </div>   
-    
-  <!-- panel-body -->
-  <div class="panel-footer">
-    <div class="btn-group"  role="group" aria-label="...">
-        <button type="button" class="btn btn-primary btn-lg" id="btnZoomIn" title="Maximizar Imagen"><i class="fa fa-plus"></i></button>
-        <button type="button" class="btn btn-danger btn-lg" id="btnZoomOut" title="Minimizar Imagen"><i class="fa fa-minus"></i></button>
-        <button type="button" id="btnCrop-0" class="crop btn btn-success btn-lg">Guardar Imagen Principal</button>
-        <button type="button" id="btnCrop-1" class="crop btn btn-success btn-lg">Guardar Imagen Interior</button>
-        <button type="button" id="btnCrop-2" class="crop btn btn-success btn-lg">Guardar Imagen Motor</button>
-        <button type="button" id="btnCrop-3" class="crop btn btn-success btn-lg">Guardar Imagen</button>
-        <button type="button" id="btnCrop-4" class="crop btn btn-success btn-lg">Guardar Imagen</button>
-        <button type="button" id="btnCrop-5" class="crop btn btn-success btn-lg">Guardar Imagen</button>
-    </div>
 
-  </div>
-  <!-- .panel-footer -->
-</div>
-<!-- .panel -->
-</div>
-<!-- .col-md-6 -->
+					<div class="" id="">
+					
+					    <div class="row">
+						    <div class="col-md-12">
+					    		<span class="btn btn-default btn-lg btn-block btn-file">
+							        <i class="fa fa-image"></i> Seleccione la Imagen... <input type="file" id="file">
+							    </span>
+								<div class="imageBox">
+							        <div class="thumbBox"></div>
+							        <div class="spinner" style="display: none">
+						        		<i class="glyphicon glyphicon-picture" style="font-size:10em;"></i>
+							        </div>
+							    </div>
+							</div>
+						</div>
+					 
+					    <div class="btn-group"  role="group" aria-label="...">
+					        <button type="button" class="btn btn-primary btn-lg" id="btnZoomIn" title="Maximizar Imagen"><i class="fa fa-plus"></i></button>
+					        <button type="button" class="btn btn-danger btn-lg" id="btnZoomOut" title="Minimizar Imagen"><i class="fa fa-minus"></i></button>
+					        <button type="button" id="btnCrop-0" class="crop btn btn-success btn-lg" data-dismiss="modal">Guardar Imagen Principal</button>
+					        <button type="button" id="btnCrop-1" class="crop btn btn-success btn-lg" data-dismiss="modal">Guardar Imagen Interior</button>
+					        <button type="button" id="btnCrop-2" class="crop btn btn-success btn-lg" data-dismiss="modal">Guardar Imagen Motor</button>
+					        <button type="button" id="btnCrop-3" class="crop btn btn-success btn-lg" data-dismiss="modal">Guardar Imagen</button>
+					        <button type="button" id="btnCrop-4" class="crop btn btn-success btn-lg" data-dismiss="modal">Guardar Imagen</button>
+					        <button type="button" id="btnCrop-5" class="crop btn btn-success btn-lg" data-dismiss="modal">Guardar Imagen</button>
+					    </div>
+					    
+					</div>
+
+
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+
+
+
+
+
+
+
 <div class="col-md-12">
-<div class="row">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="col-md-4">
 		        	<div class="panel panel-default">
 					 	<div class="panel-heading"><i class="fa fa-image"></i> Imagen Principal...</div>
-					 	<div class="panel-body cropped-0">
+					 	<div class="panel-body cropped-0" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('0')">
 					    	<p class="text-center">
 					    		<i class="fa fa-image"></i>
 					    	</p>
@@ -71,7 +81,7 @@
 		        <div class="col-md-4">
 		        	<div class="panel panel-default">
 					 	<div class="panel-heading"><i class="fa fa-image"></i> Interior</div>
-					 	<div class="panel-body cropped-1">
+					 	<div class="panel-body cropped-1" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('1')">
 					    	<p class="text-center">
 					    		<i class="fa fa-image"></i>
 					    	</p>
@@ -83,7 +93,7 @@
 		        <div class="col-md-4">
 		        	<div class="panel panel-default">
 					 	<div class="panel-heading"><i class="fa fa-image"></i> Motor</div>
-					 	<div class="panel-body cropped-2">
+					 	<div class="panel-body cropped-2" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('2')">
 					    	<p class="text-center">
 					    		<i class="fa fa-image"></i>
 					    	</p>
@@ -97,7 +107,7 @@
 				<div class="col-md-4">
 		        	<div class="panel panel-default">
 					 	<div class="panel-heading"><i class="fa fa-image"></i> Otros 1</div>
-					 	<div class="panel-body cropped-3">
+					 	<div class="panel-body cropped-3" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('3')">
 					    	<p class="text-center">
 					    		<i class="fa fa-image"></i>
 					    	</p>
@@ -109,7 +119,7 @@
 		        <div class="col-md-4">
 		        	<div class="panel panel-default">
 					 	<div class="panel-heading"><i class="fa fa-image"></i> Otros 2</div>
-					 	<div class="panel-body cropped-4">
+					 	<div class="panel-body cropped-4" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('4')">
 					    	<p class="text-center">
 					    		<i class="fa fa-image"></i>
 					    	</p>
@@ -121,7 +131,7 @@
 		        <div class="col-md-4">
 		        	<div class="panel panel-default">
 					 	<div class="panel-heading"><i class="fa fa-image"></i> Otros 3</div>
-					 	<div class="panel-body cropped-5">
+					 	<div class="panel-body cropped-5" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('5')">
 					    	<p class="text-center">
 					    		<i class="fa fa-image"></i>
 					    	</p>
@@ -133,11 +143,12 @@
 			</div><!-- .col-md-12 -->
 		</div><!-- .row -->
         
-                
-    </div>
+
     </div>
 
-                                       <!--  </div>-->
+
+
+
 
                                     <hr class="fw">
                                     <h3>Añade un video de tu carro</h3>

@@ -5726,7 +5726,7 @@ body{
 	color:#FFF;
 }
 
-/**Imagenes Galeria***/
+/**Imagenes ***/
 .imageBox
 {
     position: relative;
@@ -5786,12 +5786,12 @@ body{
 }
 
 #popup {
-    visibility: hidden;
+    visibility: visible;
     position: absolute;
     z-index: 9999;
     top:0;
     left:0;    
-    margin: 10% 0% 0% -50%;
+    margin: 10% 15%;
 
 }
 #popup .panel-footer .crop{
@@ -5806,3 +5806,22 @@ body{
     color: #CCC;
 }
 
+
+#btnCrop-0{
+	display: none;
+}
+#btnCrop-1{
+	display: none;
+}
+#btnCrop-2{
+	display: none;
+}
+#btnCrop-3{
+	display: none;
+}
+#btnCrop-4{
+	display: none;
+}
+#btnCrop-5{
+	display: none;
+}
