@@ -5791,7 +5791,7 @@ body{
     z-index: 9999;
     top:0;
     left:0;    
-    margin: 10% 0% 0% -45%;
+    margin: 10% 0% 0% -50%;
 
 }
 #popup .panel-footer .crop{

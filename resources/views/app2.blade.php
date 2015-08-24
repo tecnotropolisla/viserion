@@ -62,6 +62,7 @@
 	<!-- Propios -->
 	{!! Html::script('autostars/js/init_cars.js') !!}  <!-- All Scripts -->
 	{!! Html::script('autostars/js/ajaxCars.js') !!}  <!-- Ajax -->
+	{!! Html::script('autostars/js/cropbox.js') !!}
 		
 </body>
 </html>

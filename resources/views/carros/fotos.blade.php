@@ -6,103 +6,138 @@
                                     </h3>
                                         <div class="lighter"><p>Añade fotos de tu vehículo</p></div>
 
-                                        <div class="tab-content col-md-12">
+                                       <!--  <div class="tab-content col-md-12">-->
 
-                                            <div class="form-group col-md-4">
+<div class="col-md-6 col-md-offset-3">
+<br>
+<div class="panel panel-default" id="popup">
+  <div class="panel-heading">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="popupHidden();"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>
+    Panel title
+  </div>
+  <!-- .panel-heading -->
+  <div class="panel-body">
+    
+    <div class="row">
+    	<div class="col-md-12">
+    		<span class="btn btn-default btn-lg btn-block btn-file">
+        <i class="fa fa-image"></i> Examinar Imagen... <input type="file" id="file">
+        </span>
+    <div class="imageBox">
+        <div class="thumbBox"></div>
+        <div class="spinner" style="display: none">
+        <i class="glyphicon glyphicon-picture" style="font-size:10em;"></i>
+        </div>
+    </div>
+  </div>
+    	</div>
+    </div>   
+    
+  <!-- panel-body -->
+  <div class="panel-footer">
+    <div class="btn-group"  role="group" aria-label="...">
+        <button type="button" class="btn btn-primary btn-lg" id="btnZoomIn" title="Maximizar Imagen"><i class="fa fa-plus"></i></button>
+        <button type="button" class="btn btn-danger btn-lg" id="btnZoomOut" title="Minimizar Imagen"><i class="fa fa-minus"></i></button>
+        <button type="button" id="btnCrop-0" class="crop btn btn-success btn-lg">Guardar Imagen Principal</button>
+        <button type="button" id="btnCrop-1" class="crop btn btn-success btn-lg">Guardar Imagen Interior</button>
+        <button type="button" id="btnCrop-2" class="crop btn btn-success btn-lg">Guardar Imagen Motor</button>
+        <button type="button" id="btnCrop-3" class="crop btn btn-success btn-lg">Guardar Imagen</button>
+        <button type="button" id="btnCrop-4" class="crop btn btn-success btn-lg">Guardar Imagen</button>
+        <button type="button" id="btnCrop-5" class="crop btn btn-success btn-lg">Guardar Imagen</button>
+    </div>
 
-                                                {!! Form::radio('principal', '1', null,['onclick' => 'imagenppal(this.value,"principal0")','checked']) !!}
-                                                {!! Form::label('principal', 'Principal') !!} 
+  </div>
+  <!-- .panel-footer -->
+</div>
+<!-- .panel -->
+</div>
+<!-- .col-md-6 -->
+<div class="col-md-12">
+<div class="row">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-4">
+		        	<div class="panel panel-default">
+					 	<div class="panel-heading"><i class="fa fa-image"></i> Imagen Principal...</div>
+					 	<div class="panel-body cropped-0">
+					    	<p class="text-center">
+					    		<i class="fa fa-image"></i>
+					    	</p>
+					    	<input type="hidden" name="blb_img0">
+					  	</div>
+					</div>                       
+		        </div>
+		        <!-- img-0 -->
+		        <div class="col-md-4">
+		        	<div class="panel panel-default">
+					 	<div class="panel-heading"><i class="fa fa-image"></i> Interior</div>
+					 	<div class="panel-body cropped-1">
+					    	<p class="text-center">
+					    		<i class="fa fa-image"></i>
+					    	</p>
+					    	<input type="hidden" name="blb_img1">
+					  	</div>
+					</div>                       
+		        </div>
+		        <!-- img-1 -->
+		        <div class="col-md-4">
+		        	<div class="panel panel-default">
+					 	<div class="panel-heading"><i class="fa fa-image"></i> Motor</div>
+					 	<div class="panel-body cropped-2">
+					    	<p class="text-center">
+					    		<i class="fa fa-image"></i>
+					    	</p>
+					    	<input type="hidden" name="blb_img2">
+					  	</div>
+					</div>                       
+		        </div>
+		        <!-- img-2 -->
+			</div><!-- .col-md-12 -->
+			<div class="col-md-12">
+				<div class="col-md-4">
+		        	<div class="panel panel-default">
+					 	<div class="panel-heading"><i class="fa fa-image"></i> Otros 1</div>
+					 	<div class="panel-body cropped-3">
+					    	<p class="text-center">
+					    		<i class="fa fa-image"></i>
+					    	</p>
+					    	<input type="hidden" name="blb_img3">
+					  	</div>
+					</div>                       
+		        </div>
+		        <!-- img-3 -->
+		        <div class="col-md-4">
+		        	<div class="panel panel-default">
+					 	<div class="panel-heading"><i class="fa fa-image"></i> Otros 2</div>
+					 	<div class="panel-body cropped-4">
+					    	<p class="text-center">
+					    		<i class="fa fa-image"></i>
+					    	</p>
+					    	<input type="hidden" name="blb_img4">
+					  	</div>
+					</div>                       
+		        </div>
+		        <!-- img-4 -->
+		        <div class="col-md-4">
+		        	<div class="panel panel-default">
+					 	<div class="panel-heading"><i class="fa fa-image"></i> Otros 3</div>
+					 	<div class="panel-body cropped-5">
+					    	<p class="text-center">
+					    		<i class="fa fa-image"></i>
+					    	</p>
+					    	<input type="hidden" name="blb_img5">
+					  	</div>
+					</div>                       
+		        </div>
+		        <!-- img-5 -->
+			</div><!-- .col-md-12 -->
+		</div><!-- .row -->
+        
+                
+    </div>
+    </div>
 
-                                                {!! Form::label('blb_img0', 'Imagen N° 1') !!}
-                                                {!! Form::file('blb_img0',['onclick' =>'oir()']) !!}
-                                                {!! Form::input('hidden', 'principal0', '1',['id'=> 'principal0']) !!}
-
-                                                <output id="img0">
-                                                    <i class="fa fa-picture-o" style="font-size:50px"></i>
-                                                </output>
-
-                                            </div>
-
-                                            <div class="form-group col-md-4">
-
-                                                {!! Form::radio('principal', '1', null,['onclick' => 'imagenppal(this.value,"principal1")']) !!}
-                                                {!! Form::label('principal', 'Principal') !!} 
-
-                                                {!! Form::label('blb_img1', 'Imagen N° 2') !!}
-                                                {!! Form::file('blb_img1',['onclick' =>'oir()']) !!}
-                                                {!! Form::input('hidden', 'principal1', '0',['id'=> 'principal1']) !!}
-
-                                                <output id="img1">
-                                                    <i class="fa fa-picture-o" style="font-size:50px"></i>
-                                                </output>
-
-                                            </div>
-
-                                            <div class="form-group col-md-4">
-
-                                                {!! Form::radio('principal', '1', null,['onclick' => 'imagenppal(this.value,"principal2")']) !!}
-                                                {!! Form::label('principal', 'Principal') !!} 
-
-                                                {!! Form::label('blb_img2', 'Imagen N° 3') !!}
-                                                {!! Form::file('blb_img2',['onclick' =>'oir()']) !!}
-                                                {!! Form::input('hidden', 'principal2', '0',['id'=> 'principal2']) !!}
-
-                                                <output id="img2">
-                                                    <i class="fa fa-picture-o" style="font-size:50px"></i>
-                                                </output>
-
-                                            </div> 
-
-                                        </div>
-
-                                        <div class="tab-content col-md-12">
-
-                                            <div class="form-group col-md-4">
-
-                                                {!! Form::radio('principal', '1', null,['onclick' => 'imagenppal(this.value,"principal3")']) !!}
-                                                {!! Form::label('principal', 'Principal') !!} 
-
-                                                {!! Form::label('blb_img3', 'Imagen N° 4') !!}
-                                                {!! Form::file('blb_img3',['onclick' =>'oir()']) !!}
-                                                {!! Form::input('hidden', 'principal3', '0',['id'=> 'principal3']) !!}
-
-                                                <output id="img3">
-                                                    <i class="fa fa-picture-o" style="font-size:50px"></i>
-                                                </output>
-
-                                            </div>
-
-                                            <div class="form-group col-md-4">
-
-                                                {!! Form::radio('principal', '1', null,['onclick' => 'imagenppal(this.value,"principal4")']) !!}
-                                                {!! Form::label('principal', 'Principal') !!}
-
-                                                {!! Form::label('blb_img4', 'Imagen N° 5') !!}
-                                                {!! Form::file('blb_img4',['onclick' =>'oir()']) !!}
-                                                {!! Form::input('hidden', 'principal4', '0',['id'=> 'principal4']) !!}
-
-                                                <output id="img4">
-                                                    <i class="fa fa-picture-o" style="font-size:50px"></i>
-                                                </output>
-
-                                            </div>
-
-                                            <div class="form-group col-md-4">
-
-                                                {!! Form::radio('principal', '1', null,['onclick' => 'imagenppal(this.value,"principal5")']) !!}
-                                                {!! Form::label('principal', 'Principal') !!} 
-
-                                                {!! Form::label('blb_img5', 'Imagen N° 6') !!}
-                                                {!! Form::file('blb_img5',['onclick' =>'oir()']) !!}
-                                                {!! Form::input('hidden', 'principal5', '0',['id'=> 'principal5']) !!}
-
-                                                <output id="img5">
-                                                    <i class="fa fa-picture-o" style="font-size:50px"></i>
-                                                </output>
-
-                                            </div> 
-
-                                        </div>
+                                       <!--  </div>-->
 
                                     <hr class="fw">
                                     <h3>Añade un video de tu carro</h3>
