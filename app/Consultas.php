@@ -15,6 +15,9 @@ class Consultas extends Model
             case 'vehiculos':
                  $vehiculos = DB::table('tbl_vehiculos as v')
 		        ->where('v.id', '=', $valor)
+		        ->Where(function ($query) {
+		        	$query->where('v.bol_eliminado', '=', 0);
+		        })		        
 		        ->select('v.*')
 		        ->get();
                 return $vehiculos;
@@ -47,6 +50,9 @@ class Consultas extends Model
 			    ->Where(function ($query) {
 			    	$query->where('ima.int_peso', '=', 1);
 			    })
+			    ->Where(function ($query) {
+			    	$query->where('v.bol_eliminado', '=', 0);
+			    })			    
 			    ->select('v.*','per.name as usuario','p2.str_paises as pais_persona','p2.blb_img as bandera_persona','per.str_nombre as nombre_persona','per.str_apellido as apellido_persona','per.email',
 		            'per.str_ididentificacion','per.str_telefono','per.str_twitter','per.str_facebook','per.str_instagram',
 		            'per.blb_img as ima_persona','ima.blb_img as imagen', 'p.blb_img as bandera','dm.str_descripcion as transmision', 
@@ -64,6 +70,9 @@ class Consultas extends Model
 			case 'imagenes':
 				    $imagenes = DB::table('tbl_imagenes_vehiculos as ima')
 				    ->where('ima.lng_idvehiculo', '=', $valor)
+				    ->Where(function ($query) {
+				    	$query->where('ima.bol_eliminado', '=', 0);
+				    })				    
 				    ->select('ima.int_peso','ima.blb_img as imagen')
 				    ->get();
 				return $imagenes;
@@ -73,6 +82,9 @@ class Consultas extends Model
 			        $caracteristicas = DB::table('tbl_detalles_vehiculos as dv')
 			        ->join('cat_datos_maestros as dm', 'dm.id', '=', 'dv.lng_idcaracteristica')
 			        ->where('dv.lng_idvehiculo', '=', $valor)
+			        ->Where(function ($query) {
+			        	$query->where('dv.bol_eliminado', '=', 0);
+			        })			        
 			        ->select('dm.str_descripcion','dm.str_tipo')
 			        ->get();
 				return $caracteristicas;
@@ -81,6 +93,9 @@ class Consultas extends Model
 			case 'tipo_vehiculos':
 				$tipo_vehiculos = DB::table('cat_datos_maestros')
 				->where('str_tipo', $valor)
+				->Where(function ($query) {
+					$query->where('bol_eliminado', '=', 0);
+				})				
 				->lists('str_descripcion','id');
 				return $tipo_vehiculos;
 			break;
@@ -90,6 +105,9 @@ class Consultas extends Model
 				->join('tbl_tipos_marcas as tm', 'tm.lng_idmarca', '=', 'm.id')
 				->join('cat_datos_maestros as dm', 'dm.id', '=', 'tm.lng_idtipo')
 				->where('dm.id', '=', $valor)
+				->Where(function ($query) {
+					$query->where('m.bol_eliminado', '=', 0);
+				})				
 				->orderBy('m.str_marca')
 				->select('m.str_marca','m.id')
 				->lists('str_marca','id');
@@ -105,6 +123,9 @@ class Consultas extends Model
 				->Where(function ($query) {
 					$query->where('dm.id', '=', 153);
 				})
+				->Where(function ($query) {
+					$query->where('m.bol_eliminado', '=', 0);
+				})				
 				->orderBy('m.str_marca')
 				->select('m.str_marca','m.id')
 				->lists('str_marca','id');
@@ -114,13 +135,16 @@ class Consultas extends Model
             case 'modelos':
                     $modelos = DB::table('tbl_modelos')
                     ->where('lng_idmarca', $valor)
+                    ->Where(function ($query) {
+                    	$query->where('bol_eliminado', '=', 0);
+                    })                    
                     ->lists('str_modelo','id');
                 return $modelos;
             break;
             
             case 'ciudades':
             
-            	$ciudades = DB::select("select id, str_ciudad from cat_ciudades where lng_idpais = ".$valor." ");
+            	$ciudades = DB::select("select id, str_ciudad from cat_ciudades where lng_idpais = ".$valor." and bol_eliminado = 0 ");
             
             	return $ciudades;
             break;
@@ -131,6 +155,9 @@ class Consultas extends Model
             	->Where(function ($query) {
             		$query->where('str_tipo', '=', 'desplazamiento_vehiculos');
             	})
+            	->Where(function ($query) {
+            		$query->where('bol_eliminado', '=', 0);
+            	})            	
             	->select('str_descripcion','id')
             	->lists('str_descripcion','id');
             	return $cilindrada;
@@ -146,6 +173,9 @@ class Consultas extends Model
             	->Where(function ($query) {
             		$query->where('str_tipo', '=', 'desplazamiento_vehiculos');
             	})
+            	->Where(function ($query) {
+            		$query->where('bol_eliminado', '=', 0);
+            	})            	
             	->select('str_descripcion','id')
             	->lists('str_descripcion','id');
             	return $cilindrada;
@@ -157,6 +187,9 @@ class Consultas extends Model
             	->Where(function ($query) {
             		$query->where('str_tipo', '=', 'seguridad_vehiculos');
             	})
+            	->Where(function ($query) {
+            		$query->where('bol_eliminado', '=', 0);
+            	})            	
             	->lists('str_descripcion','id');
             	return $seguridad;
             break;
@@ -166,6 +199,9 @@ class Consultas extends Model
             	->where('str_caracteristica', $valor)
             	->Where(function ($query) {
             		$query->where('str_tipo', '=', 'sonido_vehiculos');
+            	})
+            	->Where(function ($query) {
+            		$query->where('bol_eliminado', '=', 0);
             	})            	
             	->lists('str_descripcion','id');
             	return $sonido;
@@ -176,6 +212,9 @@ class Consultas extends Model
             	->where('str_caracteristica', $valor)
             	->Where(function ($query) {
             		$query->where('str_tipo', '=', 'exterior_vehiculos');
+            	})
+            	->Where(function ($query) {
+            		$query->where('bol_eliminado', '=', 0);
             	})            	
             	->lists('str_descripcion','id');
             	return $exterior;
@@ -186,6 +225,9 @@ class Consultas extends Model
             	->where('str_caracteristica', $valor)
             	->Where(function ($query) {
             		$query->where('str_tipo', '=', 'confort_vehiculos');
+            	})
+            	->Where(function ($query) {
+            		$query->where('bol_eliminado', '=', 0);
             	})            	
             	->lists('str_descripcion','id');
             	return $confort;
@@ -196,6 +238,9 @@ class Consultas extends Model
             	->where('str_caracteristica', $valor)
             	->Where(function ($query) {
             		$query->where('str_tipo', '=', 'accesoriosInternos_vehiculos');
+            	})
+            	->Where(function ($query) {
+            		$query->where('bol_eliminado', '=', 0);
             	})            	
             	->lists('str_descripcion','id');
             	return $accesorios_internos;
@@ -210,7 +255,7 @@ class Consultas extends Model
 
             case 'ciudades':
 
-                $ciudades = DB::select("select id, str_ciudad from cat_ciudades where lng_idpais = ".$valor2." AND str_ciudad LIKE '%".$valor."%' ");
+                $ciudades = DB::select("select id, str_ciudad from cat_ciudades where lng_idpais = ".$valor2." AND str_ciudad LIKE '%".$valor."%' and bol_eliminado = 0");
 
                 return $ciudades;
             break;
@@ -227,6 +272,9 @@ class Consultas extends Model
 		    	->Where(function ($query) {
 		    		$query->where('int_peso', '>', 0);
 		    	})
+		    	->Where(function ($query) {
+		    		$query->where('bol_eliminado', '=', 0);
+		    	})		    	
                 ->orderBy('int_peso')
 		    	->select('str_descripcion as titulo','str_caracteristica as detalle','str_caracteristica2 as icono','str_caracteristica3 as ruta')
 		    	->get();
@@ -234,33 +282,60 @@ class Consultas extends Model
             break;
 
             case 'frenado':
-                $frenado = DB::table('cat_datos_maestros')->where('str_tipo', 'frenado_vehiculos')->lists('str_descripcion','id');
+                $frenado = DB::table('cat_datos_maestros')
+                ->where('str_tipo', 'frenado_vehiculos')
+                ->Where(function ($query) {
+                	$query->where('bol_eliminado', '=', 0);
+                })                
+                ->lists('str_descripcion','id');
                 return $frenado;
             break;
 
             case 'respuesta':
-                $respuesta= DB::table('cat_datos_maestros')->where('str_tipo', 'respuesta')->lists('str_descripcion','id');
+                $respuesta= DB::table('cat_datos_maestros')
+                ->where('str_tipo', 'respuesta')
+                ->Where(function ($query) {
+                	$query->where('bol_eliminado', '=', 0);
+                })                
+                ->lists('str_descripcion','id');
                 return $respuesta;
             break;
 
             case 'arranque':
-                $arranque = DB::table('cat_datos_maestros')->where('str_tipo', 'arranque_vehiculos')->lists('str_descripcion','id');
+                $arranque = DB::table('cat_datos_maestros')
+                ->where('str_tipo', 'arranque_vehiculos')
+                ->Where(function ($query) {
+                	$query->where('bol_eliminado', '=', 0);
+                })                
+                ->lists('str_descripcion','id');
                 return $arranque;
             break;            
         
             case 'enfriamiento':
-                $enfriamiento = DB::table('cat_datos_maestros')->where('str_tipo', 'enfriamiento_vehiculos')->lists('str_descripcion','id');
+                $enfriamiento = DB::table('cat_datos_maestros')
+                ->where('str_tipo', 'enfriamiento_vehiculos')
+                ->Where(function ($query) {
+                	$query->where('bol_eliminado', '=', 0);
+                })                
+                ->lists('str_descripcion','id');
                 return $enfriamiento;
             break;
 
             case 'modelos':
-                $modelos = DB::table('tbl_modelos')->lists('str_modelo','id');
+                $modelos = DB::table('tbl_modelos')
+                ->Where(function ($query) {
+                	$query->where('bol_eliminado', '=', 0);
+                })                
+                ->lists('str_modelo','id');
                 return $modelos;
             break;
 
             case 'colores':
                 $colores = DB::table('cat_datos_maestros')
                 ->where('str_tipo', 'color')
+                ->Where(function ($query) {
+                	$query->where('bol_eliminado', '=', 0);
+                })                
                 ->select('id','str_descripcion','str_caracteristica')
                 ->lists('str_descripcion','id');
                 //->get();  
@@ -268,43 +343,81 @@ class Consultas extends Model
             break;
 
             case 'direccion':
-                $direccion = DB::table('cat_datos_maestros')->where('str_tipo', 'direccion_vehiculos')->lists('str_descripcion','id');
+                $direccion = DB::table('cat_datos_maestros')
+                ->where('str_tipo', 'direccion_vehiculos')
+                ->Where(function ($query) {
+                	$query->where('bol_eliminado', '=', 0);
+                })                
+                ->lists('str_descripcion','id');
                 return $direccion;
             break;
 
             case 'estereo':
-                $estereo = DB::table('cat_datos_maestros')->where('str_tipo', 'estereo_vehiculos')->lists('str_descripcion','id');
+                $estereo = DB::table('cat_datos_maestros')
+                ->where('str_tipo', 'estereo_vehiculos')
+                ->Where(function ($query) {
+                	$query->where('bol_eliminado', '=', 0);
+                })                
+                ->lists('str_descripcion','id');
                 return $estereo;
             break;
 
             case 'transmision':
-                $transmision = DB::table('cat_datos_maestros')->where('str_tipo', 'transmision_vehiculos')->lists('str_descripcion','id');
+                $transmision = DB::table('cat_datos_maestros')
+                ->where('str_tipo', 'transmision_vehiculos')
+                ->Where(function ($query) {
+                	$query->where('bol_eliminado', '=', 0);
+                })                
+                ->lists('str_descripcion','id');
                 return $transmision;
             break;
 
             case 'tapizado':
-                $tapizado = DB::table('cat_datos_maestros')->where('str_tipo', 'tapizado_vehiculos')->lists('str_descripcion','id');
+                $tapizado = DB::table('cat_datos_maestros')
+                ->where('str_tipo', 'tapizado_vehiculos')
+                ->Where(function ($query) {
+                	$query->where('bol_eliminado', '=', 0);
+                })                
+                ->lists('str_descripcion','id');
                 return $tapizado;
             break;
 
             case 'vidrios':
-                $vidrios = DB::table('cat_datos_maestros')->where('str_tipo', 'vidrios_vehiculos')->lists('str_descripcion','id');
+                $vidrios = DB::table('cat_datos_maestros')
+                ->where('str_tipo', 'vidrios_vehiculos')
+                ->Where(function ($query) {
+                	$query->where('bol_eliminado', '=', 0);
+                })                
+                ->lists('str_descripcion','id');
                 return $vidrios;
             break;
 
             case 'traccion':
-                $traccion = DB::table('cat_datos_maestros')->where('str_tipo', 'traccion_vehiculos')->lists('str_descripcion','id');
+                $traccion = DB::table('cat_datos_maestros')
+                ->where('str_tipo', 'traccion_vehiculos')
+                ->Where(function ($query) {
+                	$query->where('bol_eliminado', '=', 0);
+                })                
+                ->lists('str_descripcion','id');
                 return $traccion;
             break;
 
             case 'combustible':
-                $combustible = DB::table('cat_datos_maestros')->where('str_tipo', 'combustible_vehiculos')->lists('str_descripcion','id');
+                $combustible = DB::table('cat_datos_maestros')
+                ->where('str_tipo', 'combustible_vehiculos')
+                ->Where(function ($query) {
+                	$query->where('bol_eliminado', '=', 0);
+                })                
+                ->lists('str_descripcion','id');
                 return $combustible;
             break;
 
             case 'paises':
                 $paises = DB::table('cat_paises as p')
                 ->join('cat_ciudades as c', 'c.lng_idpais', '=', 'p.id')
+                ->Where(function ($query) {
+                	$query->where('p.bol_eliminado', '=', 0);
+                })                
                 ->orderBy('p.str_paises')
                 ->select('p.str_paises','p.id')
                 ->lists('p.str_paises','p.id');
