@@ -538,8 +538,8 @@ function formularioDinamico(){
     var t = document.getElementById("lng_idtipo_vehiculo");
     var selectedText = t.options[t.selectedIndex].text;
      
-    document.getElementById('lng_idmarca').selectedIndex = 0
-    document.getElementById('lng_idmodelo').selectedIndex = 0
+    /*document.getElementById('lng_idmarca').selectedIndex = 0
+    document.getElementById('lng_idmodelo').selectedIndex = 0*/
     
     if (selectedText == "Ambulancias")
     {

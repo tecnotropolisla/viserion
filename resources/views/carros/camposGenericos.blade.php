@@ -68,15 +68,11 @@ Descripción
                     <!-- <i id="int_cantidad_puertas_validar" class="fa fa-check" style="color:green;"></i>-->
                     {!! Form::label('int_cantidad_puertas', 'Cantidad de Puertas') !!}
                                           
-    					<select id='int_cantidad_puertas' name='int_cantidad_puertas' class='form-control' onchange=''>            
-	                        <option value=''>Seleccione</option>
-								@for ($i = 0; $i < 6; $i++)
-								
-								   <option value='{{ $i }}'>{{ $i }}</option>
-								    								    
-								@endfor	                        						
-																			               						
-						</select>
+                    {!! 
+
+                        Form::selectRange('int_cantidad_puertas', 0, 5, null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)'])
+                    
+                    !!}
                     
                 </div>
                 
@@ -84,16 +80,12 @@ Descripción
 				
 				<!-- <i id="int_pasajeros_validar" class="fa fa-check" style="color:green;"></i> -->
 				{!! Form::label('int_pasajeros', '* Capacidad de Personas') !!}
-				
-    					<select id='int_pasajeros' name='int_pasajeros' class='form-control' onchange=''>            
-	                        <option value=''>Seleccione</option>
-								@for ($i = 2; $i < 120+1; $i++)
-								
-								   <option value='{{ $i }}'>{{ $i }}</option>
-								    								    
-								@endfor	                        						
-																			               						
-						</select>
+										
+                    {!! 
+
+                        Form::selectRange('int_pasajeros', 2, 120, null, ['class' => 'form-control','id' => 'int_pasajeros','onchange' => 'validar(this.value,this.name)'])
+                    
+                    !!}						
 				
 				</div>                
 

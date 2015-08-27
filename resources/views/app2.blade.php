@@ -33,7 +33,7 @@
 <![endif]-->
 
 </head>
-<body class="home" onload="formularioDinamico()">
+<body class="home" onload="setTimeout('formularioDinamico()',500)">
 
 	<div class="body">
 	

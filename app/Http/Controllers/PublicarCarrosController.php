@@ -99,12 +99,12 @@ class PublicarCarrosController extends Controller
 		            
 		            'lng_idcaracteristica' => 'required',
 		            
-		            'blb_img0' => 'required|image:jpeg,png,jpg',
-		            'blb_img1' => 'required|image:jpeg,png,jpg',
-		            'blb_img2' => 'required|image:jpeg,png,jpg',
-		            'blb_img3' => 'required|image:jpeg,png,jpg',
-		            'blb_img4' => 'required|image:jpeg,png,jpg',
-		            'blb_img5' => 'required|image:jpeg,png,jpg',
+		            'blb_img0' => 'required',
+		            'blb_img1' => 'required',
+		            'blb_img2' => 'required',
+		            'blb_img3' => 'required',
+		            'blb_img4' => 'required',
+		            'blb_img5' => 'required',
 		            
 		            'str_precio_venta' => 'required|max:255',
 		            'lng_idpais' => 'required|max:255',
@@ -441,7 +441,8 @@ class PublicarCarrosController extends Controller
         {   
         	$imagenesVehiculos = ImagenesVehiculos::create([
         		'lng_idvehiculo' => $lastInsertedId,
-        		'blb_img' => base64_encode(file_get_contents($data['blb_img'.$i])),
+        		//'blb_img' => base64_encode(file_get_contents($data['blb_img'.$i])),
+        		'blb_img' => $data['blb_img'.$i],        			
                 'int_peso' => $data['principal'.$i],
 	        ]);
         }

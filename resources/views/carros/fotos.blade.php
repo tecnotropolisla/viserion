@@ -69,6 +69,12 @@
 				<div class="col-md-4">
 		        	<div class="panel panel-default">
 					 	<div class="panel-heading"><i class="fa fa-image"></i> Imagen Principal...</div>
+					 	{!! Form::input('hidden', 'principal0', '1',['id'=> 'principal0']) !!}
+					 	{!! Form::input('hidden', 'principal1', '1',['id'=> 'principal1']) !!}
+					 	{!! Form::input('hidden', 'principal2', '1',['id'=> 'principal2']) !!}
+					 	{!! Form::input('hidden', 'principal3', '1',['id'=> 'principal3']) !!}
+					 	{!! Form::input('hidden', 'principal4', '1',['id'=> 'principal4']) !!}
+					 	{!! Form::input('hidden', 'principal5', '1',['id'=> 'principal5']) !!}
 					 	<div class="panel-body cropped-0" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('0')">
 					    	<p class="text-center">
 					    		<i class="fa fa-image"></i>
