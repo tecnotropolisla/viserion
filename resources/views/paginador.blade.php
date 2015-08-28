@@ -1,3 +1,4 @@
+
 @foreach ($vehiculos as $vehiculo)
 
                                 <!-- Result Item -->

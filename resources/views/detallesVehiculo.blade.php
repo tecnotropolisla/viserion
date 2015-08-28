@@ -45,7 +45,7 @@
                             <div class="single-listing-images">
                             
                                 <div class="featured-image format-image">
-                                    <a href="data:image/jpeg;base64,{{ $vehiculo->imagen }}" data-rel="prettyPhoto[gallery]" class="media-box"><img src="data:image/jpeg;base64,{{ $vehiculo->imagen }}" style="width: 100%" alt=""></a>
+                                    <a href="{{ $vehiculo->imagen }}" data-rel="prettyPhoto[gallery]" class="media-box"><img src="{{ $vehiculo->imagen }}" style="width: 100%" alt=""></a>
                                 </div>
                                 
                                 <div class="additional-images">
@@ -54,15 +54,15 @@
 	                                        
 	                                       @if ($vehiculo->str_video != "")
 		                                        
-		                                   		<li class="item format-video"> <a href="{{ $vehiculo->str_video }}" data-rel="prettyPhoto[gallery]" class="media-box"><img src="data:image/jpeg;base64,{{ $vehiculo->imagen }}" alt=""></a></li>
+		                                   		<li class="item format-video"> <a href="{{ $vehiculo->str_video }}" data-rel="prettyPhoto[gallery]" class="media-box"><img src="{{ $vehiculo->imagen }}" alt=""></a></li>
 		                                        
 		                                   @endif
 		                                   
 	                                       @foreach ($imagenes as $imagen)
                                   
 												<li class="item format-image">
-													 <a href="data:image/jpeg;base64,{{ $imagen->imagen }}" data-rel="prettyPhoto[gallery]" class="media-box">
-													 	<img src="data:image/jpeg;base64,{{ $imagen->imagen }}" alt="">
+													 <a href="{{ $imagen->imagen }}" data-rel="prettyPhoto[gallery]" class="media-box">
+													 	<img src="{{ $imagen->imagen }}" alt="">
 													 </a>
 												</li>
 											
