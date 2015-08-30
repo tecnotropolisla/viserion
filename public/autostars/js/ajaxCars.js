@@ -736,3 +736,8 @@ document.querySelector('.close').addEventListener("click", function() { popupHid
 /******************************************************************************************************/
 
 
+function buscador(){
+
+    var valor = document.getElementById('postcode').value;
+    alert(valor)
+}

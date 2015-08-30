@@ -72,7 +72,10 @@ class Consultas extends Model
 				    ->where('ima.lng_idvehiculo', '=', $valor)
 				    ->Where(function ($query) {
 				    	$query->where('ima.bol_eliminado', '=', 0);
-				    })				    
+				    })
+                    ->Where(function ($query) {
+                        $query->where('ima.int_peso', '=', 2);
+                    })                      			    
 				    ->select('ima.int_peso','ima.blb_img as imagen')
 				    ->get();
 				return $imagenes;

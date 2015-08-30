@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->tamano_pagina = 2;
+        $this->tamano_pagina = 20;
     }
 
     public function index()
@@ -28,7 +28,7 @@ class HomeController extends Controller
         $paginas = ceil($total_vehiculos / $this->tamano_pagina);
 
         $vehiculos = DB::table('tbl_vehiculos as v')
-            ->leftjoin('cat_datos_maestros as dm', 'dm.id', '=', 'v.lng_idtransmision')//Transmisión no es obligatoria
+            ->join('cat_datos_maestros as dm', 'dm.id', '=', 'v.lng_idtransmision')//Transmisión no es obligatoria
             ->join('cat_datos_maestros as dm2', 'dm2.id', '=', 'v.lng_iddireccion')
             ->join('cat_datos_maestros as dm3', 'dm3.id', '=', 'v.lng_idcolor')
             ->join('cat_datos_maestros as dm4', 'dm4.id', '=', 'v.lng_idcilindrada')            
@@ -71,7 +71,7 @@ class HomeController extends Controller
         $total_paginas = ceil($total_vehiculos / $this->tamano_pagina);
 
         $vehiculos = DB::table('tbl_vehiculos as v')
-            ->leftjoin('cat_datos_maestros as dm', 'dm.id', '=', 'v.lng_idtransmision')//Transmisión no es obligatoria
+            ->join('cat_datos_maestros as dm', 'dm.id', '=', 'v.lng_idtransmision')//Transmisión no es obligatoria
             ->join('cat_datos_maestros as dm2', 'dm2.id', '=', 'v.lng_iddireccion')
             ->join('cat_datos_maestros as dm3', 'dm3.id', '=', 'v.lng_idcolor')
             ->join('cat_datos_maestros as dm4', 'dm4.id', '=', 'v.lng_idcilindrada')            

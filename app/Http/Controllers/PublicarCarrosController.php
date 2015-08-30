@@ -162,7 +162,7 @@ class PublicarCarrosController extends Controller
     			
     			return Validator::make($data, [
     					 
-    					'lng_idtipo_vehiculo' => 'required|max:255',
+    				'lng_idtipo_vehiculo' => 'required|max:255',
     			]);
     			
     		break;

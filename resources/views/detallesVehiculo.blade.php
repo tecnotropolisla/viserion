@@ -54,7 +54,7 @@
 	                                        
 	                                       @if ($vehiculo->str_video != "")
 		                                        
-		                                   		<li class="item format-video"> <a href="{{ $vehiculo->str_video }}" data-rel="prettyPhoto[gallery]" class="media-box"><img src="{{ $vehiculo->imagen }}" alt=""></a></li>
+		                                   		<li class="item format-image"> <a href="{{ $vehiculo->str_video }}" data-rel="prettyPhoto[gallery]" class="media-box"><img src="{{ asset('autostars/images/YouTube.png') }}" alt=""></a></li>
 		                                        
 		                                   @endif
 		                                   
