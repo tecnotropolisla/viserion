@@ -13,7 +13,7 @@ Descripción
                     <!-- <i id="lng_idtipo_vehiculo_validar" class="fa fa-asterisk" style="color:red;"></i> -->
                     {!! Form::label('lng_idtipo_vehiculo', '* Clasificación') !!}
                     {!! Form::select('lng_idtipo_vehiculo', 
-                                        (['' => 'Seleccione'] + $tipo_vehiculos), 
+                                        (['' => 'Seleccione'] + $clasificacion), 
                                         null, 
                                         ['class' => 'form-control', 'onchange' => 'dependienteMarcas(this.value);formularioDinamico()']
                                     ) 

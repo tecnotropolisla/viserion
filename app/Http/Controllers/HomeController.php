@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Troovami\Http\Requests;
 use Troovami\Http\Controllers\Controller;
 use DB;
+use Troovami\Consultas;
+use Troovami\Buscador;
 
 class HomeController extends Controller
 {
@@ -16,12 +18,12 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->tamano_pagina = 20;
+        $this->tamano_pagina = 1;
+        Buscador::camposBuscador();   
     }
 
     public function index()
     {
-
         //$tamano_pagina = 20; //Número de registros por página
         $total_vehiculos = DB::table('tbl_vehiculos')->count();
         //$paginas = ceil($total_vehiculos / $tamano_pagina);

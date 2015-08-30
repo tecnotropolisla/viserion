@@ -9,12 +9,21 @@ use Troovami\Http\Controllers\Controller;
 use DB;
 use Carbon\Carbon;
 use Troovami\Consultas;
+use Troovami\Buscador;
 
 class DetallesController extends Controller
 {
+    /**
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        Buscador::camposBuscador();
+    }
+
     public function detalles($valor)
     {
-
         //busco el id del vehículo para saber si existe:
         $vehiculos = Consultas::querysValor('vehiculos',$valor);
 

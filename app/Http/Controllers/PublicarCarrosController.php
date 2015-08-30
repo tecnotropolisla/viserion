@@ -11,9 +11,19 @@ use Troovami\DetalleVehiculo;
 use Troovami\ImagenesVehiculos;
 use Illuminate\Support\Facades\Auth;
 use Troovami\Consultas;
+use Troovami\Buscador;
 
 class PublicarCarrosController extends Controller
 {
+    /**
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        Buscador::camposBuscador();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -260,14 +270,14 @@ class PublicarCarrosController extends Controller
     {
         $marcas = Consultas::querysValor('marcasTipos','153');
         $modelos = Consultas::querys('modelos'); 
-  	    $tipo_vehiculos = Consultas::querysValor('tipo_vehiculos','automoviles');   
+  	    $clasificacion = Consultas::querysValor('tipo_vehiculos','automoviles');   
         $colores = Consultas::querys('colores');
         $respuesta = Consultas::querys('respuesta');
-       $seguridad = Consultas::querysValor('seguridad','automoviles');
-       $sonido = Consultas::querysValor('sonido','automoviles');
-       $exterior = Consultas::querysValor('exterior','automoviles');
-       $confort = Consultas::querysValor('confort','automoviles');
-       $accesorios_internos = Consultas::querysValor('accesorios_internos','automoviles');
+        $seguridad = Consultas::querysValor('seguridad','automoviles');
+        $sonido = Consultas::querysValor('sonido','automoviles');
+        $exterior = Consultas::querysValor('exterior','automoviles');
+        $confort = Consultas::querysValor('confort','automoviles');
+        $accesorios_internos = Consultas::querysValor('accesorios_internos','automoviles');
         $direccion = Consultas::querys('direccion');
         $estereo = Consultas::querys('estereo');
         $transmision = Consultas::querys('transmision');
@@ -280,7 +290,7 @@ class PublicarCarrosController extends Controller
         $arranque = Consultas::querys('arranque');
         $cilindrada = Consultas::querysValor('cilindrada','automoviles'); 
                
-        return \View::make('carros.formulario', compact('marcas','modelos','tipo_vehiculos','colores','respuesta','seguridad','sonido','exterior',
+        return \View::make('carros.formulario', compact('marcas','modelos','clasificacion','colores','respuesta','seguridad','sonido','exterior',
                 'confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible','paises',
         		'frenado','arranque','cilindrada'));
     }   

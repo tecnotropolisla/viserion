@@ -269,6 +269,20 @@ class Consultas extends Model
 
         switch ($consulta) {
 
+            case 'tipo':
+                $tipo = DB::table('cat_datos_maestros')
+                ->where('str_tipo', 'tipos')
+                ->Where(function ($query) {
+                    $query->where('int_peso', '>', 0);
+                })
+                ->Where(function ($query) {
+                    $query->where('bol_eliminado', '=', 0);
+                })              
+                ->orderBy('int_peso')
+                ->lists('str_descripcion','id');
+                return $tipo;
+            break;
+            
             case 'menu':
                 $menu = DB::table('cat_datos_maestros')
 		    	->where('str_tipo', 'tipos')
@@ -328,7 +342,8 @@ class Consultas extends Model
                 $modelos = DB::table('tbl_modelos')
                 ->Where(function ($query) {
                 	$query->where('bol_eliminado', '=', 0);
-                })                
+                })
+                ->orderBy('str_modelo')            
                 ->lists('str_modelo','id');
                 return $modelos;
             break;
