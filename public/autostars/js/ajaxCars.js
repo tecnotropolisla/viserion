@@ -228,8 +228,8 @@ function paginar(valor){
    
     paginas = Number(document.getElementById('paginas').value);
 
-    for ($x = 1; $x <= paginas; $x++){
-        var ele = document.getElementById("numeroPag"+$x)
+    for (x = 1; x <= paginas; x++){
+        var ele = document.getElementById("numeroPag"+x)
         ele.setAttribute('class', '');
     }
     
