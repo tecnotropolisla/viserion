@@ -269,27 +269,27 @@ class PublicarCarrosController extends Controller
     public function vehiculo()
     {
         $marcas = Consultas::querysValor('marcasTipos','153');
-        $modelos = Consultas::querys('modelos'); 
-  	    $clasificacion = Consultas::querysValor('tipo_vehiculos','automoviles');   
-        $colores = Consultas::querys('colores');
-        $respuesta = Consultas::querys('respuesta');
+        $modelos = Consultas::querys('modelos');
+        $paises = Consultas::querys('paises');
+        $cilindrada = Consultas::querysValor('cilindrada','automoviles'); 
         $seguridad = Consultas::querysValor('seguridad','automoviles');
         $sonido = Consultas::querysValor('sonido','automoviles');
         $exterior = Consultas::querysValor('exterior','automoviles');
         $confort = Consultas::querysValor('confort','automoviles');
         $accesorios_internos = Consultas::querysValor('accesorios_internos','automoviles');
-        $direccion = Consultas::querys('direccion');
-        $estereo = Consultas::querys('estereo');
-        $transmision = Consultas::querys('transmision');
-        $tapizado = Consultas::querys('tapizado');
-        $vidrios = Consultas::querys('vidrios');
-        $traccion = Consultas::querys('traccion');
-        $combustible = Consultas::querys('combustible');
-        $paises = Consultas::querys('paises');
-        $frenado = Consultas::querys('frenado');
-        $arranque = Consultas::querys('arranque');
-        $cilindrada = Consultas::querysValor('cilindrada','automoviles'); 
-               
+        $clasificacion = Consultas::querysValor('maestro','automoviles');   
+        $colores = Consultas::querysValor('maestro','color');
+        $respuesta = Consultas::querysValor('maestro','respuesta');
+        $direccion = Consultas::querysValor('maestro','direccion_vehiculos');
+        $estereo = Consultas::querysValor('maestro','estereo_vehiculos');
+        $transmision = Consultas::querysValor('maestro','transmision_vehiculos');
+        $tapizado = Consultas::querysValor('maestro','tapizado_vehiculos');
+        $vidrios = Consultas::querysValor('maestro','vidrios_vehiculos');
+        $traccion = Consultas::querysValor('maestro','traccion_vehiculos');
+        $combustible = Consultas::querysValor('maestro','combustible_vehiculos');
+        $frenado = Consultas::querysValor('maestro','frenado_vehiculos');
+        $arranque = Consultas::querysValor('maestro','arranque_vehiculos');
+                   
         return \View::make('carros.formulario', compact('marcas','modelos','clasificacion','colores','respuesta','seguridad','sonido','exterior',
                 'confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible','paises',
         		'frenado','arranque','cilindrada'));

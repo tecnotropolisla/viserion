@@ -11,9 +11,7 @@ class Buscador extends Model
 
         $paises = Consultas::querys('paises');
         $tipos = Consultas::querys('tipo');
-        $colores = Consultas::querys('colores');
-
+        $colores = Consultas::querysValor('maestro','color');
         \View::share(compact('paises','tipos','colores'));  
-
     }
 }
