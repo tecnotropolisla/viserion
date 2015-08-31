@@ -5726,6 +5726,30 @@ body{
 	color:#FFF;
 }
 
+#divBuscador{
+	margin:-20px 0 0 0px;
+	display:none;
+	float:left;
+	background-color:#FFF;
+	position:absolute;
+	z-index:9999;
+	width:95.9%;
+	overflow: scroll;	
+	max-height: 300px;
+}
+#divBuscador p {
+	font-size: 14px;
+	line-height: 1.42857;
+	color: #555;
+	margin:0px;
+	padding-left: 2px;
+	width:100%;
+}
+#divBuscador p:hover {
+	background-color: #E96C4C;
+	color:#FFF;
+}
+
 /**Imagenes ***/
 .imageBox
 {

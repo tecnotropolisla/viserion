@@ -140,6 +140,12 @@ Route::group(['middleware' => 'auth'], function () {
 			
 			//Función "buscarCiudadPorLetra(letra)" :)
 			Route::get('Ciudades/{letra}/Pais/{pais}','MaestroController@dependiente2');
+			
+			//Función "buscarCiudadPorPais(lng_idpais)" :)
+			Route::get('BuscadorPais/{pais}','MaestroController@Buscador3');
+				
+			//Función "buscarCiudadPorLetra(letra)" :)
+			Route::get('BuscadorCiudades/{letra}/Pais/{pais}','MaestroController@Buscador2');			
 
 		});
 

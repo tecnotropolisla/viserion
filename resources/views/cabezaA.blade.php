@@ -257,19 +257,22 @@
                                         {!! Form::select('pais', 
                                                             (['' => 'Seleccione'] + $paises), 
                                                             null, 
-                                                            ['id' => 'pais', 'class' => 'form-control','onchange' => '']
+                                                            ['id' => 'pais', 'class' => 'form-control','onchange' => 'buscarCiudadPorPais_Buscador(this.value)']
                                                         ) 
                                         !!} 
 
                                         </div>
                                         <div class="col-md-6">
-                                        {!! Form::label('ciudad', 'Ciudades') !!}
-                                        {!! Form::select('ciudad', 
-                                                            (['' => 'Seleccione']), 
-                                                            null, 
-                                                            ['id' => 'ciudad', 'class' => 'form-control','onchange' => '']
-                                                        ) 
-                                        !!} 
+                                    	{!! Form::label('ciudad', 'Ciudades') !!}
+                                    	
+                                        {!! Form::input('hidden', 'ciudad', '',['id' =>'ciudad']) !!}
+                                        
+                                        			{!! Form::input('text', 'buscador2', '', 
+														['class'=> 'form-control', 'id' => 'buscador2', 'maxlength' => '20',
+															'onkeyup'=>'buscarCiudadPorLetra_Buscador(this.value)','onclick'=>'verCiudades_Buscador()']) 
+													!!}	
+                                        
+										<div id="divBuscador"></div>
                                         </div>
                                     </div>
                                     <div class="row">

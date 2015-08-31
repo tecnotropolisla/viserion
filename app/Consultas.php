@@ -102,6 +102,19 @@ class Consultas extends Model
 				return $maestro;
 			break;
 				
+			case 'maestro2':
+				$maestro2 = DB::table('cat_datos_maestros')
+				->where('str_tipo', $valor)
+				->Where(function ($query) {
+					$query->where('str_caracteristica', '=', 'automoviles');
+				})
+				->Where(function ($query) {
+					$query->where('bol_eliminado', '=', 0);
+				})
+				->lists('str_descripcion','id');
+				return $maestro2;
+			break;
+				
 			case 'marcasTipos':
 				$marcas = DB::table('cat_marcas as m')
 				->join('tbl_tipos_marcas as tm', 'tm.lng_idmarca', '=', 'm.id')
@@ -181,72 +194,7 @@ class Consultas extends Model
             	->select('str_descripcion','id')
             	->lists('str_descripcion','id');
             	return $cilindrada;
-            break;
-            
-            case 'seguridad':
-            	$seguridad = DB::table('cat_datos_maestros')
-            	->where('str_caracteristica', $valor)
-            	->Where(function ($query) {
-            		$query->where('str_tipo', '=', 'seguridad_vehiculos');
-            	})
-            	->Where(function ($query) {
-            		$query->where('bol_eliminado', '=', 0);
-            	})            	
-            	->lists('str_descripcion','id');
-            	return $seguridad;
-            break;
-            
-            case 'sonido':
-            	$sonido = DB::table('cat_datos_maestros')
-            	->where('str_caracteristica', $valor)
-            	->Where(function ($query) {
-            		$query->where('str_tipo', '=', 'sonido_vehiculos');
-            	})
-            	->Where(function ($query) {
-            		$query->where('bol_eliminado', '=', 0);
-            	})            	
-            	->lists('str_descripcion','id');
-            	return $sonido;
-            break;
-            
-            case 'exterior':
-            	$exterior = DB::table('cat_datos_maestros')
-            	->where('str_caracteristica', $valor)
-            	->Where(function ($query) {
-            		$query->where('str_tipo', '=', 'exterior_vehiculos');
-            	})
-            	->Where(function ($query) {
-            		$query->where('bol_eliminado', '=', 0);
-            	})            	
-            	->lists('str_descripcion','id');
-            	return $exterior;
-            break;
-            
-            case 'confort':
-            	$confort = DB::table('cat_datos_maestros')
-            	->where('str_caracteristica', $valor)
-            	->Where(function ($query) {
-            		$query->where('str_tipo', '=', 'confort_vehiculos');
-            	})
-            	->Where(function ($query) {
-            		$query->where('bol_eliminado', '=', 0);
-            	})            	
-            	->lists('str_descripcion','id');
-            	return $confort;
-            break;
-            
-            case 'accesorios_internos':
-            	$accesorios_internos = DB::table('cat_datos_maestros')
-            	->where('str_caracteristica', $valor)
-            	->Where(function ($query) {
-            		$query->where('str_tipo', '=', 'accesoriosInternos_vehiculos');
-            	})
-            	->Where(function ($query) {
-            		$query->where('bol_eliminado', '=', 0);
-            	})            	
-            	->lists('str_descripcion','id');
-            	return $accesorios_internos;
-            break;   
+            break;       
         }
 	}
 
