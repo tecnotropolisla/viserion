@@ -230,7 +230,7 @@ function buscarCiudadPorPais_Buscador(lng_idpais){
 function verCiudades_Buscador(){
 	
 	var lng_idpais = document.getElementById('pais').value;
-	buscarCiudadPorPais(lng_idpais);
+	buscarCiudadPorPais_Buscador(lng_idpais);
 	divname = "divBuscador";
 	
 	if(lng_idpais != ""){
