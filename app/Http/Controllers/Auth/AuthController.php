@@ -6,6 +6,7 @@ use Troovami\User;
 use Validator;
 use Troovami\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Troovami\Buscador;
 
 class AuthController extends Controller
 {
@@ -33,6 +34,7 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+        Buscador::camposBuscador();
     }
 
     /**
