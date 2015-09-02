@@ -93,11 +93,11 @@ class PublicarCarrosController extends Controller
 		            'lng_idcaracteristica' => 'required',
 		            
 		            'blb_img0' => 'required',
-		            'blb_img1' => 'required',
+		            /*'blb_img1' => 'required',
 		            'blb_img2' => 'required',
 		            'blb_img3' => 'required',
 		            'blb_img4' => 'required',
-		            'blb_img5' => 'required',
+		            'blb_img5' => 'required',*/
 		            
 		            'str_precio_venta' => 'required|max:255',
 		            'lng_idpais' => 'required|max:255',
