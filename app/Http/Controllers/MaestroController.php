@@ -10,6 +10,49 @@ use Troovami\Consultas;
 
 class MaestroController extends Controller
 {
+	//Este método lo llamo desde routes.php pero se genera desde una función de ajax,
+	//para crear un campo select dinámico en el formulario.
+	//Nota: ver el archivo ajaxCars.js, función "dependienteMarcasBuscador(valor)" :)
+	public function dependienteMarcasBuscador($valor)
+	{
+		//echo $valor;
+		$marcaspublicadas = Consultas::querysValor('marcasTiposPublicadas',$valor);
+		//var_dump($modelos);
+		$select ="<select id='marca' name='marca' class='form-control' onchange='dependienteModelosBuscador(this.value)'>
+	
+                        <option value=''>Seleccione</option>";
+	
+		foreach ($marcaspublicadas as $key => $value)
+		{
+			$select.=" <option value='".$key."'>".$value."</option>";
+		}
+	
+		$select.="</select>";
+	
+		return $select;
+	}
+	
+	//Este método lo llamo desde routes.php pero se genera desde una función de ajax,
+	//para crear un campo select dinámico en el formulario.
+	//Nota: ver el archivo ajaxCars.js, función "dependienteModelosBuscador(valor)" :)
+	public function dependienteModelosBuscador($valor)
+	{
+		//echo $valor;
+		$modelos = Consultas::querysValor('modelos',$valor);
+		//var_dump($modelos);
+		$select ="<select id='modelo' name='modelo' class='form-control' onchange=''>
+	
+                        <option value=''>Seleccione</option>";
+	
+		foreach ($modelos as $key => $value)
+		{
+			$select.=" <option value='".$key."'>".$value."</option>";
+		}
+	
+		$select.="</select>";
+	
+		return $select;
+	}	
     
     //Este método lo llamo desde routes.php pero se genera desde una función de ajax,
     //para crear un campo select dinámico en el formulario.
@@ -19,7 +62,7 @@ class MaestroController extends Controller
         //echo $valor;
         $modelos = Consultas::querysValor('modelos',$valor);
             //var_dump($modelos);
-            $select ="<select id='lng_idmodelo' name='lng_idmodelo' class='form-control' onchange='validar(this.value,this.name)'>
+            $select ="<select id='lng_idmodelo' name='lng_idmodelo' class='form-control' onchange=''>
             
                         <option value=''>Seleccione</option>";
 

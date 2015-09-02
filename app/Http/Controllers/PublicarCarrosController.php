@@ -268,8 +268,8 @@ class PublicarCarrosController extends Controller
     //Este método llama a la vista del formulario de carros:
     public function vehiculo()
     {
-        $marcas = Consultas::querysValor('marcasTipos','153');
-        $modelos = Consultas::querys('modelos');
+        //$marcas = Consultas::querysValor('marcasTipos','153');
+        //$modelos = Consultas::querys('modelos');
         $paises = Consultas::querys('paises');
         $cilindrada = Consultas::querysValor('cilindrada','automoviles');
         $seguridad = Consultas::querysValor('maestro2','seguridad_vehiculos');
@@ -290,7 +290,7 @@ class PublicarCarrosController extends Controller
         $frenado = Consultas::querysValor('maestro','frenado_vehiculos');
         $arranque = Consultas::querysValor('maestro','arranque_vehiculos');
                    
-        return \View::make('carros.formulario', compact('marcas','modelos','clasificacion','colores','respuesta','seguridad','sonido','exterior',
+        return \View::make('carros.formulario', compact('clasificacion','colores','respuesta','seguridad','sonido','exterior',
                 'confort','accesorios_internos','direccion','estereo','transmision','tapizado','vidrios','traccion','combustible','paises',
         		'frenado','arranque','cilindrada'));
     }   

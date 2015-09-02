@@ -5,6 +5,7 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Troovami\Consultas;
 
 trait RegistersUsers
 {
@@ -16,10 +17,9 @@ trait RegistersUsers
      * @return \Illuminate\Http\Response
      */
     public function getRegister()
-    {
-        
-        $paises = DB::table('cat_paises')->orderBy('str_paises')->lists('str_paises','id');
-        $genero = DB::table('cat_datos_maestros')->where('str_tipo', 'genero')->lists('str_descripcion','id');
+    {        
+    	$paises = Consultas::querys('paises');
+    	$genero = Consultas::querysValor('maestro','genero');
 
         return \View::make('auth.register', compact('genero','paises'));
         //return \View::make('auth.register',array('genero'=>$genero,'paises'=>$paises,'roles'=>$roles));

@@ -95,8 +95,46 @@ function getXmlHttpObject()
     return xmlhttp;
 }
 
+function dependienteModelosBuscador(valor){
+
+	document.getElementById('modelo').selectedIndex = "0";
+	
+	if (valor != ""){
+
+	    divname = "dependienteModelosBuscador";
+	    //http.open("GET", 'paginas' + url, true);
+	    http.open("GET", 'ModelosBuscador/'+ valor, true);
+	    http.onreadystatechange = handleHttpResponse;
+	    http.send(null);
+	}else{
+		
+		document.getElementById('modelo').selectedIndex = "0";
+	}
+}
+
+function dependienteMarcasBuscador(valor){
+
+	document.getElementById('marca').selectedIndex = "0";
+	document.getElementById('modelo').selectedIndex = "0";
+	
+	if (valor != ""){
+	
+        divname = "dependienteMarcasBuscador";
+	    //http.open("GET", 'paginas' + url, true);
+	    http.open("GET", 'MarcasBuscador/'+valor, true);
+	    http.onreadystatechange = handleHttpResponse;
+	    http.send(null);	    
+	}else{
+		
+		document.getElementById('marca').selectedIndex = "0";
+		document.getElementById('modelo').selectedIndex = "0";
+	}
+}
+
 function dependienteModelos(valor){
 
+	document.getElementById('lng_idmodelo').selectedIndex = "0";
+	
 	if (valor != ""){
 
 	    divname = "dependienteModelos";
@@ -104,20 +142,31 @@ function dependienteModelos(valor){
 	    http.open("GET", 'Modelos/'+ valor, true);
 	    http.onreadystatechange = handleHttpResponse;
 	    http.send(null);
+	}else{
+		
+		document.getElementById('lng_idmodelo').selectedIndex = "0";
 	}
 }
 
 function dependienteMarcas(valor){
 
+	
+	document.getElementById('lng_idmarca').selectedIndex = "0";
+	document.getElementById('lng_idmodelo').selectedIndex = "0";
+	
 	if (valor != ""){
 	
         divname = "dependienteMarcas";
 	    //http.open("GET", 'paginas' + url, true);
-	    http.open("GET", 'Marcas/'+ valor, true);
+	    http.open("GET", 'Marcas/'+valor, true);
 	    http.onreadystatechange = handleHttpResponse;
 	    http.send(null);
 
         setTimeout('dependienteCilindrada('+valor+')',500);
+	}else{
+		
+		document.getElementById('lng_idmarca').selectedIndex = "0";
+		document.getElementById('lng_idmodelo').selectedIndex = "0";
 	}
 }
 

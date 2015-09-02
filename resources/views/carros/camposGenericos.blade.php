@@ -28,7 +28,7 @@ Descripción
                     
                     <div id="dependienteMarcas">
 	                    {!! Form::select('lng_idmarca', 
-	                                        (['' => 'Seleccione'] + $marcas), 
+	                                        (['' => 'Seleccione'] ), 
 	                                        null, 
 	                                        ['class' => 'form-control','onchange'=>'dependienteModelos(this.value)']
 	                                    ) 
@@ -45,9 +45,9 @@ Descripción
                     <div id="dependienteModelos">
 
 	                    {!! Form::select('lng_idmodelo', 
-	                                        (['' => 'Seleccione'] + $modelos), 
+	                                        (['' => 'Seleccione'] ), 
 	                                        null, 
-	                                        ['id'=>'lng_idmodelo','class' => 'form-control','onchange'=>'validar(this.value,this.name)']
+	                                        ['id'=>'lng_idmodelo','class' => 'form-control','onchange'=>'']
 	                                    ) 
 	                    !!} 
 
@@ -59,7 +59,7 @@ Descripción
                     
                     <!-- <i id="str_placa_validar" class="fa fa-asterisk" style="color:red;"></i> -->
                     {!! Form::label('str_placa', '* Placas') !!}
-                    {!! Form::input('text', 'str_placa', '', ['class'=> 'form-control','maxlength'=> '10', 'onchange' => 'validar(this.value,this.name)']) !!}
+                    {!! Form::input('text', 'str_placa', '', ['class'=> 'form-control','maxlength'=> '10', 'onchange' => '']) !!}
                 
                 </div>
                 
@@ -70,7 +70,7 @@ Descripción
                                           
                     {!! 
 
-                        Form::selectRange('int_cantidad_puertas', 0, 5, null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)'])
+                        Form::selectRange('int_cantidad_puertas', 0, 5, null, ['class' => 'form-control','onchange' => ''])
                     
                     !!}
                     
@@ -83,7 +83,7 @@ Descripción
 										
                     {!! 
 
-                        Form::selectRange('int_pasajeros', 2, 120, null, ['class' => 'form-control','id' => 'int_pasajeros','onchange' => 'validar(this.value,this.name)'])
+                        Form::selectRange('int_pasajeros', 2, 120, null, ['class' => 'form-control','id' => 'int_pasajeros','onchange' => ''])
                     
                     !!}						
 				
@@ -97,7 +97,7 @@ Descripción
                     {!! Form::select('lng_idcolor', 
                                         (['' => 'Seleccione'] + $colores), 
                                         null, 
-                                        ['id'=> 'lng_idcolor','class' => 'form-control','onchange'=>'validar(this.value,this.name)']
+                                        ['id'=> 'lng_idcolor','class' => 'form-control','onchange'=>'']
                                     ) 
                     !!} 
 
@@ -110,7 +110,7 @@ Descripción
                     {!! Form::select('lng_iddireccion', 
                                         (['' => 'Seleccione'] + $direccion), 
                                         null, 
-                                        ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+                                        ['class' => 'form-control','onchange' => '']
                                     ) 
                     !!} 
 
@@ -123,7 +123,7 @@ Descripción
                     {!! Form::select('lng_idestereo', 
                                         (['' => 'Seleccione'] + $estereo), 
                                         null, 
-                                        ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+                                        ['class' => 'form-control','onchange' => '']
                                     ) 
                     !!} 
 
@@ -136,7 +136,7 @@ Descripción
                     {!! Form::select('lng_idtransmision', 
                                         (['' => 'Seleccione'] + $transmision), 
                                         null, 
-                                        ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+                                        ['class' => 'form-control','onchange' => '']
                                     ) 
                     !!} 
 
@@ -149,7 +149,7 @@ Descripción
                     {!! Form::select('lng_idtapizado', 
                                         (['' => 'Seleccione'] + $tapizado), 
                                         null, 
-                                        ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+                                        ['class' => 'form-control','onchange' => '']
                                     ) 
                     !!} 
 
@@ -162,7 +162,7 @@ Descripción
                     {!! Form::select('lng_idvidrios', 
                                         (['' => 'Seleccione'] + $vidrios), 
                                         null, 
-                                        ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+                                        ['class' => 'form-control','onchange' => '']
                                     ) 
                     !!} 
 
@@ -175,7 +175,7 @@ Descripción
                     {!! Form::select('lng_idtraccion', 
                                         (['' => 'Seleccione'] + $traccion), 
                                         null, 
-                                        ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+                                        ['class' => 'form-control','onchange' => '']
                                     ) 
                     !!} 
 
@@ -188,7 +188,7 @@ Descripción
                     {!! Form::select('lng_idcombustible', 
                                         (['' => 'Seleccione'] + $combustible), 
                                         null, 
-                                        ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+                                        ['class' => 'form-control','onchange' => '']
                                     ) 
                     !!} 
 
@@ -216,7 +216,7 @@ Descripción
                     
                     <!-- <i id="str_recorrido_validar" class="fa fa-asterisk" style="color:red;"></i> -->
                     {!! Form::label('str_recorrido', '* Kilometraje') !!}
-                    {!! Form::input('text', 'str_recorrido', '', ['class'=> 'form-control','maxlength' => '6' ,'onkeypress'=>'return isNumber(event)','onchange' => 'validar(this.value,this.name)']) !!}
+                    {!! Form::input('text', 'str_recorrido', '', ['class'=> 'form-control','maxlength' => '6' ,'onkeypress'=>'return isNumber(event)','onchange' => '']) !!}
         
                 </div>
                
@@ -224,7 +224,7 @@ Descripción
                     
                     <!-- <i id="int_cilindros_validar" class="fa fa-check" style="color:green;"></i> -->
                     {!! Form::label('int_cilindros', '* N° de Cilindros') !!}
-                    {!! Form::selectRange('int_cilindros', 1, 16, null, ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']) !!} 
+                    {!! Form::selectRange('int_cilindros', 1, 16, null, ['class' => 'form-control','onchange' => '']) !!} 
 
                 </div>
 
@@ -236,7 +236,7 @@ Descripción
                             {!! Form::select('lng_idcilindrada', 
                                 (['' => 'Seleccione'] + $cilindrada), 
                                     null, 
-                                    ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+                                    ['class' => 'form-control','onchange' => '']
                                 ) 
                             !!}                                                               
                         </div>
@@ -246,7 +246,7 @@ Descripción
                     
                     <!-- <i id="str_version_validar" class="fa fa-asterisk" style="color:red;"></i> -->
                     {!! Form::label('str_version', 'Versión') !!}
-                    {!! Form::input('text', 'str_version', '', ['class'=> 'form-control','onchange' => 'validar(this.value,this.name)']) !!}
+                    {!! Form::input('text', 'str_version', '', ['class'=> 'form-control','onchange' => '']) !!}
 
                 </div> 
 
@@ -259,7 +259,7 @@ Descripción
 					{!! Form::select('lng_idchocado', 
 						(['' => 'Seleccione'] + $respuesta), 
 							null, 
-							['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+							['class' => 'form-control','onchange' => '']
 						) 
 					!!}
 			
@@ -273,7 +273,7 @@ Descripción
 			        {!! Form::select('lng_idnegociable', 
 			        	(['' => 'Seleccione'] + $respuesta), 
 			            	null, 
-			            	['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+			            	['class' => 'form-control','onchange' => '']
 			            ) 
 					!!} 
 			
@@ -287,7 +287,7 @@ Descripción
 			        {!! Form::select('lng_idfinanciamiento', 
 			        	(['' => 'Seleccione'] + $respuesta), 
 			            	null, 
-			                ['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+			                ['class' => 'form-control','onchange' => '']
 			            ) 
 					!!} 
 			
@@ -302,7 +302,7 @@ Descripción
 					{!! Form::select('lng_idunicodueno', 
 						(['' => 'Seleccione'] + $respuesta), 
 							null, 
-							['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+							['class' => 'form-control','onchange' => '']
 						) 
 					!!} 
 			        
@@ -316,7 +316,7 @@ Descripción
 					{!! Form::select('lng_idmotorreparado', 
 						(['' => 'Seleccione'] + $respuesta), 
 							null, 
-							['class' => 'form-control','onchange' => 'validar(this.value,this.name)']
+							['class' => 'form-control','onchange' => '']
 						) 
 			        !!} 
 			

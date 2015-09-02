@@ -114,6 +114,22 @@ class Consultas extends Model
 				->lists('str_descripcion','id');
 				return $maestro2;
 			break;
+
+			case 'marcasTiposPublicadas':
+				$marcas = DB::table('cat_marcas as m')
+				->join('tbl_tipos_marcas as tm', 'tm.lng_idmarca', '=', 'm.id')
+				->join('cat_datos_maestros as dm', 'dm.id', '=', 'tm.lng_idtipo')			
+				->join('tbl_modelos as mo', 'mo.lng_idmarca', '=', 'm.id')
+				->join('tbl_vehiculos as v', 'v.lng_idmodelo', '=', 'mo.id')				
+				->where('dm.id', '=', $valor)
+				->Where(function ($query) {
+					$query->where('m.bol_eliminado', '=', 0);
+				})
+				->orderBy('m.str_marca')
+				->select('m.str_marca','m.id')
+				->lists('str_marca','id');
+				return $marcas;
+			break;
 				
 			case 'marcasTipos':
 				$marcas = DB::table('cat_marcas as m')

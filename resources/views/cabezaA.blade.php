@@ -272,38 +272,47 @@
 															'onkeyup'=>'buscarCiudadPorLetra_Buscador(this.value)','onclick'=>'verCiudades_Buscador()']) 
 													!!}	
                                         
-										<div id="divBuscador"></div>
+											<div id="divBuscador"></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                        {!! Form::label('tipo', 'Tipos de Vehículo') !!}
+                                        {!! Form::label('tipo', 'Tipos de Vehículos') !!}
                                         {!! Form::select('tipo', 
                                                             (['' => 'Seleccione'] + $tipos), 
                                                             null, 
-                                                            ['id' => 'tipo', 'class' => 'form-control','onchange' => '']
+                                                            ['id' => 'tipo', 'class' => 'form-control','onchange' => 'dependienteMarcasBuscador(this.value)']
                                                         ) 
                                         !!} 
                                         </div>
                                         <div class="col-md-6">
-                                        {!! Form::label('marca', 'Marcas') !!}
-                                        {!! Form::select('marca', 
-                                                            (['' => 'Seleccione']), 
-                                                            null, 
-                                                            ['id' => 'marca', 'class' => 'form-control','onchange' => '']
-                                                        ) 
-                                        !!} 
+                                        {!! Form::label('marca', 'Marcas Publicadas') !!}
+                                        
+	                                        <div id="dependienteMarcasBuscador">
+	                                        {!! Form::select('marca', 
+	                                                            (['' => 'Seleccione'] ), 
+	                                                            null, 
+	                                                            ['id' => 'marca', 'class' => 'form-control','onchange' => '']
+	                                                        ) 
+	                                        !!} 
+	                                        </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                         {!! Form::label('modelo', 'Modelos') !!}
-                                        {!! Form::select('modelo', 
-                                                            (['' => 'Seleccione']), 
-                                                            null, 
-                                                            ['id' => 'modelo', 'class' => 'form-control','onchange' => '']
-                                                        ) 
-                                        !!} 
+
+						                    <div id="dependienteModelosBuscador">
+						
+							                    {!! Form::select('modelo', 
+							                                        (['' => 'Seleccione'] ), 
+							                                        null, 
+							                                        ['id'=>'modelo','class' => 'form-control','onchange'=>'']
+							                                    ) 
+							                    !!} 
+						
+						                    </div>
+                                                            
                                         </div>
                                         <div class="col-md-6">
                                         {!! Form::label('color', 'Colores') !!}
