@@ -98,11 +98,7 @@ function getXmlHttpObject()
 function dependienteModelos(valor){
 
 	if (valor != ""){
-		/*
-	    var ele = document.getElementById("lng_idmodelo_validar")
-	    ele.setAttribute('class', 'fa fa-asterisk');
-	    ele.setAttribute('style', 'color: red');
-		*/
+
 	    divname = "dependienteModelos";
 	    //http.open("GET", 'paginas' + url, true);
 	    http.open("GET", 'Modelos/'+ valor, true);
@@ -114,11 +110,6 @@ function dependienteModelos(valor){
 function dependienteMarcas(valor){
 
 	if (valor != ""){
-		/*
-	    var ele = document.getElementById("lng_idmodelo_validar")
-	    ele.setAttribute('class', 'fa fa-asterisk');
-	    ele.setAttribute('style', 'color: red');
-		*/
 	
         divname = "dependienteMarcas";
 	    //http.open("GET", 'paginas' + url, true);
@@ -127,9 +118,7 @@ function dependienteMarcas(valor){
 	    http.send(null);
 
         setTimeout('dependienteCilindrada('+valor+')',500);
-        
 	}
-
 }
 
 function dependienteCilindrada(valor){
@@ -192,24 +181,20 @@ function buscarCiudadPorLetra(letra){
     }else{
     	document.getElementById(divname).style.display = 'none';
     }
-  
 }
 
 function seleccion(id,ciudad){
     
-	alert('ache')
 	divname = "dependiente2";
 	document.getElementById(divname).style.display = 'none';
 	
 	document.getElementById('lng_idciudad').value = id;
     document.getElementById('buscador').value = ciudad;
-    
 }
 
 /********************************************	BUSCADOR**********************************************************************************/
 
 function buscarCiudadPorPais_Buscador(lng_idpais){
-	
 	
 	document.getElementById('ciudad').value = "";
     document.getElementById('buscador2').value = "";
@@ -302,7 +287,6 @@ function siguiente(){
 		document.getElementById('pag').value = valor;
 		paginar(valor);
 	}
-	
 }
 
 function anterior(){
@@ -313,172 +297,10 @@ function anterior(){
 		document.getElementById('pag').value = valor;
 		paginar(valor);
 	}
-	
 }
 
 function oir2(){
 	document.getElementById('blb_img').addEventListener('change', blb_imgUser, false);
-}
-
-function oir(){
-
-    document.getElementById('blb_img0').addEventListener('change', blb_img0, false);
-    document.getElementById('blb_img1').addEventListener('change', blb_img1, false);
-    document.getElementById('blb_img2').addEventListener('change', blb_img2, false);
-    document.getElementById('blb_img3').addEventListener('change', blb_img3, false);
-    document.getElementById('blb_img4').addEventListener('change', blb_img4, false);
-    document.getElementById('blb_img5').addEventListener('change', blb_img5, false);
-    
-}
-
-function blb_img0(evt) {
-
-    var files = evt.target.files; // FileList object
-    //Obtenemos la imagen del campo "file". 
-    for (var i = 0, f; f = files[i]; i++) {
-        //Solo admitimos imágenes.
-        if (!f.type.match('image.*')) {
-            continue;
-        }
-
-        var reader = new FileReader();
-
-        reader.onload = (function (theFile) {
-            return function (e) {
-                // Creamos la imagen.
-                //document.getElementById("papa").innerHTML = ['Nombre: ', escape(theFile.name), ' || Tamanio: ', escape(theFile.size), ' bytes || type: ', escape(theFile.type), '<br /><img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-                
-                document.getElementById("img0").innerHTML = ['<img class="img-responsive img-rounded" style="width:250px" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-            };
-        })(f);
-
-        reader.readAsDataURL(f);
-    }
-}
-
-function blb_img1(evt) {
-
-    var files = evt.target.files; // FileList object
-    //Obtenemos la imagen del campo "file". 
-    for (var i = 0, f; f = files[i]; i++) {
-        //Solo admitimos imágenes.
-        if (!f.type.match('image.*')) {
-            continue;
-        }
-
-        var reader = new FileReader();
-
-        reader.onload = (function (theFile) {
-            return function (e) {
-                // Creamos la imagen.
-                //document.getElementById("papa").innerHTML = ['Nombre: ', escape(theFile.name), ' || Tamanio: ', escape(theFile.size), ' bytes || type: ', escape(theFile.type), '<br /><img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-                
-                document.getElementById("img1").innerHTML = ['<img class="img-responsive img-rounded" style="width:250px" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-            };
-        })(f);
-
-        reader.readAsDataURL(f);
-    }
-}
-
-function blb_img2(evt) {
-
-    var files = evt.target.files; // FileList object
-    //Obtenemos la imagen del campo "file". 
-    for (var i = 0, f; f = files[i]; i++) {
-        //Solo admitimos imágenes.
-        if (!f.type.match('image.*')) {
-            continue;
-        }
-
-        var reader = new FileReader();
-
-        reader.onload = (function (theFile) {
-            return function (e) {
-                // Creamos la imagen.
-                //document.getElementById("papa").innerHTML = ['Nombre: ', escape(theFile.name), ' || Tamanio: ', escape(theFile.size), ' bytes || type: ', escape(theFile.type), '<br /><img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-                
-                document.getElementById("img2").innerHTML = ['<img class="img-responsive img-rounded" style="width:250px" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-            };
-        })(f);
-
-        reader.readAsDataURL(f);
-    }
-}
-
-function blb_img3(evt) {
-
-    var files = evt.target.files; // FileList object
-    //Obtenemos la imagen del campo "file". 
-    for (var i = 0, f; f = files[i]; i++) {
-        //Solo admitimos imágenes.
-        if (!f.type.match('image.*')) {
-            continue;
-        }
-
-        var reader = new FileReader();
-
-        reader.onload = (function (theFile) {
-            return function (e) {
-                // Creamos la imagen.
-                //document.getElementById("papa").innerHTML = ['Nombre: ', escape(theFile.name), ' || Tamanio: ', escape(theFile.size), ' bytes || type: ', escape(theFile.type), '<br /><img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-                
-                document.getElementById("img3").innerHTML = ['<img class="img-responsive img-rounded" style="width:250px" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-            };
-        })(f);
-
-        reader.readAsDataURL(f);
-    }
-}
-
-function blb_img4(evt) {
-
-    var files = evt.target.files; // FileList object
-    //Obtenemos la imagen del campo "file". 
-    for (var i = 0, f; f = files[i]; i++) {
-        //Solo admitimos imágenes.
-        if (!f.type.match('image.*')) {
-            continue;
-        }
-
-        var reader = new FileReader();
-
-        reader.onload = (function (theFile) {
-            return function (e) {
-                // Creamos la imagen.
-                //document.getElementById("papa").innerHTML = ['Nombre: ', escape(theFile.name), ' || Tamanio: ', escape(theFile.size), ' bytes || type: ', escape(theFile.type), '<br /><img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-                
-                document.getElementById("img4").innerHTML = ['<img class="img-responsive img-rounded" style="width:250px" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-            };
-        })(f);
-
-        reader.readAsDataURL(f);
-    }
-}
-
-function blb_img5(evt) {
-
-    var files = evt.target.files; // FileList object
-    //Obtenemos la imagen del campo "file". 
-    for (var i = 0, f; f = files[i]; i++) {
-        //Solo admitimos imágenes.
-        if (!f.type.match('image.*')) {
-            continue;
-        }
-
-        var reader = new FileReader();
-
-        reader.onload = (function (theFile) {
-            return function (e) {
-                // Creamos la imagen.
-                //document.getElementById("papa").innerHTML = ['Nombre: ', escape(theFile.name), ' || Tamanio: ', escape(theFile.size), ' bytes || type: ', escape(theFile.type), '<br /><img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-                
-                document.getElementById("img5").innerHTML = ['<img class="img-responsive img-rounded" style="width:250px" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-            };
-        })(f);
-
-        reader.readAsDataURL(f);
-    }
 }
 
 function blb_imgUser(evt) {
@@ -516,36 +338,11 @@ function isNumber(evt) {
     return true;
 }
 
-function validar(valor, nombre){
-
-    //alert(valor + "-" + nombre);
-/*
-    campo = document.getElementById(nombre);
-
-    if(campo.value == "" || campo.value == "0") 
-    {
-
-        var ele = document.getElementById(nombre+"_validar")
-        ele.setAttribute('class', 'fa fa-asterisk');
-        ele.setAttribute('style', 'color: red');
-
-    }else{
-
-        var ele = document.getElementById(nombre+"_validar")
-        ele.setAttribute('class', 'fa fa-check');
-        ele.setAttribute('style', 'color: green');
-
-    }
-
-    */
-}
-
 function validarRadio(nombre){
 
     var ele = document.getElementById(nombre+"_validar")
     ele.setAttribute('class', 'fa fa-check');
     ele.setAttribute('style', 'color: green');
-    
 }
 
 function soloEnVenezuela(nombre){
@@ -564,32 +361,14 @@ function soloEnVenezuela(nombre){
 		document.getElementById('monedas_validar').style.display = "none";
 		
 	}
-
-}
-
-function imagenppal(valor,nombre){
-
-    //alert(valor +"--"+ nombre);
-
-    for (var i = 0; i < 6; i++){
-
-         document.getElementById("principal"+i).value = "0";
-     }
-
-    var campo = document.getElementById(nombre);
-    campo.value = valor;
-
 }
 
 //Esta funcion la llamo desde:
-//app.blade.php, app2.blade.php (evento "onload") y desde el select de lng_idtipo_vehiculo (evento "onchange")
+//cabeza.blade.php (evento "onload") y desde el select de lng_idtipo_vehiculo (evento "onchange")
 function formularioDinamico(){
  
     var t = document.getElementById("lng_idtipo_vehiculo");
     var selectedText = t.options[t.selectedIndex].text;
-     
-    /*document.getElementById('lng_idmarca').selectedIndex = 0
-    document.getElementById('lng_idmodelo').selectedIndex = 0*/
     
     if (selectedText == "Ambulancias")
     {
@@ -676,7 +455,6 @@ function isValidUrl(url){
 
     var regex=/^(ht|f)tps?:\/\/\w+([\.\-\w]+)?\.([a-z]{2,4}|travel)(:\d{2,5})?(\/.*)?$/i
     return regex.test(url);
-
 }
 
 function validarUrl(valor)  {
@@ -704,7 +482,6 @@ function botonCropVisible(valor){
     		botonCropHidden(x)
     	}
     }
-   
 }
 
 function botonCropHidden(valor){
@@ -713,9 +490,11 @@ function botonCropHidden(valor){
     boton.style.display="none"; 	
     boton.style.position="absolute";
 }
+
 function popupVisible(){
 	document.getElementById('popup').style.visibility="visible"; 
 }
+
 function popupHidden(){
 	document.getElementById('popup').style.visibility="visible"; 
 	var status = document.getElementById('popup').style.visibility="hidden";  
@@ -736,7 +515,6 @@ document.querySelector('.close').addEventListener("click", function() { popupHid
 */
 /////////////////////////////////////////////////////////////////////////////// 
      
-
     function ImagenesGaleria() {
         var options =
         {
@@ -784,7 +562,6 @@ document.querySelector('.close').addEventListener("click", function() { popupHid
     };
 
 /******************************************************************************************************/
-
 
 function buscador(){
 

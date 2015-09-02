@@ -84,40 +84,30 @@ class MaestroController extends Controller
 
     public function dependiente2($letra,$pais)
     {
-        
        $ciudades = Consultas::querysValor2('ciudades',$letra,$pais);
         //var_dump($ciudades);
        return \View::make('ciudades',compact('ciudades')); 
-
     }
     
     public function dependiente3($pais)
     {
-    
         $ciudades = Consultas::querysValor('ciudades',$pais);
         //var_dump($ciudades);
         return \View::make('ciudades',compact('ciudades'));
-    
     }
     
-    
-    
-    public function Buscador2($letra,$pais)
+    public function BuscadorCiudades($letra,$pais)
     {
-    
     	$ciudades = Consultas::querysValor2('ciudades',$letra,$pais);
     	//var_dump($ciudades);
     	return \View::make('ciudades_Buscador',compact('ciudades'));
-    
     }
     
-    public function Buscador3($pais)
+    public function BuscadorPais($pais)
     {
-    
     	$ciudades = Consultas::querysValor('ciudades',$pais);
     	//var_dump($ciudades);
     	return \View::make('ciudades_Buscador',compact('ciudades'));
-    
     }    
 
 }
