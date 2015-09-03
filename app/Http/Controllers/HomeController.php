@@ -27,8 +27,9 @@ class HomeController extends Controller
         $total_vehiculos = DB::table('tbl_vehiculos')->count();
         $paginas = ceil($total_vehiculos / $this->tamano_pagina);
         $vehiculos = Consultas::querysValor3('todosLosVehiculos',$this->tamano_pagina,0,'');
+        $ultimosVehiculos = Consultas::querysValor3('ultimosVehiculos',$this->tamano_pagina,0,'');
         $total = array('paginas' => $paginas );
-        return \View::make('inicio', compact('vehiculos','total'));
+        return \View::make('inicio', compact('vehiculos','ultimosVehiculos','total'));
     }
 
     public function paginar($pagina)

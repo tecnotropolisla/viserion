@@ -110,7 +110,7 @@
 
                 <div class="col-md-9 col-sm-9">
                     <div class="btn-group pull-right results-sorter">
-                        <button type="button" class="btn btn-default listing-sort-btn">Ordenar</button>
+                        <button type="button" class="btn btn-default listing-sort-btn">Filtros</button>
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                           <span class="caret"></span>
                           <span class="sr-only">Toggle Dropdown</span>
@@ -121,15 +121,6 @@
                             <li><a href="#">Mileage (Low to High)</a></li>
                             <li><a href="#">Mileage (High to Low)</a></li>
                         </ul>
-                    </div>
-                    
-                    <div class="toggle-view view-count-choice pull-right">
-                        <label>Mostrar</label>
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-default">10</a>
-                            <a href="#" class="btn btn-default active">20</a>
-                            <a href="#" class="btn btn-default">50</a>
-                        </div>
                     </div>
                     
                     <div class="toggle-view view-format-choice pull-right">
@@ -248,9 +239,47 @@
 
                                 </div>
                                 
-                            @endforeach                       
-                                
+                            @endforeach
+                                                         
                             </div>
+			            	
+				            <hr>
+
+				            <!-- Recently Listed Vehicles -->
+                            <section class="listing-block recent-vehicles">
+                                <div class="listing-header">
+                                    <h3>Últimas Publicaciones</h3>
+                                </div>
+                                
+                                <div class="listing-container">
+                                    <div class="carousel-wrapper">
+                                        <div class="row">
+                                            <ul class="owl-carousel carousel-fw" id="vehicle-slider" data-columns="3" data-autoplay="" data-pagination="yes" data-arrows="no" data-single-item="no" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="2" data-items-mobile="1">
+                                                
+                                                @foreach ($ultimosVehiculos as $ultimos)
+	                                                <li class="item">
+	                                                    <div class="vehicle-block format-standard">
+	                                                      
+	                                                        <a href="{{ route('detalles',$ultimos->id) }}" class="media-box"><img class="" src="{{ $ultimos->imagen }}" /></a>
+	                                                        
+	                                                        <span class="label label-default vehicle-age">{!! $ultimos->int_ano !!}</span>
+					                                        <span class="vehicle-age">
+					                                        <p class="label label-default">{!! $ultimos->int_ano !!}</p>
+					                                        <p class="text-center" style="margin-top: -2px;"><img class="" src="data:image/jpeg;base64,{{ $ultimos->bandera }}" style="width:35px" /></p>                                       
+					                                        </span>	                                                        
+	                                                        <h5 class="vehicle-title"><a href="#">{!! $ultimos->marca." ".$ultimos->modelo!!}</a></h5>
+	                                                        <span class="vehicle-cost">$ {!! number_format($ultimos->str_precio_venta, null, ',', '.') !!}</span>
+	                                                    </div>
+	                                                </li>
+												@endforeach
+												
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </section>
+				                                     
                         </div>
                     </div>
                 </div>

@@ -314,7 +314,7 @@ function paginar(valor){
 
     for (x = 1; x <= paginas; x++){
         var ele = document.getElementById("numeroPag"+x)
-        ele.setAttribute('class', '');
+        ele.setAttribute('class', '');     
     }
     
     var ele = document.getElementById("numeroPag"+valor)
