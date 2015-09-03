@@ -18,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->tamano_pagina = 1;
+        $this->tamano_pagina = 10;
         Buscador::camposBuscador();   
     }
 

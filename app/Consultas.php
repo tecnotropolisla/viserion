@@ -125,6 +125,7 @@ class Consultas extends Model
 				->Where(function ($query) {
 					$query->where('m.bol_eliminado', '=', 0);
 				})
+				->groupBy('m.str_marca','m.id')
 				->orderBy('m.str_marca')
 				->select('m.str_marca','m.id')
 				->lists('str_marca','id');
