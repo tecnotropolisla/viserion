@@ -218,9 +218,9 @@
 
                                     </div>
 
-                                    <div class="result-item-in">
+                                    <div class="result-item-in" style="">
 
-                                        <h4 class="result-item-title"><a href="{{ route('detalles',$vehiculo->id) }}">{!! $vehiculo->marca." ".$vehiculo->modelo!!}</a></h4>
+                                        <h4 class="result-item-title" style="font-size:14px"><a href="{{ route('detalles',$vehiculo->id) }}">{!! $vehiculo->marca." ".$vehiculo->modelo!!}</a></h4>
                                         
                                         <div class="result-item-cont">
                                             <div class="result-item-block col1">
@@ -228,7 +228,7 @@
                                             </div>
                                             <div class="result-item-block col2">
                                                 <div class="result-item-pricing">
-                                                    <div class="price" style="font-size:20px">$ {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!} </div>
+                                                    <div class="price" style="font-size:18px">$ {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!} </div>
                                                 </div>
                                             </div>
                                         </div>

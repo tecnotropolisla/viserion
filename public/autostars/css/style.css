@@ -2968,7 +2968,7 @@ h1.page-title{
 	padding:0 20px;
 }
 .results-grid-view .result-item-features{
-	padding-top:5px;
+	/*padding-top:5px;*/
 }
 .result-item-features li{
 	margin-bottom:5px;
@@ -3005,6 +3005,7 @@ h1.page-title{
 .results-grid-view .result-item{
 	/*width:31%;*/
 	width:17.5%;
+	height:430px;
 	margin-left:2.3%;
 	float:left;
 	margin-bottom:40px;

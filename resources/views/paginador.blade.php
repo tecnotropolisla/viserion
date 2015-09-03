@@ -27,9 +27,9 @@
 
                                     </div>
 
-                                    <div class="result-item-in">
+                                    <div class="result-item-in" style="height: 250px">
 
-                                        <h4 class="result-item-title"><a href="{{ route('detalles',$vehiculo->id) }}">{!! $vehiculo->marca." ".$vehiculo->modelo!!}</a></h4>
+                                        <h4 class="result-item-title" style="font-size:14px"><a href="{{ route('detalles',$vehiculo->id) }}">{!! $vehiculo->marca." ".$vehiculo->modelo!!}</a></h4>
                                         
                                         <div class="result-item-cont">
                                             <div class="result-item-block col1">
@@ -37,19 +37,19 @@
                                             </div>
                                             <div class="result-item-block col2">
                                                 <div class="result-item-pricing">
-                                                    <div class="price" style="font-size:20px">$ {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!} </div>
+                                                    <div class="price" style="font-size:18px">$ {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!} </div>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="result-item-features">
                                             <ul class="inline" style="font-size:12px">
-                                               <li>País: {!! $vehiculo->pais !!}</li>
-                                               <li>Ciudad: {!! $vehiculo->ciudad !!}</li>
-                                               <li>Km: {!! number_format($vehiculo->str_recorrido, null, ',', '.') !!}</li>
-                                               <li>Motor: {!! $vehiculo->cilindrada !!} cc</li>
-                                               <li>Transmisión: {!! $vehiculo->transmision !!}</li>
-                                               <li>Dirección: {!! $vehiculo->direccion !!}</li>                                                
+                                               <li><i class="fa fa-caret-right"></i> País: {!! $vehiculo->pais !!}</li>
+                                               <li><i class="fa fa-caret-right"></i> Ciudad: {!! $vehiculo->ciudad !!}</li>
+                                               <li><i class="fa fa-caret-right"></i> Km: {!! number_format($vehiculo->str_recorrido, null, ',', '.') !!}</li>
+                                               <li><i class="fa fa-caret-right"></i> Motor: {!! $vehiculo->cilindrada !!} cc</li>
+                                               <li> <i class="fa fa-caret-right"></i> Transmisión: {!! $vehiculo->transmision !!}</li>
+                                               <li><i class="fa fa-caret-right"></i> Dirección: {!! $vehiculo->direccion !!}</li>                                                
                                             </ul>
                                         </div>
 
