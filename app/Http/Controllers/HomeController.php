@@ -33,10 +33,7 @@ class HomeController extends Controller
     }
 
     public function paginar($pagina)
-    {
-        $total_vehiculos = DB::table('tbl_vehiculos')->count();
-        $paginas = ceil($total_vehiculos / $this->tamano_pagina);
-
+    {        
         if (!$pagina) {
            $inicio = 0;
            $pagina = 1;
@@ -44,8 +41,7 @@ class HomeController extends Controller
         else {
            $inicio = ($pagina - 1) * $this->tamano_pagina;
         }
-        //calculo el total de páginas
-        $total_paginas = ceil($total_vehiculos / $this->tamano_pagina);
+       
         $vehiculos = Consultas::querysValor3('todosLosVehiculos',$this->tamano_pagina,$inicio,'');
         return \View::make('paginador',compact('vehiculos'));
     }

@@ -158,7 +158,7 @@
 
                         @endfor
                    
-                   	
+                   
                    	{!! Form::input('hidden', 'paginas', $i-1 , ['id'=> 'paginas']) !!}
                    	
                     <li class=""><a onclick="siguiente()" aria-label="Next"><span aria-hidden="true"><i class="fa fa-chevron-right"></i></span></a></li>

@@ -255,7 +255,7 @@
 
                                         {!! Form::label('pais', 'Paises') !!}
                                         {!! Form::select('pais', 
-                                                            (['' => 'Seleccione'] + $paises), 
+                                                            (['' => 'Seleccione'] + $paisesBuscador), 
                                                             null, 
                                                             ['id' => 'pais', 'class' => 'form-control','onchange' => 'buscarCiudadPorPais_Buscador(this.value)']
                                                         ) 

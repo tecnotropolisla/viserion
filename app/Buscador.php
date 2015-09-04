@@ -9,11 +9,11 @@ class Buscador extends Model
 {
     protected function camposBuscador(){
 
-        $paises = Consultas::querys('paises');
+        $paisesBuscador = Consultas::querys('paisesBuscador');
         $tipos = Consultas::querys('tipo');
         $colores = Consultas::querysValor('maestro','color');
         $marcaspublicadas = Consultas::querysValor('marcasTiposPublicadas','153');
         $modelospublicados = Consultas::querys('modelos');
-        \View::share(compact('paises','tipos','colores','marcaspublicadas','modelospublicados'));  
+        \View::share(compact('paisesBuscador','tipos','colores','marcaspublicadas','modelospublicados'));  
     }
 }

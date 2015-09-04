@@ -23,30 +23,25 @@
 					'uses' => 'HomeController@paginar',
 					'as' => 'paginar'
 	]);
-
-	Route::get('Detalle-del-Vehiculo/{valor}', [
-			'uses' => 'DetallesController@detalles',
-			'as' =>'detalles'
-	]);
 		
 	Route::get('Acceso-Restringido', [
 					'uses' => 'DenegadoController@index',
 					'as' =>'denegado'
 	]);
 
-	//Buscador:
-	
-	//Función "dependienteModelosBuscador(valor)" :)
-	Route::get('ModelosBuscador/{valor}','MaestroController@dependienteModelosBuscador');
-	
-	//Función "dependienteMarcasBuscador(valor)" :)
-	Route::get('MarcasBuscador/{valor}','MaestroController@dependienteMarcasBuscador');
-	
-	//Función "buscarCiudadPorPais_Buscador(lng_idpais)" :)
-	Route::get('BuscadorPais/{pais}','MaestroController@BuscadorPais');
-				
-	//Función "buscarCiudadPorLetra_Buscador(letra)" :)
-	Route::get('BuscadorCiudades/{letra}/Pais/{pais}','MaestroController@BuscadorCiudades');
+	Route::get('Vehiculo/{valor}', [
+			'uses' => 'DetallesController@detalles',
+			'as' =>'detalles'
+	]);
+
+	Route::group(['prefix' => 'Vehiculo'], function () {
+
+		include 'rutas_buscador.php';
+
+	});
+
+	include 'rutas_buscador.php';
+
 /**********************************************************************************/
 
 /**********************Accesos con autenticación:**********************************/
@@ -139,7 +134,6 @@ Route::group(['middleware' => 'auth'], function () {
 	
 		//Estas rutas las llamo desde el archivo ajaxCars.js:
 			
-
 			//Función "dependienteModelos(valor)" :)
 			Route::get('Modelos/{valor}','MaestroController@dependienteModelos');
 
@@ -155,19 +149,8 @@ Route::group(['middleware' => 'auth'], function () {
 			//Función "buscarCiudadPorLetra(letra)" :)
 			Route::get('Ciudades/{letra}/Pais/{pais}','MaestroController@dependiente2');
 			
-			//Buscador:
-			
-			//Función "dependienteModelosBuscador(valor)" :)
-			Route::get('ModelosBuscador/{valor}','MaestroController@dependienteModelosBuscador');
-			
-			//Función "dependienteMarcasBuscador(valor)" :)
-			Route::get('MarcasBuscador/{valor}','MaestroController@dependienteMarcasBuscador');			
-			
-			//Función "buscarCiudadPorPais_Buscador(lng_idpais)" :)
-			Route::get('BuscadorPais/{pais}','MaestroController@BuscadorPais');
-				
-			//Función "buscarCiudadPorLetra_Buscador(letra)" :)
-			Route::get('BuscadorCiudades/{letra}/Pais/{pais}','MaestroController@BuscadorCiudades');	
+			include 'rutas_buscador.php';
+
 		});
  });
 

@@ -141,14 +141,14 @@ class MaestroController extends Controller
     
     public function BuscadorCiudades($letra,$pais)
     {
-    	$ciudades = Consultas::querysValor2('ciudades',$letra,$pais);
+    	$ciudades = Consultas::querysValor2('ciudadesBuscadorLetra',$letra,$pais);
     	//var_dump($ciudades);
     	return \View::make('ciudades_Buscador',compact('ciudades'));
     }
     
     public function BuscadorPais($pais)
     {
-    	$ciudades = Consultas::querysValor('ciudades',$pais);
+    	$ciudades = Consultas::querysValor('ciudadesBuscador',$pais);
     	//var_dump($ciudades);
     	return \View::make('ciudades_Buscador',compact('ciudades'));
     }    

@@ -180,6 +180,19 @@ class Consultas extends Model
             
             	return $ciudades;
             break;
+
+            case 'ciudadesBuscador':
+            
+            	$ciudades = DB::select("select c.id, c.str_ciudad 
+						from tecnotropolislaDrogon.cat_ciudades c
+						join tecnotropolislaDrogon.tbl_vehiculos as v on v.lng_idciudad = c.id      		
+						where c.lng_idpais = ".$valor."
+						and c.bol_eliminado = 0
+						group by c.id, c.str_ciudad
+						order by c.str_ciudad");
+            
+            	return $ciudades;
+            break;            
             
             case 'cilindrada':
             	$cilindrada = DB::table('cat_datos_maestros')
@@ -221,9 +234,25 @@ class Consultas extends Model
 
             case 'ciudades':
 
-                $ciudades = DB::select("select id, str_ciudad from cat_ciudades where lng_idpais = ".$valor2." AND str_ciudad LIKE '%".$valor."%' and bol_eliminado = 0");
+                $ciudades = DB::select("select id, str_ciudad 
+                	from cat_ciudades 
+                	where lng_idpais = ".$valor2." 
+                	AND str_ciudad LIKE '%".$valor."%' and bol_eliminado = 0");
 
                 return $ciudades;
+
+            case 'ciudadesBuscadorLetra':
+
+                $ciudades = DB::select("select c.id, c.str_ciudad 
+                	from cat_ciudades as c
+                	join tbl_vehiculos v on v.lng_idciudad = c.id 
+                	where c.lng_idpais = ".$valor2." 
+                	AND c.str_ciudad LIKE '%".$valor."%' and c.bol_eliminado = 0
+					group by c.id, c.str_ciudad
+					order by c.str_ciudad");
+
+                return $ciudades;
+
             break;
         }
     }   
@@ -291,7 +320,20 @@ class Consultas extends Model
                 ->select('p.str_paises','p.id')
                 ->lists('p.str_paises','p.id');
                 return $paises;
-            break;         
+            break;
+
+            case 'paisesBuscador':
+                $paises = DB::table('cat_paises as p')
+                ->join('tbl_vehiculos as v', 'v.lng_idpais', '=', 'p.id')
+                ->Where(function ($query) {
+                	$query->where('p.bol_eliminado', '=', 0);
+                })
+                ->groupBy('p.str_paises','p.id')
+                ->orderBy('p.str_paises')
+                ->select('p.str_paises','p.id')
+                ->lists('p.str_paises','p.id');
+                return $paises;
+            break; 
         }
     }
 
