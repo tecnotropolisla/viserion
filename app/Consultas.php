@@ -358,7 +358,7 @@ class Consultas extends Model
                     join tecnotropolislaDrogon.cat_ciudades as ciu on ciu.id =  v.lng_idciudad
                     where ima.int_peso = 1 ".$and."
 
-                    limit ".$limit." offset ".$offset." ");
+                    order by v.id desc limit ".$limit." offset ".$offset." ");
                 
                 return $todosLosVehiculos;
 
@@ -381,13 +381,11 @@ class Consultas extends Model
                     join tecnotropolislaDrogon.cat_ciudades as ciu on ciu.id =  v.lng_idciudad
                     where ima.int_peso = 1 ".$and."
             
-                    limit 9 offset 0");
+                    order by v.id desc limit 9 offset 0");
             
             	return $ultimosVehiculos;
             
             	break;            
-            
-            
         }
     }
 }
