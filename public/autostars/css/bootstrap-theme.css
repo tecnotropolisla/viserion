@@ -682,7 +682,7 @@ span.progress-bar-tooltip:after {
 }
 .pagination{
 	margin-bottom:0;
-	margin-top:30px;
+	margin-top:0px;
 }
 .pagination > li > a, .pagination > li > span{
 	color:#666;

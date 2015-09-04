@@ -2,18 +2,53 @@
     <div class="utility-bar">
     	<div class="container">
         	<div class="row">
-            	<div class="col-md-4 col-sm-6 col-xs-8">
+            	<div class="col-md-4 col-sm-6 col-xs-4">
                 	<div class="toggle-make">
                 		<a href="#"><i class="fa fa-navicon"></i></a>
                     	<span>troovami.com</span>
                     </div>
                 </div>
-            	<div class="col-md-8 col-sm-6 col-xs-4">
+            	<div class="col-md-8 col-sm-6 col-xs-8">
+            	
+		           
+
+		            
+            	<div class="col-md-6 col-sm-6 col-xs-6" style="margin:5px auto;">
+            	<div class="btn-group pull-right results-sorter">
+                        <button type="button" class="btn btn-default listing-sort-btn">Filtros</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                          <span class="caret"></span>
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Price (High to Low)</a></li>
+                            <li><a href="#">Price (Low to High)</a></li>
+                            <li><a href="#">Mileage (Low to High)</a></li>
+                            <li><a href="#">Mileage (High to Low)</a></li>
+                        </ul>
+                    </div>
+            	
+            	
+            	
+            	   <div class="toggle-view view-format-choice ">
+                        
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-default " id="results-list-view"><i class="fa fa-th-list"></i></a>
+                            <a href="#" class="btn btn-default active" id="results-grid-view"><i class="fa fa-th"></i></a>
+                        </div>
+                    </div>
+                </div>
+            	
+            	
+            	<!-- 
                 	<ul class="utility-icons social-icons social-icons-colored">
                     	<li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
                     	<li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
                     	<li class="" style="background-color:#3f729b"><a href="#"><i class="fa fa-instagram"></i></a></li>
                     </ul>
+                    
+                    -->
+                    
                 </div>
           	</div>
       	</div>

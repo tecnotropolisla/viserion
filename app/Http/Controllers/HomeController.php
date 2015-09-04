@@ -19,7 +19,10 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->tamano_pagina = 10;
-        Buscador::camposBuscador();   
+        Buscador::camposBuscador();
+        
+        
+        
     }
 
     public function index()
@@ -29,6 +32,10 @@ class HomeController extends Controller
         $vehiculos = Consultas::querysValor3('todosLosVehiculos',$this->tamano_pagina,0,'');
         $ultimosVehiculos = Consultas::querysValor3('ultimosVehiculos',$this->tamano_pagina,0,'');
         $total = array('paginas' => $paginas );
+        
+        
+        //\View::share(compact('total'));
+        
         return \View::make('inicio', compact('vehiculos','ultimosVehiculos','total'));
     }
 
