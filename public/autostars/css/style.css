@@ -934,7 +934,7 @@ html[xmlns] .slides {
 .hero-slider{
 	position:relative;
 	z-index:1;
-	height:450px;
+	height:350px;
 	width:100%;
 	overflow:hidden;
 }
@@ -945,7 +945,7 @@ html[xmlns] .slides {
 	height:100%;
 }
 .hero-slider.flexslider ul.slides li{
-	height:450px;
+	height:350px;
 	width:100%;
 	overflow:hidden;
 	position:static;

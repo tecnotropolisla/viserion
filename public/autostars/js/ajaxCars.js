@@ -615,5 +615,9 @@ document.querySelector('.close').addEventListener("click", function() { popupHid
 function buscador(){
 
     var valor = "Buscando....";
-    alert(valor)
+    //alert(valor)
+    
+    $(".search-form").slideToggle();
+    
+    
 }

@@ -288,7 +288,7 @@
                                         <div class="col-md-6">
                                         {!! Form::label('marca', 'Marcas Publicadas') !!}
                                         
-	                                        <div id="dependienteMarcasBuscador">
+	                                        <div id="dependienteMarcasBuscador" class="selectpicker">
 	                                        {!! Form::select('marca', 
 	                                                            (['' => 'Seleccione'] ), 
 	                                                            null, 
@@ -329,40 +329,58 @@
                                 <div class="col-md-6 col-sm-6">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label>Año Mínimo</label>
-                                            <select name="Min Year" class="form-control selectpicker">
-                                                <option selected>Any</option>
-                         
-                                            </select>
+       
+					                    {!! Form::label('min_ano', 'Año Desde') !!}
+					                    <?php $ano = date('Y')?>
+					                    
+					    					<select id='min_ano' name='min_ano' class='form-control' onchange=''>            
+						                        <option value=''>Seleccione</option>
+													@for ($i = $ano; $i > 1949; $i--)
+													
+													   <option value='{{ $i }}'>{{ $i }}</option>
+													    								    
+													@endfor	                        						
+																								               						
+											</select>                                                
+
                                         </div>
                                         <div class="col-md-6">
-                                            <label>Año Máximo</label>
-                                            <select name="Max Year" class="form-control selectpicker">
-                                                <option selected>Any</option>
-                        
-                                            </select>
+                                        
+					                    {!! Form::label('max_ano', 'Año Hasta') !!}
+					                    <?php $ano = date('Y')?>
+					                    
+					    					<select id='max_ano' name='max_ano' class='form-control' onchange=''>            
+						                        <option value=''>Seleccione</option>
+													@for ($i = $ano; $i > 1949; $i--)
+													
+													   <option value='{{ $i }}'>{{ $i }}</option>
+													    								    
+													@endfor	                        						
+																								               						
+											</select>
+											 
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label>Precio Mínimo</label>
-                                            <select name="Min Mileage" class="form-control selectpicker">
-                                                <option selected>Any</option>
-                             
-                                            </select>
+                                            
+											{!! Form::input('text', 'str_precio_minimo', '', ['class'=> 'form-control', 'maxlength' => '10','onkeypress'=>'','onchange' => '']) !!}
+											
+											
                                         </div>
                                         <div class="col-md-6">
-                                            <label>Precio Máximo</label>
-                                            <select name="Max Mileage" class="form-control selectpicker">
-                                                <option selected>Any</option>
-                 
-                                            </select>
+                                             {!! Form::label('max_ano', 'Precio Máximo') !!}
+                                                                                         
+											{!! Form::input('text', 'str_precio_minimo', '', ['class'=> 'form-control', 'maxlength' => '10','onkeypress'=>'','onchange' => '']) !!}
+											
                                         </div>
                                     </div>
   
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="button" class="search-trigger btn btn-block btn-info btn-lg" value="Buscar" onclick="buscador()">
+                                        <br>
+                                            <input type="button" class="btn btn-block btn-primary btn-lg" value="Buscar" onclick="buscador()">
                                         </div>
                                     </div>
                                 </div>
