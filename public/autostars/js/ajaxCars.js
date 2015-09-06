@@ -305,7 +305,64 @@ function seleccion_Buscador(id,ciudad){
 
 /************************************************************************************************************/
 
+function buscador(){
+
+    //alert(document.getElementById('pais').value);
+    $(".search-form").slideToggle();
+
+    var pais = document.getElementById('pais').value;
+    var ciudad = document.getElementById('ciudad').value;
+    var tipo = document.getElementById('tipo').value;
+    var marca = document.getElementById('marca').value;
+    var modelo = document.getElementById('modelo').value;
+    var color = document.getElementById('color').value;
+    var min_ano = document.getElementById('min_ano').value;
+    var max_ano = document.getElementById('max_ano').value;
+    var min_precio = document.getElementById('min_precio').value;
+    var max_precio = document.getElementById('max_precio').value;
+
+    document.getElementById('pag').value = 1;
+    valor = 1;
+
+    divname = "results-holder";
+   
+    if (pais != 0 ) {
+
+        var and = 'and v.lng_idpais = '+pais;
+
+    }else{
+        var and = 'nada';
+    };
+   
+    //http.open("GET", 'paginas' + url, true);
+    http.open("GET", 'Pagina/'+valor+'/and/'+and, true);
+    http.onreadystatechange = handleHttpResponse;
+    http.send(null);
+
+}
+
 function paginar(valor){
+
+    var pais = document.getElementById('pais').value;
+    var ciudad = document.getElementById('ciudad').value;
+    var tipo = document.getElementById('tipo').value;
+    var marca = document.getElementById('marca').value;
+    var modelo = document.getElementById('modelo').value;
+    var color = document.getElementById('color').value;
+
+    var min_ano = document.getElementById('min_ano').value;
+    var max_ano = document.getElementById('max_ano').value;
+    var min_precio = document.getElementById('min_precio').value;
+    var max_precio = document.getElementById('max_precio').value;
+
+    if (pais != 0 ) {
+
+        var and = 'and v.lng_idpais = '+pais;
+
+    }else{
+        var and = 'nada';
+    };
+
 
 	document.getElementById('pag').value = valor;
     divname = "results-holder";
@@ -319,9 +376,9 @@ function paginar(valor){
     
     var ele = document.getElementById("numeroPag"+valor)
     ele.setAttribute('class', 'active');
-   
+
     //http.open("GET", 'paginas' + url, true);
-    http.open("GET", 'Pagina/'+ valor, true);
+    http.open("GET", 'Pagina/'+valor+'/and/'+and, true);
     http.onreadystatechange = handleHttpResponse;
     http.send(null);
 
@@ -331,7 +388,7 @@ function siguiente(){
 	
 	valor = Number(document.getElementById('pag').value) + 1;
 	paginas = Number(document.getElementById('paginas').value);
-	
+
 	if(valor <= paginas ){
 		document.getElementById('pag').value = valor;
 		paginar(valor);
@@ -611,13 +668,3 @@ document.querySelector('.close').addEventListener("click", function() { popupHid
     };
 
 /******************************************************************************************************/
-
-function buscador(){
-
-    var valor = "Buscando....";
-    //alert(valor)
-    
-    $(".search-form").slideToggle();
-    
-    
-}

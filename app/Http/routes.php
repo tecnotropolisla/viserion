@@ -19,7 +19,7 @@
 		'as' =>'home'
 	]);
 
-	Route::get('Pagina/{valor}',[
+	Route::get('Pagina/{valor}/and/{and}',[
 					'uses' => 'HomeController@paginar',
 					'as' => 'paginar'
 	]);

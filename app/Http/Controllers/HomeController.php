@@ -20,27 +20,32 @@ class HomeController extends Controller
     {
         $this->tamano_pagina = 10;
         Buscador::camposBuscador();
-        
-        
-        
     }
 
     public function index()
     {
-        $total_vehiculos = DB::table('tbl_vehiculos')->count();
-        $paginas = ceil($total_vehiculos / $this->tamano_pagina);
+        $total_vehiculos = Consultas::querysValor3('total_vehiculos','','','');
+
+         foreach ($total_vehiculos as $total) {
+            $resultados = $total->total;
+        }   
+
+        $paginas = ceil($resultados / $this->tamano_pagina);
         $vehiculos = Consultas::querysValor3('todosLosVehiculos',$this->tamano_pagina,0,'');
         $ultimosVehiculos = Consultas::querysValor3('ultimosVehiculos',$this->tamano_pagina,0,'');
-        $total = array('paginas' => $paginas );
-        
-        
-        //\View::share(compact('total'));
-        
-        return \View::make('inicio', compact('vehiculos','ultimosVehiculos','total'));
+        $total_paginas = array('paginas' => $paginas ); 
+        $registros = array('resultados' => $resultados ); 
+
+        return \View::make('inicio', compact('vehiculos','ultimosVehiculos','total_paginas','registros'));
     }
 
-    public function paginar($pagina)
+    public function paginar($pagina,$and)
     {        
+        
+        if ($and == "nada") {
+           $and = '';
+        }
+
         if (!$pagina) {
            $inicio = 0;
            $pagina = 1;
@@ -48,8 +53,18 @@ class HomeController extends Controller
         else {
            $inicio = ($pagina - 1) * $this->tamano_pagina;
         }
-       
-        $vehiculos = Consultas::querysValor3('todosLosVehiculos',$this->tamano_pagina,$inicio,'');
-        return \View::make('paginador',compact('vehiculos'));
+
+        $total_vehiculos = Consultas::querysValor3('total_buscarVehiculos','','',$and);
+
+         foreach ($total_vehiculos as $total) {
+            $resultados = $total->total;
+        }   
+
+        $paginas = ceil($resultados / $this->tamano_pagina);
+        $vehiculos = Consultas::querysValor3('buscarVehiculos',$this->tamano_pagina,$inicio,$and);
+        $total_paginas = array('paginas' => $paginas );
+        $registros = array('resultados' => $resultados );
+
+        return \View::make('paginador',compact('vehiculos','total_paginas','registros'));
     }
 }

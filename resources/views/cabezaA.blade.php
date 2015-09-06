@@ -255,7 +255,7 @@
 
                                         {!! Form::label('pais', 'Paises') !!}
                                         {!! Form::select('pais', 
-                                                            (['' => 'Seleccione'] + $paisesBuscador), 
+                                                            (['0' => 'Seleccione'] + $paisesBuscador), 
                                                             null, 
                                                             ['id' => 'pais', 'class' => 'form-control','onchange' => 'buscarCiudadPorPais_Buscador(this.value)']
                                                         ) 
@@ -279,7 +279,7 @@
                                         <div class="col-md-6">
                                         {!! Form::label('tipo', 'Tipos de Vehículos') !!}
                                         {!! Form::select('tipo', 
-                                                            (['' => 'Seleccione'] + $tipos), 
+                                                            (['0' => 'Seleccione'] + $tipos), 
                                                             null, 
                                                             ['id' => 'tipo', 'class' => 'form-control','onchange' => 'dependienteMarcasBuscador(this.value)']
                                                         ) 
@@ -290,7 +290,7 @@
                                         
 	                                        <div id="dependienteMarcasBuscador" class="selectpicker">
 	                                        {!! Form::select('marca', 
-	                                                            (['' => 'Seleccione'] ), 
+	                                                            (['0' => 'Seleccione'] ), 
 	                                                            null, 
 	                                                            ['id' => 'marca', 'class' => 'form-control','onchange' => '']
 	                                                        ) 
@@ -305,7 +305,7 @@
 						                    <div id="dependienteModelosBuscador">
 						
 							                    {!! Form::select('modelo', 
-							                                        (['' => 'Seleccione'] ), 
+							                                        (['0' => 'Seleccione'] ), 
 							                                        null, 
 							                                        ['id'=>'modelo','class' => 'form-control','onchange'=>'']
 							                                    ) 
@@ -317,9 +317,9 @@
                                         <div class="col-md-6">
                                         {!! Form::label('color', 'Colores') !!}
                                         {!! Form::select('color', 
-                                                            (['' => 'Seleccione'] + $colores), 
+                                                            (['0' => 'Seleccione'] + $colores), 
                                                             null, 
-                                                            ['id' => 'modelo', 'class' => 'form-control','onchange' => '']
+                                                            ['id' => 'color', 'class' => 'form-control','onchange' => '']
                                                         ) 
                                         !!} 
                                         </div>
@@ -333,7 +333,7 @@
 					                    {!! Form::label('min_ano', 'Año Desde') !!}
 					                    <?php $ano = date('Y')?>
 					                    
-					    					<select id='min_ano' name='min_ano' class='form-control' onchange=''>            
+					    					<select id='min_ano' name='min_ano' class='form-control' value='0' onchange=''>            
 						                        <option value=''>Seleccione</option>
 													@for ($i = $ano; $i > 1949; $i--)
 													
@@ -349,7 +349,7 @@
 					                    {!! Form::label('max_ano', 'Año Hasta') !!}
 					                    <?php $ano = date('Y')?>
 					                    
-					    					<select id='max_ano' name='max_ano' class='form-control' onchange=''>            
+					    					<select id='max_ano' name='max_ano' class='form-control' value='0' onchange=''>            
 						                        <option value=''>Seleccione</option>
 													@for ($i = $ano; $i > 1949; $i--)
 													
@@ -365,14 +365,14 @@
                                         <div class="col-md-6">
                                             <label>Precio Mínimo</label>
                                             
-											{!! Form::input('text', 'str_precio_minimo', '', ['class'=> 'form-control', 'maxlength' => '10','onkeypress'=>'','onchange' => '']) !!}
+											{!! Form::input('text', 'min_precio', '', ['id' => 'min_precio', 'class'=> 'form-control', 'maxlength' => '10','onkeypress'=>'','onchange' => '']) !!}
 											
 											
                                         </div>
                                         <div class="col-md-6">
                                              {!! Form::label('max_ano', 'Precio Máximo') !!}
                                                                                          
-											{!! Form::input('text', 'str_precio_minimo', '', ['class'=> 'form-control', 'maxlength' => '10','onkeypress'=>'','onchange' => '']) !!}
+											{!! Form::input('text', 'max_precio', '', ['id' => 'max_precio', 'class'=> 'form-control', 'maxlength' => '10','onkeypress'=>'','onchange' => '']) !!}
 											
                                         </div>
                                     </div>

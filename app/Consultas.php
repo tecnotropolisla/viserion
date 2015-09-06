@@ -341,9 +341,61 @@ class Consultas extends Model
 
         switch ($consulta) {
 
+            case 'total_vehiculos':
+                
+                $total_vehiculos = DB::select("select count(*) as total from tecnotropolislaDrogon.tbl_vehiculos as v where v.bol_eliminado = 0");
+                
+                return $total_vehiculos;
+
+            break;
+
             case 'todosLosVehiculos':
                 
                 $todosLosVehiculos = DB::select("select v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision, 
+                            dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,
+                            ciu.str_ciudad as ciudad,ma.str_marca as marca,mo.str_modelo as modelo
+                    from tecnotropolislaDrogon.tbl_vehiculos as v
+                    join tecnotropolislaDrogon.cat_datos_maestros as dm on dm.id = v.lng_idtransmision
+                    join tecnotropolislaDrogon.cat_datos_maestros as dm2 on dm2.id = v.lng_iddireccion
+                    join tecnotropolislaDrogon.cat_datos_maestros as dm3 on dm3.id =  v.lng_idcolor
+                    join tecnotropolislaDrogon.cat_datos_maestros as dm4 on dm4.id =  v.lng_idcilindrada            
+                    join tecnotropolislaDrogon.cat_paises as p on p.id = v.lng_idpais
+                    join tecnotropolislaDrogon.tbl_modelos as mo on mo.id =  v.lng_idmodelo
+                    join tecnotropolislaDrogon.cat_marcas as ma on ma.id =  mo.lng_idmarca
+                    join tecnotropolislaDrogon.tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id
+                    join tecnotropolislaDrogon.cat_ciudades as ciu on ciu.id =  v.lng_idciudad
+                    where ima.int_peso = 1
+
+                    order by v.id desc limit ".$limit." offset ".$offset." ");
+                
+                return $todosLosVehiculos;
+
+            break;
+
+            case 'total_buscarVehiculos':
+                
+                $total_buscarVehiculos = DB::select("select count(*) as total
+                    from tecnotropolislaDrogon.tbl_vehiculos as v
+                    join tecnotropolislaDrogon.cat_datos_maestros as dm on dm.id = v.lng_idtransmision
+                    join tecnotropolislaDrogon.cat_datos_maestros as dm2 on dm2.id = v.lng_iddireccion
+                    join tecnotropolislaDrogon.cat_datos_maestros as dm3 on dm3.id =  v.lng_idcolor
+                    join tecnotropolislaDrogon.cat_datos_maestros as dm4 on dm4.id =  v.lng_idcilindrada            
+                    join tecnotropolislaDrogon.cat_paises as p on p.id = v.lng_idpais
+                    join tecnotropolislaDrogon.tbl_modelos as mo on mo.id =  v.lng_idmodelo
+                    join tecnotropolislaDrogon.cat_marcas as ma on ma.id =  mo.lng_idmarca
+                    join tecnotropolislaDrogon.tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id
+                    join tecnotropolislaDrogon.cat_ciudades as ciu on ciu.id =  v.lng_idciudad
+                    where ima.int_peso = 1 ".$and."
+
+                    order by v.id desc ");
+                
+                return $total_buscarVehiculos;
+
+            break;
+
+            case 'buscarVehiculos':
+                
+                $buscarVehiculos = DB::select("select v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision, 
                             dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,
                             ciu.str_ciudad as ciudad,ma.str_marca as marca,mo.str_modelo as modelo
                     from tecnotropolislaDrogon.tbl_vehiculos as v
@@ -360,10 +412,10 @@ class Consultas extends Model
 
                     order by v.id desc limit ".$limit." offset ".$offset." ");
                 
-                return $todosLosVehiculos;
+                return $buscarVehiculos;
 
             break;
-            
+
             case 'ultimosVehiculos':
             
             	$ultimosVehiculos = DB::select("select v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision,
@@ -379,7 +431,7 @@ class Consultas extends Model
                     join tecnotropolislaDrogon.cat_marcas as ma on ma.id =  mo.lng_idmarca
                     join tecnotropolislaDrogon.tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id
                     join tecnotropolislaDrogon.cat_ciudades as ciu on ciu.id =  v.lng_idciudad
-                    where ima.int_peso = 1 ".$and."
+                    where ima.int_peso = 1
             
                     order by v.id desc limit 9 offset 0");
             
