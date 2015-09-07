@@ -23,7 +23,7 @@ class Vehiculo extends Model
      * @var array
      */
     //protected $fillable = ['name', 'email', 'password'];
-      protected $fillable = ['lng_idpersona','lng_idtipo_vehiculo','str_placa','lng_idmodelo','lng_idcilindrada','int_cilindros','int_ano',
+      protected $fillable = ['lng_idpersona','lng_idtipo_vehiculo','lng_idsubtipo_vehiculo','str_placa','lng_idmodelo','lng_idcilindrada','int_cilindros','int_ano',
       		'lng_idarranque','lng_iddesplazamiento','lng_iddireccion','lng_idestereo','lng_idtransmision','lng_idequipo_medico','int_pisos',
       		'int_alto','int_ancho','str_carroceria','lng_idfrenado','int_carga','int_levantamiento','int_lastre','int_largo','lng_idlibreaceite',
       		'int_potenciabruta','str_tambor','int_produccion','lng_idenfriamiento','dbl_neumatico','int_potencia','int_velocidades','int_pasajeros',

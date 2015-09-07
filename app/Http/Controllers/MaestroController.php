@@ -20,7 +20,7 @@ class MaestroController extends Controller
 		//var_dump($modelos);
 		$select ="<select id='marca' name='marca' class='form-control' onchange='dependienteModelosBuscador(this.value)'>
 	
-                        <option value=''>Seleccione</option>";
+                        <option value='0'>Seleccione</option>";
 	
 		foreach ($marcaspublicadas as $key => $value)
 		{
@@ -42,7 +42,7 @@ class MaestroController extends Controller
 		//var_dump($modelos);
 		$select ="<select id='modelo' name='modelo' class='form-control' onchange=''>
 	
-                        <option value=''>Seleccione</option>";
+                        <option value='0'>Seleccione</option>";
 	
 		foreach ($modelos as $key => $value)
 		{

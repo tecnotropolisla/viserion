@@ -307,62 +307,99 @@ function seleccion_Buscador(id,ciudad){
 
 function buscador(){
 
-    //alert(document.getElementById('pais').value);
     $(".search-form").slideToggle();
 
     var pais = document.getElementById('pais').value;
     var ciudad = document.getElementById('ciudad').value;
+
+    if (ciudad == "") {
+
+        ciudad = "ciudad"
+    };
+
     var tipo = document.getElementById('tipo').value;
     var marca = document.getElementById('marca').value;
     var modelo = document.getElementById('modelo').value;
     var color = document.getElementById('color').value;
+
     var min_ano = document.getElementById('min_ano').value;
+    if (min_ano == "") {
+
+        min_ano = "min_ano"
+    };
+
     var max_ano = document.getElementById('max_ano').value;
+    if (max_ano == "") {
+
+        max_ano = "max_ano"
+    };
+
     var min_precio = document.getElementById('min_precio').value;
+    if (min_precio == "") {
+
+        min_precio = "min_precio"
+    }; 
+
     var max_precio = document.getElementById('max_precio').value;
+    if (max_precio == "") {
+
+        max_precio = "max_precio"
+    };    
+
+    //alert("Pais: "+pais +"\n"+ "Ciudad: "+ciudad +"\n"+ "Tipo: "+tipo +"\n"+ "Marca: "+marca +"\n"+ "Modelo: "+modelo +"\n"+ "Color: "+color +"\n"+"Min Año: "+min_ano +"\n"+"Max Año: "+max_ano +"\n"+ "Min Precio: "+min_precio +"\n"+ "Max Precio: "+max_precio)
 
     document.getElementById('pag').value = 1;
     valor = 1;
 
     divname = "results-holder";
-   
-    if (pais != 0 ) {
-
-        var and = 'and v.lng_idpais = '+pais;
-
-    }else{
-        var and = 'nada';
-    };
-   
+      
     //http.open("GET", 'paginas' + url, true);
-    http.open("GET", 'Pagina/'+valor+'/and/'+and, true);
+    //http.open("GET", 'Pagina/'+valor+'/and/'+and, true);
+    http.open("GET", 'Pagina/'+valor+'/pais/'+pais+'/ciudad/'+ciudad+'/tipo/'+tipo+'/marca/'+marca+'/modelo/'+modelo+'/color/'+color+'/min_ano/'+min_ano+'/max_ano/'+max_ano+'/min_precio/'+min_precio+'/max_precio/'+max_precio, true);
     http.onreadystatechange = handleHttpResponse;
     http.send(null);
-
 }
 
 function paginar(valor){
 
     var pais = document.getElementById('pais').value;
     var ciudad = document.getElementById('ciudad').value;
+
+    if (ciudad == "") {
+
+        ciudad = "ciudad"
+    };
+
     var tipo = document.getElementById('tipo').value;
     var marca = document.getElementById('marca').value;
     var modelo = document.getElementById('modelo').value;
     var color = document.getElementById('color').value;
 
     var min_ano = document.getElementById('min_ano').value;
-    var max_ano = document.getElementById('max_ano').value;
-    var min_precio = document.getElementById('min_precio').value;
-    var max_precio = document.getElementById('max_precio').value;
+    if (min_ano == "") {
 
-    if (pais != 0 ) {
-
-        var and = 'and v.lng_idpais = '+pais;
-
-    }else{
-        var and = 'nada';
+        min_ano = "min_ano"
     };
 
+    var max_ano = document.getElementById('max_ano').value;
+    if (max_ano == "") {
+
+        max_ano = "max_ano"
+    };
+
+    var min_precio = document.getElementById('min_precio').value;
+    if (min_precio == "") {
+
+        min_precio = "min_precio"
+    }; 
+
+    var max_precio = document.getElementById('max_precio').value;
+    if (max_precio == "") {
+
+        max_precio = "max_precio"
+    };    
+
+    //alert("Pais: "+pais +"\n"+ "Ciudad: "+ciudad +"\n"+ "Tipo: "+tipo +"\n"+ "Marca: "+marca +"\n"+ "Modelo: "+modelo +"\n"+ "Color: "+color +"\n"+"Min Año: "+min_ano +"\n"+"Max Año: "+max_ano +"\n"+ "Min Precio: "+min_precio +"\n"+ "Max Precio: "+max_precio)
 
 	document.getElementById('pag').value = valor;
     divname = "results-holder";
@@ -378,10 +415,10 @@ function paginar(valor){
     ele.setAttribute('class', 'active');
 
     //http.open("GET", 'paginas' + url, true);
-    http.open("GET", 'Pagina/'+valor+'/and/'+and, true);
+    http.open("GET", 'Pagina/'+valor+'/pais/'+pais+'/ciudad/'+ciudad+'/tipo/'+tipo+'/marca/'+marca+'/modelo/'+modelo+'/color/'+color+'/min_ano/'+min_ano+'/max_ano/'+max_ano+'/min_precio/'+min_precio+'/max_precio/'+max_precio, true);
+
     http.onreadystatechange = handleHttpResponse;
     http.send(null);
-
 }
 
 function siguiente(){

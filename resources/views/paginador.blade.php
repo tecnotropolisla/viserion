@@ -1,6 +1,6 @@
 @foreach ($registros as $total) @endforeach
-Cantidad de Vehículos: <b> {{ $total }} </b>
-                                <nav>
+<b> {{ $total }} </b>
+                                <nav class="pull-right ">
                                    
                                     <ul class="pagination">
                                         <li class=""><a onclick="anterior()" aria-label="Previous"><span aria-hidden="true"><i class="fa fa-chevron-left"></i></span></a></li>

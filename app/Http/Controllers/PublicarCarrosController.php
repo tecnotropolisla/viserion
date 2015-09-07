@@ -64,9 +64,9 @@ class PublicarCarrosController extends Controller
      */
     protected function validator(array $data)
     {
-    	$tipo = $data['lng_idtipo_vehiculo'];
+    	$tipo = $data['lng_idsubtipo_vehiculo'];
     	
-    	 $campos = ['lng_idtipo_vehiculo' => 'required|max:255',
+    	 $campos = ['lng_idsubtipo_vehiculo' => 'required|max:255',
 		    		'lng_idmarca' => 'required|max:255',
 		            'lng_idmodelo' => 'required|max:255',
 		            'str_placa' => 'required|string|max:255|unique:tbl_vehiculos',
@@ -172,7 +172,7 @@ class PublicarCarrosController extends Controller
     			
     			return Validator::make($data, [
     					 
-    				'lng_idtipo_vehiculo' => 'required|max:255',
+    				'lng_idsubtipo_vehiculo' => 'required|max:255',
     			]);
     			
     		break;
@@ -191,7 +191,8 @@ class PublicarCarrosController extends Controller
         $vehiculo = Vehiculo::create([
 
             'lng_idpersona' =>  Auth::user()->id,
-            'lng_idtipo_vehiculo' => $data['lng_idtipo_vehiculo'],
+            'lng_idtipo_vehiculo' => 153,
+            'lng_idsubtipo_vehiculo' => $data['lng_idsubtipo_vehiculo'],
             'lng_idmodelo' => $data['lng_idmodelo'],
             'str_placa' => trim($data['str_placa']),
             'int_cantidad_puertas' => $data['int_cantidad_puertas'],

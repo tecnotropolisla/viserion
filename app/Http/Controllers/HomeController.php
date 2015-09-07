@@ -39,12 +39,73 @@ class HomeController extends Controller
         return \View::make('inicio', compact('vehiculos','ultimosVehiculos','total_paginas','registros'));
     }
 
-    public function paginar($pagina,$and)
+    public function paginar($pagina,$pais,$ciudad,$tipo,$marca,$modelo,$color,$min_ano,$max_ano,$min_precio,$max_precio)
     {        
-        
-        if ($and == "nada") {
-           $and = '';
-        }
+        $and = '';
+       
+        if (($pais != "0") and ($ciudad == "ciudad") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and v.lng_idpais = '.$pais;
+
+        }else if (($pais != "0") and ($ciudad != "") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad;
+
+        }else if (($pais == "0") and ($ciudad == "ciudad") and ($tipo != "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and lng_idtipo_vehiculo = '.$tipo;
+
+        }else if (($pais == "0") and ($ciudad == "ciudad") and ($tipo != "0") and ($marca != "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and lng_idtipo_vehiculo = '.$tipo.' and mo.lng_idmarca = '.$marca;
+
+        }else if (($pais == "0") and ($ciudad == "ciudad") and ($tipo != "0") and ($marca != "0") and ($modelo != "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and lng_idtipo_vehiculo = '.$tipo.' and mo.lng_idmarca = '.$marca.' and lng_idmodelo = '.$modelo;
+
+        }else if (($pais == "0") and ($ciudad == "ciudad") and ($tipo != "0") and ($marca != "0") and ($modelo != "0") and ($color != "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and lng_idtipo_vehiculo = '.$tipo.' and mo.lng_idmarca = '.$marca.' and lng_idmodelo = '.$modelo.' and lng_idcolor = '.$color;
+
+        }else if (($pais == "0") and ($ciudad == "ciudad") and ($tipo != "0") and ($marca == "0") and ($modelo == "0") and ($color != "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and lng_idtipo_vehiculo = '.$tipo.' and lng_idcolor = '.$color;
+
+        }else if (($pais == "0") and ($ciudad == "ciudad") and ($tipo != "0") and ($marca != "0") and ($modelo == "0") and ($color != "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and lng_idtipo_vehiculo = '.$tipo.' and mo.lng_idmarca = '.$marca.' and lng_idcolor = '.$color;
+
+        }else if (($pais != "0") and ($ciudad == "ciudad") and ($tipo != "0") and ($marca != "0") and ($modelo == "0") and ($color != "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idtipo_vehiculo = '.$tipo.' and mo.lng_idmarca = '.$marca.' and lng_idcolor = '.$color;
+
+        }else if (($pais != "0") and ($ciudad == "ciudad") and ($tipo != "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idtipo_vehiculo = '.$tipo;
+
+        }else if (($pais == "0") and ($ciudad == "ciudad") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color != "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and lng_idcolor = '.$color;
+
+        }else if (($pais != "0") and ($ciudad != "") and ($tipo != "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad.' and lng_idtipo_vehiculo = '.$tipo;
+
+        }else if (($pais != "0") and ($ciudad != "") and ($tipo != "0") and ($marca != "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad.' and lng_idtipo_vehiculo = '.$tipo.' and mo.lng_idmarca = '.$marca;
+
+        }else if (($pais != "0") and ($ciudad != "") and ($tipo != "0") and ($marca != "0") and ($modelo != "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad.' and lng_idtipo_vehiculo = '.$tipo.' and mo.lng_idmarca = '.$marca.' and lng_idmodelo = '.$modelo;
+
+        }else if (($pais != "0") and ($ciudad != "") and ($tipo != "0") and ($marca != "0") and ($modelo != "0") and ($color != "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad.' and lng_idtipo_vehiculo = '.$tipo.' and mo.lng_idmarca = '.$marca.' and lng_idmodelo = '.$modelo.' and lng_idcolor = '.$color;
+
+        };
+
+        //return $and;
 
         if (!$pagina) {
            $inicio = 0;

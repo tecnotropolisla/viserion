@@ -22,34 +22,39 @@
                     <div class="results-container">
 
                         <div class="results-container-in">
-                            {!! Form::input('text', 'pag', 1 , ['id'=> 'pag']) !!}
+                            {!! Form::input('hidden', 'pag', 1 , ['id'=> 'pag']) !!}
 
                             <div id="results-holder" class="results-grid-view">
                             @foreach ($registros as $total) @endforeach
-                            Cantidad de Vehículos: <b> {{ $total }} </b>
-                                <nav>
-                                    
-                                    <ul class="pagination">
-                                        <li class=""><a onclick="anterior()" aria-label="Previous"><span aria-hidden="true"><i class="fa fa-chevron-left"></i></span></a></li>
-                                        
-                                        @foreach ($total_paginas as $paginas) @endforeach
-                    
-                                            @for ($i = 1; $i < $paginas + 1; $i++)
-                                           
-                                                <li id="numeroPag{{$i}}" class="">
-                                                    <a onclick="paginar({{$i}})">
-                                                        {!! $i !!} 
-                                                        <span class="sr-only"></span>
-                                                    </a>
-                                                </li>
-                    
-                                            @endfor
-                                       
-                                        {!! Form::input('hidden', 'paginas', $i-1 , ['id'=> 'paginas']) !!}
-                                        
-                                        <li class=""><a onclick="siguiente()" aria-label="Next"><span aria-hidden="true"><i class="fa fa-chevron-right"></i></span></a></li>
-                                    </ul>
-                                </nav> <br><br>
+                            
+                            
+               <b> {{ $total }} </b>  
+
+                    <nav class="pull-right ">
+
+                        <ul class="pagination">
+                            <li class=""><a onclick="anterior()" aria-label="Previous"><span aria-hidden="true"><i class="fa fa-chevron-left"></i></span></a></li>
+                            
+                            @foreach ($total_paginas as $paginas) @endforeach
+        
+                                @for ($i = 1; $i < $paginas + 1; $i++)
+                               
+                                    <li id="numeroPag{{$i}}" class="">
+                                        <a onclick="paginar({{$i}})">
+                                            {!! $i !!} 
+                                            <span class="sr-only"></span>
+                                        </a>
+                                    </li>
+        
+                                @endfor
+                           
+                            {!! Form::input('hidden', 'paginas', $i-1 , ['id'=> 'paginas']) !!}
+                            
+                            <li class=""><a onclick="siguiente()" aria-label="Next"><span aria-hidden="true"><i class="fa fa-chevron-right"></i></span></a></li>
+                        </ul>
+                    </nav><br><br>
+
+
 
                             @foreach ($vehiculos as $vehiculo)
 
