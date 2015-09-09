@@ -26,7 +26,7 @@
                             
                             
 
-
+							<div id="barra-progreso" class=""></div>
 
                             <div id="results-holder" class="results-grid-view">
                             @foreach ($registros as $total) @endforeach

@@ -34,27 +34,11 @@ function handleHttpResponse()
 
 function handleHttpResponse2()
 {
- /*   
-    if (http.readyState == 0)
-    {
-        results = "Error al Cargar los datos";
-        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
-        document.getElementById(divname).innerHTML = results;
-    }
-
-    if (http.readyState == 1)
-    {
-        results = "";
-        //results = '<img src="../imagenes/fetching.gif">';
-        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
-        document.getElementById(divname).innerHTML = results;
-    }
-*/
     if (http.readyState == 4)
     {
         
         var porcentaje = 85;
-        document.getElementById(divname).innerHTML = '<div class="progress">'
+        document.getElementById('barra-progreso').innerHTML = '<div class="progress">'
     			 +'<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="'+porcentaje+'" aria-valuemin="0" aria-valuemax="100" style="width: '+porcentaje+'%">'
     			    +'<span class="sr-only">'+porcentaje+'% Buscando...</span>'
     			  +'</div>'
@@ -66,6 +50,10 @@ function handleHttpResponse2()
     	results = http.responseText;
         //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
         document.getElementById(divname).innerHTML = results;
+        
+        
+        setTimeout("document.getElementById('barra-progreso').innerHTML = ''",5000);
+        //document.getElementById('barra-progreso').innerHTML = '';
 
     }
 }
@@ -398,7 +386,7 @@ function paginar(valor){
     paginas = Number(document.getElementById('paginas').value);
 
     var porcentaje = 65;
-    document.getElementById(divname).innerHTML = '<div class="progress">'
+    document.getElementById('barra-progreso').innerHTML = '<div class="progress">'
 			 +'<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="'+porcentaje+'" aria-valuemin="0" aria-valuemax="100" style="width: '+porcentaje+'%">'
 			    +'<span class="sr-only">'+porcentaje+'% Buscando...</span>'
 			  +'</div>'
