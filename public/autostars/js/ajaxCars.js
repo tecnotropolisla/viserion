@@ -32,6 +32,44 @@ function handleHttpResponse()
     }
 }
 
+function handleHttpResponse2()
+{
+ /*   
+    if (http.readyState == 0)
+    {
+        results = "Error al Cargar los datos";
+        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
+        document.getElementById(divname).innerHTML = results;
+    }
+
+    if (http.readyState == 1)
+    {
+        results = "";
+        //results = '<img src="../imagenes/fetching.gif">';
+        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
+        document.getElementById(divname).innerHTML = results;
+    }
+*/
+    if (http.readyState == 4)
+    {
+        
+        var porcentaje = 85;
+        document.getElementById(divname).innerHTML = '<div class="progress">'
+    			 +'<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="'+porcentaje+'" aria-valuemin="0" aria-valuemax="100" style="width: '+porcentaje+'%">'
+    			    +'<span class="sr-only">'+porcentaje+'% Buscando...</span>'
+    			  +'</div>'
+    		+'</div>';	
+    	
+    	
+       //alert('hola');
+        
+    	results = http.responseText;
+        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
+        document.getElementById(divname).innerHTML = results;
+
+    }
+}
+
 function nuevoAjax()
 {
     var xmlhttp = false;
@@ -306,68 +344,20 @@ function seleccion_Buscador(id,ciudad){
 /************************************************************************************************************/
 
 function buscador(){
-
+	
+	//alert('buscador')
     $(".search-form").slideToggle();
-
-    var pais = document.getElementById('pais').value;
-    var ciudad = document.getElementById('ciudad').value;
-
-    if (ciudad == "") {
-
-        ciudad = "ciudad"
-    };
-
-    var tipo = document.getElementById('tipo').value;
-    var marca = document.getElementById('marca').value;
-    var modelo = document.getElementById('modelo').value;
-    var color = document.getElementById('color').value;
-
-    var min_ano = document.getElementById('min_ano').value;
-    if (min_ano == "") {
-
-        min_ano = "min_ano"
-    };
-
-    var max_ano = document.getElementById('max_ano').value;
-    if (max_ano == "") {
-
-        max_ano = "max_ano"
-    };
-
-    var min_precio = document.getElementById('min_precio').value;
-    if (min_precio == "") {
-
-        min_precio = "min_precio"
-    }; 
-
-    var max_precio = document.getElementById('max_precio').value;
-    if (max_precio == "") {
-
-        max_precio = "max_precio"
-    };    
-
-    //alert("Pais: "+pais +"\n"+ "Ciudad: "+ciudad +"\n"+ "Tipo: "+tipo +"\n"+ "Marca: "+marca +"\n"+ "Modelo: "+modelo +"\n"+ "Color: "+color +"\n"+"Min Año: "+min_ano +"\n"+"Max Año: "+max_ano +"\n"+ "Min Precio: "+min_precio +"\n"+ "Max Precio: "+max_precio)
-
-    document.getElementById('pag').value = 1;
-    valor = 1;
-
-    divname = "results-holder";
-      
-    //http.open("GET", 'paginas' + url, true);
-    //http.open("GET", 'Pagina/'+valor+'/and/'+and, true);
-    http.open("GET", 'Pagina/'+valor+'/pais/'+pais+'/ciudad/'+ciudad+'/tipo/'+tipo+'/marca/'+marca+'/modelo/'+modelo+'/color/'+color+'/min_ano/'+min_ano+'/max_ano/'+max_ano+'/min_precio/'+min_precio+'/max_precio/'+max_precio, true);
-    http.onreadystatechange = handleHttpResponse;
-    http.send(null);
+    paginar(1);
 }
 
 function paginar(valor){
-
+		
     var pais = document.getElementById('pais').value;
     var ciudad = document.getElementById('ciudad').value;
 
     if (ciudad == "") {
 
-        ciudad = "ciudad"
+        ciudad = "vacio"
     };
 
     var tipo = document.getElementById('tipo').value;
@@ -399,25 +389,26 @@ function paginar(valor){
         max_precio = "max_precio"
     };    
 
-    //alert("Pais: "+pais +"\n"+ "Ciudad: "+ciudad +"\n"+ "Tipo: "+tipo +"\n"+ "Marca: "+marca +"\n"+ "Modelo: "+modelo +"\n"+ "Color: "+color +"\n"+"Min Año: "+min_ano +"\n"+"Max Año: "+max_ano +"\n"+ "Min Precio: "+min_precio +"\n"+ "Max Precio: "+max_precio)
+    //alert("Valor: "+valor+"\n"+ "Pais: "+pais +"\n"+ "Ciudad: "+ciudad +"\n"+ "Tipo: "+tipo +"\n"+ "Marca: "+marca +"\n"+ "Modelo: "+modelo +"\n"+ "Color: "+color +"\n"+"Min Año: "+min_ano +"\n"+"Max Año: "+max_ano +"\n"+ "Min Precio: "+min_precio +"\n"+ "Max Precio: "+max_precio)
 
 	document.getElementById('pag').value = valor;
+    
     divname = "results-holder";
    
     paginas = Number(document.getElementById('paginas').value);
 
-    for (x = 1; x <= paginas; x++){
-        var ele = document.getElementById("numeroPag"+x)
-        ele.setAttribute('class', '');     
-    }
+    var porcentaje = 65;
+    document.getElementById(divname).innerHTML = '<div class="progress">'
+			 +'<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="'+porcentaje+'" aria-valuemin="0" aria-valuemax="100" style="width: '+porcentaje+'%">'
+			    +'<span class="sr-only">'+porcentaje+'% Buscando...</span>'
+			  +'</div>'
+		+'</div>';	
     
-    var ele = document.getElementById("numeroPag"+valor)
-    ele.setAttribute('class', 'active');
-
+    
     //http.open("GET", 'paginas' + url, true);
     http.open("GET", 'Pagina/'+valor+'/pais/'+pais+'/ciudad/'+ciudad+'/tipo/'+tipo+'/marca/'+marca+'/modelo/'+modelo+'/color/'+color+'/min_ano/'+min_ano+'/max_ano/'+max_ano+'/min_precio/'+min_precio+'/max_precio/'+max_precio, true);
 
-    http.onreadystatechange = handleHttpResponse;
+    http.onreadystatechange = handleHttpResponse2;
     http.send(null);
 }
 

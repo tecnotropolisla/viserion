@@ -50,7 +50,7 @@
 
 			      </div>
 			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 			      </div>
 			    </div>
 			  </div>
@@ -75,7 +75,7 @@
 					 	{!! Form::input('hidden', 'principal3', '2',['id'=> 'principal3']) !!}
 					 	{!! Form::input('hidden', 'principal4', '2',['id'=> 'principal4']) !!}
 					 	{!! Form::input('hidden', 'principal5', '2',['id'=> 'principal5']) !!}
-					 	<div class="panel-body cropped-0" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('0')">
+					 	<div class="panel-body cropped-0" style="cursor: pointer;" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('0')">
 					    	<p class="text-center">
 					    		<i class="fa fa-image"></i>
 					    	</p>
@@ -87,7 +87,7 @@
 		        <div class="col-md-4">
 		        	<div class="panel panel-default">
 					 	<div class="panel-heading"><i class="fa fa-image"></i> Interior</div>
-					 	<div class="panel-body cropped-1" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('1')">
+					 	<div class="panel-body cropped-1" style="cursor: pointer;" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('1')">
 					    	<p class="text-center">
 					    		<i class="fa fa-image"></i>
 					    	</p>
@@ -99,7 +99,7 @@
 		        <div class="col-md-4">
 		        	<div class="panel panel-default">
 					 	<div class="panel-heading"><i class="fa fa-image"></i> Motor</div>
-					 	<div class="panel-body cropped-2" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('2')">
+					 	<div class="panel-body cropped-2" style="cursor: pointer;" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('2')">
 					    	<p class="text-center">
 					    		<i class="fa fa-image"></i>
 					    	</p>
@@ -113,7 +113,7 @@
 				<div class="col-md-4">
 		        	<div class="panel panel-default">
 					 	<div class="panel-heading"><i class="fa fa-image"></i> Otros 1</div>
-					 	<div class="panel-body cropped-3" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('3')">
+					 	<div class="panel-body cropped-3" style="cursor: pointer;" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('3')">
 					    	<p class="text-center">
 					    		<i class="fa fa-image"></i>
 					    	</p>
@@ -125,7 +125,7 @@
 		        <div class="col-md-4">
 		        	<div class="panel panel-default">
 					 	<div class="panel-heading"><i class="fa fa-image"></i> Otros 2</div>
-					 	<div class="panel-body cropped-4" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('4')">
+					 	<div class="panel-body cropped-4" style="cursor: pointer;" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('4')">
 					    	<p class="text-center">
 					    		<i class="fa fa-image"></i>
 					    	</p>
@@ -137,7 +137,7 @@
 		        <div class="col-md-4">
 		        	<div class="panel panel-default">
 					 	<div class="panel-heading"><i class="fa fa-image"></i> Otros 3</div>
-					 	<div class="panel-body cropped-5" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('5')">
+					 	<div class="panel-body cropped-5" style="cursor: pointer;" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="botonCropVisible('5')">
 					    	<p class="text-center">
 					    		<i class="fa fa-image"></i>
 					    	</p>

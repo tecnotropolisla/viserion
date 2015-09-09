@@ -23,12 +23,26 @@
 
                         <div class="results-container-in">
                             {!! Form::input('hidden', 'pag', 1 , ['id'=> 'pag']) !!}
+                            
+                            
+
+
 
                             <div id="results-holder" class="results-grid-view">
                             @foreach ($registros as $total) @endforeach
                             
-                            
-               <b> {{ $total }} </b>  
+                             @if ($total == 0)
+                                                     
+					            <div class="container">
+					                <div class="text-align-center error-404">
+					                    <h1 class="">0 Resultados obtenidos</h1>
+					                    Seleccione otros criterios de búsqueda<br>
+					                    <h3><i class="fa fa-frown-o"></i></h3>
+					                    							
+					                </div>					               
+					            </div>
+	                                                  
+                             @endif
 
                     <nav class="pull-right ">
 

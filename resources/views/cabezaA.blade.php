@@ -335,8 +335,9 @@
 					                    
 					    					<select id='min_ano' name='min_ano' class='form-control' value='0' onchange=''>            
 						                        <option value=''>Seleccione</option>
-													@for ($i = $ano; $i > 1949; $i--)
-													
+						                        
+						                        	@for ($i = 1900; $i < $ano+1; $i++)
+																										
 													   <option value='{{ $i }}'>{{ $i }}</option>
 													    								    
 													@endfor	                        						
@@ -351,7 +352,7 @@
 					                    
 					    					<select id='max_ano' name='max_ano' class='form-control' value='0' onchange=''>            
 						                        <option value=''>Seleccione</option>
-													@for ($i = $ano; $i > 1949; $i--)
+													@for ($i = $ano; $i > 1899; $i--)
 													
 													   <option value='{{ $i }}'>{{ $i }}</option>
 													    								    
