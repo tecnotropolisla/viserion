@@ -5850,3 +5850,7 @@ body{
 #btnCrop-5{
 	display: none;
 }
+
+#barra-progreso{
+	visibility: hidden;
+}

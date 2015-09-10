@@ -104,11 +104,133 @@ class HomeController extends Controller
         	$and = 'and v.lng_idpais = '.$pais.' and lng_idcolor = '.$color;
         
         }
+
+
+
+        else if (($pais == "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano != "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+                
+            //Busqueda por Año Desde:
+            $and = 'and v.int_ano >= '.$min_ano;
         
+        }else if (($pais != "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano != "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+                
+            //Busqueda por Pais y Año Desde:
+            $and = 'and v.lng_idpais = '.$pais.' and v.int_ano >= '.$min_ano;
         
+        }else if (($pais != "0") and ($ciudad != "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano != "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por País, Ciudad y Año Desde:
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad.' and v.int_ano >= '.$min_ano;
+
+        }else if (($pais != "0") and ($ciudad != "vacio") and ($tipo != "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano != "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por País, Ciudad, Tipo y Año Desde:
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad.' and lng_idtipo_vehiculo = '.$tipo.' and v.int_ano >= '.$min_ano;
+
+        }else if (($pais != "0") and ($ciudad != "vacio") and ($tipo != "0") and ($marca != "0") and ($modelo == "0") and ($color == "0") and ($min_ano != "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por País, Ciudad, Tipo, Marca y Año Desde:
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad.' and lng_idtipo_vehiculo = '.$tipo.' and mo.lng_idmarca = '.$marca.' and v.int_ano >= '.$min_ano;
+
+        }else if (($pais != "0") and ($ciudad != "vacio") and ($tipo != "0") and ($marca != "0") and ($modelo != "0") and ($color == "0") and ($min_ano != "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por País, Ciudad, Tipo, Marca, Modelo y Año Desde:
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad.' and lng_idtipo_vehiculo = '.$tipo.' and mo.lng_idmarca = '.$marca.' and lng_idmodelo = '.$modelo.' and v.int_ano >= '.$min_ano;
+
+        }else if (($pais != "0") and ($ciudad != "vacio") and ($tipo != "0") and ($marca != "0") and ($modelo != "0") and ($color != "0") and ($min_ano != "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por País, Ciudad, Tipo, Marca, Modelo, Color y Año Desde:
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad.' and lng_idtipo_vehiculo = '.$tipo.' and mo.lng_idmarca = '.$marca.' and lng_idmodelo = '.$modelo.' and lng_idcolor = '.$color.' and v.int_ano >= '.$min_ano;
+
+        }else if (($pais != "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color != "0") and ($min_ano != "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por Pais, Color y Año Desde:
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idcolor = '.$color.' and v.int_ano >= '.$min_ano;
+
+        }else if (($pais != "0") and ($ciudad == "vacio") and ($tipo != "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano != "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por Pais, Tipo y Año Desde:
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idtipo_vehiculo = '.$tipo.' and v.int_ano >= '.$min_ano;
+
+        }else if (($pais == "0") and ($ciudad == "vacio") and ($tipo != "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano != "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por Tipo y Año Desde:
+            $and = 'and lng_idtipo_vehiculo = '.$tipo.' and v.int_ano >= '.$min_ano;
+
+        }else if (($pais == "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color != "0") and ($min_ano != "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por Color y Año Desde:
+            $and = 'and lng_idcolor = '.$color.' and v.int_ano >= '.$min_ano;
+
+        }
+
+
+        else if (($pais == "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano != "min_ano") and ($max_ano != "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por Año Desde y Año Hasta:
+            $and = 'and v.int_ano BETWEEN '.$min_ano.' and '.$max_ano;
+
+        }
+
+
+        else if (($pais == "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano != "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+                
+            //Busqueda por Año Hasta:
+            $and = 'and v.int_ano <= '.$max_ano;
         
+        }else if (($pais != "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano != "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+                
+            //Busqueda por Pais y Año Hasta:
+            $and = 'and v.lng_idpais = '.$pais.' and v.int_ano <= '.$max_ano;
         
-        
+        }else if (($pais != "0") and ($ciudad != "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano != "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por País, Ciudad y Año Hasta:
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad.' and v.int_ano <= '.$max_ano;
+
+        }else if (($pais != "0") and ($ciudad != "vacio") and ($tipo != "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano != "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por País, Ciudad, Tipo y Año Hasta:
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad.' and lng_idtipo_vehiculo = '.$tipo.' and v.int_ano <= '.$max_ano;
+
+        }else if (($pais != "0") and ($ciudad != "vacio") and ($tipo != "0") and ($marca != "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano != "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por País, Ciudad, Tipo, Marca y Año Hasta:
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad.' and lng_idtipo_vehiculo = '.$tipo.' and mo.lng_idmarca = '.$marca.' and v.int_ano <= '.$max_ano;
+
+        }else if (($pais != "0") and ($ciudad != "vacio") and ($tipo != "0") and ($marca != "0") and ($modelo != "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano != "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por País, Ciudad, Tipo, Marca, Modelo y Año Hasta:
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad.' and lng_idtipo_vehiculo = '.$tipo.' and mo.lng_idmarca = '.$marca.' and lng_idmodelo = '.$modelo.' and v.int_ano <= '.$max_ano;
+
+        }else if (($pais != "0") and ($ciudad != "vacio") and ($tipo != "0") and ($marca != "0") and ($modelo != "0") and ($color != "0") and ($min_ano == "min_ano") and ($max_ano != "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por País, Ciudad, Tipo, Marca, Modelo, Color y Año Hasta:
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idciudad = '.$ciudad.' and lng_idtipo_vehiculo = '.$tipo.' and mo.lng_idmarca = '.$marca.' and lng_idmodelo = '.$modelo.' and lng_idcolor = '.$color.' and v.int_ano <= '.$max_ano;
+
+        }else if (($pais != "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color != "0") and ($min_ano == "min_ano") and ($max_ano != "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por Pais, Color y Año Hasta:
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idcolor = '.$color.' and v.int_ano <= '.$max_ano;
+
+        }else if (($pais != "0") and ($ciudad == "vacio") and ($tipo != "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano != "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por Pais, Tipo y Año Hasta:
+            $and = 'and v.lng_idpais = '.$pais.' and lng_idtipo_vehiculo = '.$tipo.' and v.int_ano <= '.$max_ano;
+
+        }else if (($pais == "0") and ($ciudad == "vacio") and ($tipo != "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano != "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por Tipo y Año Hasta:
+            $and = 'and lng_idtipo_vehiculo = '.$tipo.' and v.int_ano <= '.$max_ano;
+
+        }else if (($pais == "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color != "0") and ($min_ano == "min_ano") and ($max_ano != "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+            
+            //Busqueda por Color y Año Hasta:
+            $and = 'and lng_idcolor = '.$color.' and v.int_ano <= '.$max_ano;
+
+        }
+
+
         else if (($pais == "0") and ($ciudad == "vacio") and ($tipo != "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
 			
         	//Busqueda por Tipo:
@@ -139,10 +261,7 @@ class HomeController extends Controller
         	//Busqueda por Tipo y Color:
             $and = 'and lng_idtipo_vehiculo = '.$tipo.' and lng_idcolor = '.$color;
 
-        }
-        
-        
-        else if (($pais == "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color != "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+        }else if (($pais == "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color != "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
 			
         	//Busquda por Color:
             $and = 'and lng_idcolor = '.$color;

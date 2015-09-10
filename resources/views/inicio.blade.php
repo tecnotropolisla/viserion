@@ -24,9 +24,15 @@
                         <div class="results-container-in">
                             {!! Form::input('hidden', 'pag', 1 , ['id'=> 'pag']) !!}
                             
-                            
+							<div id="barra-progreso" class="">
+           
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                        <span class="sr-only">100% Buscando...</span>
+                                    </div>
+                                </div>
 
-							<div id="barra-progreso" class=""></div>
+                            </div>
 
                             <div id="results-holder" class="results-grid-view">
                             @foreach ($registros as $total) @endforeach

@@ -25,36 +25,25 @@ function handleHttpResponse()
 */
     if (http.readyState == 4)
     {
+        
         results = http.responseText;
         //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
         document.getElementById(divname).innerHTML = results;
-
     }
 }
 
 function handleHttpResponse2()
 {
     if (http.readyState == 4)
-    {
-        
-        var porcentaje = 85;
-        document.getElementById('barra-progreso').innerHTML = '<div class="progress">'
-    			 +'<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="'+porcentaje+'" aria-valuemin="0" aria-valuemax="100" style="width: '+porcentaje+'%">'
-    			    +'<span class="sr-only">'+porcentaje+'% Buscando...</span>'
-    			  +'</div>'
-    		+'</div>';	
-    	
-    	
-       //alert('hola');
-        
-    	results = http.responseText;
+    {  
+        results = http.responseText;
         //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
         document.getElementById(divname).innerHTML = results;
-        
-        
-        setTimeout("document.getElementById('barra-progreso').innerHTML = ''",5000);
-        //document.getElementById('barra-progreso').innerHTML = '';
 
+        //document.getElementById('barra-progreso').style.display = 'none';
+
+        document.getElementById('barra-progreso').style.visibility = 'hidden';
+        //visibility: hidden;
     }
 }
 
@@ -339,7 +328,8 @@ function buscador(){
 }
 
 function paginar(valor){
-		
+
+document.getElementById('barra-progreso').style.visibility = 'visible';
     var pais = document.getElementById('pais').value;
     var ciudad = document.getElementById('ciudad').value;
 
@@ -379,20 +369,11 @@ function paginar(valor){
 
     //alert("Valor: "+valor+"\n"+ "Pais: "+pais +"\n"+ "Ciudad: "+ciudad +"\n"+ "Tipo: "+tipo +"\n"+ "Marca: "+marca +"\n"+ "Modelo: "+modelo +"\n"+ "Color: "+color +"\n"+"Min Año: "+min_ano +"\n"+"Max Año: "+max_ano +"\n"+ "Min Precio: "+min_precio +"\n"+ "Max Precio: "+max_precio)
 
-	document.getElementById('pag').value = valor;
-    
-    divname = "results-holder";
-   
+    document.getElementById('pag').value = valor;
+       
     paginas = Number(document.getElementById('paginas').value);
 
-    var porcentaje = 65;
-    document.getElementById('barra-progreso').innerHTML = '<div class="progress">'
-			 +'<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="'+porcentaje+'" aria-valuemin="0" aria-valuemax="100" style="width: '+porcentaje+'%">'
-			    +'<span class="sr-only">'+porcentaje+'% Buscando...</span>'
-			  +'</div>'
-		+'</div>';	
-    
-    
+    divname = "results-holder";
     //http.open("GET", 'paginas' + url, true);
     http.open("GET", 'Pagina/'+valor+'/pais/'+pais+'/ciudad/'+ciudad+'/tipo/'+tipo+'/marca/'+marca+'/modelo/'+modelo+'/color/'+color+'/min_ano/'+min_ano+'/max_ano/'+max_ano+'/min_precio/'+min_precio+'/max_precio/'+max_precio, true);
 
