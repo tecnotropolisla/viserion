@@ -37,7 +37,10 @@ class Consultas extends Model
 		        ->join('cat_datos_maestros as dm11', 'dm11.id', '=', 'v.lng_idchocado')
 		        ->join('cat_datos_maestros as dm12', 'dm12.id', '=', 'v.lng_idunicodueno')
 		        ->join('cat_datos_maestros as dm13', 'dm13.id', '=', 'v.lng_idmotorreparado')
-		        ->join('cat_datos_maestros as dm14', 'dm14.id', '=', 'v.lng_idcilindrada')		        
+		        ->join('cat_datos_maestros as dm14', 'dm14.id', '=', 'v.lng_idcilindrada')
+		        
+		        ->join('cat_datos_maestros as dm15', 'dm15.id', '=', 'v.lng_idsubtipo_vehiculo')
+		        
 			    ->join('cat_paises as p', 'p.id', '=', 'v.lng_idpais')			    
 			    ->join('cat_ciudades as ciu', 'ciu.id', '=', 'v.lng_idciudad')			    
 			    ->join('tbl_modelos as mo', 'mo.id', '=', 'v.lng_idmodelo')
@@ -52,14 +55,14 @@ class Consultas extends Model
 			    ->Where(function ($query) {
 			    	$query->where('v.bol_eliminado', '=', 0);
 			    })			    
-			    ->select('v.*','per.name as usuario','p2.str_paises as pais_persona','p2.blb_img as bandera_persona','per.str_nombre as nombre_persona','per.str_apellido as apellido_persona','per.email',
+			    ->select('v.*','per.name as usuario','p2.str_paises as pais_persona','p2.str_abreviatura','p2.blb_img as bandera_persona','per.str_nombre as nombre_persona','per.str_apellido as apellido_persona','per.email',
 		            'per.str_ididentificacion','per.str_telefono','per.str_twitter','per.str_facebook','per.str_instagram',
 		            'per.blb_img as ima_persona','ima.blb_img as imagen', 'p.blb_img as bandera','dm.str_descripcion as transmision', 
 		            'dm2.str_descripcion as direccion','dm3.str_descripcion as color', 'dm4.str_descripcion as estereo',
 		            'dm5.str_descripcion as tapizado', 'dm6.str_descripcion as vidrios', 'dm7.str_descripcion as traccion',
 		            'dm8.str_descripcion as combustible', 'dm9.str_descripcion as negociable', 
 		            'dm10.str_descripcion as financiamiento', 'dm11.str_descripcion as chocado', 
-		            'dm12.str_descripcion as unicodueno', 'dm13.str_descripcion as reparado', 'dm14.str_descripcion as cilindrada',
+		            'dm12.str_descripcion as unicodueno', 'dm13.str_descripcion as reparado', 'dm14.str_descripcion as cilindrada', 'dm15.str_descripcion as subtipo',
 		            'p.str_paises as pais', 'ciu.str_ciudad as ciudad', 'ma.str_marca as marca', 'per.created_at as fecha_inscripcion',
 		            'mo.str_modelo as modelo')
 			    ->get();

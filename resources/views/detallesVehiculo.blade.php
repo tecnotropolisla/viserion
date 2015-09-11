@@ -32,11 +32,23 @@
                                 </div>
 
                             @endif
-
+                                                      
                             <a href="#" data-toggle="modal" data-target="#sendModal" class="btn btn-default" title="Compartir en redes sociales"><i class="fa fa-share-alt"></i> <span>Compartir</span></a>                         
                         </div>
                         
-                        <div class="btn btn-info price">$ {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!}  </div>
+                        <div class="btn btn-info price">{!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!} 
+                        
+                         	@if ($vehiculo->str_moneda == 'Dólares' ) 
+                            
+                            	UDS
+                            
+                            @elseif ($vehiculo->str_moneda == '' )
+                            
+                            	{!! $vehiculo->str_abreviatura !!}
+                            	                            
+                            @endif
+                        
+                        </div>
                     
                     </div>
                     
@@ -115,6 +127,7 @@
 
                                 <ul class="list-group">
                                      
+                                    <li class="list-group-item"> <span class="badge">Clasificación</span> {!! $vehiculo->subtipo !!} </li>
                                     <li class="list-group-item"> <span class="badge">Ciudad</span> {!! $vehiculo->ciudad !!} </li>
                                     <li class="list-group-item"> <span class="badge">Recorrido</span> {!! number_format($vehiculo->str_recorrido, null, ',', '.') !!} </li>
                                     <li class="list-group-item"> <span class="badge">Color</span> {!! $vehiculo->color !!}</li>
