@@ -368,12 +368,7 @@ class HomeController extends Controller
         	//Busqueda por Color y Precio Máximo:
         	$and = 'and lng_idcolor = '.$color.' and v.str_precio_venta <= '.$max_precio;
         
-        }
-        
-
-                
-        
-        else if (($pais != "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano != "min_ano") and ($max_ano != "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
+        }else if (($pais != "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano != "min_ano") and ($max_ano != "max_ano") and ($min_precio == "min_precio") and ($max_precio == "max_precio")) {
         
         	//Busqueda por Pais, Año Desde y Año Hasta:
         	$and = 'and v.lng_idpais = '.$pais.' and v.int_ano BETWEEN '.$min_ano.' and '.$max_ano;
@@ -418,10 +413,7 @@ class HomeController extends Controller
         	//Busqueda por Marca, Año Desde y Año Hasta:
         	$and = 'and lng_idcolor = '.$color.' and v.int_ano BETWEEN '.$min_ano.' and '.$max_ano;
         
-        }        
-        
-        
-        else if (($pais != "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio != "min_precio") and ($max_precio != "max_precio")) {
+        }else if (($pais != "0") and ($ciudad == "vacio") and ($tipo == "0") and ($marca == "0") and ($modelo == "0") and ($color == "0") and ($min_ano == "min_ano") and ($max_ano == "max_ano") and ($min_precio != "min_precio") and ($max_precio != "max_precio")) {
         
         	//Busqueda por Pais, Precio Desde y Precio Hasta:
         	$and = 'and v.lng_idpais = '.$pais.' and str_precio_venta BETWEEN '.$min_precio.' and '.$max_precio;

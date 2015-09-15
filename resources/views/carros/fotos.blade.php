@@ -157,7 +157,7 @@
 
 
                                     <hr class="fw">
-                                    <h3>Añade un video de tu carro</h3>
+                                    <h3>Añade un video de tu carro (link de youtube)</h3>
                                     <div class="lighter">
                                         <p>Se creativo, muestranos tu vehículo con un original video</p>
                                     </div>

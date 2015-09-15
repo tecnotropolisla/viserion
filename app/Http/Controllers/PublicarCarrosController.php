@@ -98,6 +98,7 @@ class PublicarCarrosController extends Controller
 		            'blb_img3' => 'required',
 		            'blb_img4' => 'required',
 		            'blb_img5' => 'required',*/
+    	 			'str_video' => 'string|max:255|unique:tbl_vehiculos',
 		            
 		            'str_precio_venta' => 'required|max:255',
 		            'lng_idpais' => 'required|max:255',
