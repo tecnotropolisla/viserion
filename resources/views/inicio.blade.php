@@ -34,6 +34,14 @@
 
                             </div>
 
+                            @if(Route::current()->getName() == 'testing')
+                               .
+                            @endif
+
+                        <ol class="breadcrumb">
+                          <li class="active"> <i class="fa fa-home"></i> Inicio</li>
+                        </ol> 
+
                             <div id="results-holder" class="results-grid-view">
                             @foreach ($registros as $total) @endforeach
                             

@@ -25,7 +25,12 @@
                                 </div>
 
                             </div>
-                            
+
+                        <ol class="breadcrumb">
+                          <li><a href="{!! route('home') !!}"> <i class="fa fa-home"></i> Inicio</a></li>
+                          <li class="active"> <i class="fa fa-outdent"></i> Vehiculo/{!! $vehiculo->id !!}</li>
+                        </ol> 
+
 							<div id="results-holder" class="results-grid-view">
 								{!! Form::input('hidden', 'paginas', 1 , ['id'=> 'paginas']) !!}
 							

@@ -147,6 +147,7 @@ Route::group(['middleware' => 'auth'], function () {
 			Route::get('Ciudades/{letra}/Pais/{pais}','MaestroController@dependiente2');
 			
 			include 'rutas_buscador.php';
+			include 'rutas_paginador.php';
 
 		});
  });

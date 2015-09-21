@@ -2,6 +2,36 @@
 
 @section('content')
 
+  <div class="main" role="main">
+        
+        <div id="content" class="content full">
+            <div class="container">
+                <div class="row">
+
+                    <div class="results-container">
+
+                        <div class="results-container-in">
+                            {!! Form::input('hidden', 'pag', 1 , ['id'=> 'pag']) !!}
+                            
+                            <div id="barra-progreso" class="">
+           
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                        <span class="sr-only">100% Buscando...</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                        <ol class="breadcrumb">
+                          <li><a href="{!! route('home') !!}"> <i class="fa fa-home"></i> Inicio</a></li>
+                          <li class="active"> <i class="fa fa-newspaper-o"></i> Publicar</li>
+                        </ol>
+
+                            <div id="results-holder" class="results-grid-view">
+                                {!! Form::input('hidden', 'paginas', 1 , ['id'=> 'paginas']) !!}
+
+
     <!-- Start Body Content -->
   	     <div class="main" role="main">
         <div id="content" class="content full">
@@ -9,10 +39,7 @@
                 <div class="row">
                 
                     <div class="col-md-8 col-sm-8">
-                    	<ol class="breadcrumb">
-                          <li><a href="{!! route('home') !!}"> <i class="fa fa-home"></i> Inicio</a></li>
-                          <li class="active"> <i class="fa fa-newspaper-o"></i> Publicar</li>
-                        </ol>
+
 
                         <div id="formulario">
                     	                  		                  
@@ -50,4 +77,12 @@
         </div>
     </div>
 
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
