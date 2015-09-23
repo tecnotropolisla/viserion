@@ -71,6 +71,7 @@
 
                         <ul class="dropdown-menu" role="menu" aria-labelledby="userdropdown">
                             <li><a href="{{route('publicar')}}">Publicar</a></li>
+                            <li><a href="{{route('cuenta')}}">Mi Cuenta</a></li>
                             <li><a href="{{route('logout')}}">Salir</a></li>
                         </ul>
                     </div>

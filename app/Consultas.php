@@ -10,7 +10,20 @@ class Consultas extends Model
 	protected function querysValor($consulta,$valor){
 
 		switch ($consulta) {
-
+				
+			case 'cuenta_usuario':
+				$cuenta_usuario = DB::table('tbl_personas as per')
+				->join('cat_paises as p', 'p.id', '=', 'per.lng_idpais')
+				->join('cat_datos_maestros as dm', 'dm.id', '=', 'per.lng_idgenero')				 
+				->where('per.id', '=', $valor)
+				->Where(function ($query) {
+					$query->where('p.bol_eliminado', '=', 0);
+				})
+				->select('per.*','per.created_at as fecha_inscripcion','per.dmt_fecha_nacimiento as fecha_nacimiento','dm.str_descripcion as genero','p.str_paises as pais','p.blb_img as blb_bandera')
+				->get();
+				return $cuenta_usuario;
+			break;			
+						
             case 'vehiculos':
                  $vehiculos = DB::table('tbl_vehiculos as v')
 		        ->where('v.id', '=', $valor)

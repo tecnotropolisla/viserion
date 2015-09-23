@@ -50,6 +50,11 @@ Route::group(['middleware' => 'auth'], function () {
 		'as' =>'publicar'
 	]);
 	
+	Route::get('Mi-Cuenta', [
+			'uses' => 'UsuariosController@index',
+			'as' =>'cuenta'
+	]);
+	
 	Route::group(['prefix' => 'Publicar'], function () {
 
 		//Carros:
