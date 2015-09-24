@@ -103,7 +103,7 @@
     {!! Html::script('autostars/js/bootstrap.js') !!}  <!-- UI -->
     <!-- {!! Html::script('autostars/js/init.js') !!}   All Scripts -->
     {!! Html::script('autostars/vendor/flexslider/js/jquery.flexslider.js') !!}  <!-- FlexSlider -->
-    {!! Html::script('http://maps.googleapis.com/maps/api/js?sensor=false') !!} 
+    <!-- {!! Html::script('http://maps.googleapis.com/maps/api/js?sensor=false') !!}--> 
     {!! Html::script('autostars/style-switcher/js/jquery_cookie.js') !!} 
     {!! Html::script('autostars/style-switcher/js/script.js') !!} 
     

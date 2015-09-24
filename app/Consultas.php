@@ -19,7 +19,7 @@ class Consultas extends Model
 				->Where(function ($query) {
 					$query->where('p.bol_eliminado', '=', 0);
 				})
-				->select('per.*','per.created_at as fecha_inscripcion','per.dmt_fecha_nacimiento as fecha_nacimiento','dm.str_descripcion as genero','p.str_paises as pais','p.blb_img as blb_bandera')
+				->select('per.*','per.created_at as fecha_inscripcion','per.dmt_fecha_nacimiento as fecha_nacimiento','dm.str_descripcion as genero','p.str_paises as pais','p.blb_img as blb_bandera','p.str_codarea')
 				->get();
 				return $cuenta_usuario;
 			break;			

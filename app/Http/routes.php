@@ -19,6 +19,11 @@
 		'as' =>'home'
 	]);
 		
+	Route::get('Nosotros', [
+			'uses' => 'NosotrosController@index',
+			'as' =>'nosotros'
+	]);
+	
 	Route::get('Acceso-Restringido', [
 					'uses' => 'DenegadoController@index',
 					'as' =>'denegado'

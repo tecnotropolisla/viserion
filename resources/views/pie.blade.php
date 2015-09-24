@@ -39,7 +39,7 @@
         	<div class="container">
                 <div class="row">
                 	<div class="col-md-6 col-sm-6 copyrights-left">
-                    	<p>&copy; 2014 AutoStars. All Rights Reserved</p>
+                    	<p>&copy; 2015 Troovami</p>
                     </div>
                     <div class="col-md-6 col-sm-6 copyrights-right">
                         <ul class="social-icons social-icons-colored pull-right">

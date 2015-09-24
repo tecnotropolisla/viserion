@@ -107,123 +107,63 @@
                 <!-- Main Navigation -->
                 <nav class="main-navigation dd-menu toggle-menu" role="navigation">
                     <ul class="sf-menu">
-                        <li><a href="javascript:void(0)">Home</a>
-                            <ul class="dropdown">
-                                <li><a href="javascript:void(0)">Home versions</a>
-                                    <ul class="dropdown">
-                                        <li><a href="index.html">Default</a></li>
-                                        <li><a href="index2.html">Version 2</a></li>
-                                        <li><a href="index3.html">Version 3</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="javascript:void(0)">Slider versions</a>
-                            		<ul class="dropdown">
-                                		<li><a href="index.html">Default(Flexslider)</a></li>
-                                		<li><a href="index-revslider.html">Slider Revolution <span class="label label-danger">New</span></a></li>
-                                        <li><a href="hero-carousel.html">Full Width Carousel</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="javascript:void(0)">Search Form Positions</a>
-                            		<ul class="dropdown">
-                                		<li><a href="index.html">Default(With Main Menu)</a></li>
-                                        <li><a href="search-below-slider.html">Below Slider</a></li>
-                                        <li><a href="search-over-slider.html">Over Slider</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="javascript:void(0)">Header versions</a>
-                            		<ul class="dropdown">
-                                		<li><a href="index.html">Default</a>
-                                        <li><a href="header-v2.html">Version 2</a></li>
-                                        <li><a href="header-v3.html">Version 3</a></li>
-                                        <li><a href="header-v4.html">Version 4</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <li>
+                        	<a href="{{ route ('home') }}">Principal</a>                        
                         </li>
 
-                        <li class="megamenu"><a href="index.html">Mega Menu</a>
+                        <li class="megamenu"><a href="#">Mega Menu</a>
                             <ul class="dropdown">
                                 <li>
                                     <div class="megamenu-container container">
                                         <div class="row">
                                             <div class="mm-col col-md-2">
                                                 <ul class="sub-menu">
-                                                    <li><a href="results-list.html">Brand new cars</a></li>
-                                                    <li><a href="results-list.html">Used cars</a></li>
-                                                    <li><a href="results-list.html">Latest reviews</a></li>
-                                                    <li><a href="blog.html">Auto news</a></li>
-                                                    <li><a href="about.html">Car insurance</a></li>
+                                                    <li><a href="#">Brand new cars</a></li>
+                                                    <li><a href="#">Used cars</a></li>
+                                                    <li><a href="#">Latest reviews</a></li>
+                                                    <li><a href="#">Auto news</a></li>
+                                                    <li><a href="#">Car insurance</a></li>
                                                 </ul>
                                             </div>
                                             <div class="mm-col col-md-5">
-                                                <span class="megamenu-sub-title">Browse by body type</span>
+                                                <span class="megamenu-sub-title">Buscar por tipo de Vehíiculo</span>
                                                 <ul class="body-type-widget">
-                                                    <li> <a href="results-list.html"><img src="autostars/images/body-types/wagon.png" alt=""> <span>Wagon</span></a></li>
-                                                    <li> <a href="results-list.html"><img src="autostars/images/body-types/minivan.png" alt=""> <span>Minivan</span></a></li>
-                                                    <li> <a href="results-list.html"><img src="autostars/images/body-types/coupe.png" alt=""> <span>Coupe</span></a></li>
-                                                    <li> <a href="results-list.html"><img src="autostars/images/body-types/convertible.png" alt=""> <span>Convertible</span></a></li>
-                                                    <li> <a href="results-list.html"><img src="autostars/images/body-types/crossover.png" alt=""> <span>Crossover</span></a></li>
-                                                    <li> <a href="results-list.html"><img src="autostars/images/body-types/suv.png" alt=""> <span>SUV</span></a></li>
+                                                                                                        
+                                                    <li> <i style="font-size: 40px;" class="fa fa-car" title="Carros"></i> <span>Carros</span></li>
+                                                    <li> <i style="font-size: 40px;" class="fa fa-motorcycle" title="Carros"></i> <span>Motocicletas</span></li>
+                                                    <li> <i style="font-size: 40px;" class="fa fa-ship" title="Carros"></i> <span>Embarcaciones</span></li>
+                                                    <li> <i style="font-size: 40px;" class="fa fa-plane" title="Carros"></i> <span>Aeronaves</span></li>
+                                                    <li> <i style="font-size: 40px;" class="fa fa-truck" title="Carros"></i> <span>Maquinaria Agrícola</span></li>
+                                                    <li> <i style="font-size: 40px;" class="fa fa-truck" title="Carros"></i> <span>Maquinaria Pesada</span></li>
+                                                    <li> <i style="font-size: 40px;" class="fa fa-truck" title="Carros"></i> <span>Trailers</span></li>
                                                 </ul>
-                                                <a href="results-list.html" class="basic-link">view all</a>
+                                                
                                             </div>
                                             <div class="mm-col col-md-5">
-                                                <span class="megamenu-sub-title">Browse by make</span>
+                                                <span class="megamenu-sub-title">Buscar por Marca</span>
                                                 <ul class="make-widget">
-                                                    <li class="item"> <a href="results-list.html"><img src="autostars/images/logo_mercedes.png" alt=""></a></li>
-                                    				<li class="item"> <a href="results-list.html"><img src="autostars/images/logo_vw.png" alt=""></a></li>
-                                    				<li class="item"> <a href="results-list.html"><img src="autostars/images/logo_mazda.png" alt=""></a></li>
-                                                    <li class="item"> <a href="results-list.html"><img src="autostars/images/logo_toyota.png" alt=""></a></li>
-                                                    <li class="item"> <a href="results-list.html"><img src="autostars/images/logo_nissan.png" alt=""></a></li>
-                                                    <li class="item"> <a href="results-list.html"><img src="autostars/images/logo_ford.png" alt=""></a></li>
-                                                    <li class="item"> <a href="results-list.html"><img src="autostars/images/logo_bmw.png" alt=""></a></li>
-                                    				<li class="item"> <a href="results-list.html"><img src="autostars/images/logo_audi.png" alt=""></a></li>
+                                                    <li class="item"> <a href="#"><img src="autostars/images/logo_mercedes.png" alt=""></a></li>
+                                    				<li class="item"> <a href="#"><img src="autostars/images/logo_vw.png" alt=""></a></li>
+                                    				<li class="item"> <a href="#"><img src="autostars/images/logo_mazda.png" alt=""></a></li>
+                                                    <li class="item"> <a href="#"><img src="autostars/images/logo_toyota.png" alt=""></a></li>
+                                                    <li class="item"> <a href="#"><img src="autostars/images/logo_nissan.png" alt=""></a></li>
+                                                    <li class="item"> <a href="#"><img src="autostars/images/logo_ford.png" alt=""></a></li>
+                                                    <li class="item"> <a href="#"><img src="autostars/images/logo_bmw.png" alt=""></a></li>
+                                    				<li class="item"> <a href="#"><img src="autostars/images/logo_audi.png" alt=""></a></li>
                                                 </ul>
-                                                <a href="results-list.html" class="basic-link">view all</a>
+                                                <a href="#" class="basic-link">view all</a>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="javascript:void(0)">Listing</a>
-                            <ul class="dropdown">
-                                <li><a href="results-list.html">List View</a></li>
-                                <li><a href="results-grid.html">Grid View</a></li>
-                                <li><a href="vehicle-details.html">Vehicle Details</a></li>
-                                <li><a href="add-listing-form.html">Add new listing</a></li>
-                                <li><a href="vehicle-comparision.html">Vehicle Comparision</a></li>
-                            </ul>
+
+
+                        <li><a href="{{ route ('nosotros') }}">Nosotros</a>
+
                         </li>
-                        <li><a href="javascript:void(0)">Users</a>
-                            <ul class="dropdown">
-                                <li><a href="dealer-prosite.html">Dealer Prosite</a></li>
-                                <li><a href="user-dashboard.html">User Dashboard</a></li>
-                                <li><a href="user-dashboard-saved-searches.html">Manage Saved Searches</a></li>
-                                <li><a href="user-dashboard-saved-cars.html">Manage Saved Cars</a></li>
-                                <li><a href="user-dashboard-manage-ads.html">Manage Ads</a></li>
-                                <li><a href="user-dashboard-profile.html">User Profile</a></li>
-                                <li><a href="user-dashboard-settings.html">User Settings</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="javascript:void(0)">Gallery</a>
-                            <ul class="dropdown">
-                                <li><a href="gallery-2cols.html">Gallery 2 Columns</a></li>
-                                <li><a href="gallery-3cols.html">Gallery 3 Columns</a></li>
-                                <li><a href="gallery-4cols.html">Gallery 4 Columns</a></li>
-                                <li><a href="gallery-2cols-details.html">Gallery 2 Columns with Details</a></li>
-                                <li><a href="gallery-3cols-details.html">Gallery 3 Columns with Details</a></li>
-                                <li><a href="gallery-4cols-details.html">Gallery 4 Columns with Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="javascript:void(0)">Blog</a>
-                            <ul class="dropdown">
-                                <li><a href="blog.html">Blog List</a></li>
-                                <li><a href="blog-masonry.html">Blog Masonry</a></li>
-                                <li><a href="single-post.html">Single Post</a></li>
-                                <li><a href="single-post-review.html">Single Review Post</a></li>
-                            </ul>
-                        </li>
+
                     </ul>
                 </nav> 
 

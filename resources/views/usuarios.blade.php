@@ -13,48 +13,46 @@
                             <div class="users-sidebar tbssticky">
                             	<a href="user-dashboard.html" class="btn btn-block btn-primary add-listing-btn">Mi Cuenta</a>
                                 <ul class="list-group">
-                                    <li class="list-group-item active"> <span class="badge">5</span> <a href="#"><i class="fa fa-home"></i> Inicio</a></li>
+                                    <li class="list-group-item active"> <a href="#"><i class="fa fa-home"></i> Inicio</a></li>
                                     <li class="list-group-item"> <span class="badge">5</span> <a href="#"><i class="fa fa-folder-o"></i> Busquedas Guardadas</a></li>
                                     <li class="list-group-item"> <span class="badge">12</span> <a href="#"><i class="fa fa-star-o"></i> Favoritos</a></li>
                                     <li class="list-group-item"> <span class="badge">2</span> <a href="#"><i class="fa fa-edit"></i> Mis Publicaciones</a></li>
                                     <li class="list-group-item"> <a href="#"><i class="fa fa-user"></i> Mi Perfil</a></li>
-                                    <li class="list-group-item"> <a href="javascript:void(0)"><i class="fa fa-sign-out"></i> Salir</a></li>
+                                    <li class="list-group-item"> <a href="{{route('logout')}}"><i class="fa fa-sign-out"></i> Salir</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-9 col-sm-8">
-                        
-                        
-                        
+                                                                      
 	                         @foreach ($cuenta_usuario as $usuario)							
 
-	                            <div class="panel panel-default">
-	                              <div class="panel-heading">
-	                                <h3 class="panel-title"><img src="data:image/jpeg;base64,{{ $usuario->blb_bandera}}" alt="{!! $usuario->pais !!}" title="{!! $usuario->pais !!}" style="width:35px"> Mis Datos</h3>
-	                              </div>
-	                                  <div class="panel-body">
-	                                    <div class="row">
+									<h3>
+									
+									Mis Datos</h3>
+									
+                        				  <div class="row">
 	                                    
-	                                      <div class="col-xs-6 col-md-4 thumbnail">
-	                                        
-	                                            <img src="data:image/jpeg;base64,{{ $usuario->blb_img }}" alt="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" title="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" style="width:100%">
-	
-	                                      </div>
+		                                      <div class="col-xs-6 col-md-4 thumbnail">
+		                                        
+		                                            <img src="data:image/jpeg;base64,{{ $usuario->blb_img }}" alt="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" title="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" style="width:100%">
+		
+		                                      </div>
 	
 	                                         &nbsp;&nbsp;&nbsp;<strong> Usuario:</strong> {!! $usuario->name !!}<br>
-	                                         &nbsp;&nbsp;&nbsp;<strong> Nombre: </strong>{!! $usuario->str_nombre !!}, {!! $usuario->str_apellido !!}<br>
+	                                         &nbsp;&nbsp;&nbsp;<strong> Nombre Completo: </strong>{!! $usuario->str_nombre !!}, {!! $usuario->str_apellido !!}<br>
+	                                         &nbsp;&nbsp;&nbsp;<strong> Cédula:</strong> {!! number_format($usuario->str_ididentificacion, 0, ',', '.')    !!}<br>
 											 &nbsp;&nbsp;&nbsp;<strong> Género: </strong>{!! $usuario->genero !!}<br>
 											 &nbsp;&nbsp;&nbsp;<strong> Fecha de Nacimiento: </strong>{!! $usuario->fecha_nacimiento !!}<br>
-	                                         &nbsp;&nbsp;&nbsp;<strong> País: </strong>{!! $usuario->pais !!}<br>
+	                                         &nbsp;&nbsp;&nbsp;<strong> País: 
+	                                         <img src="data:image/jpeg;base64,{{ $usuario->blb_bandera}}" alt="{!! $usuario->pais !!}" title="{!! $usuario->pais !!}" style="width:20px">	                                         
+	                                         </strong>{!! $usuario->pais !!}<br>
 	                                         &nbsp;&nbsp;&nbsp;<strong> Inscrito: </strong>{!! $usuario->fecha_inscripcion !!}<br>
-	                                         &nbsp;&nbsp;&nbsp;<strong> Teléfono: </strong>{!! $usuario->str_telefono !!}<br>
+	                                         &nbsp;&nbsp;&nbsp;<strong> Teléfono: </strong>{!! $usuario->str_codarea !!} {!! $usuario->str_telefono !!}<br>
 	                                         &nbsp;&nbsp;&nbsp;<strong> Correo: </strong>{!! $usuario->email !!}<br>	                                        
 	                                         &nbsp;&nbsp;&nbsp;<strong> Twitter: </strong>{!! $usuario->str_twitter !!}<br>
 	                                         &nbsp;&nbsp;&nbsp;<strong> Facebook: </strong>{!! $usuario->str_facebook !!}<br>
 	                                         &nbsp;&nbsp;&nbsp;<strong> Instagram: </strong>{!! $usuario->str_instagram !!}
-	                                       </div>
-	                                  </div>
-	                                </div>
+	                                     </div>
 
 								@endforeach
 
@@ -69,11 +67,11 @@
                                         <thead>
                                             <tr>
                                                 <td>&nbsp;</td>
-                                                <td>Description</td>
-                                                <td>Price/Status</td>
-                                                <td>Timestamp</td>
-                                                <td>Payment</td>
-                                                <td>Actions</td>
+                                                <td>Descripción</td>
+                                                <td>Precio</td>
+                                                <td>Fecha de Creación</td>
+                                                <td>Estatus</td>
+                                                <td>Acciones</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -95,9 +93,14 @@
                                                 <td><span class="price">$40,990</span></td>
                                                 <td><span class="text-success">Created on</span> 09/12/14 @ 12:09am</td>
                                                 <td align="center"><span class="label label-warning">Pending payment</span></td>
-                                                <td align="center">
-                                                    <button class="text-default" title="Archive"><i class="fa fa-archive"></i></button>                                                <button class="text-danger" title="Delete"><i class="fa fa-times"></i></button>
-                                                </td>
+  												<td>
+  													<a href="#">
+  														<select class="form-control selectpicker input-sm">
+  															<option>Activar</option>
+  															<option>Desactivar</option>
+  														</select>
+  													</a>
+  												</td>
                                             </tr>
                                         </tbody>
                                     </table>
