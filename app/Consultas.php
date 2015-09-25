@@ -359,7 +359,7 @@ class Consultas extends Model
 
             case 'total_vehiculos':
                 
-                $total_vehiculos = DB::select("select count(*) as total from tecnotropolislaDrogon.tbl_vehiculos as v where v.bol_eliminado = 0");
+                $total_vehiculos = DB::select("SELECT HIGH_PRIORITY count(*) as total from tecnotropolislaDrogon.tbl_vehiculos as v where v.bol_eliminado = 0");
                 
                 return $total_vehiculos;
 
@@ -385,7 +385,7 @@ class Consultas extends Model
                     order by v.id desc limit ".$limit." offset ".$offset." ");                                
                 */
                 
-            	$todosLosVehiculos = DB::select(" SELECT HIGH_PRIORITY v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision, 
+            	$todosLosVehiculos = DB::select("SELECT HIGH_PRIORITY v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision, 
                             dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,
                             ciu.str_ciudad as ciudad,ma.str_marca as marca,mo.str_modelo as modelo
                     from tecnotropolislaDrogon.tbl_vehiculos as v
@@ -424,7 +424,7 @@ class Consultas extends Model
                     order by v.id desc ");
                 */
             	
-            	$total_buscarVehiculos = DB::select(" SELECT HIGH_PRIORITY count(*) as total
+            	$total_buscarVehiculos = DB::select("SELECT HIGH_PRIORITY count(*) as total
                     from tecnotropolislaDrogon.tbl_vehiculos as v
                     join tecnotropolislaDrogon.cat_datos_maestros as dm on dm.id = v.lng_idtransmision
                     join tecnotropolislaDrogon.cat_datos_maestros as dm2 on dm2.id = v.lng_iddireccion
@@ -463,7 +463,7 @@ class Consultas extends Model
                     order by v.id desc limit ".$limit." offset ".$offset." ");                
                 */
                 
-            	$buscarVehiculos = DB::select(" SELECT HIGH_PRIORITY v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision,
+            	$buscarVehiculos = DB::select("SELECT HIGH_PRIORITY v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision,
                             dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,
                             ciu.str_ciudad as ciudad,ma.str_marca as marca,mo.str_modelo as modelo
                     from tecnotropolislaDrogon.tbl_vehiculos as v
@@ -485,7 +485,7 @@ class Consultas extends Model
 
             case 'ultimosVehiculos':
             
-            	$ultimosVehiculos = DB::select("select v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision,
+            	$ultimosVehiculos = DB::select("SELECT HIGH_PRIORITY v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision,
                             dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,
                             ciu.str_ciudad as ciudad,ma.str_marca as marca,mo.str_modelo as modelo
                     from tecnotropolislaDrogon.tbl_vehiculos as v
