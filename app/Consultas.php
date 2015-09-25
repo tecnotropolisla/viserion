@@ -385,7 +385,7 @@ class Consultas extends Model
                     order by v.id desc limit ".$limit." offset ".$offset." ");                                
                 */
                 
-            	$todosLosVehiculos = DB::select("SELECT HIGH_PRIORITY v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision, 
+            	$todosLosVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision, 
                             dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,
                             ciu.str_ciudad as ciudad,ma.str_marca as marca,mo.str_modelo as modelo
                     from tecnotropolislaDrogon.tbl_vehiculos as v
@@ -423,7 +423,7 @@ class Consultas extends Model
 
                     order by v.id desc ");
                 */
-            	
+            	/*
             	$total_buscarVehiculos = DB::select("SELECT HIGH_PRIORITY count(*) as total
                     from tecnotropolislaDrogon.tbl_vehiculos as v
                     join tecnotropolislaDrogon.cat_datos_maestros as dm on dm.id = v.lng_idtransmision
@@ -437,6 +437,13 @@ class Consultas extends Model
                     join tecnotropolislaDrogon.cat_ciudades as ciu on ciu.id =  v.lng_idciudad                    
             		where v.bol_eliminado = 0 ".$and."            	
                     order by v.id desc ");
+            	*/
+            	
+            	$total_buscarVehiculos = DB::select("SELECT HIGH_PRIORITY count(*) as total
+                    from tecnotropolislaDrogon.tbl_vehiculos as v
+            		where v.bol_eliminado = 0 ".$and."
+                    order by v.id desc ");            	
+            	
             	
                 return $total_buscarVehiculos;
 
@@ -463,7 +470,7 @@ class Consultas extends Model
                     order by v.id desc limit ".$limit." offset ".$offset." ");                
                 */
                 
-            	$buscarVehiculos = DB::select("SELECT HIGH_PRIORITY v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision,
+            	$buscarVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision,
                             dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,
                             ciu.str_ciudad as ciudad,ma.str_marca as marca,mo.str_modelo as modelo
                     from tecnotropolislaDrogon.tbl_vehiculos as v
@@ -485,7 +492,7 @@ class Consultas extends Model
 
             case 'ultimosVehiculos':
             
-            	$ultimosVehiculos = DB::select("SELECT HIGH_PRIORITY v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision,
+            	$ultimosVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision,
                             dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,
                             ciu.str_ciudad as ciudad,ma.str_marca as marca,mo.str_modelo as modelo
                     from tecnotropolislaDrogon.tbl_vehiculos as v
@@ -496,10 +503,9 @@ class Consultas extends Model
                     join tecnotropolislaDrogon.cat_paises as p on p.id = v.lng_idpais
                     join tecnotropolislaDrogon.tbl_modelos as mo on mo.id =  v.lng_idmodelo
                     join tecnotropolislaDrogon.cat_marcas as ma on ma.id =  mo.lng_idmarca
-                    join tecnotropolislaDrogon.tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id
+                    join (SELECT lng_idvehiculo, blb_img FROM tecnotropolislaDrogon.tbl_imagenes_vehiculos WHERE int_peso = 1) as ima on ima.lng_idvehiculo = v.id
                     join tecnotropolislaDrogon.cat_ciudades as ciu on ciu.id =  v.lng_idciudad
-                    where ima.int_peso = 1
-            
+                    where v.bol_eliminado = 0            
                     order by v.id desc limit 9 offset 0");
             
             	return $ultimosVehiculos;
