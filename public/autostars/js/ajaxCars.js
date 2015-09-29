@@ -470,7 +470,7 @@ function soloEnVenezuela(nombre){
 //cabeza.blade.php (evento "onload") y desde el select de lng_idtipo_vehiculo (evento "onchange")
 function formularioDinamico(){
  
-    var t = document.getElementById("lng_idtipo_vehiculo");
+    var t = document.getElementById("lng_idsubtipo_vehiculo");
     var selectedText = t.options[t.selectedIndex].text;
     
     if (selectedText == "Ambulancias")

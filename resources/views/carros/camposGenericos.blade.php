@@ -11,11 +11,11 @@ Descripción
             <div class="form-group col-md-4">
                     
                     <!-- <i id="lng_idtipo_vehiculo_validar" class="fa fa-asterisk" style="color:red;"></i> -->
-                    {!! Form::label('lng_idtipo_vehiculo', '* Clasificación') !!}
-                    {!! Form::select('lng_idtipo_vehiculo', 
+                    {!! Form::label('lng_idsubtipo_vehiculo', '* Clasificación') !!}
+                    {!! Form::select('lng_idsubtipo_vehiculo', 
                                         (['' => 'Seleccione'] + $clasificacion), 
                                         null, 
-                                        ['class' => 'form-control', 'onchange' => 'dependienteMarcas(this.value);formularioDinamico()']
+                                        ['class' => 'form-control', 'id' =>'lng_idsubtipo_vehiculo', 'onchange' => 'dependienteMarcas(this.value);formularioDinamico()']
                                     ) 
                     !!} 
 
