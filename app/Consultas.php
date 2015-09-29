@@ -379,7 +379,7 @@ class Consultas extends Model
                     join (SELECT id, str_modelo, lng_idmarca FROM `tbl_modelos` WHERE bol_eliminado = 0 order by id desc) as mo on mo.id =  v.lng_idmodelo
             		join (SELECT id, str_marca FROM `cat_marcas` WHERE bol_eliminado = 0 order by id desc) as ma on ma.id =  mo.lng_idmarca
             		join (SELECT lng_idvehiculo, blb_img FROM tecnotropolislaDrogon.tbl_imagenes_vehiculos WHERE int_peso = 1 order by lng_idvehiculo desc) as ima on ima.lng_idvehiculo = v.id             	
-                    join (SELECT c.id, c.str_ciudad FROM ciudades c) as ciu on ciu.id =  v.lng_idciudad                              	                    
+                    join tecnotropolislaDrogon.ciudades as ciu on ciu.id =  v.lng_idciudad                             	                    
             		where v.bol_eliminado = 0
             		order by v.id desc limit ".$limit." offset ".$offset." ");
             	
@@ -412,7 +412,7 @@ class Consultas extends Model
                     join (SELECT id, str_modelo, lng_idmarca FROM `tbl_modelos` WHERE bol_eliminado = 0 order by id desc) as mo on mo.id =  v.lng_idmodelo
                     join (SELECT id, str_marca FROM `cat_marcas` WHERE bol_eliminado = 0 order by id desc) as ma on ma.id =  mo.lng_idmarca
                     join (SELECT lng_idvehiculo, blb_img FROM tecnotropolislaDrogon.tbl_imagenes_vehiculos WHERE int_peso = 1 order by lng_idvehiculo desc) as ima on ima.lng_idvehiculo = v.id
-            		join (SELECT c.id, c.str_ciudad FROM ciudades c) as ciu on ciu.id =  v.lng_idciudad
+            		join tecnotropolislaDrogon.ciudades as ciu on ciu.id =  v.lng_idciudad
             		where v.bol_eliminado = 0 ".$and."            	
                     order by v.id desc limit ".$limit." offset ".$offset." ");                
                 
@@ -434,7 +434,7 @@ class Consultas extends Model
                     join (SELECT id, str_modelo, lng_idmarca FROM `tbl_modelos` WHERE bol_eliminado = 0 order by id desc) as mo on mo.id =  v.lng_idmodelo
                     join (SELECT id, str_marca FROM `cat_marcas` WHERE bol_eliminado = 0 order by id desc) as ma on ma.id =  mo.lng_idmarca
                     join (SELECT lng_idvehiculo, blb_img FROM tecnotropolislaDrogon.tbl_imagenes_vehiculos WHERE int_peso = 1 order by lng_idvehiculo desc) as ima on ima.lng_idvehiculo = v.id
-                    join (SELECT c.id, c.str_ciudad FROM ciudades c) as ciu on ciu.id =  v.lng_idciudad
+                    join tecnotropolislaDrogon.ciudades as ciu on ciu.id =  v.lng_idciudad
                     where v.bol_eliminado = 0            
                     order by v.id desc limit 9 offset 0");
             
