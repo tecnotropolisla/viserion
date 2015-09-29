@@ -371,15 +371,15 @@ class Consultas extends Model
                             dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,
                             ciu.str_ciudad as ciudad,ma.str_marca as marca,mo.str_modelo as modelo
                     from tecnotropolislaDrogon.tbl_vehiculos as v
-                    join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'transmision_vehiculos' order by id desc) as dm on dm.id = v.lng_idtransmision
-                    join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'direccion_vehiculos' order by id desc) as dm2 on dm2.id = v.lng_iddireccion
-                    join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'color' order by id desc) as dm3 on dm3.id =  v.lng_idcolor
-                    join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'desplazamiento_vehiculos' order by id desc) as dm4 on dm4.id =  v.lng_idcilindrada                                		
-            		join (SELECT id, str_paises, blb_img FROM `cat_paises` WHERE bol_eliminado = 0 order by id desc) as p on p.id = v.lng_idpais            			
-                    join (SELECT id, str_modelo, lng_idmarca FROM `tbl_modelos` WHERE bol_eliminado = 0 order by id desc) as mo on mo.id =  v.lng_idmodelo
-            		join (SELECT id, str_marca FROM `cat_marcas` WHERE bol_eliminado = 0 order by id desc) as ma on ma.id =  mo.lng_idmarca
+                    join (SELECT id, str_descripcion FROM cat_datos_maestros WHERE str_tipo = 'transmision_vehiculos' order by id desc) as dm on dm.id = v.lng_idtransmision
+                    join (SELECT id, str_descripcion FROM cat_datos_maestros WHERE str_tipo = 'direccion_vehiculos' order by id desc) as dm2 on dm2.id = v.lng_iddireccion
+                    join (SELECT id, str_descripcion FROM cat_datos_maestros WHERE str_tipo = 'color' order by id desc) as dm3 on dm3.id =  v.lng_idcolor
+                    join (SELECT id, str_descripcion FROM cat_datos_maestros WHERE str_tipo = 'desplazamiento_vehiculos' order by id desc) as dm4 on dm4.id =  v.lng_idcilindrada             			
+            		join (SELECT id, str_paises, blb_img FROM cat_paises WHERE bol_eliminado = 0 order by id desc) as p on p.id = v.lng_idpais            			
+                    join (SELECT id, str_modelo, lng_idmarca FROM tbl_modelos WHERE bol_eliminado = 0 order by id desc) as mo on mo.id =  v.lng_idmodelo
+            		join (SELECT id, str_marca FROM cat_marcas WHERE bol_eliminado = 0 order by id desc) as ma on ma.id =  mo.lng_idmarca
             		join (SELECT lng_idvehiculo, blb_img FROM tecnotropolislaDrogon.tbl_imagenes_vehiculos WHERE int_peso = 1 order by lng_idvehiculo desc) as ima on ima.lng_idvehiculo = v.id             	
-                    join tecnotropolislaDrogon.ciudades as ciu on ciu.id =  v.lng_idciudad                             	                    
+                    join (SELECT id, str_ciudad FROM cat_ciudades WHERE bol_eliminado = 0 order by id desc) as ciu on ciu.id =  v.lng_idciudad
             		where v.bol_eliminado = 0
             		order by v.id desc limit ".$limit." offset ".$offset." ");
             	
@@ -404,15 +404,15 @@ class Consultas extends Model
                             dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,
                             ciu.str_ciudad as ciudad,ma.str_marca as marca,mo.str_modelo as modelo
                     from tecnotropolislaDrogon.tbl_vehiculos as v            			            		
-                    join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'transmision_vehiculos' order by id desc) as dm on dm.id = v.lng_idtransmision
-                    join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'direccion_vehiculos' order by id desc) as dm2 on dm2.id = v.lng_iddireccion
-                    join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'color' order by id desc) as dm3 on dm3.id =  v.lng_idcolor
-                    join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'desplazamiento_vehiculos' order by id desc) as dm4 on dm4.id =  v.lng_idcilindrada            			            			            
-                    join (SELECT id, str_paises, blb_img FROM `cat_paises` WHERE bol_eliminado = 0 order by id desc) as p on p.id = v.lng_idpais
-                    join (SELECT id, str_modelo, lng_idmarca FROM `tbl_modelos` WHERE bol_eliminado = 0 order by id desc) as mo on mo.id =  v.lng_idmodelo
-                    join (SELECT id, str_marca FROM `cat_marcas` WHERE bol_eliminado = 0 order by id desc) as ma on ma.id =  mo.lng_idmarca
+                    join (SELECT id, str_descripcion FROM cat_datos_maestros WHERE str_tipo = 'transmision_vehiculos' order by id desc) as dm on dm.id = v.lng_idtransmision
+                    join (SELECT id, str_descripcion FROM cat_datos_maestros WHERE str_tipo = 'direccion_vehiculos' order by id desc) as dm2 on dm2.id = v.lng_iddireccion
+                    join (SELECT id, str_descripcion FROM cat_datos_maestros WHERE str_tipo = 'color' order by id desc) as dm3 on dm3.id =  v.lng_idcolor
+                    join (SELECT id, str_descripcion FROM cat_datos_maestros WHERE str_tipo = 'desplazamiento_vehiculos' order by id desc) as dm4 on dm4.id =  v.lng_idcilindrada            			            			            
+                    join (SELECT id, str_paises, blb_img FROM cat_paises WHERE bol_eliminado = 0 order by id desc) as p on p.id = v.lng_idpais
+                    join (SELECT id, str_modelo, lng_idmarca FROM tbl_modelos WHERE bol_eliminado = 0 order by id desc) as mo on mo.id =  v.lng_idmodelo
+                    join (SELECT id, str_marca FROM cat_marcas WHERE bol_eliminado = 0 order by id desc) as ma on ma.id =  mo.lng_idmarca
                     join (SELECT lng_idvehiculo, blb_img FROM tecnotropolislaDrogon.tbl_imagenes_vehiculos WHERE int_peso = 1 order by lng_idvehiculo desc) as ima on ima.lng_idvehiculo = v.id
-            		join tecnotropolislaDrogon.ciudades as ciu on ciu.id =  v.lng_idciudad
+            		join (select id, str_ciudad from cat_ciudades WHERE bol_eliminado = 0 order by id desc) as ciu on ciu.id =  v.lng_idciudad
             		where v.bol_eliminado = 0 ".$and."            	
                     order by v.id desc limit ".$limit." offset ".$offset." ");                
                 
@@ -426,15 +426,15 @@ class Consultas extends Model
                             dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,
                             ciu.str_ciudad as ciudad,ma.str_marca as marca,mo.str_modelo as modelo
                     from tecnotropolislaDrogon.tbl_vehiculos as v
-                    join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'transmision_vehiculos' order by id desc) as dm on dm.id = v.lng_idtransmision
-                    join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'direccion_vehiculos' order by id desc) as dm2 on dm2.id = v.lng_iddireccion
-                    join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'color' order by id desc) as dm3 on dm3.id =  v.lng_idcolor
-                    join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'desplazamiento_vehiculos' order by id desc) as dm4 on dm4.id =  v.lng_idcilindrada    
-                    join (SELECT id, str_paises, blb_img FROM `cat_paises` WHERE bol_eliminado = 0 order by id desc) as p on p.id = v.lng_idpais
-                    join (SELECT id, str_modelo, lng_idmarca FROM `tbl_modelos` WHERE bol_eliminado = 0 order by id desc) as mo on mo.id =  v.lng_idmodelo
-                    join (SELECT id, str_marca FROM `cat_marcas` WHERE bol_eliminado = 0 order by id desc) as ma on ma.id =  mo.lng_idmarca
+                    join (SELECT id, str_descripcion FROM cat_datos_maestros WHERE str_tipo = 'transmision_vehiculos' order by id desc) as dm on dm.id = v.lng_idtransmision
+                    join (SELECT id, str_descripcion FROM cat_datos_maestros WHERE str_tipo = 'direccion_vehiculos' order by id desc) as dm2 on dm2.id = v.lng_iddireccion
+                    join (SELECT id, str_descripcion FROM cat_datos_maestros WHERE str_tipo = 'color' order by id desc) as dm3 on dm3.id =  v.lng_idcolor
+                    join (SELECT id, str_descripcion FROM cat_datos_maestros WHERE str_tipo = 'desplazamiento_vehiculos' order by id desc) as dm4 on dm4.id =  v.lng_idcilindrada    
+                    join (SELECT id, str_paises, blb_img FROM cat_paises WHERE bol_eliminado = 0 order by id desc) as p on p.id = v.lng_idpais
+                    join (SELECT id, str_modelo, lng_idmarca FROM tbl_modelos WHERE bol_eliminado = 0 order by id desc) as mo on mo.id =  v.lng_idmodelo
+                    join (SELECT id, str_marca FROM cat_marcas WHERE bol_eliminado = 0 order by id desc) as ma on ma.id =  mo.lng_idmarca
                     join (SELECT lng_idvehiculo, blb_img FROM tecnotropolislaDrogon.tbl_imagenes_vehiculos WHERE int_peso = 1 order by lng_idvehiculo desc) as ima on ima.lng_idvehiculo = v.id
-                    join tecnotropolislaDrogon.ciudades as ciu on ciu.id =  v.lng_idciudad
+                    join (select id, str_ciudad from cat_ciudades WHERE bol_eliminado = 0 order by id desc) as ciu on ciu.id =  v.lng_idciudad
                     where v.bol_eliminado = 0            
                     order by v.id desc limit 9 offset 0");
             
