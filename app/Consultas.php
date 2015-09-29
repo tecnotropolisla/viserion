@@ -50,17 +50,15 @@ class Consultas extends Model
 		        ->join('cat_datos_maestros as dm11', 'dm11.id', '=', 'v.lng_idchocado')
 		        ->join('cat_datos_maestros as dm12', 'dm12.id', '=', 'v.lng_idunicodueno')
 		        ->join('cat_datos_maestros as dm13', 'dm13.id', '=', 'v.lng_idmotorreparado')
-		        ->join('cat_datos_maestros as dm14', 'dm14.id', '=', 'v.lng_idcilindrada')
-		        
-		        ->join('cat_datos_maestros as dm15', 'dm15.id', '=', 'v.lng_idsubtipo_vehiculo')
-		        
+		        ->join('cat_datos_maestros as dm14', 'dm14.id', '=', 'v.lng_idcilindrada')		        
+		        ->join('cat_datos_maestros as dm15', 'dm15.id', '=', 'v.lng_idsubtipo_vehiculo')		        
 			    ->join('cat_paises as p', 'p.id', '=', 'v.lng_idpais')			    
 			    ->join('cat_ciudades as ciu', 'ciu.id', '=', 'v.lng_idciudad')			    
 			    ->join('tbl_modelos as mo', 'mo.id', '=', 'v.lng_idmodelo')
 			    ->join('cat_marcas as ma', 'ma.id', '=', 'mo.lng_idmarca')
 			    ->join('tbl_imagenes_vehiculos as ima', 'ima.lng_idvehiculo', '=', 'v.id')
 		        ->join('tbl_personas as per', 'per.id', '=', 'v.lng_idpersona')
-		        ->join('cat_paises as p2', 'p2.id', '=', 'v.lng_idpais')
+		        ->join('cat_paises as p2', 'p2.id', '=', 'per.lng_idpais')
 			    ->where('v.id', '=', $valor)
 			    ->Where(function ($query) {
 			    	$query->where('ima.int_peso', '=', 1);
