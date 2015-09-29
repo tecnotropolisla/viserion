@@ -376,8 +376,8 @@ class Consultas extends Model
                     join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'color' order by id desc) as dm3 on dm3.id =  v.lng_idcolor
                     join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'desplazamiento_vehiculos' order by id desc) as dm4 on dm4.id =  v.lng_idcilindrada                                		
             		join (SELECT id, str_paises, blb_img FROM `cat_paises` WHERE bol_eliminado = 0 order by id desc) as p on p.id = v.lng_idpais            			
-                    join (SELECT id, str_modelo, lng_idmarca FROM `tbl_modelos` WHERE bol_eliminado = 0) as mo on mo.id =  v.lng_idmodelo
-            		join (SELECT id, str_marca FROM `cat_marcas` WHERE bol_eliminado = 0) as ma on ma.id =  mo.lng_idmarca
+                    join (SELECT id, str_modelo, lng_idmarca FROM `tbl_modelos` WHERE bol_eliminado = 0 order by id desc) as mo on mo.id =  v.lng_idmodelo
+            		join (SELECT id, str_marca FROM `cat_marcas` WHERE bol_eliminado = 0 order by id desc) as ma on ma.id =  mo.lng_idmarca
             		join (SELECT lng_idvehiculo, blb_img FROM tecnotropolislaDrogon.tbl_imagenes_vehiculos WHERE int_peso = 1 order by lng_idvehiculo desc) as ima on ima.lng_idvehiculo = v.id             	
                     join tecnotropolislaDrogon.cat_ciudades as ciu on ciu.id =  v.lng_idciudad                               	                    
             		where v.bol_eliminado = 0
@@ -409,8 +409,8 @@ class Consultas extends Model
                     join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'color' order by id desc) as dm3 on dm3.id =  v.lng_idcolor
                     join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'desplazamiento_vehiculos' order by id desc) as dm4 on dm4.id =  v.lng_idcilindrada            			            			            
                     join (SELECT id, str_paises, blb_img FROM `cat_paises` WHERE bol_eliminado = 0 order by id desc) as p on p.id = v.lng_idpais
-                    join (SELECT id, str_modelo, lng_idmarca FROM `tbl_modelos` WHERE bol_eliminado = 0) as mo on mo.id =  v.lng_idmodelo
-                    join (SELECT id, str_marca FROM `cat_marcas` WHERE bol_eliminado = 0) as ma on ma.id =  mo.lng_idmarca
+                    join (SELECT id, str_modelo, lng_idmarca FROM `tbl_modelos` WHERE bol_eliminado = 0 order by id desc) as mo on mo.id =  v.lng_idmodelo
+                    join (SELECT id, str_marca FROM `cat_marcas` WHERE bol_eliminado = 0 order by id desc) as ma on ma.id =  mo.lng_idmarca
                     join (SELECT lng_idvehiculo, blb_img FROM tecnotropolislaDrogon.tbl_imagenes_vehiculos WHERE int_peso = 1 order by lng_idvehiculo desc) as ima on ima.lng_idvehiculo = v.id
                     join tecnotropolislaDrogon.cat_ciudades as ciu on ciu.id =  v.lng_idciudad
                     where v.bol_eliminado = 0 ".$and."            	
@@ -431,8 +431,8 @@ class Consultas extends Model
                     join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'color' order by id desc) as dm3 on dm3.id =  v.lng_idcolor
                     join (SELECT id, str_descripcion FROM `cat_datos_maestros` WHERE str_tipo = 'desplazamiento_vehiculos' order by id desc) as dm4 on dm4.id =  v.lng_idcilindrada    
                     join (SELECT id, str_paises, blb_img FROM `cat_paises` WHERE bol_eliminado = 0 order by id desc) as p on p.id = v.lng_idpais
-                    join (SELECT id, str_modelo, lng_idmarca FROM `tbl_modelos` WHERE bol_eliminado = 0) as mo on mo.id =  v.lng_idmodelo
-                    join (SELECT id, str_marca FROM `cat_marcas` WHERE bol_eliminado = 0) as ma on ma.id =  mo.lng_idmarca
+                    join (SELECT id, str_modelo, lng_idmarca FROM `tbl_modelos` WHERE bol_eliminado = 0 order by id desc) as mo on mo.id =  v.lng_idmodelo
+                    join (SELECT id, str_marca FROM `cat_marcas` WHERE bol_eliminado = 0 order by id desc) as ma on ma.id =  mo.lng_idmarca
                     join (SELECT lng_idvehiculo, blb_img FROM tecnotropolislaDrogon.tbl_imagenes_vehiculos WHERE int_peso = 1 order by lng_idvehiculo desc) as ima on ima.lng_idvehiculo = v.id
                     join tecnotropolislaDrogon.cat_ciudades as ciu on ciu.id =  v.lng_idciudad
                     where v.bol_eliminado = 0            
