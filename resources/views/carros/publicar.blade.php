@@ -18,7 +18,7 @@
                                         {!! Form::select('lng_idpais', 
                                                             (['' => 'Seleccione'] + $paises), 
                                                             null, 
-                                                            ['class' => 'form-control','onchange' => 'validar(this.value,this.name);soloEnVenezuela(this.name);buscarCiudadPorPais(this.value)']
+                                                            ['class' => 'form-control','onchange' => 'soloEnVenezuela(this.name);buscarCiudadPorPais(this.value)']
                                                         ) 
                                         !!} 
 
