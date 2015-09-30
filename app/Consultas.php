@@ -375,8 +375,8 @@ class Consultas extends Model
                     join tecnotropolislaDrogon.cat_datos_maestros as dm4 on dm4.id =  v.lng_idcilindrada             			
             		join tecnotropolislaDrogon.cat_paises as p on p.id = v.lng_idpais            			
                     join tecnotropolislaDrogon.tbl_modelos as mo on mo.id =  v.lng_idmodelo
-            		join tecnotropolislaDrogon.cat_marcas as ma on ma.id =  mo.lng_idmarca            		
-					join tecnotropolislaDrogon.tbl_imagenes as ima on ima.lng_idvehiculo = v.id and ima.int_peso = 1             	
+            		join tecnotropolislaDrogon.cat_marcas as ma on ma.id =  mo.lng_idmarca
+            		join tecnotropolislaDrogon.tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id  and ima.int_peso = 1           	
                     join (SELECT id, str_ciudad FROM cat_ciudades WHERE bol_eliminado = 0 order by id desc) as ciu on ciu.id =  v.lng_idciudad
             		where v.bol_eliminado = 0
             		order by v.id desc limit ".$limit." offset ".$offset." ");
