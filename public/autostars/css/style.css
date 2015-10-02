@@ -9,9 +9,17 @@ Author:	imithemes
 @import url("font-awesome.css");
 @import url("line-icons.css");
 @import url("animations.css");
+@import url("fonts_ext/roboto/roboto.css");
+@import url("fonts_ext/roboto/roboto-condensed.css");
+@import url("fonts_ext/playfair-display/playfair-display.css");
+
+
+/**
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700);
+*/
+
 
 /*------------------------------------------------------------------
 [Table of contents]
@@ -2917,9 +2925,14 @@ h1.page-title{
 	padding:0;
 	min-height:231px;
 }
-.results-grid-view .result-item-in{
-	background:#fff;
+/*
+.results-list-view .result-item-in{
+		float:none;
+		width:100%;
+		min-height:inherit;
 }
+*/
+
 .result-item-title{
 	line-height:1.3em;
 	letter-spacing:0;
@@ -3005,7 +3018,8 @@ h1.page-title{
 .results-grid-view .result-item{
 	/*width:31%;*/
 	width:17.5%;
-	height:430px;
+	/*height:430px;*/
+	height:300px;
 	margin-left:2.3%;
 	float:left;
 	margin-bottom:40px;
@@ -5220,10 +5234,7 @@ body{
 	}
 	.search-filters .sticky-wrapper{
 		height:auto!important;
-	}
-	.results-list-view .result-item-in{
-		min-height:210px;
-	}
+	}	
 	.result-item-block.col1{
 		display:none;
 	}
@@ -5385,11 +5396,7 @@ body{
 	.results-list-view .result-item-image img{
 		width:100%;
 	}
-	.results-list-view .result-item-in{
-		float:none;
-		width:100%;
-		min-height:inherit;
-	}
+
 	.result-item-block.col1{
 		display:none;
 	}
@@ -5418,9 +5425,7 @@ body{
 	.results-list-view .result-item-view-buttons a{
 		padding:4px 0 3px;
 	}
-	.results-list-view .result-item-in{
-		background:#fff;
-	}
+	
 	.results-list-view .result-item-title{
 		background:none;
 	}
@@ -5853,4 +5858,5 @@ body{
 
 #barra-progreso{
 	visibility: hidden;
+
 }

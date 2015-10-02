@@ -14,20 +14,7 @@
 
 		            
             	<div class="col-md-6 col-sm-6 col-xs-6" style="margin:5px auto;">
-            	<div class="btn-group pull-right results-sorter">
-                        <button type="button" class="btn btn-default listing-sort-btn">Filtros</button>
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                          <span class="caret"></span>
-                          <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Price (High to Low)</a></li>
-                            <li><a href="#">Price (Low to High)</a></li>
-                            <li><a href="#">Mileage (Low to High)</a></li>
-                            <li><a href="#">Mileage (High to Low)</a></li>
-                        </ul>
-                    </div>
-            	
+        	
             	
             	
             	   <div class="toggle-view view-format-choice ">

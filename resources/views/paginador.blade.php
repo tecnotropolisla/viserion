@@ -36,7 +36,7 @@
                                     </ul>
                                 </nav> <br><br>
 
-@foreach ($vehiculos as $vehiculo)
+							@foreach ($vehiculos as $vehiculo)
 
                                 <!-- Result Item -->
                                 <div class="result-item format-standard">
@@ -52,19 +52,19 @@
                                         <div class="result-item-view-buttons">
 
                                             @if ($vehiculo->str_video == "")
-                                            	<a class="col-md-6" href="{{ route('detalles',$vehiculo->id) }}"><i class="fa fa-eye"></i> Ver</a>
-                                            	<a class="col-md-6" href="#"><i class="fa fa-heart"></i> Fav</a>
+                                            	<a style="font-size:10px" class="col-md-6" href="{{ route('detalles',$vehiculo->id) }}"><i class="fa fa-eye"></i> Ver</a>
+                                            	<a style="font-size:10px" class="col-md-6" href="#"><i class="fa fa-heart"></i> Fav</a>
                                             @else
-                                                <a class="col-md-4" href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto"><i class="fa fa-play-circle-o"></i> Video</a>
-                                            	<a class="col-md-4" href="{{ route('detalles',$vehiculo->id) }}"><i class="fa fa-eye"></i> Ver</a>
-                                            	<a class="col-md-4" href="#"><i class="fa fa-heart"></i> Fav</a>
+                                                <a style="font-size:10px" class="col-md-4" href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto"><i class="fa fa-play-circle-o"></i> Video</a>
+                                            	<a style="font-size:10px" class="col-md-4" href="{{ route('detalles',$vehiculo->id) }}"><i class="fa fa-eye"></i> Ver</a>
+                                            	<a style="font-size:10px" class="col-md-4" href="#"><i class="fa fa-heart"></i> Fav</a>
                                             @endif
                                             
                                         </div>
 
                                     </div>
 
-                                    <div class="result-item-in" style="height: 250px">
+                                    <div class="result-item-in">
 
                                         <h4 class="result-item-title" style="font-size:14px"><a href="{{ route('detalles',$vehiculo->id) }}">{!! $vehiculo->marca." ".$vehiculo->modelo!!}</a></h4>
                                         
@@ -74,19 +74,15 @@
                                             </div>
                                             <div class="result-item-block col2">
                                                 <div class="result-item-pricing">
-                                                    <div class="price" style="font-size:18px">$ {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!} </div>
+                                                    <div class="price" style="font-size:14px">$ {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!} </div>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="result-item-features">
-                                            <ul class="inline" style="font-size:12px">
-                                               <li><i class="fa fa-caret-right"></i> País: {!! $vehiculo->pais !!}</li>
+                                            <ul class="inline" style="font-size:10px">
                                                <li><i class="fa fa-caret-right"></i> Ciudad: {!! $vehiculo->ciudad !!}</li>
-                                               <li><i class="fa fa-caret-right"></i> Km: {!! number_format($vehiculo->str_recorrido, null, ',', '.') !!}</li>
-                                               <li><i class="fa fa-caret-right"></i> Motor: {!! $vehiculo->cilindrada !!} cc</li>
-                                               <li> <i class="fa fa-caret-right"></i> Transmisión: {!! $vehiculo->transmision !!}</li>
-                                               <li><i class="fa fa-caret-right"></i> Dirección: {!! $vehiculo->direccion !!}</li>                                                
+                                                                                 
                                             </ul>
                                         </div>
 
