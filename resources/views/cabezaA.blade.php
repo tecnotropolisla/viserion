@@ -99,10 +99,17 @@
         <!-- End Site Header -->
         <div class="navbar">
             <div class="container sp-cont">
+
+
+
+            @if(Route::current()->getName() == 'home')
                 <div class="search-function">
                     <a href="#" class="search-trigger"><i class="fa fa-search"></i></a>
                     <span>Busca tu Vehículo</span>
-                </div>
+                </div>         
+            @endif
+
+
                 <a href="#" class="visible-sm visible-xs" id="menu-toggle"><i class="fa fa-bars"></i></a>
                 <!-- Main Navigation -->
                 <nav class="main-navigation dd-menu toggle-menu" role="navigation">

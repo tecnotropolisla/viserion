@@ -24,16 +24,51 @@
                     	
                             <h3>Busca tu Vehículo</h3>
                             <div class="accordion" id="toggleArea">
+                                <!-- Filter by Country -->
+                                <div class="accordion-group">
+                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseFour">Paises <i class="fa fa-angle-down"></i> </a> </div>
+                                    <div id="collapseFour" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            <ul class="filter-options-list list-group">
+                                                <li class="list-group-item"><span class="badge">4</span><a href="#">Venezuela</a></li>
+                                                <li class="list-group-item"><span class="badge">23</span><a href="#">Peru</a></li>
+                                                <li class="list-group-item"><span class="badge">41</span><a href="#">Chile</a></li>
+                                                <li class="list-group-item"><span class="badge">6</span><a href="#">EEUU</a></li>
+                                                <li class="list-group-item"><span class="badge">54</span><a href="#">Colombia</a></li>
+                                                <li class="list-group-item"><span class="badge">9</span><a href="#">Canadá</a></li>
+                                                <li class="list-group-item"><span class="badge">38</span><a href="#">Argentina</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Filter by City -->
+                                <div class="accordion-group">
+                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseSix">Ciudades <i class="fa fa-angle-down"></i> </a> </div>
+                                    <div id="collapseSix" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            <ul class="filter-options-list list-group">
+                                                <li class="list-group-item"><span class="badge">4</span><a href="#">Barquisimeto</a></li>
+                                                <li class="list-group-item"><span class="badge">23</span><a href="#">Caracas</a></li>
+                                                <li class="list-group-item"><span class="badge">41</span><a href="#">San Fernando de Apure</a></li>
+                                                <li class="list-group-item"><span class="badge">6</span><a href="#">San Felipe</a></li>
+                                                <li class="list-group-item"><span class="badge">54</span><a href="#">Maracaibo</a></li>
+                                                <li class="list-group-item"><span class="badge">9</span><a href="#">Coro</a></li>
+                                                <li class="list-group-item"><span class="badge">38</span><a href="#">Maracay</a></li>
+                                                <li class="list-group-item"><span class="badge">38</span><a href="#">Barcelona</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>                                                            
                                 <!-- Filter by Year -->
                                 <div class="accordion-group panel">
-                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseOne">Year<i class="fa fa-angle-down"></i> </a> </div>
+                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseOne">Años<i class="fa fa-angle-down"></i> </a> </div>
                                     <div id="collapseOne" class="accordion-body collapse">
                                         <div class="accordion-inner">
                                             <div class="form-inline">
   												<div class="form-group">
-                                                    <label>Min Year</label>
+                                                    <label>Año Desde</label>
                                                     <select name="Min Year" class="form-control selectpicker">
-                                                        <option selected>Any</option>
+                                                        <option selected>Seleccione</option>
                                                         <option>2005</option>
                                                         <option>2006</option>
                                                         <option>2007</option>
@@ -47,9 +82,9 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group last-child">
-                                                    <label>Max Year</label>
+                                                    <label>Año Hasta</label>
                                                     <select name="Max Year" class="form-control selectpicker">
-                                                        <option selected>Any</option>
+                                                        <option selected>Seleccione</option>
                                                         <option>2005</option>
                                                         <option>2006</option>
                                                         <option>2007</option>
@@ -69,7 +104,7 @@
                                 </div>
                                 <!-- Filter by Make -->
                                 <div class="accordion-group panel">
-                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseTwo">Make<i class="fa fa-angle-down"></i> </a> </div>
+                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseTwo">Marcas<i class="fa fa-angle-down"></i> </a> </div>
                                     <div id="collapseTwo" class="accordion-body collapse">
                                         <div class="accordion-inner">
                                             <ul class="filter-options-list list-group">
@@ -87,7 +122,7 @@
                                 </div>
                                 <!-- Filter by Model -->
                                 <div class="accordion-group">
-                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseThird">Model <i class="fa fa-angle-down"></i> </a> </div>
+                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseThird">Modelos <i class="fa fa-angle-down"></i> </a> </div>
                                     <div id="collapseThird" class="accordion-body collapse">
                                         <div class="accordion-inner">
                                             <ul class="filter-options-list list-group">
@@ -104,109 +139,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Filter by Body Type -->
-                                <div class="accordion-group">
-                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseFour">Body type <i class="fa fa-angle-down"></i> </a> </div>
-                                    <div id="collapseFour" class="accordion-body collapse">
-                                        <div class="accordion-inner">
-                                            <ul class="filter-options-list list-group">
-                                                <li class="list-group-item"><span class="badge">4</span><a href="#">Wagon</a></li>
-                                                <li class="list-group-item"><span class="badge">23</span><a href="#">Minivan</a></li>
-                                                <li class="list-group-item"><span class="badge">41</span><a href="#">SUV</a></li>
-                                                <li class="list-group-item"><span class="badge">6</span><a href="#">Coupe</a></li>
-                                                <li class="list-group-item"><span class="badge">54</span><a href="#">Convertible</a></li>
-                                                <li class="list-group-item"><span class="badge">9</span><a href="#">Crossover</a></li>
-                                                <li class="list-group-item"><span class="badge">38</span><a href="#">Sedan</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Filter by Mileage -->
-                                <div class="accordion-group">
-                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseFive">Mileage <i class="fa fa-angle-down"></i> </a> </div>
-                                    <div id="collapseFive" class="accordion-body collapse">
-                                        <div class="accordion-inner">
-                                            <div class="form-inline">
-  												<div class="form-group">
-                                                    <label>Min Mileage</label>
-                                                    <select name="Min Mileage" class="form-control selectpicker">
-                                                        <option selected>Any</option>
-                                                        <option>10000</option>
-                                                        <option>20000</option>
-                                                        <option>30000</option>
-                                                        <option>40000</option>
-                                                        <option>50000</option>
-                                                        <option>60000</option>
-                                                        <option>70000</option>
-                                                        <option>80000</option>
-                                                        <option>90000</option>
-                                                        <option>100000</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group last-child">
-                                                    <label>Max Mileage</label>
-                                                    <select name="Max Mileage" class="form-control selectpicker">
-                                                        <option selected>Any</option>
-                                                        <option>10000</option>
-                                                        <option>20000</option>
-                                                        <option>30000</option>
-                                                        <option>40000</option>
-                                                        <option>50000</option>
-                                                        <option>60000</option>
-                                                        <option>70000</option>
-                                                        <option>80000</option>
-                                                        <option>90000</option>
-                                                        <option>100000</option>
-                                                    </select>
-                                                </div>
-                                                <button type="submit" class="btn btn-default btn-sm pull-right">Filter</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Filter by Transmission -->
-                                <div class="accordion-group">
-                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseSix">Transmission <i class="fa fa-angle-down"></i> </a> </div>
-                                    <div id="collapseSix" class="accordion-body collapse">
-                                        <div class="accordion-inner">
-                                            <ul class="filter-options-list list-group">
-                                                <li class="list-group-item"><span class="badge">4</span><a href="#">5 speed manual</a></li>
-                                                <li class="list-group-item"><span class="badge">23</span><a href="#">5 speed automatic</a></li>
-                                                <li class="list-group-item"><span class="badge">41</span><a href="#">6 speed manual</a></li>
-                                                <li class="list-group-item"><span class="badge">6</span><a href="#">6 speed automatic</a></li>
-                                                <li class="list-group-item"><span class="badge">54</span><a href="#">7 speed manual</a></li>
-                                                <li class="list-group-item"><span class="badge">9</span><a href="#">7 speed automatic</a></li>
-                                                <li class="list-group-item"><span class="badge">38</span><a href="#">8 speed manual</a></li>
-                                                <li class="list-group-item"><span class="badge">38</span><a href="#">8 speed automatic</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Filter by Fuel Economy -->
-                                <div class="accordion-group">
-                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseSeven">Fuel economy <i class="fa fa-angle-down"></i> </a> </div>
-                                    <div id="collapseSeven" class="accordion-body collapse">
-                                        <div class="accordion-inner">
-                                            <ul class="filter-options-list list-group">
-                                                <li class="list-group-item"><span class="badge">4</span><a href="#">5L/100Km or less</a></li>
-                                                <li class="list-group-item"><span class="badge">23</span><a href="#">7L/100Km or less</a></li>
-                                                <li class="list-group-item"><span class="badge">41</span><a href="#">9L/100Km or less</a></li>
-                                                <li class="list-group-item"><span class="badge">6</span><a href="#">11L/100Km or less</a></li>
-                                                <li class="list-group-item"><span class="badge">54</span><a href="#">11L/100Km or less</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <!-- Filter by Price -->
                                 <div class="accordion-group">
-                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseEight">Price <i class="fa fa-angle-down"></i> </a> </div>
+                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseEight">Precios <i class="fa fa-angle-down"></i> </a> </div>
                                     <div id="collapseEight" class="accordion-body collapse">
                                         <div class="accordion-inner">
                                             <div class="form-inline">
   												<div class="form-group">
-                                                    <label>Price Min</label>
+                                                    <label>Precio Mínimo</label>
                                                     <select name="Min Price" class="form-control selectpicker">
-                                                        <option selected>Any</option>
+                                                        <option selected>Seleccione</option>
                                                         <option>$10000</option>
                                                         <option>$20000</option>
                                                         <option>$30000</option>
@@ -220,9 +163,9 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group last-child">
-                                                    <label>Price Max</label>
+                                                    <label>Precio Máximo</label>
                                                     <select name="Max Price" class="form-control selectpicker">
-                                                        <option selected>Any</option>
+                                                        <option selected>Seleccione</option>
                                                         <option>$10000</option>
                                                         <option>$20000</option>
                                                         <option>$30000</option>
@@ -240,46 +183,31 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Filter by Location -->
-                                <div class="accordion-group">
-                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseNine">Location <i class="fa fa-angle-down"></i> </a> </div>
-                                    <div id="collapseNine" class="accordion-body collapse">
-                                        <div class="accordion-inner">
-                                            <ul class="filter-options-list list-group">
-                                                <li class="list-group-item"><span class="badge">4</span><a href="#">New York</a></li>
-                                                <li class="list-group-item"><span class="badge">23</span><a href="#">Queensland</a></li>
-                                                <li class="list-group-item"><span class="badge">41</span><a href="#">California</a></li>
-                                                <li class="list-group-item"><span class="badge">6</span><a href="#">South Wales</a></li>
-                                                <li class="list-group-item"><span class="badge">54</span><a href="#">Tasmania</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <!-- Filter by Color -->
                                 <div class="accordion-group">
-                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseTen">Color <i class="fa fa-angle-down"></i> </a> </div>
+                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseTen">Colores <i class="fa fa-angle-down"></i> </a> </div>
                                     <div id="collapseTen" class="accordion-body collapse">
                                         <div class="accordion-inner">
                                             <ul class="filter-options-list list-group color-options">
-                                                <li class="list-group-item"><span class="badge car-color-white"></span><a href="#">White</a></li>
-                                                <li class="list-group-item"><span class="badge car-color-black"></span><a href="#">Black</a></li>
-                                                <li class="list-group-item"><span class="badge car-color-red"></span><a href="#">Red</a></li>
-                                                <li class="list-group-item"><span class="badge car-color-yellow"></span><a href="#">Yellow</a></li>
-                                                <li class="list-group-item"><span class="badge car-color-brown"></span><a href="#">Brown</a></li>
-                                                <li class="list-group-item"><span class="badge car-color-grey"></span><a href="#">Grey</a></li>
-                                                <li class="list-group-item"><span class="badge car-color-silver"></span><a href="#">Silver</a></li>
-                                                <li class="list-group-item"><span class="badge car-color-gold"></span><a href="#">Gold</a></li>
-                                                <li class="list-group-item"><span class="badge car-color-blue"></span><a href="#">Blue</a></li>
-                                                <li class="list-group-item"><span class="badge car-color-green"></span><a href="#">Green</a></li>
-                                                <li class="list-group-item"><span class="badge car-color-orange"></span><a href="#">Orange</a></li>
+                                                <li class="list-group-item"><span class="badge car-color-white"></span><a href="#">Blanco</a></li>
+                                                <li class="list-group-item"><span class="badge car-color-black"></span><a href="#">Negro</a></li>
+                                                <li class="list-group-item"><span class="badge car-color-red"></span><a href="#">Rojo</a></li>
+                                                <li class="list-group-item"><span class="badge car-color-yellow"></span><a href="#">Amarillo</a></li>
+                                                <li class="list-group-item"><span class="badge car-color-brown"></span><a href="#">Marrón</a></li>
+                                                <li class="list-group-item"><span class="badge car-color-grey"></span><a href="#">Gris</a></li>
+                                                <li class="list-group-item"><span class="badge car-color-silver"></span><a href="#">Plateado</a></li>
+                                                <li class="list-group-item"><span class="badge car-color-gold"></span><a href="#">Dorado</a></li>
+                                                <li class="list-group-item"><span class="badge car-color-blue"></span><a href="#">Azul</a></li>
+                                                <li class="list-group-item"><span class="badge car-color-green"></span><a href="#">Verde</a></li>
+                                                <li class="list-group-item"><span class="badge car-color-orange"></span><a href="#">Naranja</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- End Toggle -->
-                            <a href="#" class="btn-default btn-sm btn"><i class="fa fa-refresh"></i> Reset search</a>
-                            <a href="#" class="btn-primary btn-sm btn"><i class="fa fa-folder-o"></i> Save search</a>
+                            <a href="#" class="btn-primary btn-sm btn"><i class="fa fa-folder-o"></i> Guardar Búsqueda</a>
                         </div>
                     </div>
                     
@@ -295,6 +223,16 @@
                                   	<div class="rect5"></div>
                                 </div>
                             </div>
+
+
+                   <div class="toggle-view view-format-choice ">
+                        
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-default " id="results-list-view"><i class="fa fa-th-list"></i></a>
+                            <a href="#" class="btn btn-default active" id="results-grid-view"><i class="fa fa-th"></i></a>
+                        </div>
+                    </div>
+
 
                         <div class="results-container-in">
                             {!! Form::input('hidden', 'pag', 1 , ['id'=> 'pag']) !!}

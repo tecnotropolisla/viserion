@@ -8,35 +8,7 @@
                     	<span>troovami.com</span>
                     </div>
                 </div>
-            	<div class="col-md-8 col-sm-6 col-xs-8">
-            	
-		           
 
-		            
-            	<div class="col-md-6 col-sm-6 col-xs-6" style="margin:5px auto;">
-        	
-            	
-            	
-            	   <div class="toggle-view view-format-choice ">
-                        
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-default " id="results-list-view"><i class="fa fa-th-list"></i></a>
-                            <a href="#" class="btn btn-default active" id="results-grid-view"><i class="fa fa-th"></i></a>
-                        </div>
-                    </div>
-                </div>
-            	
-            	
-            	<!-- 
-                	<ul class="utility-icons social-icons social-icons-colored">
-                    	<li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    	<li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    	<li class="" style="background-color:#3f729b"><a href="#"><i class="fa fa-instagram"></i></a></li>
-                    </ul>
-                    
-                    -->
-                    
-                </div>
           	</div>
       	</div>
     	<div class="by-type-options">
