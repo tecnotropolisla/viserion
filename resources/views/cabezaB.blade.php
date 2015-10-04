@@ -5,8 +5,59 @@
             	<div class="col-md-4 col-sm-6 col-xs-4">
                 	<div class="toggle-make">
                 		<a href="#"><i class="fa fa-navicon"></i></a>
-                    	<span>troovami.com</span>
+
                     </div>
+                    <span>
+                        <ol class="breadcrumb">
+                            @if(Route::current()->getName() == 'home')
+                                
+                                <li class="active"> <i class="fa fa-home"></i> Inicio</li>
+                                
+                            @elseif(Route::current()->getName() == 'publicar')
+                            
+                                <li><a href="{!! route('home') !!}"> <i class="fa fa-home"></i> Inicio</a></li>
+                                <li class="active"> <i class="fa fa-newspaper-o"></i> Publicar</li>
+
+                            @elseif(Route::current()->getName() == 'publicarCarro')
+                                
+                                <li><a href="{!! route('home') !!}"> <i class="fa fa-home"></i> Inicio</a></li>
+                                <li><a href="{!! route('publicar') !!}"> <i class="fa fa-newspaper-o"></i> Publicar</a></li>
+                                <li class="active"> <i class="fa fa-car"></i> Carros</li>
+                           
+                            @elseif(Route::current()->getName() == 'register')
+                            
+                              <li><a href="{!! route('home') !!}"> <i class="fa fa-home"></i> Inicio</a></li>
+                              <li class="active"> <i class="fa fa-user-plus"></i> Crear-Cuenta</li>
+                           
+                            @elseif(Route::current()->getName() == 'detalles')
+                            
+                              <li><a href="{!! route('home') !!}"> <i class="fa fa-home"></i> Inicio</a></li>
+                              <li class="active"> <i class="fa fa-outdent"></i> Vehiculo/
+
+                                    @if(isset($vehiculo->id))
+
+                                        {!! $vehiculo->id !!}
+
+                                    @else
+
+                                        No existe
+
+                                    @endif
+
+                              </li>
+                            
+                            @elseif(Route::current()->getName() == 'denegado')
+                           
+                              <li><a href="{!! route('home') !!}"> <i class="fa fa-home"></i> Inicio</a></li>
+                              <li class="active"> <i class="fa fa-ban"></i> Acceso-Restringido</li>
+                            @elseif(Route::current()->getName() == 'nosotros')
+                           
+                              <li><a href="{!! route('home') !!}"> <i class="fa fa-home"></i> Inicio</a></li>
+                              <li class="active"> <i class="fa fa-question-circle"></i> Nosotros</li>
+
+                            @endif
+                        </ol>
+                    </span>
                 </div>
 
           	</div>

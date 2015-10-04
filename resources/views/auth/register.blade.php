@@ -1,4 +1,4 @@
-@extends('app2')
+@extends('app')
 
 @section('content')
 
@@ -6,7 +6,7 @@
         
         <div id="content" class="content full">
             <div class="container">
-                <div class="row">
+                <div class="row" style="margin-top:-49px">
 
                     <div class="results-container">
 
@@ -22,11 +22,7 @@
                                 </div>
 
                             </div>
-                            
-                        <ol class="breadcrumb">
-                          <li><a href="{!! route('home') !!}"> <i class="fa fa-home"></i> Inicio</a></li>
-                          <li class="active"> <i class="fa fa-user-plus"></i> Crear-Cuenta</li>
-                        </ol>  
+                           
                                                   
 							<div id="results-holder" class="results-grid-view">
 								{!! Form::input('hidden', 'paginas', 1 , ['id'=> 'paginas']) !!}
@@ -35,11 +31,9 @@
 
 
 
-   <!-- Start Body Content -->
-    <div class="main" role="main">
-        <div id="content" class="content full">
-            <div class="container">
-                <div class="row">
+
+
+
                     <div class="col-md-4">
                         <h2>Bienvenidos a Troovami!</h2>
                         <p>La nueva forma de publicar y vender tu vehículo, únete a la creciente comunidad de vendedores más grande de latinoamérica.</p>
@@ -372,10 +366,10 @@
                             
                         </section>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
+
+
 
 
 							</div>

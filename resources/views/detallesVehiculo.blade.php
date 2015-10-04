@@ -1,4 +1,4 @@
-@extends('app2')
+@extends('app')
 
 @section('content')
 
@@ -9,7 +9,7 @@
         
         <div id="content" class="content full">
             <div class="container">
-                <div class="row">
+                <div class="row" style="margin-top:-49px">
 
                     <div class="results-container">
 
@@ -26,19 +26,12 @@
 
                             </div>
 
-                        <ol class="breadcrumb">
-                          <li><a href="{!! route('home') !!}"> <i class="fa fa-home"></i> Inicio</a></li>
-                          <li class="active"> <i class="fa fa-outdent"></i> Vehiculo/{!! $vehiculo->id !!}</li>
-                        </ol> 
-
 							<div id="results-holder" class="results-grid-view">
 								{!! Form::input('hidden', 'paginas', 1 , ['id'=> 'paginas']) !!}
 							
 
     <!-- Start Body Content -->
-    <div class="main" role="main">
-        <div id="content" class="content full">
-            <div class="container">
+
                 <!-- Vehicle Details -->
                 <article class="single-vehicle-details">
                     <div class="single-vehicle-title">
@@ -520,83 +513,83 @@
                                             <ul class="owl-carousel carousel-fw" id="vehicle-slider" data-columns="3" data-autoplay="" data-pagination="yes" data-arrows="no" data-single-item="no" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="2" data-items-mobile="1">
                                                 <li class="item">
                                                     <div class="vehicle-block format-standard">
-                                                        <a href="#" class="media-box"><img src="autostars/images/car1.jpg" alt=""></a>
+                                                        <a href="#" class="media-box"><img src="{{ asset('autostars/images/car1.jpg') }}" alt=""></a>
                                                         <span class="label label-default vehicle-age">2014</span>
                                                         <span class="label label-success premium-listing">Premium Listing</span>
                                                         <h5 class="vehicle-title"><a href="#">Mercedes-benz SL 300</a></h5>
                                                         <span class="vehicle-meta">Mercedes, Grey color, by <abbr class="user-type" title="Listed by an individual user">Individual</abbr></span>
-                                                        <a href="#" title="View all Sedans" class="vehicle-body-type"><img src="autostars/images/body-types/sedan.png" width="30" alt=""></a>
+                                                        
                                                         <span class="vehicle-cost">$48500</span>
                                                     </div>
                                                 </li>
                                                 <li class="item">
                                                     <div class="vehicle-block format-standard">
-                                                        <a href="#" class="media-box"><img src="autostars/images/car2.jpg" alt=""></a>
+                                                        <a href="#" class="media-box"><img src="{{ asset('autostars/images/car2.jpg') }}" alt=""></a>
                                                         <span class="label label-primary vehicle-age">Brand New</span>
                                                         <h5 class="vehicle-title"><a href="#">Nissan Terrano first hand</a></h5>
                                                         <span class="vehicle-meta">Nissan, Brown beige, by <abbr class="user-type" title="Listed by an dealer">Dealer</abbr></span>
-                                                        <a href="#" title="View all SUVs" class="vehicle-body-type"><img src="autostars/images/body-types/suv.png" width="30" alt=""></a>
+                                                        
                                                         <span class="vehicle-cost">$28000</span>
                                                     </div>
                                                 </li>
                                                 <li class="item">
                                                     <div class="vehicle-block format-standard">
-                                                        <a href="#" class="media-box"><img src="autostars/images/car4.jpg" alt=""></a>
+                                                        <a href="#" class="media-box"><img src="{{ asset('autostars/images/car4.jpg') }}" alt=""></a>
                                                         <span class="label label-default vehicle-age">2013</span>
                                                         <h5 class="vehicle-title"><a href="#">Mercedes Benz E Class</a></h5>
                                                         <span class="vehicle-meta">Mercedes, Silver Blue, by <abbr class="user-type" title="Listed by an individual">Individual</abbr></span>
-                                                        <a href="#" title="View all convertibles" class="vehicle-body-type"><img src="autostars/images/body-types/convertible.png" width="30" alt=""></a>
+                                                        
                                                         <span class="vehicle-cost">$76000</span>
                                                     </div>
                                                 </li>
                                                 <li class="item">
                                                     <div class="vehicle-block format-standard">
-                                                        <a href="#" class="media-box"><img src="autostars/images/car3.jpg" alt=""></a>
+                                                        <a href="#" class="media-box"><img src="{{ asset('autostars/images/car3.jpg') }}" alt=""></a>
                                                         <span class="label label-default vehicle-age">2014</span>
                                                         <h5 class="vehicle-title"><a href="#">Newly launched Nissan Sunny</a></h5>
                                                         <span class="vehicle-meta">Nissan, Brown beige, by <abbr class="user-type" title="Listed by Autostars">Autostars</abbr></span>
-                                                        <a href="#" title="View all coupes" class="vehicle-body-type"><img src="autostars/images/body-types/coupe.png" width="30" alt=""></a>
+                                                        
                                                         <span class="vehicle-cost">$31999</span>
                                                     </div>
                                                 </li>
                                                 <li class="item">
                                                     <div class="vehicle-block format-standard">
-                                                        <a href="#" class="media-box"><img src="autostars/images/car1.jpg" alt=""></a>
+                                                        <a href="#" class="media-box"><img src="{{ asset('autostars/images/car1.jpg') }}" alt=""></a>
                                                         <span class="label label-default vehicle-age">2014</span>
                                                         <span class="label label-success premium-listing">Premium Listing</span>
                                                         <h5 class="vehicle-title"><a href="#">Mercedes-benz SL 300</a></h5>
                                                         <span class="vehicle-meta">Mercedes, Grey color, by <abbr class="user-type" title="Listed by an individual user">Individual</abbr></span>
-                                                        <a href="#" title="View all Sedans" class="vehicle-body-type"><img src="autostars/images/body-types/sedan.png" width="30" alt=""></a>
+                                                        
                                                         <span class="vehicle-cost">$48500</span>
                                                     </div>
                                                 </li>
                                                 <li class="item">
                                                     <div class="vehicle-block format-standard">
-                                                        <a href="#" class="media-box"><img src="autostars/images/car2.jpg" alt=""></a>
+                                                        <a href="#" class="media-box"><img src="{{ asset('autostars/images/car2.jpg') }}" alt=""></a>
                                                         <span class="label label-primary vehicle-age">Brand New</span>
                                                         <h5 class="vehicle-title"><a href="#">Nissan Terrano first hand</a></h5>
                                                         <span class="vehicle-meta">Nissan, Brown beige, by <abbr class="user-type" title="Listed by an dealer">Dealer</abbr></span>
-                                                        <a href="#" title="View all SUVs" class="vehicle-body-type"><img src="autostars/images/body-types/suv.png" width="30" alt=""></a>
+                                                        
                                                         <span class="vehicle-cost">$28000</span>
                                                     </div>
                                                 </li>
                                                 <li class="item">
                                                     <div class="vehicle-block format-standard">
-                                                        <a href="#" class="media-box"><img src="autostars/images/car4.jpg" alt=""></a>
+                                                        <a href="#" class="media-box"><img src="{{ asset('autostars/images/car4.jpg') }}" alt=""></a>
                                                         <span class="label label-default vehicle-age">2013</span>
                                                         <h5 class="vehicle-title"><a href="#">Mercedes Benz E Class</a></h5>
                                                         <span class="vehicle-meta">Mercedes, Silver Blue, by <abbr class="user-type" title="Listed by an individual">Individual</abbr></span>
-                                                        <a href="#" title="View all convertibles" class="vehicle-body-type"><img src="autostars/images/body-types/convertible.png" width="30" alt=""></a>
+                                                        
                                                         <span class="vehicle-cost">$76000</span>
                                                     </div>
                                                 </li>
                                                 <li class="item">
                                                     <div class="vehicle-block format-standard">
-                                                        <a href="#" class="media-box"><img src="autostars/images/car3.jpg" alt=""></a>
+                                                        <a href="#" class="media-box"><img src="{{ asset('autostars/images/car3.jpg') }}" alt=""></a>
                                                         <span class="label label-default vehicle-age">2014</span>
                                                         <h5 class="vehicle-title"><a href="#">Newly launched Nissan Sunny</a></h5>
                                                         <span class="vehicle-meta">Nissan, Brown beige, by <abbr class="user-type" title="Listed by Autostars">Autostars</abbr></span>
-                                                        <a href="#" title="View all coupes" class="vehicle-body-type"><img src="autostars/images/body-types/coupe.png" width="30" alt=""></a>
+                                                        
                                                         <span class="vehicle-cost">$31999</span>
                                                     </div>
                                                 </li>
@@ -697,9 +690,7 @@
                     </div>
                 </article>
                 <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
+
     
 </div>
 

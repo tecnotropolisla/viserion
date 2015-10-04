@@ -2,10 +2,6 @@
 
 @section('content')
 
-
-
-
-    
     <!-- Start Body Content -->
   	<div class="main" role="main">
     	<div id="content" class="content full">
@@ -15,12 +11,7 @@
             	<div class="row">
                     <!-- Search Filters -->
                     <div class="col-md-3 search-filters" id="Search-Filters">
-                    	<div class="tbsticky filters-sidebar">
-                    	
-                    	<ol class="breadcrumb">
-                          <li class="active"> <i class="fa fa-home"></i> Inicio</li>
-                        </ol>  
-                    	
+                    	<div class="tbsticky filters-sidebar">	
                     	
                             <h3>Busca tu Vehículo</h3>
                             <div class="accordion" id="toggleArea">
