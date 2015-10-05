@@ -368,7 +368,7 @@ ul.checks > li > i, ul.angles > li > i, ul.carets > li > i, ul.chevrons > li > i
 	margin-right:2px;
 }
 ul.inline{
-	margin:10px 0;
+	margin:10px -15px;
 }
 ul.inline > li{
 	display:inline-block;
@@ -2857,10 +2857,10 @@ h1.page-title{
 	box-shadow:none;
 }
 .result-item-cont{
-	padding:15px 20px 5px 20px;
+	padding:15px -20px 5px 20px;
 }
 .results-grid-view .result-item-cont{
-	padding-bottom:10px;
+	padding-bottom:-5px;
 	padding-top:0;
 }
 .result-item:before, .result-item:after, .result-item-cont:before, .result-item-cont:after{
@@ -2873,7 +2873,7 @@ h1.page-title{
 .results-grid-view .result-item-title{
 	min-height: inherit;
 	padding-top:15px;
-	margin-bottom:17px;
+	/*margin-bottom:17px;*/
 	font-size:16px;
 	line-height:20px;
 }
@@ -2942,7 +2942,8 @@ h1.page-title{
 	font-family: 'Roboto', sans-serif;
 	background:#f9f9f9;
 	margin-bottom:0;
-	padding:10px 20px;
+	padding:0px 10px;
+	text-align: center;
 }
 .results-grid-view .result-item-title{
 	background:none;
@@ -3019,7 +3020,7 @@ h1.page-title{
 	/*width:31%;*/
 	width:17.5%;
 	/*height:430px;*/
-	height:300px;
+	height:249px;
 	margin-left:2.3%;
 	float:left;
 	margin-bottom:40px;
@@ -5421,6 +5422,7 @@ body{
 	.result-item-title{
 		font-size:18px;
 		line-height:24px;
+		text-align: center;
 	}
 	.results-list-view .result-item-view-buttons a{
 		padding:4px 0 3px;

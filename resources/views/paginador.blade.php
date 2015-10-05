@@ -52,12 +52,12 @@
                                         <div class="result-item-view-buttons">
 
                                             @if ($vehiculo->str_video == "")
-                                            	<a style="font-size:10px" class="col-md-6" href="{{ route('detalles',$vehiculo->id) }}"><i class="fa fa-eye"></i> Ver</a>
-                                            	<a style="font-size:10px" class="col-md-6" href="#"><i class="fa fa-heart"></i> Fav</a>
+                                            	<a style="font-size:9px" class="col-md-6" href="{{ route('detalles',$vehiculo->id) }}"><i class="fa fa-eye"></i> Ver</a>
+                                            	<a style="font-size:9px" class="col-md-6" href="#"><i class="fa fa-heart"></i> Fav</a>
                                             @else
-                                                <a style="font-size:10px" class="col-md-4" href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto"><i class="fa fa-play-circle-o"></i> Video</a>
-                                            	<a style="font-size:10px" class="col-md-4" href="{{ route('detalles',$vehiculo->id) }}"><i class="fa fa-eye"></i> Ver</a>
-                                            	<a style="font-size:10px" class="col-md-4" href="#"><i class="fa fa-heart"></i> Fav</a>
+                                                <a style="font-size:9px" class="col-md-4" href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto"><i class="fa fa-play-circle-o"></i> Video</a>
+                                            	<a style="font-size:9px" class="col-md-4" href="{{ route('detalles',$vehiculo->id) }}"><i class="fa fa-eye"></i> Ver</a>
+                                            	<a style="font-size:9px" class="col-md-4" href="#"><i class="fa fa-heart"></i> Fav</a>
                                             @endif
                                             
                                         </div>
@@ -66,7 +66,7 @@
 
                                     <div class="result-item-in">
 
-                                        <h4 class="result-item-title" style="font-size:14px"><a href="{{ route('detalles',$vehiculo->id) }}">{!! $vehiculo->marca." ".$vehiculo->modelo!!}</a></h4>
+                                        <h4 class="result-item-title" style="font-size:12px"><a href="{{ route('detalles',$vehiculo->id) }}">{!! $vehiculo->marca." ".$vehiculo->modelo!!}</a></h4>
                                         
                                         <div class="result-item-cont">
                                             <div class="result-item-block col1">
@@ -74,14 +74,14 @@
                                             </div>
                                             <div class="result-item-block col2">
                                                 <div class="result-item-pricing">
-                                                    <div class="price" style="font-size:14px">$ {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!} </div>
+                                                    <div class="price" style="font-size:12px">{{ $vehiculo->str_abreviatura }}  {!! number_format($vehiculo->str_precio_venta, null, ',', '.') !!} </div>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="result-item-features">
                                             <ul class="inline" style="font-size:10px">
-                                               <li><i class="fa fa-caret-right"></i> Ciudad: {!! $vehiculo->ciudad !!}</li>
+                                               <li><i class="fa fa-caret-right"></i>{!! $vehiculo->ciudad !!}</li>
                                                                                  
                                             </ul>
                                         </div>

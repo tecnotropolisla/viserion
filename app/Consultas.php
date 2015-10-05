@@ -66,7 +66,7 @@ class Consultas extends Model
 			    ->Where(function ($query) {
 			    	$query->where('v.bol_eliminado', '=', 0);
 			    })			    
-			    ->select('v.*','per.name as usuario','p2.str_paises as pais_persona','p2.str_abreviatura','p2.blb_img as bandera_persona','per.str_nombre as nombre_persona','per.str_apellido as apellido_persona','per.email',
+			    ->select('v.*','per.name as usuario','p2.str_paises as pais_persona','p.str_abreviatura','p2.blb_img as bandera_persona','per.str_nombre as nombre_persona','per.str_apellido as apellido_persona','per.email',
 		            'per.str_ididentificacion','per.str_telefono','per.str_twitter','per.str_facebook','per.str_instagram',
 		            'per.blb_img as ima_persona','ima.blb_img as imagen', 'p.blb_img as bandera','dm.str_descripcion as transmision', 
 		            'dm2.str_descripcion as direccion','dm3.str_descripcion as color', 'dm4.str_descripcion as estereo',
@@ -366,7 +366,7 @@ class Consultas extends Model
             case 'todosLosVehiculos':
                                 
             	$todosLosVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision, 
-                            dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,
+                            dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,p.str_abreviatura,
                             ciu.str_ciudad as ciudad,ma.str_marca as marca,mo.str_modelo as modelo
                     from tecnotropolislaDrogon.tbl_vehiculos as v
                     join tecnotropolislaDrogon.cat_datos_maestros as dm on dm.id = v.lng_idtransmision
@@ -399,7 +399,7 @@ class Consultas extends Model
             case 'buscarVehiculos':
                                 
             	$buscarVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision, 
-                            dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,
+                            dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais, p.str_abreviatura,
                             ciu.str_ciudad as ciudad,ma.str_marca as marca,mo.str_modelo as modelo
                     from tecnotropolislaDrogon.tbl_vehiculos as v
                     join tecnotropolislaDrogon.cat_datos_maestros as dm on dm.id = v.lng_idtransmision
@@ -421,7 +421,7 @@ class Consultas extends Model
             case 'ultimosVehiculos':
             
             	$ultimosVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.*,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision, 
-                            dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais,
+                            dm2.str_descripcion as direccion,dm3.str_descripcion as color,dm4.str_descripcion as cilindrada,p.str_paises as pais, p.str_abreviatura,
                             ciu.str_ciudad as ciudad,ma.str_marca as marca,mo.str_modelo as modelo
                     from tecnotropolislaDrogon.tbl_vehiculos as v
                     join tecnotropolislaDrogon.cat_datos_maestros as dm on dm.id = v.lng_idtransmision
