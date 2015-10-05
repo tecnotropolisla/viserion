@@ -202,12 +202,16 @@
                                         <div class="col-md-6">
 
                                         {!! Form::label('pais', 'Paises') !!}
-                                        {!! Form::select('pais', 
-                                                            (['0' => 'Seleccione'] + $paisesBuscador), 
-                                                            null, 
-                                                            ['id' => 'pais', 'class' => 'form-control','onchange' => 'buscarCiudadPorPais_Buscador(this.value)']
-                                                        ) 
-                                        !!} 
+                                        
+                                        <select id='pais' name='pais' class='form-control' onchange='buscarCiudadPorPais_Buscador(this.value)'>            
+                                            <option value=''>Seleccione</option>
+                                                @foreach ($paisesBuscador as $paises) 
+                                                
+                                                   <option value='{{ $paises->id }}'>{{ $paises->str_paises }}</option>
+                                                                                        
+                                                @endforeach                                                                                                                               
+                                        </select>
+
 
                                         </div>
                                         <div class="col-md-6">

@@ -21,13 +21,11 @@
                                     <div id="collapseFour" class="accordion-body collapse">
                                         <div class="accordion-inner">
                                             <ul class="filter-options-list list-group">
-                                                <li class="list-group-item"><span class="badge">4</span><a href="#">Venezuela</a></li>
-                                                <li class="list-group-item"><span class="badge">23</span><a href="#">Peru</a></li>
-                                                <li class="list-group-item"><span class="badge">41</span><a href="#">Chile</a></li>
-                                                <li class="list-group-item"><span class="badge">6</span><a href="#">EEUU</a></li>
-                                                <li class="list-group-item"><span class="badge">54</span><a href="#">Colombia</a></li>
-                                                <li class="list-group-item"><span class="badge">9</span><a href="#">Canadá</a></li>
-                                                <li class="list-group-item"><span class="badge">38</span><a href="#">Argentina</a></li>
+
+                                                @foreach ($paisesBuscador as $paises)                                                                                                 
+                                                    <li onclick="" class="list-group-item"><span class="badge">{{ $paises->total }}</span><a href="#">{{ $paises->str_paises }}</a></li>                                   
+                                                @endforeach
+
                                             </ul>
                                         </div>
                                     </div>
@@ -88,7 +86,7 @@
                                                         <option>2014</option>
                                                     </select>
                                                 </div>
-                                                <button type="submit" class="btn btn-default btn-sm pull-right">Filter</button>
+                                                <button type="submit" class="btn btn-default btn-sm pull-right">Filtar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -169,7 +167,7 @@
                                                         <option>$100000</option>
                                                     </select>
                                                 </div>
-                                                <button type="submit" class="btn btn-default btn-sm pull-right">Filter</button>
+                                                <button type="submit" class="btn btn-default btn-sm pull-right">Filtar</button>
                                             </div>
                                         </div>
                                     </div>

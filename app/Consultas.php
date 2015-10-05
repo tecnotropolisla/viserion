@@ -337,16 +337,16 @@ class Consultas extends Model
             break;
 
             case 'paisesBuscador':
-                $paises = DB::table('cat_paises as p')
-                ->join('tbl_vehiculos as v', 'v.lng_idpais', '=', 'p.id')
-                ->Where(function ($query) {
-                	$query->where('p.bol_eliminado', '=', 0);
-                })
-                ->groupBy('p.str_paises','p.id')
-                ->orderBy('p.str_paises')
-                ->select('p.str_paises','p.id')
-                ->lists('p.str_paises','p.id');
-                return $paises;
+
+				$paises = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT p.str_paises,  p.id , count(*) as total 
+							from  tecnotropolislaDrogon.cat_paises AS  p 
+							join  tecnotropolislaDrogon.tbl_vehiculos AS  v ON  v.lng_idpais =  p.id 
+							where p.bol_eliminado =0
+							group by  p.str_paises, p.id 
+							order by  p.str_paises asc ");
+
+				return $paises;
+
             break; 
         }
     }
@@ -357,7 +357,7 @@ class Consultas extends Model
 
             case 'total_vehiculos':
                 
-                $total_vehiculos = DB::select("SELECT HIGH_PRIORITY count(*) as total from tecnotropolislaDrogon.tbl_vehiculos as v where v.bol_eliminado = 0");
+                $total_vehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT count(*) as total from tecnotropolislaDrogon.tbl_vehiculos as v where v.bol_eliminado = 0");
                 
                 return $total_vehiculos;
 
@@ -387,7 +387,7 @@ class Consultas extends Model
 
             case 'total_buscarVehiculos':
                             	
-            	$total_buscarVehiculos = DB::select("SELECT HIGH_PRIORITY count(*) as total
+            	$total_buscarVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT count(*) as total
                     from tecnotropolislaDrogon.tbl_vehiculos as v
             		where v.bol_eliminado = 0 ".$and."
                     order by v.id desc ");            	
