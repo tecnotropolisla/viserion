@@ -32,19 +32,7 @@
                             @elseif(Route::current()->getName() == 'detalles')
                             
                               <li><a href="{!! route('home') !!}"> <i class="fa fa-home"></i> Inicio</a></li>
-                              <li class="active"> <i class="fa fa-outdent"></i> Vehiculo/
-
-                                    @if(isset($vehiculo->id))
-
-                                        {!! $vehiculo->id !!}
-
-                                    @else
-
-                                        No existe
-
-                                    @endif
-
-                              </li>
+                              <li class="active"> <i class="fa fa-outdent"></i> Vehiculo/@if(isset($vehiculo->id)){!! $vehiculo->id !!} @else No existe @endif</li>
                             
                             @elseif(Route::current()->getName() == 'denegado')
                            

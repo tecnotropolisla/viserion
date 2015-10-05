@@ -79,11 +79,9 @@
                                             </div>
                                         </div>
 
-                                        <div class="result-item-features">
-                                            <ul class="inline" style="font-size:10px">
-                                               <li><i class="fa fa-caret-right"></i>{!! $vehiculo->ciudad !!}</li>
-                                                                                 
-                                            </ul>
+                                        <div class="result-item-features" style="font-size:10px;text-align:center">
+                                            <br>
+                                            {!! $vehiculo->ciudad !!}
                                         </div>
 
                                     </div>
